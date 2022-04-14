@@ -1,0 +1,8 @@
+{
+  "reviewActivityHeader": "{{action}} <2>review {{reviewId}}</2> {{preposition}} <0/> <1/>",
+  "userActivityHeader": "<3/> {{action}} <2>{{target}}</2> <0/> <1/>",
+  "requested": "requested review of",
+  "passed tests for": "passed tests",
+  "failed tests for": "failed tests",
+  "running tests for": "running tests"
+}

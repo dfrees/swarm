@@ -1,0 +1,60 @@
+<?php
+$isEdit = $mode === 'edit';
+$title  = $isEdit ? $this->te('Group Settings') : $this->te('Add Group');
+$this->headTitle()->set($title);
+
+$canDelete = $this->permissions()->isOne(['super', 'owner' => $group]);
+
+// scope name editing restrictions to edit mode only
+$canEditName = !$isEdit || $canEditName;
+
+$cancel = isset($_GET["cancel"]) ? $_GET["cancel"] : false;
+$saved  = isset($_GET["saved"])  ? $_GET["saved"]  : false;
+
+if ($saved == true || $cancel == true) { ?>
+    <div id="message">
+        <div style="padding: 5px;">
+            <div id="inner-message" class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?php echo $cancel == true ? $this->te('Group Changes Cancelled') : $this->te('Group Saved'); ?>
+            </div>
+        </div>
+    </div>
+<?php }
+
+// when editing, show the sidebar
+echo '<div class="row-fluid">';
+echo $this->groupSidebar($group);
+
+?>
+<div class='span9 profile-body group-edit'>
+<?php
+    // when editing, we like to show the toolbar and sidebar
+    if ($isEdit) {
+     echo $this->groupToolbar($group);
+    }
+    $actionUrl = $isEdit
+        ? '/groups/' . $this->escapeUrl($group->getId()) . '/settings'
+        : '/groups/add';
+?>
+    <form method="post" class="form-horizontal form">
+        <?php include __DIR__ . '/settingsForm.phtml' ?>
+        <div class="control-group group-buttons">
+            <div class="controls">
+                <button type="submit" class="btn btn-mlarge btn-primary"><?php echo $this->te('Save')?></button>
+                <button type="button" class="btn btn-mlarge" onclick="document.location.href='<?php echo $actionUrl.'?cancel=true';?>'"><?php echo $this->te('Cancel')?></button>
+                <?php if ($isEdit && $canDelete): ?>
+                    <button type="button" class="btn btn-mlarge btn-danger btn-delete"><?php echo $this->te('Delete')?></button>
+                <?php endif; ?>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+        swarm.group.initEdit(
+            '.group-edit',
+            '<?php echo $this->escapeJs($actionUrl) ?>',
+            '<?php echo $group->getId() ?>'
+        );
+    </script>
+</div>
+</div>

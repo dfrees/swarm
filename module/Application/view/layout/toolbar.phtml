@@ -1,0 +1,54 @@
+<?php
+$services   = $this->getHelperPluginManager()->get('serviceContainer')->getServices();
+$route      = $services->get('application')->getMvcEvent()->getRouteMatch();
+$route      = $route ? $route->getMatchedRouteName() : null;
+$translator = $services->get('translator');
+$config     = $services->get('config');
+$superOnly  = $config['groups']['super_only'];
+
+// check for the existence of docs in the current locale
+$helpUrl = $this->assetBasePath() . '/docs/';
+if (file_exists(BASE_PATH . '/public/docs/' . $translator->getLocale() . '/index.html')) {
+    $helpUrl .= $translator->getLocale() . '/';
+} else if (file_exists(BASE_PATH . '/public/docs/' . $translator->getFallbackLocale() . '/index.html')) {
+    $helpUrl .= $translator->getFallbackLocale() . '/';
+}
+
+?>
+<div class="navbar navbar-fixed-top navbar-inverse navbar-site offset-fixed">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand manual-tooltip" href="<?php echo $this->url('home') ?>" title="<?php echo $this->te("Home")?>"></a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                  <li class="<?php echo $route === 'reviews' ? 'active' : '' ?>">
+                      <a href="<?php echo $this->url('reviews') ?>"><span class="navbar-link-label"><?php echo $this->te("Reviews")?></span></a>
+                  </li>
+                  <li class="<?php echo $route === 'projects' ? 'active' : '' ?>">
+                      <a href="<?php echo $this->url('projects') ?>"><span class="navbar-link-label"><?php echo $this->te("Projects")?></span></a>
+                  </li>
+                  <li class="<?php echo $route === 'file' ? 'active' : '' ?>">
+                      <a href="<?php echo $this->url('file') ?>"><span class="navbar-link-label"><?php echo $this->te("Files")?></span></a>
+                  </li>
+                  <li class="<?php echo $route === 'changes' ? 'active' : '' ?>">
+                      <a href="<?php echo $this->url('changes') ?>"><span class="navbar-link-label"><?php echo $this->te("Commits")?></span></a>
+                  </li>
+                  <li class="<?php echo $route === 'jobs' ? 'active' : '' ?>">
+                      <a href="<?php echo $this->url('jobs') ?>"><span class="navbar-link-label"><?php echo $this->te("Jobs")?></span></a>
+                  </li>
+                  <li class="<?php echo $superOnly === true ? 'super-only' : '' ?> <?php echo $route === 'groups' ? 'active' : '' ?>">
+                      <a href="<?php echo $this->url('groups') ?>"><span class="navbar-link-label"><?php echo $this->te("Groups")?></span></a>
+                  </li>
+                  <li class="workflow-feature <?php echo $route === 'workflows' ? 'active' : '' ?>">
+                      <a href="<?php echo $this->url('workflows') ?>"><span class="navbar-link-label"><?php echo $this->te("Workflows")?></span></a>
+                  </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>

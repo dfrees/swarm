@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>My Dashboard-alt-01</title>
+    <desc>Created with Sketch.</desc>
+    <g id="My-Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-Dashboard-alt-01" transform="translate(-1034.000000, -266.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="1336" height="860"></rect>
+            <g id="icon-refresh" transform="translate(1035.000000, 268.000000)" fill="#000000">
+                <path d="M7.875,0 C4.59141667,0 1.918,2.56302222 1.76458333,5.77777778 L0,5.77777778 L2.64658333,9.19648889 L5.25,5.77777778 L3.51458333,5.77777778 C3.66625,3.52328889 5.56091667,1.73333333 7.875,1.73333333 C10.2876667,1.73333333 12.25,3.67697778 12.25,6.06666667 C12.25,8.45635556 10.2876667,10.4 7.875,10.4 C6.48608333,10.4 5.24883333,9.75346667 4.44733333,8.75102222 L3.36991667,10.166 C4.48933333,11.3724 6.09058333,12.1333333 7.875,12.1333333 C11.2571667,12.1333333 14,9.41662222 14,6.06666667 C14,2.71671111 11.2571667,0 7.875,0 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

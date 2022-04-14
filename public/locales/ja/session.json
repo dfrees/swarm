@@ -1,0 +1,13 @@
+{
+  "username": "ユーザ名または電子メール",
+  "password": "パスワード",
+  "profile": "プロファイル",
+  "info": "システム情報",
+  "about": "Swarmのバージョン情報",
+  "logout": "ログアウト",
+  "close": "閉じる",
+  "rememberMe": "ログイン情報を記憶する",
+  "login": "ログイン",
+  "search": "検索",
+  "swarmSearch": "Swarmの検索",
+}

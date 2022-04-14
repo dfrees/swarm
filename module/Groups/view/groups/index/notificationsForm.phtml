@@ -1,0 +1,62 @@
+<div id="notifications">
+    <div id="mailingListSettings">
+        <div class="control-group mailing-list">
+            <div class="controls">
+                <label class="checkbox" for="useMailingList">
+                    <input type="checkbox" name="useMailingList" id="useMailingList" data-toggle="collapse" data-target=".ea .collapse" <?php echo $group->getConfig()->get('useMailingList')?"checked=checked":"" ?>/>
+                    <?php echo $this->te("Use mailing list instead of notifying by individual group member's emails (must add email address)")?>
+                </label>
+                <label for="emailAddress">
+                    <input type="text" class="input-xlarge collapse ea" name="emailAddress" id="emailAddress"
+                           placeholder="<?php echo $this->te('Group mailing list address')?>"
+                           value="<?php echo $group->getConfig()->get('emailAddress')?>" />
+                    <i id="emailValidIndicator" class="icon-white"></i>
+                </label>
+                <input type="hidden" name="hiddenEmailAddress" id="hiddenEmailAddress" value="<?php echo $group->getConfig()->get('emailAddress')?>"/>
+            </div>
+        </div>
+    </div>
+    <div id="notificationSettings">
+        <div class="control-group email-flags">
+            <label class="control-label" for="email-flag-controls"><?php echo $this->te('Email Notifications')?></label>
+            <div class="controls">
+                <label class="checkbox" for="emailReviews">
+                    <?php $emailReviews = $group->getConfig()->getEmailFlag('reviews') ?>
+                    <input type="hidden" name="emailFlags[reviews]" value="0" />
+                    <input type="checkbox" name="emailFlags[reviews]" id="emailReviews" value="1"
+                        <?php echo ($emailReviews || $mode === 'add') ? 'checked' : '' ?>>
+                    <?php echo $this->te('Email members when a new review is requested')?>
+                </label>
+                <label class="checkbox" for="emailCommits">
+                    <?php $emailCommits = $group->getConfig()->getEmailFlag('commits') ?>
+                    <input type="hidden" name="emailFlags[commits]" value="0" />
+                    <input type="checkbox" name="emailFlags[commits]" id="emailCommits" value="1"
+                        <?php echo ($emailCommits) ? 'checked' : '' ?>>
+                    <?php echo $this->te('Email members when a change is committed')?>
+                </label>
+                <div id='author-help' class="help-block"><?php echo $this->te('Users may still receive emails if: the change/review impacts projects,
+                    they authored the review, or a change review daemon is installed.')?>
+                    <a href="<?php echo $this->escapeFullUrl($this->assetBasePath()); ?>/docs/Content/Swarm/basics.notifications.html#basics.notifications.commit" target="_swarm_docs">
+                        <?php echo $this->te('See help for more details.')?>
+                    </a>
+                </div>
+            </div>
+            <div id="groupNotificationHelp">
+                <p><?php echo $this->te('Adjust when notifications are sent to group members')?><span class="help-inline help-block"><?php echo $this->te('(use mailing list address to enable)')?></span>.</p>
+            </div>
+            <div id="groupNotificationSettingsPanel" class="control-group preferencesBox">
+                <div class="modal-backdrop"></div>
+                <?php echo $this->groupNotificationSettings($notificationSettings); ?>
+            </div>
+        </div>
+        <?php if($mode === 'add') {
+            $actionUrl = '/groups/add';
+        } ?>
+        <div id="groupNotificationFooter" class="control-group pull-right">
+            <div class="controls">
+                <button type="submit" class="btn btn-mlarge btn-primary"><?php echo $this->te('Save');?></button>
+                <button type="button" class="btn btn-mlarge" onclick="document.location.href='<?php echo $actionUrl.'?cancel=true'?>'"><?php echo $this->te('Cancel');?></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿{
+  "project": "项目",
+  "projects": "项目",
+  "myProjects": "我的项目",
+  "allProjects": "所有项目",
+  "projectFilterTooltip": "按项目筛选",
+  "aToz": "A-Z",
+  "branch": "分支",
+  "branches": "分支",
+  "allBranches": "所有分支",
+  "branchFilterTooltip": "按分支筛选"
+}

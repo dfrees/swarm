@@ -1,0 +1,45 @@
+<?php
+$this->headTitle()->set($group->getConfig()->getName())->setTranslatorEnabled(false);
+$this->bodyClass()->append('login-reload');
+
+$actionUrl = '/groups/' . $this->escapeUrl($group->getId()) . '/notifications/';
+
+$cancel = isset($_GET["cancel"]) ? $_GET["cancel"] : false;
+$saved  = isset($_GET["saved"])  ? $_GET["saved"]  : false;
+
+if ($saved == true || $cancel == true) { ?>
+    <div id="message">
+        <div style="padding: 5px;">
+            <div id="inner-message" class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?php echo $cancel == true ? $this->te('Group Changes Cancelled') : $this->te('Group Saved'); ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<div class="row-fluid">
+    <?php echo $this->groupSidebar($group) ?>
+    <div class="span9 profile-body group-edit">
+        <?php echo $this->groupToolbar($group) ?>
+        <div>
+
+            <form id="notificationForm" method="post" class="form-horizontal form">
+                <?php include __DIR__ . '/notificationsForm.phtml' ?>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+// truncate the description
+$('.group-sidebar .description').expander({slicePoint: 250});
+});
+swarm.group.initEdit(
+    '.group-edit',
+    '/groups/<?php echo $this->escapeHtml($group->getId())?>/notifications/',
+    '<?php echo $group->getId() ?>'
+);
+// Configure the settings form controls
+swarm.notifications.group.init();
+</script>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Example Slack module</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Example_Slack_module" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Example Slack module</h1>
+                                            <p>The following example module demonstrates how to integrate  <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> with Slack so that <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> posts a message in a Slack channel each time a change is committed, a review is created, or a review is updated. </p>
+                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> supports the Laminas component versions in the <span class="code_clearBackground">LICENSE.txt</span> file, features and functions in the Laminas documentation that were introduced in later versions of Laminas will not work with <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. The <span class="code_clearBackground">LICENSE.txt</span> file is in the <span class="code_clearBackground">readme</span> folder of your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> installation.</p>
+                                            </div>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>You must test your custom modules on a test system before transferring them to your production system.  This avoids any negative impact on the operation of your production system.  If you have more than one custom module, the modules should all be tested at the same time on the same test system as this ensures that the modules operate correctly with each other and with <span class="mc-variable Perforce.Swarm_long variable">Helix Swarm</span>. </p>
+                                            </div>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>If you add or edit a module, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> will not use that change until the  config cache has been reloaded, this forces <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to  use the module change. You must be an <i>admin</i> or <i>super</i> user to reload the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> config cache. Navigate to the <b xmlns="http://docbook.org/ns/docbook">User id</b> dropdown menu, select <b xmlns="http://docbook.org/ns/docbook">System Information</b>, click the <b xmlns="http://docbook.org/ns/docbook">Cache Info</b> tab, and click the <a href="admin.system_information.html#admin_system_information_cache_info_reload_config" class="MCXref xref">Reload Configuration button</a>. </p>
+                                            </div>
+                                            <p style="font-weight: bold;">Basic steps needed to create the Slack module are: </p>
+                                            <ul>
+                                                <li><a href="#extending.example_slack.module" class="MCXref xref">Create the Module.php file</a>
+                                                </li>
+                                                <li><a href="#extending.example_slack.module_config" class="MCXref xref">Create the module.config.php file</a>
+                                                </li>
+                                                <li><a href="#extending.example_slack.listener" class="MCXref xref">Create the SlackActivityListener.php file</a>
+                                                </li>
+                                                <li><a href="#extending.example_slack.enable" class="MCXref xref">Enable the Slack module for Swarm in custom.modules.config.php</a>
+                                                </li>
+                                            </ul>
+                                            <h2 data-mc-autonum=""><a name="File_locations" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="extending.example_slack.file_locations"></a>File locations</h2>
+                                            <p>For reference, the Slack module uses the following filenames and locations: </p><pre class="programlisting">config/
+      custom.modules.config.php
+module/
+      Slack/
+            config/
+                   module.config.php
+            src/
+                Listener/
+                         SlackActivityListener.php		
+            Module.php
+</pre>
+                                            <h2 data-mc-autonum=""><a name="Create_the_Module.php_file" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="extending.example_slack.module"></a>Create the Module.php file</h2>
+                                            <p><span class="code_clearBackground">Module.php</span> will: </p>
+                                            <ul>
+                                                <li>Declare the module namespace, this must match the  directory name of the module.</li>
+                                                <li>Provide the <span class="code_clearBackground">getConfig()</span> function</li>
+                                                <p>
+                                                    <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                        <p><b>Optional:</b> You can also implement the <span class="code_clearBackground">onBootstrap (Event $event)</span> function if you want to do some early setup when the module is loaded: </p><pre class="programlisting" lang="php" xml:space="preserve">
+public function onBootstrap(Event $event)
+{
+}</pre>
+                                                        <p><span class="code_clearBackground">Event</span> is a Laminas class and is added after namespace:</p><pre class="programlisting" lang="php" xml:space="preserve">
+namespace Slack
+use Laminas\EventManager\Event
+</pre>
+                                                    </div>
+                                                </p>
+                                            </ul>
+                                            <p style="font-weight: bold;">Create the Module.php file: </p>
+                                            <ol>
+                                                <li value="1">Create a directory called <span class="code_clearBackground">Slack</span> in the module directory.</li>
+                                                <li value="2">
+                                                    <p>Create the file <span class="code_clearBackground">Module.php</span> in <span class="code_clearBackground">module/Slack</span>. </p>
+                                                </li>
+                                                <li value="3">Edit <span class="code_clearBackground">Module.php</span> to contain:</li><pre class="programlisting" lang="php" xml:space="preserve">
+&lt;?php
+/**  
+ * Perforce Swarm
+ *
+ * @copyright   2021 Perforce Software. All rights reserved.
+ * @license     Please see LICENSE.txt in top-level folder of this distribution.
+ * @version     &lt;release&gt;/&lt;patch&gt;
+*/
+
+namespace Slack;
+
+class Module
+{
+
+    public function getConfig()
+    {
+        return include __DIR__ . '/config/module.config.php';
+    }
+}</pre>
+                                                <li value="4">Now <a href="#extending.example_slack.module_config" class="MCXref xref">Create the module.config.php file</a>.</li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Create_the_module.config.php_file" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="extending.example_slack.module_config"></a>Create the module.config.php file</h2>
+                                            <p>The <span class="code_clearBackground">module.config.php</span> file will:</p>
+                                            <ul style="color: #000000;">
+                                                <li style="color: #000000;">Configure your module including event listeners.</li>
+                                                <li style="color: #000000;">Provide the Slack channel and token details</li>
+                                                <li style="color: #000000;">Provide an icon for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> that is displayed in Slack</li>
+                                                <li>Declare an event priority of <span class="code_clearBackground">-110</span> for the <span class="code_clearBackground">COMMIT</span> and <span class="code_clearBackground">REVIEW</span> event listeners because the Activity event is processed with a priority of <span class="code_clearBackground">-200</span> and this is a sensible time to post the message to Slack. </li>
+                                            </ul>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p><span class="code_clearBackground">Listener::class</span> example details for the  <span class="code_clearBackground">COMMIT</span> and <span class="code_clearBackground">Review</span> classes: </p>
+                                                <ul>
+                                                    <li><span class="code_clearBackground">Events\Listener\ListenerFactory::COMMIT =&gt; [</span>
+                                                    </li>
+                                                    <p>We are listening to <span class="code_clearBackground">COMMIT</span> here because we are interested in commits. </p>
+                                                    <li><span class="code_clearBackground">Events\Listener\ListenerFactory::Review =&gt; [</span>
+                                                    </li>
+                                                    <p>We are listening to <span class="code_clearBackground">Review</span> here because we are interested in when a review is created or updated. </p>
+                                                    <li><span class="code_clearBackground">Events\Listener\ListenerFactory::PRIORITY =&gt; -110,</span>
+                                                    </li>
+                                                    <p>Declares an event priority of <span class="code_clearBackground">-110</span> for the event listener because the Activity event is processed with a priority of <span class="code_clearBackground">-200</span> and this is a sensible time to post the message to Slack. </p>
+                                                    <li><span class="code_clearBackground">Events\Listener\ListenerFactory::CALLBACK =&gt; 'handleCommit',</span>
+                                                    </li>
+                                                    <p>Declares the function name within the listener class that is called.</p>
+                                                    <li><span class="code_clearBackground">Events\Listener\ListenerFactory::CALLBACK =&gt; 'handleReview',</span>
+                                                    </li>
+                                                    <p>Declares the function name within the listener class that is called.</p>
+                                                    <li><span class="code_clearBackground">Events\Listener\ListenerFactory::MANAGER_CONTEXT =&gt; 'queue'</span>
+                                                    </li>
+                                                    <p>Triggers your custom listener  when <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> processes the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> event queue.</p>
+                                                </ul>
+                                            </div>
+                                            <p style="font-weight: bold;">Create the module.config.php file: </p>
+                                            <ol>
+                                                <li value="1">Create a directory called <span class="code_clearBackground">config</span> in the <span class="code_clearBackground">Slack</span> directory.</li>
+                                                <li value="2">Create a file called <span class="code_clearBackground">module.config.php</span> in <span class="code_clearBackground">config</span>. </li>
+                                                <li value="3">Edit <span class="code_clearBackground">module.config.php</span> to contain:</li>
+                                                <p><pre class="programlisting" lang="php" xml:space="preserve">&lt;?php
+/**
+ * Perforce Swarm
+ *
+ * @copyright   2021 Perforce Software. All rights reserved.
+ * @license     Please see LICENSE.txt in top-level folder of this distribution.
+ * @version     &lt;release&gt;/&lt;patch&gt;
+*/
+
+use Events\Listener\ListenerFactory as EventListenerFactory;
+
+$listeners = [Slack\Listener\SlackActivityListener::class];
+
+return [
+    'listeners' =&gt; $listeners,
+    'service_manager' =&gt;[
+        'factories' =&gt; array_fill_keys(
+            $listeners,
+            Events\Listener\ListenerFactory::class
+        )
+    ],
+    EventListenerFactory::EVENT_LISTENER_CONFIG =&gt; [
+        EventListenerFactory::TASK_COMMIT =&gt; [
+            Slack\Listener\SlackActivityListener::class =&gt; [
+                [
+                    Events\Listener\ListenerFactory::PRIORITY =&gt; -110,
+                    Events\Listener\ListenerFactory::CALLBACK =&gt; 'handleCommit',
+                    Events\Listener\ListenerFactory::MANAGER_CONTEXT =&gt; 'queue'
+                ]
+            ]
+        ],
+        EventListenerFactory::TASK_REVIEW =&gt; [
+            Slack\Listener\SlackActivityListener::class =&gt; [
+                [
+                    Events\Listener\ListenerFactory::PRIORITY =&gt; -110,
+                    Events\Listener\ListenerFactory::CALLBACK =&gt; 'handleReview',
+                    Events\Listener\ListenerFactory::MANAGER_CONTEXT =&gt; 'queue'
+                ]
+            ]
+        ]
+    ],
+    'slack' =&gt; [
+        'token'       =&gt; 'xoxb-0000000000000-0000000000000-000000000000000000000000',
+        'channel'     =&gt; 'swarm-reviews',
+        'user'        =&gt; 'Swarm',
+        'icon'        =&gt;
+            'https://swarm.workshop.perforce.com/view/guest/perforce_software/slack/main/images/60x60-Helix-Bee.png',
+        'max_length'  =&gt; 80,
+    ]
+];		</pre>
+                                                </p>
+                                                <li value="4">Now <a href="#extending.example_slack.listener" class="MCXref xref">Create the SlackActivityListener.php file</a>.  </li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Create_the_SlackActivityListener.php_file" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="extending.example_slack.listener"></a>Create the SlackActivityListener.php file</h2>
+                                            <p>The <span class="code_clearBackground">SlackActivityListener.php</span> file will: </p>
+                                            <ul>
+                                                <li>Contains the implementation of your event listener</li>
+                                                <li>Contains the Slack messages for a commit and a review</li>
+                                                <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                    <p>The configuration of your Slack URLs and messages will depend on your Slack system and your requirements. This is a basic example but you can edit it so that you post your messages to a different channel for each project branch. You can even add to the <b>Project settings</b> page using <a href="extending.clients.html" title="CSS and JavaScript" alt="CSS and JavaScript">CSS and JavaScript</a> so that users can configure the Slack channel URLs and messages for each project. </p>
+                                                </div>
+                                                <li>Allow logging</li>
+                                            </ul>
+                                            <p style="font-weight: bold;">Create the SlackActivityListener.php file: </p>
+                                            <ol>
+                                                <li value="1">Create a directory called <span class="code_clearBackground">src</span> in the <span class="code_clearBackground">Slack</span> directory.</li>
+                                                <li value="2">Create a directory called <span class="code_clearBackground">Listener</span> in the <span class="code_clearBackground">src</span> directory.</li>
+                                                <li value="3">Create a file called <span class="code_clearBackground">SlackActivityListener.php</span> in <span class="code_clearBackground">Listener</span>. </li>
+                                                <li value="4">Edit <span class="code_clearBackground">SlackActivityListener.php</span> to contain:</li>
+                                                <p><pre class="programlisting" lang="php" xml:space="preserve">
+&lt;?php
+/**
+ * Perforce Swarm
+ *
+ * @copyright   2021 Perforce Software. All rights reserved.
+ * @license     Please see LICENSE.txt in top-level folder of this distribution.
+ * @version     &lt;release&gt;/&lt;patch&gt;
+*/
+
+namespace Slack\Listener;
+
+use Events\Listener\AbstractEventListener;
+use P4\Spec\Change;
+use P4\Spec\Exception\NotFoundException;
+use Reviews\Model\Review;
+use Laminas\EventManager\Event;
+use Laminas\Http\Client;
+use Laminas\Http\Request;
+
+class SlackActivityListener extends AbstractEventListener
+{
+    public function handleReview(Event $event)
+    {
+        $logger = $this-&gt;services-&gt;get('logger');
+        $logger-&gt;info("Slack: handleReview");
+        $p4Admin = $this-&gt;services-&gt;get('p4_admin');
+        try {
+            $review = Review::fetch($event-&gt;getParam('id'), $p4Admin);
+            // Construct your Slack Review message here
+            $text = 'Review ' . $review-&gt;getId();
+            $this-&gt;postSlack($text);
+        } catch (\Exception $e) {
+            $logger-&gt;err("Slack:" . $e-&gt;getMessage());
+            return;
+        }
+        $logger-&gt;info("Slack: handleReview end.");
+    }
+
+    public function handleCommit(Event $event)
+    {
+        // connect to all tasks and write activity data
+        // we do this late (low-priority) so all handlers have
+        // a chance to influence the activity model.
+        $logger = $this-&gt;services-&gt;get('logger');
+        $logger-&gt;info("Slack: handleCommit");
+
+        // task.change doesn't include the change object; fetch it if we need to
+        $p4Admin = $this-&gt;services-&gt;get('p4_admin');
+        $change  = $event-&gt;getParam('change');
+        if (!$change instanceof Change) {
+            try {
+                $change = Change::fetchById($event-&gt;getParam('id'), $p4Admin);
+                $event-&gt;setParam('change', $change);
+            } catch (NotFoundException $e) {
+            } catch (\InvalidArgumentException $e) {
+            }
+        }
+
+        // if this isn't a submitted change; nothing to do
+        if (!$change instanceof Change || !$change-&gt;isSubmitted()) {
+            $logger-&gt;info("Slack: not a change...");
+            return;
+        }
+        try {
+            // Construct your Slack Commit message here
+            $text = 'Review ' . $change-&gt;getId();
+            $this-&gt;postSlack($text);
+        } catch (\Exception $e) {
+            $logger-&gt;err('Slack: ' . $e-&gt;getMessage());
+        }
+        $logger-&gt;info("Slack: handleCommit end.");
+    }
+
+    private function postSlack($msg)
+    {
+        $logger = $this-&gt;services-&gt;get('logger');
+        $config = $this-&gt;services-&gt;get('config');
+
+        $icon = $config['slack']['icon'];
+        $user = $config['slack']['user'];
+        $token = $config['slack']['token'];
+        $channel = $config['slack']['channel'];
+
+        $url = 'https://slack.com/api/chat.postMessage';
+
+        $logger-&gt;info("Slack: POST to $url");
+        $logger-&gt;info("Slack: user=$user");
+        $logger-&gt;info("Slack: icon=$icon");
+
+        try {
+
+            $headers = [
+                "Content-type: application/json",
+                "Authorization: Bearer " . $token
+            ];
+
+            $body = [
+                "channel" =&gt; $channel,
+                "text" =&gt; $msg,
+                "username" =&gt; $user,
+                "icon_url" =&gt; $icon,
+            ];
+
+            $json = json_encode($body);
+
+            $logger-&gt;info("Slack: sending request:");
+            $logger-&gt;info($json);
+ 
+            $request = new Request();
+            $request-&gt;setMethod('POST');
+            $request-&gt;setUri($url);
+            $request-&gt;getHeaders()-&gt;addHeaders($headers);
+            $request-&gt;setContent($json);
+
+            $client = new Client();
+            $client-&gt;setEncType(Client::ENC_FORMDATA);
+
+            // set the http client options; including any special overrides for our host
+            $options = $config + ['http_client_options' =&gt; []];
+            $options = (array) $options['http_client_options'];
+            if (isset($options['hosts'][$client-&gt;getUri()-&gt;getHost()])) {
+                $options = (array) $options['hosts'][$client-&gt;getUri()-&gt;getHost()] + $options;
+            }
+            unset($options['hosts']);
+            $client-&gt;setOptions($options);
+
+            // POST request
+            $response = $client-&gt;dispatch($request);
+
+            $logger-&gt;info("Slack: response from server:");
+            $logger-&gt;info($response-&gt;getBody());
+
+            if (!$response-&gt;isSuccess()) {
+                $logger-&gt;err(
+                    'Slack failed to POST resource: ' . $url . ' (' .
+                    $response-&gt;getStatusCode() . " - " . $response-&gt;getReasonPhrase() . ').',
+                    [
+                        'request'   =&gt; $client-&gt;getLastRawRequest(),
+                        'response'  =&gt; $client-&gt;getLastRawResponse()
+                    ]
+                );
+                return false;
+            }
+ 
+            return true;
+
+        } catch (\Exception $e) {
+            $logger-&gt;err($e);
+        }
+        return true;
+    }
+}</pre>
+                                                </p>
+                                                <li value="5">Now <a href="#extending.example_slack.enable" class="MCXref xref">Enable the Slack module for Swarm in custom.modules.config.php</a>. </li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Enable_the_Slack_module_for_Swarm_in_custom.modules.config.php" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="extending.example_slack.enable"></a>Enable the Slack module for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> in custom.modules.config.php</h2>
+                                            <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> uses the <span class="code_clearBackground">custom.modules.config.php</span> file to auto-load classes and to check which custom modules it should run. This gives you control over which modules <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> loads and prevents modules from being loaded by mistake.</p>
+                                            <p style="font-weight: bold;">Create  the custom.modules.config.php file: </p>
+                                            <ol>
+                                                <li value="1">Create the <span class="code_clearBackground">config</span> directory at the same level as the <span class="code_clearBackground">module</span> directory if it does not exist. </li>
+                                                <li value="2">Create the <span class="code_clearBackground">custom.modules.config.php</span> file in the <span class="code_clearBackground">config</span> directory if it does not exist. </li>
+                                                <li value="3">Edit the <span class="code_clearBackground">custom.modules.config.php</span> file so that it contains the auto-loader and the <span class="code_clearBackground">Slack</span> module details:</li>
+                                                <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                    <p>If you already have one or more custom modules enabled for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, the auto-loader and the existing module details will already be in the file. </p>
+                                                    <p>Just add <span class="code_clearBackground">Slack</span> to the <span class="code_clearBackground">namespaces</span> and <span class="code_clearBackground">return</span> arrays of the <span class="code_clearBackground">custom.modules.config.php</span> file. </p>
+                                                </div>
+                                                <p><pre class="programlisting" lang="php" xml:space="preserve">&lt;?php
+\Laminas\Loader\AutoloaderFactory::factory(
+    array(
+        'Laminas\Loader\StandardAutoloader' =&gt; array(
+            'namespaces' =&gt; array(
+                'Slack'      =&gt; BASE_PATH . '/module/Slack/src',
+            )
+        )
+    )
+);
+return [
+    'Slack'
+];
+</pre>
+                                                </p>
+                                                <li value="4">The <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> config cache must be reloaded so that <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> can see your new module. As an <i>admin</i> or <i>super</i> user, navigate to the <b xmlns="http://docbook.org/ns/docbook">User id</b> dropdown menu, select <b xmlns="http://docbook.org/ns/docbook">System Information</b>, click the <b xmlns="http://docbook.org/ns/docbook">Cache Info</b> tab, and click the <a href="admin.system_information.html#admin_system_information_cache_info_reload_config" class="MCXref xref">Reload Configuration button</a>. </li>
+                                                <p>The Slack module is now enabled for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> will post a message on a Slack channel each time a change is committed, a review is created, or a review is updated. </p>
+                                                <li value="5">Check that the module works correctly before moving it to your production server. </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" xmlns="http://docbook.org/ns/docbook" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Swarm API basics</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Swarm_API_basics" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> API basics</h1>
+                                            <div class="important admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Important "><span class="autonumber" xmlns=""><span class="admonition">Important </span></span>
+                                                <p>Support for APIs older than <span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span> will be removed in the <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> 2022.2 release. </p>
+                                            </div>
+                                            <p xmlns="http://docbook.org/ns/docbook">This section describes the  API endpoints that are commonly used when constructing an API call to <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span>. </p>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Authentication" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span><a name="swarm_apidoc.authentication" xmlns="http://docbook.org/ns/docbook"></a>Authentication</h2>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span>’s API requires an authenticated connection for all data-modifying
+endpoints. Authenticated connections are achieved using HTTP Basic Access
+Authentication.</p>
+                                            <div class="note admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Note "><span class="autonumber" xmlns=""><span class="admonition">Note </span></span>
+                                                <p xmlns="http://docbook.org/ns/docbook">API endpoints require authentication unless <span href="admin.security.htm#admin.security.require_login" title="require_login" alt="require_login" class="code_clearBackground" xmlns="http://docbook.org/ns/docbook"><a href="admin.security.html#admin.security.require_login" title="Link to require_login" alt="Link to require_login">require_login</a></span> is set to <span class="code_clearBackground" xmlns="http://docbook.org/ns/docbook">false</span>. </p>
+                                            </div>
+                                            <p xmlns="http://docbook.org/ns/docbook">For example:</p>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="code" xmlns="http://docbook.org/ns/docbook">curl -u "apiuser:ticket" https://myswarm.url/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/projects</span>
+                                            </p>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> accepts a ticket from the <span class="mc-variable Perforce.Helix_long variable" xmlns="http://docbook.org/ns/docbook">Helix Core server</span> (previous versions
+of <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> required this ticket to be host-unlocked, this is no longer true
+since <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> 2017.1). It might also be possible to use a password in place of
+the ticket if your <span class="mc-variable Perforce.Helix_short variable" xmlns="http://docbook.org/ns/docbook">Helix server</span> allows it.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">To acquire a ticket, run the following command:</p>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="code">p4 -p myp4host:1666 -u apiuser login -p</span>
+                                            </p>
+                                            <div class="important admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Important "><span class="autonumber" xmlns=""><span class="admonition">Important </span></span>
+                                                <p>For a <span class="mc-variable Perforce.Helix_long variable" xmlns="http://docbook.org/ns/docbook">Helix Core server</span> that has been configured for security level
+3, passwords are not accepted. For more information on security levels, see on <a href="http://www.perforce.com/manuals/p4sag/Content/P4SAG/security-levels.html" target="_blank" title="Server security levels in Helix Core Server Administrator Guide" alt="Server security levels in Helix Core Server Administrator Guide" xmlns="http://docbook.org/ns/docbook">Server security levels</a> in the <a href="http://www.perforce.com/perforce/doc.current/manuals/p4sag/index.html" target="_blank"><i><span class="mc-variable Perforce.gd-p4sag variable" xmlns="http://docbook.org/ns/docbook">Helix Core Server Administrator Guide</span></i></a>. </p>
+                                            </div>
+                                            <div class="note admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Note "><span class="autonumber" xmlns=""><span class="admonition">Note </span></span>
+                                                <p>If you use a ticket to authenticate against the <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> API and the ticket
+expires, you need to acquire a new ticket to continue using the API.</p>
+                                            </div>
+                                            <p xmlns="http://docbook.org/ns/docbook">If you make a request that requires authentication and you have not
+authenticated, the response is:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{
+  "error": "Unauthorized"
+}</pre>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Requests" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Requests</h2>
+                                            <div class="important admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Important "><span class="autonumber" xmlns=""><span class="admonition">Important </span></span>
+                                                <p>Some API endpoints have undocumented metadata parameters, these are for internal <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> use only. The metadata returned is subject to change without notice and is not suitable for use in customer API calls.</p>
+                                            </div>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span>’s API includes endpoints that provide, create, and update information
+within <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span>.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">If you make a request against an endpoint with a method that is not supported, the
+response is:</p><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">HTTP/1.1 200 OK
+
+{
+  "error": "Method Not Allowed"
+}</pre>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="GET_information" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>GET information</h3>
+                                            <div class="tip admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Tip "><span class="autonumber" xmlns=""><span class="admonition">Tip </span></span>
+                                                <p>GET requests require authentication unless <span href="admin.security.htm#admin.security.require_login" title="require_login" alt="require_login" class="code_clearBackground"><a href="admin.security.html#admin.security.require_login" title="Link to require_login" alt="Link to require_login">require_login</a></span> is set to <span class="code_clearBackground">false</span>. </p>
+                                            </div>
+                                            <p xmlns="http://docbook.org/ns/docbook">Use HTTP <span class="code">GET</span> requests to ask for information from the API.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">For example, to get the list of reviews using the <span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span> API:</p>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="code">curl -u "username:password" "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/reviews</span>
+                                            </p>
+                                            <p xmlns="http://docbook.org/ns/docbook">Certain API calls support a <code>fields</code> parameter that allows you to specify which
+fields to include in the response, enabling more compact data sets. </p>
+                                            <p xmlns="http://docbook.org/ns/docbook">Fields can be expressed as a comma-separated list, or using array-notation. For
+example:</p>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="code">curl -u "username:password" "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/projects/jam?fields=id,description,members"</span>
+                                            </p>
+                                            <p xmlns="http://docbook.org/ns/docbook">The
+following endpoints support fields:</p>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="API_(v9)" data-mc-generated-bookmark="TOC" xmlns=""></a>API (<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>)</h4>
+                                            <ul xmlns="http://docbook.org/ns/docbook">
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/activity</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/comments</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/groups</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/groups/{id}</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/projects</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/reviews</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/reviews/{id}</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/users</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/{id}</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="API_(v11)" data-mc-generated-bookmark="TOC" xmlns=""></a>API (<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>)</h4>
+                                            <ul xmlns="http://docbook.org/ns/docbook">
+                                                <li>
+                                                    <p xmlns="http://docbook.org/ns/docbook"><span class="code">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/files/{id}</span>
+                                                    </p>
+                                                </li>
+                                                <li><span class="code" xmlns="http://docbook.org/ns/docbook">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/projects</span>
+                                                </li>
+                                                <li xmlns="">
+                                                    <p xmlns="http://docbook.org/ns/docbook"><span class="code" xmlns="http://docbook.org/ns/docbook">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/projects/{id}</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="code" xmlns="http://docbook.org/ns/docbook">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/reviews</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="">
+                                                    <p xmlns="http://docbook.org/ns/docbook"><span class="code">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/reviews/{id}</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="">
+                                                    <p xmlns="http://docbook.org/ns/docbook"><span class="code" xmlns="http://docbook.org/ns/docbook">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/reviews/{id}/files</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/reviews/{id}/testruns</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="code" xmlns="http://docbook.org/ns/docbook">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/search</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="">
+                                                    <p xmlns="http://docbook.org/ns/docbook"><span class="code">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/specs/{spec}/fields</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="http://docbook.org/ns/docbook">
+                                                    <p><span class="code" xmlns="http://docbook.org/ns/docbook">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/testdefinitions</span>
+                                                    </p>
+                                                </li>
+                                                <li xmlns="">
+                                                    <p xmlns="http://docbook.org/ns/docbook"><span class="code">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/workflows</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="code">/api/<span class="mc-variable Perforce.Swarm_current_API_version variable" xmlns="http://docbook.org/ns/docbook">v11</span>/workflows/{id}</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="POST_new_information" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>POST new information</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Use HTTP <span class="code">POST</span> requests to create information via the API.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">For example, to create a review using form-encoded values:</p>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="code">curl -u "</span><span xmlns="http://docbook.org/ns/docbook" class="code">apiuser</span><span class="code">:</span><span xmlns="http://docbook.org/ns/docbook" class="code">password</span><span class="code">" -X POST -d"change=</span><span xmlns="http://docbook.org/ns/docbook" class="code">12345</span><span class="code">" https://</span><span xmlns="http://docbook.org/ns/docbook" class="code">myswarm.url</span><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/reviews</span>
+                                            </p>
+                                            <p xmlns="http://docbook.org/ns/docbook">The response should be similar to:</p><pre class="programlisting" lang="bash" xmlns="http://docbook.org/ns/docbook" xml:space="preserve">HTTP/1.1 200 OK
+
+{
+  "isValid": true,
+  "id": 12206		
+}</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">To create a review using JSON:</p>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="code">curl -u "</span><span xmlns="http://docbook.org/ns/docbook" class="code">apiuser</span><span class="code">:</span><span xmlns="http://docbook.org/ns/docbook" class="code">password</span><span class="code">" -H "Content-type: application/json" -X POST -d'{"change": 12345}' https://</span><span xmlns="http://docbook.org/ns/docbook" class="code">myswarm.url</span><span class="code">/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/reviews</span>
+                                            </p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Update" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Update</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Use HTTP <span class="code">PATCH</span> requests to update information via the API.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">If your HTTP client does not support <code>PATCH</code> requests, you can emulate this
+behavior by submitting an HTTP <code>POST</code> with a <code>"?_method=PATCH"</code> parameter.</p>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Pagination" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Pagination</h2>
+                                            <p xmlns="http://docbook.org/ns/docbook">Most <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> endpoints that provide data include the ability to paginate their
+results.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">Each time data is requested, up to <code>max</code> results are included in the
+response, as is a value called <code>lastSeen</code>. <code>lastSeen</code> identifies the <code>id</code> of the
+last entry included in the results. If there are no further results, <code>lastSeen</code>
+is <code>null</code>.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">To get the next set of results, include <code>after</code> set to the value of <code>lastSeen</code>
+in the API request. Entries up to and including the <code>id</code> specified by <code>after</code> are
+excluded from the response, and the next <code>max</code> entries are included.</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">See the
+<a href="swarm-apidoc_endpoint_activity.html">Activity endpoint</a> for
+example usage that demonstrates pagination.</p>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Responses" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Responses</h2>
+                                            <p xmlns="http://docbook.org/ns/docbook"><span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span>’s API responses are JSON formatted.</p>
+                                            <div class="tip admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Tip "><span class="autonumber" xmlns=""><span class="admonition">Tip </span></span>
+                                                <ul xmlns="http://docbook.org/ns/docbook">
+                                                    <li><b>Private projects:</b> when a project is made private, only the project owners, moderators, and members, plus users with <i>super</i>-level privileges in the <span class="mc-variable Perforce.Helix_short variable" xmlns="http://docbook.org/ns/docbook">Helix server</span>, can see the project, its activity streams, and ongoing reviews. API responses honor these private project restrictions. For more information about private project restrictions, see <a href="basics.projects.html#basics.projects.private" class="MCXref xref">Private projects</a>. </li>
+                                                    <li><b>Permissions:</b> if a public review contains files that the user does not have permission to view, the review is returned but the restricted files are not displayed. </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

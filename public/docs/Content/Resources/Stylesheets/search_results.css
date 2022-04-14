@@ -1,0 +1,522 @@
+/*<meta />*/
+
+@import url('skin-side-nav.css');
+
+@namespace MadCap url(http://www.madcapsoftware.com/Schemas/MadCap.xsd);
+
+/*to fix footer issue in Flare 2020 r2 -- is this what Amy calls the "selector"?
+	.height-container
+{
+	position: inherit;
+}*/
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Regular.ttf);
+}
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Bold.ttf);
+	font-weight: bold;
+}
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Italic.ttf);
+	font-style: italic;
+}
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-BoldItalic.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/cour.ttf);
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/courbd.ttf);
+	font-weight: bold;
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/courbi.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/couri.ttf);
+	font-style: italic;
+}
+
+.MCDropDown_Image_Icon
+{
+	padding-left: 25px;
+}
+
+.MCDropDown_Open .MCDropDownHotSpot_.MCHotSpotImage
+{
+	background-image: url('../Images/minus.png');
+}
+
+.MCDropDown_Closed .MCDropDownHotSpot_.MCHotSpotImage
+{
+	background-image: url('../Images/plus.png');
+}
+
+body
+{
+	font-family: 'Open Sans';
+}
+
+div.body-container
+{
+	margin-bottom: 80px;
+	padding: 0px 78px 0px 63px;
+	margin-top: 20px;
+}
+
+div.HTML5FooterBlock
+{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: 100%;
+	height: auto;
+	z-index: 10;
+	font-size: 9pt;
+	background-color: #404040;
+	border: 0px;
+	align: center;
+	text-align: center;
+}
+
+div.TopicContent
+{
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 0px;
+}
+
+h1
+{
+	font-weight: bold;
+	font-size: 24.0pt;
+	color: #2f6db5;
+	margin: 0.2em 0px 0.7em;
+}
+
+h2
+{
+	font-weight: bold;
+	font-size: 18.0pt;
+	color: #2f6db5;
+}
+
+h3
+{
+	font-weight: bold;
+	font-size: 14.0pt;
+}
+
+h4
+{
+	font-weight: bold;
+	font-size: 12.0pt;
+}
+
+h5
+{
+	font-weight: bold;
+	font-size: 10.0pt;
+}
+
+h6
+{
+	font-weight: bold;
+	font-size: 8.0pt;
+}
+
+p
+{
+	letter-spacing: 0.25;
+	font-size: 11.0pt;
+	color: #262626;
+	font-family: 'Open Sans';
+	font-weight: inherit;
+	margin-bottom: 11px;
+	margin-top: 11px;
+}
+
+p.footer
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	line-height: 13pt;
+	color: #fff;
+}
+
+ol,
+ul
+{
+	letter-spacing: .25;
+	line-height: 20pt;
+}
+
+img
+{
+	border: none;
+	max-width: 100%;
+}
+
+a.Popup
+{
+	
+}
+
+MadCap|expandingHead
+{
+	font-style: italic;
+	font-weight: normal;
+	cursor: hand;
+	text-decoration: none;
+	color: #006600;
+}
+
+MadCap|expandingBody
+{
+	color: #777777;
+	font-style: italic;
+}
+
+MadCap|dropDownHotspot
+{
+	cursor: hand;
+	text-decoration: none;
+	border-bottom: none;
+	font-weight: normal;
+	font-size: 18pt;
+	color: #404040;
+}
+
+MadCap|xref
+{
+	mc-format: '{para}';
+	color: #2f6db5;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+div.home-footer	/*This is a custom responsive layout row style (div class) in your stylesheet. To provide your own description for this style: (1) Open the stylesheet; (2) Find and select the div class with this name; and (3) In the Comment field, replace this text with your own. For more information on adding comments to styles, see the online Help.*/
+{
+	background-color: #404040;
+	bottom: 0px;
+	margin: 0px;
+	position: fixed;
+	right: 0%;
+	width: auto;
+	left: 300px;
+	vertical-align: text-bottom;
+	padding: 15px 81px 0px 60px;
+}
+
+div.home-footer::before
+{
+	content: ' ';
+	display: table;
+}
+
+div.home-footer::after
+{
+	content: ' ';
+	display: table;
+	clear: both;
+}
+
+div.home-footer > div
+{
+	float: left;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+div.home-footer > div:nth-child(1)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(2)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(3)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(4)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(5)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(6)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(7)
+{
+	width: 260px;
+	margin-left: 0%;
+	height: 50px;
+	float: right;
+	text-align: right;
+}
+
+a:link
+{
+	color: #2f6db5;
+	text-decoration: none;
+}
+
+a:visited
+{
+	color: #076685;
+	text-decoration: none;
+}
+
+MadCap|dropDownBody
+{
+	padding: 0px 30px 0 -5px;
+}
+
+MadCap|dropDown
+{
+	mc-image-position: left;
+	mc-image-spacing: 10px;
+	border-bottom: none 1px #ecedef;
+	padding: 5px 0;
+}
+
+div
+{
+	padding: 0px;
+	margin: 0px;
+	line-height: 14pt;
+}
+
+MadCap|dropDownHead
+{
+	color: #898989;
+}
+
+ul
+{
+	list-style-type: square;
+	line-height: normal;
+}
+
+li
+{
+	font-family: 'Open Sans';
+	color: #262626;
+	font-size: 11pt;
+	margin: 6pt 0px;
+}
+
+@media only screen and (max-width: 980px)
+{
+	div.body-container
+	{
+		margin-right: inherit;
+		padding: 0px 78px 0px 63px;
+	}
+
+	div.home-footer
+	{
+		display: none;
+	}
+
+	div.home-tiles > div:nth-child(1)
+	{
+		width: 49%;
+		margin-left: 0%;
+	}
+
+	div.home-tiles > div:nth-child(2)
+	{
+		width: 49%;
+		margin-left: 2%;
+	}
+
+	div.home-tiles-layout > div:nth-child(1)
+	{
+		width: 40%;
+		margin-left: 30%;
+	}
+
+	div.home-tiles-layout > div:nth-child(2)
+	{
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	div.quick-links > div:nth-child(1)
+	{
+		width: 24%;
+		margin-left: 0%;
+	}
+
+	div.quick-links > div:nth-child(2)
+	{
+		width: 24%;
+		margin-left: 14%;
+	}
+
+	div.quick-links > div:nth-child(3)
+	{
+		width: 24%;
+		margin-left: 14%;
+	}
+
+	div.quick-links > div:nth-child(4)
+	{
+		width: 24%;
+		margin-left: 19%;
+	}
+
+	div.quick-links > div:nth-child(5)
+	{
+		width: 24%;
+		margin-left: 14%;
+	}
+}
+
+@media only screen and (max-width: 767px)
+{
+	div.home-footer
+	{
+		display: none;
+	}
+
+	div.home-tiles > div:nth-child(1)
+	{
+		width: 100%;
+		margin-left: 0%;
+	}
+
+	div.home-tiles > div:nth-child(2)
+	{
+		width: 100%;
+		margin-left: 0%;
+		margin-top: 5%;
+	}
+
+	div.home-tiles-layout p
+	{
+		line-height: 1.2;
+	}
+
+	div.quick-links > div:nth-child(1)
+	{
+		width: 49%;
+		margin-left: 0;
+	}
+
+	div.quick-links > div:nth-child(2)
+	{
+		width: 49%;
+		margin-left: 2%;
+	}
+
+	div.quick-links > div:nth-child(3)
+	{
+		width: 49%;
+		margin-left: 0;
+	}
+
+	div.quick-links > div:nth-child(4)
+	{
+		width: 49%;
+		margin-left: 2%;
+	}
+
+	div.quick-links > div:nth-child(5)
+	{
+		width: 49%;
+		margin-left: 25.5%;
+	}
+}
+
+@media print
+{
+	MadCap|xref
+	{
+		font-weight: normal;
+		mc-format: '{quote}{para}{quote} {pageref}';
+		text-decoration: none;
+	}
+}
+
+span.code
+{
+	font-family: monospace;
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #ecedef;
+}
+
+p.invisible
+{
+	text-align: left;
+	color: #262626;
+	mc-hyphenate: never;
+	margin-top: 11px;
+	margin-bottom: 11px;
+	font-size: 11pt;
+	font-weight: inherit;
+	font-family: 'Open Sans';
+	visibility: hidden;
+}
+

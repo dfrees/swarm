@@ -1,0 +1,16 @@
+{
+  "username": "Username or Email",
+  "password": "Password",
+  "profile": "My Profile",
+  "info": "System Information",
+  "about": "About Swarm",
+  "logout": "Log out",
+  "close": "Close",
+  "rememberMe": "Remember me",
+  "copyRight": "Copyright © 2021 Perforce Software, Inc. All rights reserved.",
+  "login": "Log in",
+  "search": "Search",
+  "swarmSearch": "Swarm Search",
+  "loginWithSso": "Log in with SSO",
+  "or": "OR"
+}

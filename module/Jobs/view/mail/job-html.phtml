@@ -1,0 +1,27 @@
+<?php
+use P4\Spec\Job;
+$job         = Job::fetchById($activity->get('target'));
+$jobspec     = $job->getSpecDefinition()->getFields();
+$replacement = "</p><p style='padding-left: 20px; margin: 0px'>";
+$link        = $activity->getUrl($this->plugin('qualifiedUrl'));
+?>
+<html>
+    <body style="font-family: sans-serif;">
+        <div style="padding-top: .25em; font-size: 115%;">
+            <?php
+            foreach ($job->toArray() as $key => $field) {
+                if ($jobspec[$key]['dataType'] === 'text' && !empty($field)) {
+                    echo "<p>" . $key. ":</p><p style='padding-left: 20px; margin: 0px'>".preg_replace("/\n/", $replacement, $field)."</p>";
+                } else {
+                    if ($key === 'Job'){
+                        echo "<p>" . $key . ":\t\t<a href='".$link."'>" .$field."</a>";
+                    } else {
+                        echo "<p>" . $key . ":\t\t" . $field . "</p>";
+                    }
+                }
+            }
+            ?>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "filelist": [
+        {
+            "SHA256": "f602c8d46c91b7dd679f437d51c9caf4ddb705f06b6d7e5031d877b6176face9",
+            "file": ".p4-certificate.txt"
+        },
+        {
+            "SHA256": "5467bc5de7f6b61ccc33dae66f617b7748dc064ae17cf824213397993f914ff9",
+            "file": "main.lua"
+        },
+        {
+            "SHA256": "678434887a7515c534d7a63c8bae69ccc82e3651a5e69692e12fb6d9ca535f64",
+            "file": "manifest.json"
+        }
+    ],
+    "signature": "jyQEpVrTcoUwrT0bDWM8GQezHSFhgN7t4Q5NTrEknUIyj43NKrPajB9IvNKPnccC\nKVOuX/OJKS9xvAMETRTCpxISHetS0hOXUck0RVrEx1zDIzg5MUIdztFmQztNc0Bt\nGCgyOIRtmnwwaMwS0/vz/4YutJMH0Q3KR0+i5SrFGG7lZ/1VXtepONUlHbORGGPb\nizzRVsZCyT/a5FgAnQF6sT5lhswxBbtdiZUqmri4jHNnVy6tvoWd2QUamX7jols9\n4Qp+FZgxxUxCuyIhLEjQtOXxfYr65ZZXkI5UnMKgzyCe93GZRkW8jvTpiFoiQUpu\n//usuyiUMzYEMOsvDXb6a3e/lwMg6JMa7axh9sSKeSNotML9dmCnCYmB7KH2cP89\nk/LAEbBUvcSj0MQGOficD379Q4d+RRjUc8DsDa8D7nx8TOjU6u2z2C25tn7EPmYL\nm9mISnQVTgxZ6Sdo2ZKHPkWoJ5EDlnQpl7FVYg+dp72VVju5L6GSYrHGYBb69FfY\nt2PYYF9iMfqUQNmYxL531KIKmKNKvISCs2pwfXTu6GwtA+OQT7/j/myieefgFhXV\nlMPv1Izna5sfL2ieydYYI5k/6p8lwMMu8zWYd92h6OcwWrHWYiZm1MUigv/NI5eP\nGPRJgh2y5CKbcAm/vQ7mAsQzorqLmenpWK1RyY5OUks=\n"
+}

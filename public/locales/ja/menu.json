@@ -1,0 +1,15 @@
+{
+  "Main Menu": "メインメニュー",
+  "changes": "コミット",
+  "reviews": "レビュー",
+  "files": "ファイル",
+  "jobs": "ジョブ",
+  "projects": "プロジェクト",
+  "groups": "グループ",
+  "workflows": "ワークフロー",
+  "tests": "テスト",
+  "testdefinitions": "テスト定義",
+  "settings": "設定",
+  "activity": "アクティビティ",
+  "overview": "概要",
+}

@@ -1,0 +1,24 @@
+<?php // metadata table cell partial
+$isUncutMeta   = $this->isUncutMeta;
+$metaRow       = $this->metaRow;
+$tdClassSuffix = $this->side === 'left' ? 'left' : 'right';
+$idPrefix      = $this->side === 'left' ? '' : 'rhs-';
+?>
+<td class="context line-num-<?php echo $tdClassSuffix;?>" colspan="2" data-num="">
+    <div class="context-controls">
+        <?php if ($isUncutMeta) : ?>
+            <div id="<?php echo $idPrefix;?>meta<?php echo $metaRow ?>-btn-top" class="context-icon-container top" title="<?php echo $this->te('Show All Lines to Start of File')?>"><i class="swarm-icon icon-top-context"></i></div>
+            <div id="<?php echo $idPrefix;?>meta<?php echo $metaRow ?>-btn-below" class="context-icon-container below" title="<?php echo $this->te('Show More Lines for the Code Above')?>"><i class="swarm-icon icon-below-context"></i></div>
+            <div id="<?php echo $idPrefix;?>meta<?php echo $metaRow ?>-btn-section" class="context-icon-container section" title="<?php echo $this->te('Show Entire Section')?>"><i class="swarm-icon icon-section-context"></i></div>
+            <div id="<?php echo $idPrefix;?>meta<?php echo $metaRow ?>-btn-bottom" class="context-icon-container bottom" title="<?php echo $this->te('Show All Lines to End of File')?>"><i class="swarm-icon icon-bottom-context"></i></div>
+            <div id="<?php echo $idPrefix;?>meta<?php echo $metaRow ?>-btn-above" class="context-icon-container above" title="<?php echo $this->te('Show More Lines for the Code Below')?>"><i class="swarm-icon icon-above-context"></i></div>
+        <?php endif; ?>
+    </div>
+    <div class="meta-container">
+        <?php if ($isUncutMeta) {
+            // note: it's important no extra whitespace gets into this td because it is pre-formatted
+            echo '<span class="meta-value">' . $this->escapeHtml($this->metaDataLineValue) . '</span>';
+        }
+        ?>
+    </div>
+</td>

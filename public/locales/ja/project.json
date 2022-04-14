@@ -1,0 +1,12 @@
+{
+  "project": "プロジェクト",
+  "projects": "プロジェクト",
+  "myProjects": "マイプロジェクト",
+  "allProjects": "すべてのプロジェクト",
+  "projectFilterTooltip": "プロジェクトによりフィルタリング",
+  "aToz": "A-Z",
+  "branch": "ブランチ",
+  "branches": "ブランチ",
+  "allBranches": "すべてのブランチ",
+  "branchFilterTooltip": "ブランチによりフィルタリング"
+}

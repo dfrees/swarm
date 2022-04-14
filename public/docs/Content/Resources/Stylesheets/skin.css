@@ -1,0 +1,44 @@
+﻿@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Regular.ttf);
+}
+
+div#header-title
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #B7B7B7;
+	display: inline-block;
+	position: relative;
+	left: 210px;
+	top: 20px;
+}
+
+div#responsive-header-title
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #B7B7B7;
+	display: inline-block;
+	position: relative;
+	left: 40px;
+	top: 14px;
+}
+
+#responsiveHeader .logo
+{
+	display: inline-block;
+	margin: 0;
+	position: relative;
+	left: 70px;
+	top: 3px;
+}
+
+@media screen and (max-width: 674px)
+{
+	div#responsive-header-title
+	{
+		display: none;
+	}
+}

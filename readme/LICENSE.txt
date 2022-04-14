@@ -1,0 +1,197 @@
+Copyright (c) 2013-2021, Perforce Software, Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+     
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+     
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+     
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+   "AS IS," AND EACH HEREBY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED,
+   RELATING TO THE SOFTWARE, INCLUDING, BUT NOT LIMITED TO, ANY WARRANTY 
+   OF NONINFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE.
+   IN NO EVENT SHALL PERFORCE SOFTWARE, INC. BE LIABLE FOR ANY DIRECT, 
+   INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGE, 
+   INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+   SERVICES, LOSS OR CORRUPTION OF DATA, LOSS OF PROFITS, OR BUSINESS 
+   INTERRUPTION, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, 
+   WHETHER IN CONTRACT, STRICT LIABILITY, ARISING IN ANY WAY OUT OF
+   THE USE OF, OR DEALINGS WITH, THIS SOFTWARE,.
+
+This distribution includes the following Perforce Software, Inc software; 
+please consult the following for the license terms that apply to these 
+pieces of software only:
+
+    * P4PHP, the Perforce extension for PHP
+      Location p4-bin/bin.<platform>
+      License: https://github.com/perforce/p4php/blob/master/LICENSE.txt
+
+
+This distribution also includes the following third party software; please
+consult the accompanying license file for the license terms that apply to
+that software only:
+
+    * Ace Code Editor
+      Location:     public/vendor/ace/
+      Location:     public/vendor/ace/ace.js
+
+    * Arimo Font
+      Location:     public/vendor/arimo
+      License:      public/vendor/arimo/OFL.txt
+
+    * Bootstrap
+      Location:     public/vendor/bootstrap
+      License:      public/vendor/bootstrap/LICENSE
+
+    * Cousine Font
+      Location:     public/vendor/cousine
+      License:      public/vendor/cousine/OFL.txt
+
+    * Git Logo
+      Location:     public/vendor/git
+      License:      public/vendor/git/CC-LICENSE.txt
+
+    * Google Diff-Match-Patch
+      Location:     public/vendor/diff_match_patch
+      License:      public/vendor/diff_match_patch/COPYING
+
+    * Google Code Prettify
+      Location:     public/vendor/prettify
+      License:      public/vendor/prettify/COPYING
+
+    * Jed:
+      Location:     public/vendor/jed
+      License file: public/vendor/jed/copying.txt
+
+    * jQuery:
+      Location:     public/vendor/jquery
+      License file: public/vendor/jquery/MIT-LICENSE.txt
+
+    * jQuery Expander:
+      Location:     public/vendor/jquery.expander
+      License file: public/vendor/jquery.expander/license.txt
+
+    * jQuery Sortable:
+      Location:     public/vendor/jquery-sortable
+      License file: public/vendor/jquery-sortable/LICENSE.txt
+
+    * jQuery Timeago:
+      Location:     public/vendor/jquery.timeago
+      License file: public/vendor/jquery.timeago/MIT-LICENSE.txt
+
+    * JsRender:
+      Location:     public/vendor/jsrender
+      License file: public/vendor/jsrender/MIT-LICENSE.txt
+      
+    * Parsedown:
+      Location:     library/Parsedown
+      License file: library/Parsedown/LICENSE.txt
+	  
+    * ThreeJS:
+      Location:     public/vendor/threejs
+      License file: public/vendor/threejs/LICENSE
+
+Licenses for NPM Modules
+
+The NPM modules distributed as part of this software have their own licenses.
+These are included in the 'react' directory.
+
+Licenses for composer based components
+
+Components installed with 'composer' distributed as part of this software have
+their own licenses. These are included in the 'composer/license.md' file.
+
+
+License for Redis
+
+Helix Swarm uses the Redis database system for caching data locally. This is
+distributed as part of the installation, but is otherwise unmodified. the
+license of this is as follows:
+
+
+Redis license and trademark information
+
+Redis is open source software released under the terms of the three clause 
+BSD license. 
+Most of the Redis source code was written and is copyrighted by Salvatore 
+Sanfilippo and Pieter Noordhuis. A list of other contributors can be found 
+in the git history.
+
+The Redis trademark and logo are owned by Redis Labs and can be used in 
+accordance with the Redis Trademark Guidelines.
+
+Three clause BSD license
+Every file in the Redis distribution, with the exceptions of third party files
+specified in the list below, contain the following license:
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this 
+list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this
+list of conditions and the following disclaimer in the documentation and/or 
+other materials provided with the distribution.
+
+Neither the name of Redis nor the names of its contributors may be used to 
+endorse or promote products derived from this software without specific prior 
+written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Third party files and licenses
+Redis uses source code from third parties. All this code contains a BSD or
+BSD-compatible license. The following is a list of third party files and
+information about their copyright.
+
+Redis uses the LHF compression library. LibLZF is copyright Marc Alexander
+Lehmann and is released under the terms of the two clause BSD license.
+
+Redis uses the sha1.c file that is copyright by Steve Reid and released under
+the public domain. This file is extremely popular and used among open source
+and proprietary code.
+
+When compiled on Linux Redis uses the Jemalloc allocator, that is copyright by
+Jason Evans, Mozilla Foundation and Facebook, Inc and is released under the
+two clause BSD license.
+
+Inside Jemalloc the file pprof is copyright Google Inc and released under the
+three clause BSD license.
+
+Inside Jemalloc the files inttypes.h, stdbool.h, stdint.h, strings.h under the 
+msvc_compat directory are copyright Alexander Chemeris and released under the 
+three clause BSD license.
+
+The libraries hiredis and linenoise also included inside the Redis distribution
+are copyright Salvatore Sanfilippo and Pieter Noordhuis and released under the
+terms respectively of the three clause BSD license and two clause BSD license.
+
+
+License for PHP Modules
+
+In our RPM packages for CentOS and RHEL, we may include thirdparty PHP modules,
+licenses for which are included alongside the libraries in the directory
+p4-bin/bin.linux26x86_64/php7x
+
+The following packages may be included depending on OS version:
+
+  * igbinary
+  * msgpack
+  * redis
+  * imagick
+

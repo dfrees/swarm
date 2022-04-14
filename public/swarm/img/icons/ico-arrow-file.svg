@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>My Dashboard-alt-01</title>
+    <desc>Created with Sketch.</desc>
+    <g id="My-Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-Dashboard-alt-01" transform="translate(-1042.000000, -208.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="1336" height="860"></rect>
+            <polygon id="Rectangle" fill="#000000" points="1051 210.891113 1057 223 1045 223"></polygon>
+            <g id="row-1" transform="translate(310.000000, 213.000000)"></g>
+            <path d="M1046,212 L1049,212 L1046,210 L1046,212 Z M1043.88024,209 L1047.38024,209 L1050,211.704327 L1050,217.112981 C1050,217.358174 1049.91268,217.567307 1049.73802,217.740385 C1049.56337,217.913462 1049.35729,218 1049.11976,218 L1043.88024,218 C1043.64271,218 1043.43663,217.913462 1043.26198,217.740385 C1043.08732,217.567307 1043,217.358174 1043,217.112981 L1043.02096,209.887019 C1043.02096,209.641826 1043.10479,209.432693 1043.27246,209.259615 C1043.44012,209.086538 1043.64271,209 1043.88024,209 Z" id="insert_drive_file---material" fill="#7C7C7C" opacity="0.799999952"></path>
+        </g>
+    </g>
+</svg>

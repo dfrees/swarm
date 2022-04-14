@@ -1,0 +1,10 @@
+<?php
+$this->headTitle()->set($group->getConfig()->getName())->append($this->te('Reviews'));
+?>
+<div class="row-fluid">
+    <?php echo $this->groupSidebar($group) ?>
+    <div class="span9 profile-body group-profile">
+        <?php echo $this->groupToolbar($group) ?>
+        <?php echo $this->reviews() ?>
+    </div>
+</div>

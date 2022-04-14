@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Moving your Swarm instance</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Moving_your_Swarm_instance" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Moving your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance</h1>
+                                            <p>This section describes how to move your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance to another server. This can be useful if you want to move <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to a different server to improve performance or if you want to run <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> on a newer operating system. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> data is held on the <span class="mc-variable Perforce.Helix_long variable">Helix Core server</span> and not in <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> so there is no need to migrate any data to your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance. </p>
+                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                <p>If you are installing a newer version of <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> than your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance, you might need to configure options if they are not already present in you original version of <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </p>
+                                                <p>For example, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> workflow, updated trigger scripts, the introduction of <span class="mc-variable Perforce.Extensions variable">Extensions</span>, the introduction of a Redis cache, and changes to custom modules. For information on important changes to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, see the <a href="whatsnew.html#whats-new_important-information" class="MCXref xref">Important information</a> section of the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <a href="whatsnew.html" class="MCXref xref">What’s new</a> page.</p>
+                                            </div>
+                                            <h2 data-mc-autonum=""><a name="Summary_..593" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Summary</h2>
+                                            <p>Moving your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> installation to a new server results in downtime, but the following process minimizes it. The process for moving your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> installation to another server is summarized below:</p>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>Install <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> on a new server. </p>
+                                                </li>
+                                                <li value="2">
+                                                    <p>Copy your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="code_clearBackground">config.php</span> file and authentication token to your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance. </p>
+                                                </li>
+                                                <li value="3">
+                                                    <p><b>Only required if you are moving to a newer version of </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b>:</b> Configure your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance to receive event notifications from the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>.</p>
+                                                </li>
+                                                <li value="4">
+                                                    <p>Shutdown your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance and start your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance .</p>
+                                                </li>
+                                                <p>
+                                                    <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                        <p>Downtime occurs at this step.</p>
+                                                    </div>
+                                                </p>
+                                                <li value="5">
+                                                    <p>Validate that your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance  is working correctly.</p>
+                                                </li>
+                                            </ol>
+                                            <p>For step by step instructions for moving your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance, start by <a href="#Installi" class="MCXref xref">Installing Swarm on your new server</a>.</p>
+                                            <h2 data-mc-autonum=""><a name="Installing_Swarm_on_your_new_server" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="Installi"></a>Installing <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> on your new server</h2>
+                                            <p>Choose one of the following installation methods (we recommend the package installation method whenever possible):</p>
+                                            <ul>
+                                                <li>
+                                                    <p><a href="chapter-setup_package.html" class="MCXref xref">Install and configure Swarm from a package (recommended)</a>. Do not follow the <b>Post-installation configuration</b> steps. Copy your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="code_clearBackground">config.php</span> file to your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance, see <a href="#moving-swarm_copy-config" class="MCXref xref">Copying your existing Swarm configuration</a>. </p>
+                                                </li>
+                                                <li>
+                                                    <p><a href="setup.ova.html" class="MCXref xref">Deploy and configure a Swarm VM&#160;from an OVA</a>. Set the <i>perforce</i> system user password, the VM&#160;hostname, and exit the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> VM configuration when prompted. Copy your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="code_clearBackground">config.php</span> file to your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance, see <a href="#moving-swarm_copy-config" class="MCXref xref">Copying your existing Swarm configuration</a>. </p>
+                                                </li>
+                                                <li>
+                                                    <p><a href="setup.installation.html" class="MCXref xref">Install and configure Swarm manually from a Tarball</a>, configure <a href="setup.redis.html" title="Redis configuration" alt="Redis configuration">Redis</a>, configure <a href="setup.redis.html" title="Apache configuration" alt="Apache configuration">Apache</a>, and configure <a href="setup_php.html" title="PHP configuration" alt="PHP configuration">PHP</a>. Copy your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="code_clearBackground">config.php</span> file to your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance, see <a href="#moving-swarm_copy-config" class="MCXref xref">Copying your existing Swarm configuration</a>. </p>
+                                                </li>
+                                            </ul>
+                                            <h2 data-mc-autonum=""><a name="Copying_your_existing_Swarm_configuration" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="moving-swarm_copy-config"></a>Copying your existing <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> configuration</h2>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>Copy your original <span class="code_clearBackground"><i><a href="admin.swarm_root.html">SWARM_ROOT</a></i>/data/config.php</span> file to your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance.</p>
+                                                </li>
+                                                <li value="2">
+                                                    <p>Create the queue token directory on your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance:</p>
+                                                    <p><![CDATA[
+  ]]><span class="code">mkdir SWARM_ROOT/data/queue</span></p>
+                                                </li>
+                                                <li value="3">
+                                                    <p>Copy your original trigger token(s) from the <span class="code_clearBackground"><i><a href="admin.swarm_root.html">SWARM_ROOT</a></i>/data/queue/tokens</span> to your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance.</p>
+                                                </li>
+                                                <li value="4">
+                                                    <p>Assign correct ownership to the new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance data directory:</p><pre class="programlisting">sudo chown -R www-data SWARM_ROOT/data</pre>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p>The <span class="code_clearBackground">www-data</span> user above is an example of what the web server user name might be, and can vary based on distribution or customization. For example, the user is typically <span class="code_clearBackground">apache</span> for Red Hat/CentOS and  <span class="code_clearBackground">www-data</span> for Debian/Ubuntu.</p>
+                                                    </div>
+                                                </li>
+                                                <li value="5">
+                                                    <p>Do one of the following:</p>
+                                                    <ul>
+                                                        <li>
+                                                            <p><b>If moving to an instance with the same </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> version:</b> go to  <a href="#moving-swarm_replace-old-swarm-instance-with-new" class="MCXref xref">Replacing your original Swarm instance with your new  instance</a>. </p>
+                                                        </li>
+                                                        <li>
+                                                            <p><b>If moving to an instance with a newer version of </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b>:</b> go to <a href="#moving-swarm_event-notification" class="MCXref xref">Configuring Helix Core server event notification</a>.</p>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Configuring_Helix_Core_server_event_notification" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="moving-swarm_event-notification"></a>Configuring <span class="mc-variable Perforce.HVE_long variable">Helix Core server</span> event notification</h2>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <p>The steps in this section are only required if you are moving your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance to a newer version of <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. If the new and original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instances are the same <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> version, go to <a href="#moving-swarm_replace-old-swarm-instance-with-new" class="MCXref xref">Replacing your original Swarm instance with your new  instance</a>.</p>
+                                            </div>
+                                            <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> needs to know about a number of <span class="mc-variable Perforce.Helix_short variable">Helix server</span> events to operate correctly, this can be done by using <span class="mc-variable Perforce.Helix_long variable">Helix Core server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span> or <span class="mc-variable Perforce.Helix_long variable">Helix Core server</span> Triggers.</p>
+                                            <p>You must configure your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance to receive event notifications from the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> to complete the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> move. </p>
+                                            <p><b>Do one of the following so that </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> is notified about events on the </b><span style="font-weight: bold;" class="mc-variable Perforce.Helix_short variable">Helix server</span><b>:</b>
+                                            </p>
+                                            <ul>
+                                                <li>
+                                                    <p><b>If your old </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> instance is using </b><span style="font-weight: bold;" class="mc-variable Perforce.Helix_long variable">Helix Core server</span> <span style="font-weight: bold;" class="mc-variable Perforce.Extensions variable">Extensions</span><b>:</b> update the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> configuration, see <a href="#moving-swarm_updating-extension-config" class="MCXref xref">Updating your Swarm Helix server extension</a></p>
+                                                </li>
+                                                <li>
+                                                    <p><b>If your old <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance is using <span class="mc-variable Perforce.Helix_long variable">Helix Core server</span> Triggers:</b> update your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> Triggers, see <a href="#moving-swarm_updating-triggers" class="MCXref xref">Updating your triggers</a></p>
+                                                </li>
+                                            </ul>
+                                            <h3 data-mc-autonum=""><a name="Updating_your_Swarm_Helix_server_extension" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="moving-swarm_updating-extension-config"></a>Updating your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span></h3>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <p>You must be a user with <i>super</i> user permissions to configure <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span>. </p>
+                                            </div>
+                                            <p>If you are moving a <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance that is already using <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span>, there is no need to reinstall the <span class="mc-variable Perforce.extension variable">extension</span> because it is already installed on <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. </p>
+                                            <p><b>To update your </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> </b><span style="font-weight: bold;" class="mc-variable Perforce.Helix_short variable">Helix server</span><b><![CDATA[  ]]></b> <span style="font-weight: bold;" class="mc-variable Perforce.extension variable">extension</span><b>: </b></p>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>Open the <span class="mc-variable Perforce.extension variable">extension</span> configuration file with:</p>
+                                                </li>
+                                                <p>
+                                                    <p><span class="code">p4 extension --configure Perforce::helix-swarm</span>
+                                                    </p>
+                                                    <p>The spec file opens in your text editor</p>
+                                                </p>
+                                                <li value="2">
+                                                    <p>Edit the configuration for your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance as required. </p>
+                                                </li>
+                                                <li value="3">
+                                                    <p><span class="code_clearBackground">Swarm-URL</span>: do one of the following: </p>
+                                                    <ul style="list-style-type: square;">
+                                                        <li>
+                                                            <p><b>If the hostname of your </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> server has changed:</b> set the <span class="code_clearBackground">Swarm-URL</span> to the URL&#160;of your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> server instance. </p>
+                                                        </li>
+                                                        <li>
+                                                            <p><b>If the </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span> <b>server hostname has not changed:</b> you do not need to change the <span class="code_clearBackground">Swarm-URL</span> in the configuration file. </p>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li value="4">
+                                                    <p>Save the configuration changes. </p>
+                                                </li>
+                                                <li value="5">
+                                                    <p>Continue with the next task, see <a href="#moving-swarm_replace-old-swarm-instance-with-new" class="MCXref xref">Replacing your original Swarm instance with your new  instance</a>.</p>
+                                                </li>
+                                            </ol>
+                                            <h3 data-mc-autonum=""><a name="Updating_your_triggers" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="moving-swarm_updating-triggers"></a>Updating your triggers</h3>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <p>If you are using <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers, the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> must not be installed.</p>
+                                            </div>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>Copy the new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger script to your <span class="mc-variable Perforce.HVE_long variable">Helix Core server</span> machine. The trigger script is <code class="code_clearBackground">SWARM_ROOT/p4-bin/scripts/swarm-trigger.pl</code>, and requires installation of Perl 5.08+ (use the latest available) on the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> machine. If <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> is using SSL, then the triggers also require the <code class="code_clearBackground">IO::Socket::SSL</code> Perl module.</p>
+                                                    <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                        <p>Do not overwrite any existing trigger script at this time. Give the script a new name, for example: <code class="code_clearBackground">swarm-trigger-new.pl</code>.</p>
+                                                    </div>
+                                                </li>
+                                                <li value="2">
+                                                    <p>Configure the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger script by creating, in the same directory on the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> machine, <code class="code_clearBackground">swarm-trigger.conf</code>. It should contain:</p>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p>If you already have a <code class="code_clearBackground">swarm-trigger.conf</code> file, no additional configuration is required.</p>
+                                                    </div><pre class="programlisting" lang="ini" xml:space="preserve"># SWARM_HOST (required)
+# Hostname of your Swarm instance, with leading "http://" or "https://".
+SWARM_HOST="http://<i>my-swarm-host</i>"
+
+# SWARM_TOKEN (required)
+# The token used when talking to Swarm to offer some security. To obtain the
+# value, log in to Swarm as a super user and select 'About Swarm' to see the
+# token value.
+SWARM_TOKEN="<i>MY-UUID-STYLE-TOKEN</i>"
+
+# ADMIN_USER (optional) <b>Do not use if the Workflow feature is enabled (default)</b>
+# For enforcing reviewed changes, optionally specify the normal Perforce user
+# with admin privileges (to read keys); if not set, will use whatever Perforce
+# user is set in environment.
+ADMIN_USER=
+
+# ADMIN_TICKET_FILE (optional) <b>Do not use if the Workflow feature is enabled (default)</b>
+# For enforcing reviewed changes, optionally specify the location of the
+# p4tickets file if different from the default ($HOME/.p4tickets).
+# Ensure this user is a member of a group with an 'unlimited' or very long
+# timeout; then, manually login as this user from the Perforce server machine to
+# set the ticket.
+ADMIN_TICKET_FILE=				
+										
+# VERIFY_SSL (optional)
+# If HTTPS is being used on the Swarm web server, then this controls whether
+# the SSL certificate is validated or not. By default this is set to 1, which
+# means any SSL certificates must be valid. If the web server is using a self
+# signed certificate, then this must be set to 0.
+# set the ticket.
+VERIFY_SSL=1</pre>
+                                                    <p>Fill in the required <span class="code">SWARM_HOST</span> and <span class="code">SWARM_TOKEN</span> variables with the configuration from any previous <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger script, typically <code class="code_clearBackground">swarm-trigger.pl</code>. </p>
+                                                    <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                        <p>The <span class="code_clearBackground">ADMIN_USER</span> and <span class="code_clearBackground">ADMIN_TICKET</span> variables were used by the <![CDATA[  ]]><span class="code_clearBackground">'enforce triggers'</span> in <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.1 and earlier. They can be removed unless you are explicitly <a href="admin.workflow_configurables.html#admin_workflow_enable">disabling workflow</a> and using the deprecated <span class="code_clearBackground">'enforce triggers'</span>. </p>
+                                                    </div>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p><b><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2015.4 and earlier:</b> <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger script files were available as shell scripts in these earlier <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> versions, typically <code class="code_clearBackground">swarm-trigger.sh</code>. </p>
+                                                        <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> must now use a Perl trigger script file, typically <code class="code_clearBackground">swarm-trigger.pl</code>. </p>
+                                                    </div>
+                                                </li>
+                                                <li value="3">
+                                                    <p><b>On Linux:</b> ensure that the script is executable:</p>
+                                                    <p><span class="code">sudo chmod +x swarm-trigger-new.pl</span>
+                                                    </p>
+                                                </li>
+                                                <li value="4">
+                                                    <p>Rename the new trigger script:</p>
+                                                    <p><b>On Linux:</b>
+                                                    </p>
+                                                    <p><span class="code">mv swarm-trigger-new.pl swarm-trigger.pl</span>
+                                                    </p>
+                                                    <p><b>On Windows:</b>
+                                                    </p>
+                                                    <p><span class="code">ren swarm-trigger-new.pl swarm-trigger.pl</span>
+                                                    </p>
+                                                </li>
+                                                <li value="5">
+                                                    <p>Update the triggers in your <span class="mc-variable Perforce.HVE_short variable">Helix server</span>.</p>
+                                                    <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                        <ul>
+                                                            <li>
+                                                                <p>The <span class="code_clearBackground">swarm.shelvedel shelve-delete</span> trigger line was added to  <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> in version 2018.1 and updated in version 2020.1.</p>
+                                                                <ul>
+                                                                    <li><b>Upgrading from </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> 2017.4 and earlier:</b> add the <code class="code_clearBackground">swarm.shelvedel shelve-delete</code> trigger line to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if it is not already present, see <a href="setup.perforce.html#setup.perforce.update_server_trigger_table" title="Update  Helix server trigger table" alt="Update  Helix server trigger table" class="MCXref xref"> Update the Helix server triggers table to run the trigger script.</a> </li>
+                                                                    <li><b>Upgrading from </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> 2018.x and 2019.x:</b> replace the existing <code class="code_clearBackground">swarm.shelvedel shelve-delete</code> trigger line in the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table with the one supplied in the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> version you are upgrading to. </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <p><b>Workflow feature:</b> </p>
+                                                                <p>The <a href="workflow.overview.html" data-mc-conditions="Perforce.Swarm">Workflow feature</a> is enabled by default in <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.2 and later. The trigger lines required when workflow is enabled are different to those required when workflow is  disabled: </p>
+                                                                <ul>
+                                                                    <li><b>Workflow feature</b><a href="admin.workflow_configurables.html#admin_workflow_enable" style="font-weight: bold;"> enabled</a><b> (default): </b>
+                                                                        <ul>
+                                                                            <li>Comment out the <span class="code_clearBackground">swarm.enforce.1</span>, <span class="code_clearBackground">swarm.enforce.2</span>, <span class="code_clearBackground">swarm.strict.1</span>, and <span class="code_clearBackground">swarm.strict.2</span> trigger lines  in the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if they are present, see <a href="setup.perforce.html#setup.perforce.update_server_trigger_table" title="Update the Helix server trigger table" alt="Update the Helix server trigger table" class="MCXref xref"> Update the Helix server triggers table to run the trigger script.</a></li>
+                                                                            <li>Add the <code class="code_clearBackground">swarm.enforce change-submit</code>,  <code class="code_clearBackground">swarm.strict change-content</code>, and <code class="code_clearBackground">swarm.shelvesub shelve-submit</code>  trigger lines to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if they are not already present, see <a href="setup.perforce.html#setup.perforce.update_server_trigger_table" title="Update the Helix server trigger table" alt="Update the Helix server trigger table" class="MCXref xref"> Update the Helix server triggers table to run the trigger script.</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li><b>Workflow feature</b><a href="admin.workflow_configurables.html#admin_workflow_enable" style="font-weight: bold;"> disabled</a><b>:</b>
+                                                                        <p>Comment out the <code class="code_clearBackground">swarm.enforce change-submit</code>,  <code class="code_clearBackground">swarm.strict change-content</code>, and <code class="code_clearBackground">swarm.shelvesub shelve-submit</code> trigger lines  in the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if they are present, see <a href="setup.perforce.html#setup.perforce.update_server_trigger_table" title="Update the Helix server trigger table" alt="Update the Helix server trigger table" class="MCXref xref"> Update the Helix server triggers table to run the trigger script.</a></p>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <ol style="list-style-type: lower-alpha;">
+                                                        <li value="1">
+                                                            <p>Run the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger script to capture (using <b>Ctrl+C</b> on Windows and Linux, <b>Command+C</b> on Mac OSX) the trigger lines that should be included in the <span class="mc-variable Perforce.Company_short variable">Perforce</span> trigger table:</p>
+                                                            <p><b>On Linux:</b>
+                                                            </p>
+                                                            <p><span class="code">./swarm-trigger.pl -o</span>
+                                                            </p>
+                                                            <p><b>On Windows:</b>
+                                                            </p>
+                                                            <p><span class="code">path/to/perl swarm-trigger.pl -o</span>
+                                                            </p>
+                                                        </li>
+                                                        <li value="2">As a <span class="mc-variable Perforce.Company_short variable">Perforce</span> user with <i>super</i> privileges, update the <span class="mc-variable Perforce.Company_short variable">Perforce</span> trigger table by running <code class="code_clearBackground">p4 triggers</code> command and replacing any <code class="code_clearBackground">swarm.*</code> lines with the previously captured trigger line output (using <b>Ctrl+V</b> on Windows and Linux, <b>Command+V</b> on Mac OSX).</li>
+                                                    </ol>
+                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                        <p>If you previously customized the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger lines, perhaps to apply various <a href="admin.trigger.html" class="MCXref xref">Trigger options</a>, be sure to repeat those customizations within the updated trigger lines. </p>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                            <ol data-mc-continue="true">
+                                                <li value="6">
+                                                    <p>Continue with the next task, see <a href="#moving-swarm_replace-old-swarm-instance-with-new" class="MCXref xref">Replacing your original Swarm instance with your new  instance</a>.</p>
+                                                </li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Replacing_your_original_Swarm_instance_with_your_new__instance" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="moving-swarm_replace-old-swarm-instance-with-new"></a>Replacing your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance with your new  instance</h2>
+                                            <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                <p>Downtime occurs in this step.</p>
+                                            </div>
+                                            <p>Replace your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance with your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance. </p>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>Stop your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance:</p>
+                                                </li>
+                                                <p>
+                                                    <p><span class="code">sudo apache2ctl stop</span>
+                                                    </p>
+                                                </p>
+                                                <li value="2">
+                                                    <p>Start your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance:</p>
+                                                </li>
+                                                <p>
+                                                    <p><span class="code">sudo apache2ctl start</span>
+                                                    </p>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p>If you see the following error message when you start <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> is using the wrong version of <span class="mc-variable Perforce.P4PHP variable">P4PHP</span>. The latest version of <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> is included with <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </p>
+                                                        <p>If you are installing <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> from a tarball, you must configure <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to use that version of <span class="mc-variable Perforce.P4PHP variable">P4PHP</span>. For instructions about how to configure <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to use the new version of <span class="mc-variable Perforce.P4PHP variable">P4PHP</span>, see <a href="setup_php.html" title="PHP configuration" alt="PHP configuration" class="MCXref xref">PHP configuration</a>. </p>
+                                                        <p>
+                                                            <img src="../Resources/Images/swarm-error-p4php-version-incorrect_622x460.png" title="P4PHP version error message" alt="Image of the P4PHP version error message" style="width: 622;height: 460;" />
+                                                        </p>
+                                                    </div>
+                                                </p>
+                                                <li value="3">
+                                                    <p>Continue with the next task, see <a href="#moving-swarm_validating-new-swarm-instance" class="MCXref xref">Validating your new Swarm instance</a>.</p>
+                                                </li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Validating_your_new_Swarm_instance" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="moving-swarm_validating-new-swarm-instance"></a>Validating your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance</h2>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>When <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> starts it verifies the Redis cache, during this time you cannot log in to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. The time taken to verify the Redis cache depends on the number of users, groups, and projects <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> has. Start-up time can be improved by persisting the memory cache. You can persist the memory cache by disabling background saves and enabling append saves in the <span class="code_clearBackground">redis-server.conf</span> file, see  <a href="admin.redis.html#admin.redis.redis_config_file" class="MCXref xref">Redis server configuration file</a>.</p>
+                                            </div>
+                                            <p>Check that your upgraded <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance is working correctly by doing the following: </p>
+                                            <ol>
+                                                <li value="1">Create a new changelist that:<ol><li value="1">Contains at least one modified file</li><li value="2"> Contains the <span class="code">#review</span> <a href="admin.review_keyword.html#admin.review_keyword.create_review" title="Link to Review keyword page" alt="Link to Review keyword page">keyword</a> in the changelist description</li></ol></li>
+                                                <li value="2">Right click on the new changelist in <span class="mc-variable Perforce.P4V variable">P4V</span> and click <b>Shelve Files...</b></li>
+                                                <p>
+                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                        <p>Do not select <b>Request New <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> Review...</b> because this method uses the API and will not fully test the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span>. </p>
+                                                        <p>This is also true if you are using <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers instead of the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span>. </p>
+                                                    </div>
+                                                </p>
+                                                <li value="3">Check that a new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> review is created for the changelist. </li>
+                                                <ul>
+                                                    <li>If a <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> review is created, the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> is working. If you are using <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers instead of the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> and the review is created, the triggers are working. </li>
+                                                    <li>If a <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> review is not created, see  <a href="setup.validate_install.html#Review" class="MCXref xref">Review not created</a>. </li>
+                                                </ul>
+                                            </ol>
+                                            <ol data-mc-continue="true">
+                                                <li value="4">
+                                                    <p>Do one of the following:</p>
+                                                    <ul>
+                                                        <li>
+                                                            <p><b>If your new </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> instance is working correctly:</b> Retire your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance. </p>
+                                                        </li>
+                                                        <li>
+                                                            <p><b>If your new </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> instance is not working correctly:</b> Shutdown the new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance, remove any updates you made to the triggers or <span class="mc-variable Perforce.extension variable">extension</span>s on the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>, and switch back to your original <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance. Check the configuration and connectivity of your new <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance. If you can't find the issue, you can submit a <a href="https://www.perforce.com/support/request-support" target="_blank" title="Link to Support Request form on the Perforce Support portal" alt="Link to Support Request form on the Perforce Support portal">Support Request</a>. </p>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

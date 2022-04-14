@@ -1,0 +1,12 @@
+<?php
+use P4\Spec\Job;
+$job         = Job::fetchById($activity->get('target'));
+$jobspec     = $job->getSpecDefinition()->getFields();
+foreach ($job->toArray() as $key => $field) {
+    if ($jobspec[$key]['dataType'] === 'text' && !empty($field)) {
+        echo $key . ":\n\t" .preg_replace("/\n/", "\n \t", $field). "\n";
+    } else {
+        echo $key . ":\t\t" . $field . "\n";
+    }
+}
+?>

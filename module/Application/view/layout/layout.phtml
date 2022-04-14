@@ -1,0 +1,182 @@
+<?php echo $this->doctype();
+
+use Application\Config\ConfigManager;
+use Users\Settings\ReviewPreferences;
+use Users\Settings\TimePreferences;
+
+?>
+
+<html lang="en">
+    <head>
+        <?php
+        $services       = $this->getHelperPluginManager()->get('serviceContainer')->getServices();
+        $translator     = $services->get('translator');
+        $locale         = $translator->getLocale();
+        $fallbackLocale = $translator->getFallbackLocale();
+
+        // meta tags
+        echo $this->headMeta()
+                  ->appendHttpEquiv('content-type', 'text/html; charset=utf-8')
+                  ->appendHttpEquiv('X-UA-Compatible', 'IE=Edge')
+                  ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                  ->setAutoEscape(false);
+
+        // output title
+        $this->headTitle()
+             ->setSeparator(' - ')
+             ->prepend('Swarm');
+        echo $this->headTitle();
+
+        // we extend the head link and head script helpers to add in our default css/scripts automatically
+        // we will also include anything under public/custom/*.(js|css) or public/custom/*/*.(js|css)
+
+        // link tags (icons, stylesheets)
+        $this->swarmHeadLink(['rel' => 'shortcut icon', 'href' => $this->assetBasePath() . '/favicon.ico?v3']);
+        echo $this->swarmHeadLink();
+
+        // javascript
+        $initTranslator = 'swarm.translator.init(' . json_encode($locale) . ', ' . json_encode($fallbackLocale) . ');';
+        echo $this->swarmHeadScript()
+                  ->addConfiguredScripts()
+                  ->addLanguageScripts($locale, $fallbackLocale)
+                  ->addCustomScripts()
+                  ->appendScript($initTranslator);
+        ?>
+    </head>
+    <?php
+    // compose classes for the body tag.
+    //  - we include the name of the route that was matched to render this page.
+    //    this is useful when targeting specific pages with JS or CSS
+    //  - we tag the body as 'authenticated' or 'anonymous' based on whether or
+    //    not the user is logged in. this allows us to show/hide elements easily
+    $user        = $this->user();
+    $permissions = $this->permissions();
+    $services    = $this->getHelperPluginManager()->get('serviceContainer')->getServices();
+    $route       = $services->get('application')->getMvcEvent()->getRouteMatch();
+    $childModel  = current($this->viewModel()->getCurrent()->getChildren());
+
+    // We need to get some config options to pass to the js to use.
+    $config                = $services->get(ConfigManager::CONFIG);
+    $expandGroupReviewers  = ConfigManager::getValue($config, ConfigManager::REVIEWS_EXPAND_GROUP_REVIEWERS);
+    $requireLogin          = ConfigManager::getValue($config, ConfigManager::SECURITY_REQUIRE_LOGIN);
+    $jsDebug               = ConfigManager::getValue($config,ConfigManager::LOG_JS_DEBUG);
+
+    $disableApproveWhenTasksOpen = ConfigManager::getValue(
+        $config,
+        ConfigManager::REVIEWS_DISABLE_APPROVE_WHEN_TASKS_OPEN
+    );
+    $allowAuthorObliterate = ConfigManager::getValue($config, ConfigManager::REVIEWS_ALLOW_AUTHOR_OBLITERATE);
+    $workflowEnabled       = ConfigManager::getValue($config, ConfigManager::WORKFLOW_ENABLED);
+    $reviewsCleanup        = ConfigManager::getValue($config, ConfigManager::REVIEWS_CLEANUP, []);
+    $defaultReviewUi       = ConfigManager::getValue($config, ConfigManager::REVIEWS_DEFAULT_UI);
+    $userReviewUi          = $_COOKIE[ConfigManager::REVIEW_UI]??$defaultReviewUi;
+    $reactReviewsEnabled   = ConfigManager::getValue($config, ConfigManager::REVIEWS_REACT_ENABLED);
+    $reviewsStatistics     = ConfigManager::getValue($config, ConfigManager::REVIEWS_STATISTICS_COMPLEXITY, []);
+
+    // Apply defaults for any not specified
+    $reviewsCleanup += [
+        ConfigManager::MODE         => ConfigManager::USER,
+        ConfigManager::DEFAULT      => false,
+        ConfigManager::REOPEN_FILES => false
+    ];
+    // detect locale.
+    $detectLocale = ConfigManager::getValue($config, ConfigManager::TRANSLATOR_DETECT_LOCALE);
+    // populate the config options we want to put into the page for js to fetch later.
+    $publicConfig = json_encode(
+        [
+            ConfigManager::REVIEWS_EXPAND_GROUP_REVIEWERS          => ($expandGroupReviewers === false
+                ? 'false'
+                : 'true'),
+            ConfigManager::REVIEWS_DISABLE_APPROVE_WHEN_TASKS_OPEN => ($disableApproveWhenTasksOpen === false
+                ? 'false'
+                : 'true'),
+            ConfigManager::REVIEWS_MORE_CONTEXT_LINES              =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_MORE_CONTEXT_LINES),
+            ConfigManager::REVIEWS_MAX_BOTTOM_CONTEXT_LINES        =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_MAX_BOTTOM_CONTEXT_LINES),
+            ConfigManager::REVIEWS_ALLOW_AUTHOR_OBLITERATE         =>
+                ($allowAuthorObliterate === false ? 'false' : 'true'),
+            ConfigManager::WORKFLOW_ENABLED         =>
+                ($workflowEnabled === true ? 'true' : 'false'),
+            ConfigManager::USER_DISPLAY_FULLNAME         =>
+                (ConfigManager::getValue($config, ConfigManager::USER_DISPLAY_FULLNAME) === true ? 'true' : 'false'),
+            ConfigManager::LOG_JS_DEBUG => $jsDebug,
+            ConfigManager::REVIEWS_MAX_SECONDARY_NAV_ITEMS =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_MAX_SECONDARY_NAV_ITEMS),
+            ConfigManager::REVIEWS_CLEANUP => $reviewsCleanup,
+            ConfigManager::REVIEWS_STATISTICS_COMPLEXITY => $reviewsStatistics,
+            ConfigManager::REVIEWS_FILTERS_FETCH_MAX =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_FILTERS_FETCH_MAX, 50),
+            ConfigManager::REVIEWS_FILTERS_FILTER_MAX =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_FILTERS_FILTER_MAX, 50),
+            ConfigManager::REVIEWS_FILTERS_RESULT_SORTING =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_FILTERS_RESULT_SORTING, true),
+            ConfigManager::REVIEWS_FILTERS_DATE_FIELD =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_FILTERS_DATE_FIELD, 'created'),
+            "users.maximum_dashboard_display" => 50,
+            ConfigManager::DASHBOARD_REFRESH_INTERVAL =>
+                ConfigManager::getValue($config, ConfigManager::DASHBOARD_REFRESH_INTERVAL, 300000),
+            ConfigManager::SECURITY_REQUIRE_LOGIN => $requireLogin,
+            ConfigManager::COMMENT_THREADING_MAX_DEPTH => ConfigManager::getValue(
+                    $config, ConfigManager::COMMENT_THREADING_MAX_DEPTH, 4
+            ),
+            ConfigManager::LINKIFY_MARKDOWN_PATTERNS => ConfigManager::getValue(
+                $config, ConfigManager::LINKIFY_MARKDOWN_PATTERNS, []
+            ),
+            ConfigManager::REVIEWS_ALLOW_AUTHOR_CHANGE =>
+                ConfigManager::getValue($config, ConfigManager::REVIEWS_ALLOW_AUTHOR_CHANGE, false),
+            ConfigManager::REVIEWS_DEFAULT_UI => ConfigManager::getValue($config, ConfigManager::REVIEWS_DEFAULT_UI),
+            ConfigManager::MENTIONS_MODE => ConfigManager::getValue($config, ConfigManager::MENTIONS_MODE),
+        ]
+    );
+
+    $route       && $this->bodyClass()->append('route-' . $route->getMatchedRouteName());
+    $childModel  && $this->bodyClass()->append('template-' . basename($childModel->getTemplate()));
+    $user        && $this->bodyClass()->append($user->getId() ? 'authenticated' : 'anonymous');
+    $permissions && $this->bodyClass()->append($permissions->is('admin') ? 'admin' : 'non-admin');
+    $permissions && $this->bodyClass()->append($workflowEnabled ? 'workflow' : 'no-workflow');
+    $permissions && $this->bodyClass()->append($permissions->is('super') ? 'super' : 'non-super');
+    $permissions && $this->bodyClass()->append($permissions->is('projectAddAllowed') ? 'can-add-project' : 'cannot-add-project');
+    $locale      && $this->bodyClass()->append('locale-' . $locale);
+
+    // Check if the user authmethod is 2fa and set the mfa to the body.
+    if ($user->hasField('AuthMethod') && $user->get('AuthMethod') === "perforce+2fa"){
+        $this->bodyClass()->append('mfa');
+    }
+    $diffPreferences = ReviewPreferences::getReviewPreferences($config, $user);
+    $timePreferences = TimePreferences::getTimePreferences($config, $user);
+
+    // embed user info in data attr on body tag
+    $userData  = $user->getId() ? [
+        'id'     => $user->getId(),
+        'name'   => $user->getFullName(),
+        'email'  => $user->getEmail(),
+        'avatar' => $this->avatar($user, 64),
+        'groups' => $user->getGroups(),
+    ] : null;
+    ?>
+
+    <body class="<?php echo $this->bodyClass() ?>"
+          data-user="<?php echo $this->escapeHtmlAttr(json_encode($userData)) ?>"
+          data-csrf="<?php echo $this->csrf() ?>"
+          data-detect-locale="<?php echo $this->escapeHtmlAttr(($detectLocale === true ? 'true' : 'false')) ?>"
+          data-locale="<?php echo $this->escapeHtmlAttr($locale) ?>"
+          data-fallback-locale="<?php echo $this->escapeHtmlAttr($fallbackLocale) ?>"
+          data-base-url="<?php echo $this->escapeHtmlAttr($services->get('application')->getRequest()->getBaseUrl()) ?>"
+          data-asset-base-url="<?php echo $this->escapeHtmlAttr($this->assetBasePath()) ?>"
+          data-config="<?php echo $this->escapeHtmlAttr($publicConfig) ?>"
+          data-review-ui="<?php echo $this->escapeHtmlAttr($userReviewUi) ?>"
+          data-diff-preferences="<?php echo $this->escapeHtmlAttr(json_encode($diffPreferences)) ?>"
+          data-time-preferences="<?php echo $this->escapeHtmlAttr(json_encode($timePreferences)) ?>"
+          data-server-id=<?php echo json_encode(P4_SERVER_ID) ?>>
+        <div id="swarm-body-container" class="container-fluid sidebar-open">
+            <div id="react-swarm-app-container"></div>
+            <script type="text/javascript">window.forceLogin = <?php echo (($requireLogin && $userData === null) || ($route && $route->getMatchedRouteName() === 'login')) ? 'true' : 'false' ?>;</script>
+            <script type="text/javascript" onerror="$('#react-swarm-app-container').text('<?php echo $this->t('Swarm failed to load all assets, please do a hard refresh of the page (example Ctrl+F5).')?>');" src="<?php echo $this->escapeHtmlAttr($this->assetBasePath()) ?>/swarm/js/react/swarmApp.bundle.js">window.forcedLogin = <?php echo (($requireLogin && $userData === null) || ($route && $route->getMatchedRouteName() === 'login')) ? 'true' : 'false' ?>;</script>
+            <div id="php-swarm-app"><?php echo $content; ?></div>
+        </div>
+        <div id="modal-overlay">
+            <div class="suspense spinner"></div>
+        </div>
+    </body>
+</html>

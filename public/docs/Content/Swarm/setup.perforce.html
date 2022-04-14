@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Installing Triggers</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Installing_Triggers" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Installing Triggers</h1>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <ul>
+                                                    <li>
+                                                        <p>If you are using <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers, the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> must not be installed.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> does not support <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s configured to use <span class="code_clearBackground">P4AUTH</span>, see <a href="https://www.perforce.com/manuals/p4sag/Content/P4SAG/centralized-authorization-server.html" target="_blank" title="Link to Centralized authentication server (P4AUTH) in the Helix Core Server Administrator Guide" alt="Link to Centralized authentication server (P4AUTH) in the Helix Core Server Administrator Guide">Centralized authentication server (P4AUTH)</a> in the <a href="http://www.perforce.com/perforce/doc.current/manuals/p4sag/index.html" target="_blank"><i><span class="mc-variable Perforce.gd-p4sag variable">Helix Core Server Administrator Guide</span></i></a>.</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                <ul>
+                                                    <li><span style="font-style: italic;" class="mc-variable Perforce.HVE_long variable">Helix Core server</span> can refer to a <span class="mc-variable Perforce.HVE_short variable">Helix server</span> 
+			machine (<span class="mc-variable Perforce.P4D variable">P4D</span>), proxy, broker, replica, edge server, or commit server. 
+				For simplicity, the term <span style="font-style: italic;" class="mc-variable Perforce.HVE_short variable">Helix server</span> 
+				is used to refer to any configuration of a <span class="mc-variable Perforce.HVE_long variable">Helix Core server</span> machine. </li>
+                                                    <li><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> can be connected to  <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s (<span class="mc-variable Perforce.P4D variable">P4D</span>) and commit servers. </li>
+                                                    <p>To configure <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to connect to more than one <span class="mc-variable Perforce.Helix_short variable">Helix server</span> (<span class="mc-variable Perforce.P4D variable">P4D</span>), see <a href="admin_multiple_p4d_config.html" class="MCXref xref">Multiple-Helix server instances</a>. </p>
+                                                    <p>To configure <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to connect to a <span class="mc-variable Perforce.Helix_short variable">Helix server</span> configured to use <i>commit-edge architecture</i>, see <a href="admin.commit_edge.html" class="MCXref xref">Commit-edge deployment</a>. </p>
+                                                    <li><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> must not be connected to <span class="mc-variable Perforce.Helix variable">Helix</span> Broker, <span class="mc-variable Perforce.Helix variable">Helix</span> Proxy, <span class="mc-variable Perforce.Helix variable">Helix</span> Edge, forwarding replica, or read-only replica servers. </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>Triggers are still supported, but we recommend you use <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span>. <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span> are easier to install and maintain than Triggers.  For instructions on installing <span class="mc-variable Perforce.Extensions variable">Extensions</span>, see <a href="setup-extensions.html" class="MCXref xref">Installing the Swarm Helix server extension (recommended)</a>.</p>
+                                            </div>
+                                            <p>Now that you have a configured instance of <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, the last piece is to configure your <span class="mc-variable Perforce.HVE_short variable">Helix server</span> to tell <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> about interesting events. This can be accomplished through the use of triggers. </p>
+                                            <p>For more information about <span class="mc-variable Perforce.Helix_short variable">Helix server</span> triggers, see <a href="https://www.perforce.com/manuals/p4sag/Content/P4SAG/chapter.scripting.triggers.html" target="_blank" title="Link to Triggers in Helix Core Server Administrator Guide" alt="Link to Triggers in Helix Core Server Administrator Guide">Triggers</a> in <a href="http://www.perforce.com/perforce/doc.current/manuals/p4sag/index.html" target="_blank"><i><span class="mc-variable Perforce.gd-p4sag variable">Helix Core Server Administrator Guide</span></i></a>.</p>
+                                            <h2 data-mc-autonum=""><a name="Using_triggers_to_push_events_to_Swarm" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="setup.perforce.triggers"></a>Using triggers to push events to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span></h2>
+                                            <p><span class="mc-variable Perforce.HVE_short variable">Helix server</span> provides a facility called <i>triggers</i> to customize the operation of the server, or to invoke additional processing for specific kinds of versioning operations. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> provides a trigger script written in Perl that notifies <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> about activity within the <span class="mc-variable Perforce.HVE_short variable">Helix server</span>. </p>
+                                            <p>See <a href="admin.trigger.html" title="Trigger Options" alt="Trigger Options" class="MCXref xref">Trigger options</a> for more information on configuring the Perl trigger.</p>
+                                            <h3 data-mc-autonum=""><a name="Set_up_Swarm_triggers_with_a_Windows_or_Linux-hosted_Helix_server" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="setup.perforce.set_troggers_with_windows_linux"></a>Set up <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> triggers with a Windows or Linux-hosted <span class="mc-variable Perforce.HVE_short variable">Helix server</span></h3>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>Many of the steps in this procedure are common to both Windows and Linux-hosted <span class="mc-variable Perforce.HVE_short variable">Helix server</span>s. When there is a difference between the Windows and Linux operating systems, this is indicated in the procedure.  </p>
+                                            </div>
+                                            <ol>
+                                                <li value="1">Ensure that the required <a href="setup.dependencies.html#setup.dependencies.triggers" title="Trigger Dependencies" alt="Trigger Dependencies" class="MCXref xref">Trigger  dependencies</a> have been installed on the machine hosting the <span class="mc-variable Perforce.HVE_short variable">Helix server</span>.</li>
+                                                <li value="2">Copy the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span></li>
+                                                <ul style="list-style-type: square;">
+                                                    <li>If  your <span class="mc-variable Perforce.HVE_short variable">Helix server</span> is version 2014.1 (or later), we recommend submitting the trigger script,<code class="code_clearBackground"> p4-bin/scripts/swarm-trigger.pl</code>, to <span class="mc-variable Perforce.Helix_short variable">Helix server</span> and running it from the depot. The recommended depot location is  <code class="code_clearBackground">//.swarm/triggers/swarm-trigger.pl</code>, especially if you have already setup <a href="admin.comment_attachments.html" title="Comment Attachments" alt="Comment Attachments" class="MCXref xref">Comment attachments</a>.</li>
+                                                    <li>If your <span class="mc-variable Perforce.HVE_short variable">Helix server</span> is older than version 2014.1, or you prefer that the trigger file exist in the filesystem, you must copy the <code class="code_clearBackground">p4-bin/scripts/swarm-trigger.pl</code> script to the server hosting <span class="mc-variable Perforce.HVE_short variable">Helix server</span>. If your <span class="mc-variable Perforce.HVE_short variable">Helix server</span> deployment uses the commit-edge architecture, the script must also be copied to all edge servers, and it must exist in the same path on all servers. </li>
+                                                </ul>
+                                                <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                    <p>If you are using the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> OVA, the full path to the trigger script within the OVA's filesystem is: <code class="code_clearBackground">/opt/perforce/swarm/p4-bin/scripts/swarm-trigger.pl</code>. </p>
+                                                </div>
+                                                <li value="3">
+                                                    <p><a name="setup-perforce_trigger-token"></a>Trigger requests to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> without a valid API token are ignored. Obtain your API&#160;token:</p>
+                                                    <ol>
+                                                        <li value="1"><a href="basics.login_logout.html" title="Log in" alt="Log in" data-mc-conditions="Perforce.Swarm,SwarmWebOnly.SwarmUserWorkflow">Log in</a> to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> as a <i>super</i> user.</li>
+                                                        <li value="2">Click your <i>userid</i>, found at the right of the main toolbar.</li>
+                                                        <li value="3">
+                                                            <p>Select <b>About Swarm</b>.</p>
+                                                            <p>The <b>About Swarm</b> dialog is displayed and <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> generates an API token if it doesn't already exist.</p>
+                                                        </li>
+                                                        <li value="4">Make a note of the trigger token value displayed at the bottom of the dialog, you will need the trigger token when you configure <span class="mc-variable Perforce.HVE_short variable">Helix server</span> for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </li>
+                                                        <p>
+                                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                                <p>Click on the trigger token to select it and then copy it to your clipboard. You can paste it into the <code class="code_clearBackground">swarm-trigger.conf </code>file when you configure <span class="mc-variable Perforce.HVE_short variable">Helix server</span> for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </p>
+                                                            </div>
+                                                        </p>
+                                                    </ol>
+                                                </li>
+                                                <li value="4">
+                                                    <p>Configure the  trigger.</p>
+                                                </li>
+                                                <p>You need to use the API token established in the previous step.</p>
+                                                <p><code class="code_clearBackground">swarm-trigger.pl</code> can be configured directly, but the preferred approach is to create a configuration file called <code class="code_clearBackground">swarm-trigger.conf</code>. Using the configuration file greatly simplifies upgrades.</p>
+                                                <ul>
+                                                    <li>If you are using the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> triggers package described in <a href="chapter-setup_package.html" title="Swarm Packages" alt="Swarm Packages" class="MCXref xref">Install and configure Swarm from a package (recommended)</a>, the configuration file is available at <code class="code_clearBackground">/opt/perforce/etc/swarm-trigger.conf</code></li>
+                                                    <p>
+                                                        <ul style="list-style-type: square;">
+                                                            <li>If you submitted the trigger script to the depot in the previous step, you should similarly submit the configuration file to the depot. The recommended depot location is <code class="code_clearBackground">//.swarm/triggers/swarm-trigger.conf</code>.</li>
+                                                            <li>If you copied the trigger script to the commit server and all edge servers in the previous step, also copy the configuration file to the commit server and all edge servers, making sure that they exist in the same path on all servers.</li>
+                                                        </ul>
+                                                    </p>
+                                                    <li>If you are not using the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger package, create <code class="code_clearBackground">swarm-trigger.conf</code> in the same directory as <code class="code_clearBackground">swarm-trigger.pl</code>.</li>
+                                                    <p>
+                                                        <ul style="list-style-type: square;">
+                                                            <li>If you submitted the trigger script to the depot in the previous step, you should similarly submit the configuration file to the depot. The recommended depot location is <code class="code_clearBackground">//.swarm/triggers/swarm-trigger.conf</code>.</li>
+                                                            <li>If you copied the trigger script to the commit server and all edge servers in the previous step, also copy the configuration file to the commit server and all edge servers, making sure that they exist in the same path on all servers.</li>
+                                                        </ul>
+                                                    </p>
+                                                </ul>
+                                                <p>The following is a sample of what your <code class="code_clearBackground">swarm-trigger.conf</code> should contain:</p><pre class="programlisting" lang="ini" xml:space="preserve"># SWARM_HOST (required)
+# Hostname of your Swarm instance, with leading "http://" or "https://".
+SWARM_HOST="<i>http://my-swarm-host</i>"
+
+# SWARM_TOKEN (required)
+# The token used when talking to Swarm to offer some security. To obtain the
+# value, log in to Swarm as a super user and select 'About Swarm' to see the
+# token value.
+SWARM_TOKEN="<i>MY-UUID-STYLE-TOKEN</i>"
+
+# ADMIN_USER (optional) <b>Do not use if the Workflow feature is enabled (default)</b>
+# For enforcing reviewed changes, optionally specify the normal Perforce user
+# with admin privileges (to read keys); if not set, will use whatever Perforce
+# user is set in environment.
+ADMIN_USER=
+
+# ADMIN_TICKET_FILE (optional) <b>Do not use if the Workflow feature is enabled (default)</b>
+# For enforcing reviewed changes, optionally specify the location of the
+# p4tickets file if different from the default ($HOME/.p4tickets).
+# Ensure this user is a member of a group with an 'unlimited' or very long
+# timeout; then, manually login as this user from the Perforce server machine to
+# set the ticket.
+ADMIN_TICKET_FILE=				
+				
+# VERIFY_SSL (optional)
+# If HTTPS is being used on the Swarm web server, then this controls whether
+# the SSL certificate is validated or not. By default this is set to 1, which
+# means any SSL certificates must be valid. If the web server is using a self
+# signed certificate, then this must be set to 0.
+VERIFY_SSL=1</pre>
+                                                <p>Modify the <code class="code_clearBackground">swarm-trigger.conf</code> configuration file to set the <code class="code_clearBackground">SWARM_HOST</code> and the <code class="code_clearBackground">SWARM_TOKEN</code> variables appropriately.</p>
+                                                <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                    <p><b>Windows only:</b>
+                                                    </p>
+                                                    <p>You may need to edit the trigger script to specify the full path to <code class="code_clearBackground">curl.exe</code> if the <code class="code_clearBackground">HTTP::Tiny</code> module is not installed. </p>
+                                                </div>
+                                                <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                    <p><b>Linux only: </b>
+                                                    </p>
+                                                    <p><code class="code_clearBackground">swarm-trigger.pl</code> looks for configuration in the following files. Variables defined in the later files will override the earlier defined variables of the same name:</p>
+                                                    <ul>
+                                                        <li>Variables set inside the <code class="code_clearBackground">swarm-trigger.pl</code> script itself</li>
+                                                        <li><span class="code_clearBackground">/etc/perforce/swarm-trigger.conf</span>
+                                                        </li>
+                                                        <li><span class="code_clearBackground">/opt/perforce/etc/swarm-trigger.conf</span>
+                                                        </li>
+                                                        <li>The <code class="code_clearBackground">swarm-trigger.conf</code> file stored in the same directory as <code class="code_clearBackground">swarm-trigger.pl</code>.</li>
+                                                        <li>Any file passed to the <code class="code_clearBackground">swarm-trigger.pl</code> script using the -c command line argument</li>
+                                                    </ul>
+                                                </div>
+                                                <p>
+                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                        <p><b>Windows and Linux:</b>
+                                                        </p>
+                                                        <p>If you specify <span class="code_clearBackground">ADMIN_USER</span>, the ticket contained in <span class="code_clearBackground">%USERPROFILE%/p4tickets.txt</span> (Windows), <span class="code_clearBackground">$HOME/.p4tickets</span> (Linux), or the optional ticket file specified with the <span class="code_clearBackground">ADMIN_TICKET_FILE</span> must use the port that was used to start <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. For example, if <span class="code_clearBackground">p4d</span> is started with:</p><pre class="programlisting" lang="bash"><span style="font-weight: normal;">C:\&gt; </span>p4d -p my-helix-core-server:1666 ...</pre>
+                                                        <p>then the ticket for the admin user specified with ADMIN_USER should be established with:</p><pre class="programlisting" lang="bash"><span style="font-weight: normal;">C:\&gt; </span>p4 -p my-helix-core-server:1666 -u admin_userid login</pre>
+                                                        <p>If the ticket was established using the wrong port, the error message you encounter includes the port that the trigger is attempting to use:</p><pre class="programlisting">'swarm.strict.1' validation failed: Invalid login credentials to [port] within this trigger script; please contact your administrator.</pre>
+                                                    </div>
+                                                </p>
+                                                <li value="5">
+                                                    <p><b>Linux only</b>: Ensure that the script has execute permissions.</p>
+                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                        <p>Skip this step if you have committed the script to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span>.</p>
+                                                    </div><pre class="programlisting"><span style="font-weight: normal;">$ </span>chmod +x /path/to/swarm-trigger.pl</pre>
+                                                </li>
+                                                <li value="6">
+                                                    <p>Verify that the trigger script executes correctly.</p>
+                                                    <ul>
+                                                        <li><b>For Windows:</b>
+                                                        </li>
+                                                        <p>Run:</p><pre class="programlisting"><span style="font-weight: normal;">C:\&gt;  </span>perl "C:\path\to\swarm-trigger.pl" -t ping -v 0
+</pre>
+                                                        <p>Use the full path to <code>perl</code> if it is not available in your command path.</p>
+                                                        <p>You should expect to see no output. If the trigger is misconfigured, such as using an invalid <a href="#setup-perforce_trigger-token">trigger token</a>, you would see an error.</p>
+                                                        <p>
+                                                            <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                                <p><b>Only if using Curl:</b>
+                                                                </p>
+                                                                <p>Installation of the triggers may cause a security warning dialog to appear when <code>curl.exe</code> executes:</p>
+                                                                <div class="img">
+                                                                    <img src="../Resources/Images/swarm-dialog-security_warning.png" title="Windows security warning" alt="Windows security warning dialog image" />
+                                                                </div>
+                                                                <p>If this occurs, the triggers hang, creating zombie Perl processes. Due to the way triggers are invoked by <span class="mc-variable Perforce.HVE_short variable">Helix server</span>, the dialog is normally not visible even though Windows is waiting on interaction.</p>
+                                                                <p>To resolve this:</p>
+                                                                <ol>
+                                                                    <li value="1">Clear the <b>Always ask before opening this file</b> check box and click <b>Run</b>.</li>
+                                                                    <li value="2">Right-click <code>curl.exe</code>, select <b>Properties</b>, and click <b>Unblock</b>.</li>
+                                                                </ol>
+                                                            </div>
+                                                        </p>
+                                                    </ul>
+                                                </li>
+                                                <ul>
+                                                    <li><b>For Linux:</b>
+                                                    </li>
+                                                    <p>
+                                                        <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                            <p>Skip this step if you have committed the script to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span>.</p>
+                                                        </div>
+                                                    </p>
+                                                </ul>
+                                                <ul><pre class="programlisting" lang="bash"><span style="font-weight: normal;">$ </span>/path/to/swarm-trigger.pl -t ping -v 0</pre>
+                                                    <p>You should expect to see no output. If the trigger is misconfigured, such as using an invalid <a href="#setup-perforce_trigger-token" title="Trigger token" alt="Trigger token">trigger token</a>, you would see an error.</p>
+                                                    <p>
+                                                        <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                            <p>Run the trigger script without any arguments to see additional usage information.</p>
+                                                        </div>
+                                                    </p>
+                                                </ul>
+                                                <li value="7">
+                                                    <p><a name="setup.perforce.update_server_trigger_table"></a> Update the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> triggers table to run the trigger script.</p>
+                                                    <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                        <ul>
+                                                            <li>
+                                                                <p>The <span class="code_clearBackground">swarm.shelvedel shelve-delete</span> trigger line was added to  <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> in version 2018.1 and updated in version 2020.1.</p>
+                                                                <ul>
+                                                                    <li><b>New installation or upgrading from </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> 2017.4 and earlier:</b> add the <code class="code_clearBackground">swarm.shelvedel shelve-delete</code> trigger line to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if it is not already present. </li>
+                                                                    <li><b>Upgrading from </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> 2018.x and 2019.x:</b> replace the existing <code class="code_clearBackground">swarm.shelvedel shelve-delete</code> trigger line in the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table with the one supplied in the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> version you are upgrading to. </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><b>Workflow feature:</b>
+                                                            </li>
+                                                            <p>The <a href="workflow.overview.html" data-mc-conditions="Perforce.Swarm">Workflow feature</a> is enabled by default in <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.2 and later. The trigger lines required when workflow is enabled are different to those required when workflow is  disabled: <ul><li><b>Workflow feature <a href="admin.workflow_configurables.html#admin_workflow_enable">enabled</a> (default): </b><ul><li>Comment out the <span class="code_clearBackground">swarm.enforce.1</span>, <span class="code_clearBackground">swarm.enforce.2</span>, <span class="code_clearBackground">swarm.strict.1</span>, and <span class="code_clearBackground">swarm.strict.2</span> trigger lines  in the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if they are present. </li><li>Add the <code class="code_clearBackground">swarm.enforce change-submit</code>,  <code class="code_clearBackground">swarm.strict change-content</code>, and <code class="code_clearBackground">swarm.shelvesub shelve-submit</code>  trigger lines to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if they are not already present. </li></ul></li></ul><ul><li><b>Workflow feature <a href="admin.workflow_configurables.html#admin_workflow_enable">disabled</a>: </b><ul><li>Comment out the <code class="code_clearBackground">swarm.enforce change-submit</code>,  <code class="code_clearBackground">swarm.strict change-content</code>, and <code class="code_clearBackground">swarm.shelvesub shelve-submit</code>  trigger lines in the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> trigger table if they are  present. </li><li>The <span class="code_clearBackground">swarm.enforce.1</span>, <span class="code_clearBackground">swarm.enforce.2</span>, <span class="code_clearBackground">swarm.strict.1</span>, and <span class="code_clearBackground">swarm.strict.2</span> trigger lines are commented out because they are optional. They require that the <span class="code_clearBackground">DEPOT_PATH1</span> and <span class="code_clearBackground">DEPOT_PATH2</span> values are configured appropriately. Support for these triggers will be dropped in a later release.<ul><li>The first two lines configure the <span class="code_clearBackground">enforce</span> feature, which rejects any submitted changes that are not tied to an approved review.</li><li>The second two lines configure the <span class="code_clearBackground">strict</span> feature, which rejects any submitted changes when the contents of the changelist do not match the contents of its associated approved review.</li></ul></li><li>If you need to apply <span class="code_clearBackground">enforce</span> or <span class="code_clearBackground">strict</span> to more depot paths, copy the lines and tweak the depot paths as necessary.</li></ul></li></ul></p>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                        <p>The trigger script can provide the list of trigger lines that should work, with little to no adjustment, by executing it with the <code>-o</code> option:</p>
+                                                        <p><b>Windows</b>
+                                                        </p><pre class="programlisting" lang="bash"><span style="font-weight: normal;">C:\&gt; </span>perl "C:\path\to\swarm-trigger.pl" -o</pre>
+                                                        <p><b>Linux</b>
+                                                        </p><pre class="programlisting"><span style="font-weight: normal;">$ </span>/path/to/swarm-trigger.pl -o</pre>
+                                                    </div>
+                                                    <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                        <ul>
+                                                            <li>The <code class="code_clearBackground">%quote%c:\path\to\perl.exe%quote%</code> entry is only required for Windows-hosted systems. </li>
+                                                            <li>An initial tabbed indent is required for each trigger line. </li>
+                                                            <li>Commented out trigger lines are not stored. </li>
+                                                            <li>
+                                                                <p>If you disable the workflow feature in the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="code_clearBackground">config.php</span> file, workflow will not be processed by <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> but a small overhead is still incurred by the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> each time it runs a workflow trigger script. This overhead can be eliminated by commenting out the  <span class="code_clearBackground">swarm.enforce change-submit</span>, <span class="code_clearBackground">swarm.strict change-content</span>, and <span class="code_clearBackground">swarm.shelvesub shelve-submit</span> workflow triggers. </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <p>As a <span class="mc-variable Perforce.Helix_short variable">Helix server</span> user with <i>super</i> privileges, edit the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> trigger table by running the <code>p4 triggers</code> command and add the following lines (including the initial tab character). Update the <code>perl.exe</code>, trigger script, and configuration file paths in each line below to reflect the actual paths on your <span class="mc-variable Perforce.HVE_short variable">Helix server</span>: </p>
+                                                    <ol style="list-style-type: lower-alpha;">
+                                                        <li value="1">If you have committed both the trigger script and the configuration file to the <span class="mc-variable Perforce.HVE_short variable">Helix server</span>:<pre class="programlisting">
+	swarm.job        form-commit   job    "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t job        -v %formname%"
+	swarm.user       form-commit   user   "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t user       -v %formname%"
+	swarm.userdel    form-delete   user   "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t userdel    -v %formname%"
+	swarm.group      form-commit   group  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t group      -v %formname%"
+	swarm.groupdel   form-delete   group  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t groupdel   -v %formname%"
+	swarm.changesave form-save     change "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t changesave -v %formname%"
+	swarm.shelve     shelve-commit  //...  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t shelve     -v %change%"
+	swarm.commit     change-commit  //...  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t commit     -v %change%"
+	swarm.shelvedel  shelve-delete  //...  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t shelvedel  -v %change% -w %client% -u %user% -d %quote%%clientcwd%^^^%quote% -a %quote%%argsQuoted%%quote% -s %quote%%serverVersion%%quote%"
+#	The following three triggers are used by workflow. If workflow is disabled in the Swarm
+#	configuration then they should be disabled.
+	swarm.enforce    change-submit  //...  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t checkenforced -v %change% -u %user%"
+	swarm.strict     change-content //...  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t checkstrict   -v %change% -u %user%"
+	swarm.shelvesub  shelve-submit  //...  "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t checkshelve   -v %change% -u %user%"
+#	The following triggers are only used to prevent a commit without an approved review.
+#	They predate the workflow functionality and should only be used if workflow is disabled.
+#	Support for these will be dropped in a later release.
+#	swarm.enforce.1 change-submit  //DEPOT_PATH1/... "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t enforce -v %change% -p %serverport%"
+#	swarm.enforce.2 change-submit  //DEPOT_PATH2/... "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t enforce -v %change% -p %serverport%"
+#	swarm.strict.1  change-content //DEPOT_PATH1/... "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t strict -v %change% -p %serverport%"
+#	swarm.strict.2  change-content //DEPOT_PATH2/... "%quote%c:\path\to\perl.exe%quote% %//.swarm/triggers/swarm-trigger.pl% -c %//.swarm/triggers/swarm-trigger.conf% -t strict -v %change% -p %serverport%"
+</pre></li>
+                                                        <li value="2">If you have copied the trigger script and configuration file to common paths on all servers:</li>
+                                                        <p><pre class="programlisting">
+	swarm.job        form-commit   job    "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t job        -v %formname%"
+	swarm.user       form-commit   user   "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t user       -v %formname%"
+	swarm.userdel    form-delete   user   "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t userdel    -v %formname%"
+	swarm.group      form-commit   group  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t group      -v %formname%"
+	swarm.groupdel   form-delete   group  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t groupdel   -v %formname%"
+	swarm.changesave form-save     change "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t changesave -v %formname%"
+	swarm.shelve     shelve-commit  //...  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t shelve     -v %change%"
+	swarm.commit     change-commit  //...  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t commit     -v %change%"
+	swarm.shelvedel  shelve-delete  //...  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t shelvedel  -v %change% -w %client% -u %user% -d %quote%%clientcwd%^^^%quote% -a %quote%%argsQuoted%%quote% -s %quote%%serverVersion%%quote%"
+#	The following three triggers are used by workflow. If workflow is disabled in the Swarm
+#	configuration then they should be disabled.
+	swarm.enforce    change-submit  //...  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t checkenforced -v %change% -u %user%"
+	swarm.strict     change-content //...  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t checkstrict   -v %change% -u %user%"
+	swarm.shelvesub  shelve-submit  //...  "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t checkshelve   -v %change% -u %user%"							
+#	The following triggers are only used to prevent a commit without an approved review.
+#	They predate the workflow functionality and should only be used if workflow is disabled.
+#	Support for these will be dropped in a later release.
+#	swarm.enforce.1 change-submit  //DEPOT_PATH1/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t enforce -v %change% -p %serverport%"
+#	swarm.enforce.2 change-submit  //DEPOT_PATH2/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t enforce -v %change% -p %serverport%"
+#	swarm.strict.1  change-content //DEPOT_PATH1/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t strict -v %change% -p %serverport%"
+#	swarm.strict.2  change-content //DEPOT_PATH2/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t strict -v %change% -p %serverport%"
+</pre>
+                                                        </p>
+                                                    </ol>
+                                                    <p>
+                                                        <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                            <p><b>Windows and Linux: </b>
+                                                            </p>
+                                                            <p>The use of <code class="code_clearBackground">%quote%</code> is not supported on 2010.2 servers (it is harmless though); if you are using this version, ensure that you do not have any spaces in the path to <code>perl.exe</code> or the script's path.</p>
+                                                        </div>
+                                                        <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                            <p><b>Workflow feature <a href="admin.workflow_configurables.html#admin_workflow_enable">disabled</a>:</b>
+                                                            </p>
+                                                            <p>If your <span class="mc-variable Perforce.Helix_short variable">Helix server</span> has SSL enabled and is older than the 2014.1 release, the <span class="code_clearBackground">%serverport%</span> trigger variable does not include the necessary transport indicator, which can cause the <span class="code_clearBackground">enforce</span> and <span class="code_clearBackground">strict</span> triggers to fail.</p>
+                                                            <p>To solve this problem, add <span class="code_clearBackground">ssl:</span> immediately before <span class="code_clearBackground">%serverport%</span> in the trigger lines. For example:</p><pre class="programlisting">
+#	The following triggers are only used to prevent a commit without an approved review.
+#	They predate the workflow functionality and should only be used if workflow is disabled.
+#	Support for these will be dropped in a later release.
+#	swarm.enforce.1 change-submit  //DEPOT_PATH1/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t enforce -v %change% -p ssl:%serverport%"
+#	swarm.enforce.2 change-submit  //DEPOT_PATH2/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t enforce -v %change% -p ssl:%serverport%"
+#	swarm.strict.1  change-content //DEPOT_PATH1/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t strict -v %change% -p ssl:%serverport%"
+#	swarm.strict.2  change-content //DEPOT_PATH2/... "%quote%C:\path\to\perl.exe%quote% %quote%/path/to/swarm-trigger.pl%quote% -c %quote%/path/to/swarm-trigger.conf%quote% -t strict -v %change% -p ssl:%serverport%"</pre>
+                                                        </div>
+                                                    </p>
+                                                </li>
+                                                <li value="8">
+                                                    <p>Configure the <span class="mc-variable Perforce.HVE_short variable">Helix server</span> to promote all shelved changes.</p>
+                                                    <p>When this configurable is set, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> has access to all shelved changelists, which is a requirement for pre-commit reviews. When it is not set, users connected to an edge server must remember to use the <code>-p</code> option when shelving files to promote their shelves to the commit server when initiating a pre-commit review.</p><pre class="programlisting">p4 configure set dm.shelve.promote=1</pre>
+                                                </li>
+                                                <li value="9">
+                                                    <p>Optionally forward logins to the commit server.</p>
+                                                    <p>If you intend to use <span class="mc-variable Perforce.P4V variable">P4V</span> and its <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> integration, you should consider forwarding logins to the commit server. See <a href="admin.commit_edge.html#admin.commit_edge.p4v" title="Swarm Authentication" alt="Swarm Authentication" class="MCXref xref">P4V Authentication</a> for details.</p>
+                                                </li>
+                                                <li value="10">Depending on your installation type, do one of the following:</li>
+                                                <ul style="list-style-type: square;">
+                                                    <li><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> package installation:</b> Review the post-install configuration options to customize your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> installation, see <a href="setup.post.html" title="Post-install Configuration Options" alt="Post-install Configuration Options" class="MCXref xref">Post-install configuration options</a>. </li>
+                                                    <li><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> OVA installation:</b> Review the post-install configuration options to customize your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> installation, see <a href="setup.post.html" title="Post-install Configuration Options" alt="Post-install Configuration Options" class="MCXref xref">Post-install configuration options</a>. </li>
+                                                    <li><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> tarball installation:</b> Set up a recurring task to spawn workers, see <a href="setup.worker.html" title="Set up a Recurring Task to Spawn Workers" alt="Set up a Recurring Task to Spawn Workers" class="MCXref xref">Set up a recurring task to spawn workers</a>.</li>
+                                                </ul>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

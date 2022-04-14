@@ -1,0 +1,578 @@
+<?php
+use TestIntegration\Filter\EncodingValidator;
+$isEdit = $mode === 'edit';
+$isView = $mode === 'view';
+$isAdd  = $mode === 'add';
+$title  = $isEdit ? $this->te('Project Settings') : $this->te('Add Project');
+$this->headTitle()->set($title);
+
+$canDelete = $this->permissions()->isOne(['admin', 'member' => $project, 'owner' => $project]);
+$baseUrl   = $this->escapeFullUrl($this->assetBasePath());
+$followers = $project->getFollowers();
+
+// scope name/branches editing restrictions to edit mode only
+$canEditName     = !$isEdit || $canEditName;
+$canEditBranches = !$isEdit || $canEditBranches;
+
+// when editing or viewing, we like to show the toolbar and sidebar
+if ($isEdit || $isView) {
+    echo '<div class="row-fluid">';
+    echo $this->projectSidebar($project);
+}
+$actionUrl = $isEdit
+    ? '/projects/edit/' . $this->escapeUrl($project->getId())
+    : '/projects/add';
+
+$cancel = isset($_GET["cancel"]) ? $_GET["cancel"] : false;
+$saved  = isset($_GET["saved"])  ? $_GET["saved"]  : false;
+
+if ($saved == true || $cancel == true) { ?>
+<div id="message">
+    <div style="padding: 5px;">
+        <div id="inner-message" class="alert alert-info">
+            <button id="project-alert-close" type="button" class="close" data-dismiss="alert">&times;</button>
+            <?php echo $cancel == true ? $this->te('Project Changes Cancelled') : $this->te('Project Saved'); ?>
+        </div>
+    </div>
+</div>
+<?php } ?>
+<div class="project-edit <?php echo $isView ? 'view-only span9' : '' ?> <?php echo $isEdit ? 'span9' : '' ?>">
+    <h1><?php echo $this->te($title) ?></h1>
+    <form method="post" class="form-horizontal form"
+          data-project="<?php echo $this->escapeHtmlAttr(json_encode($project->get())) ?>">
+        <input type="hidden" name="defaults[reviewers]" value=""/>
+        <div class="control-group">
+            <label class="control-label" for="name"><?php echo $this->te('Name')?></label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" name="name" id="name" maxlength="1000"
+                       value="<?php echo $this->escapeHtmlAttr($project->getName()) ?>"
+                       placeholder="<?php echo $this->te('Name')?>" required="required"
+                       <?php echo $canEditName ? '' : 'disabled' ?>>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="description"><?php echo $this->te('Description')?></label>
+            <div class="controls">
+                <textarea class="input-xxlarge" rows="10" name="description" id="description"
+                    placeholder="<?php echo $this->te('Description')?>"><?php
+                    echo $this->escapeHtmlAttr($project->getDescription())
+                ?></textarea>
+            </div>
+        </div>
+        <div class="control-group control-group-owners">
+            <label for="owners" class="control-label"><?php echo $this->te('Owners')?></label>
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox-owners" data-toggle="collapse" data-target=".control-group-owners .body"
+                        <?php echo $project->hasOwners() ? 'checked' : '' ?>> <?php echo $this->te('Only Owners and Administrators can edit the project')?>
+                </label>
+                <div class="body collapse <?php echo $project->hasOwners() ? 'in' : '' ?>">
+                    <div class="input-prepend" clear="both">
+                        <span class="add-on"><i class="icon-user"></i></span>
+                        <input type="text" class="input-xlarge" id="owners" data-items="100"
+                            data-selected="<?php echo $this->escapeHtmlAttr(json_encode($project->getOwners())) ?>"
+                            placeholder="<?php echo $this->te('Add an Owner')?>">
+                    </div>
+                    <div class="owners-list"></div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group control-group-members">
+            <label class="control-label" for="members"><?php echo $this->te('Members')?></label>
+            <div class="controls">
+                <div class="input-prepend" clear="both">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input type="text" class="input-xlarge" id="members" data-items="100"
+                        data-selected="<?php echo $this->escapeHtmlAttr(json_encode($project->getMembers())) ?>"
+                        data-selected-groups="<?php echo $this->escapeHtmlAttr(json_encode($project->getSubgroups())) ?>"
+                        placeholder="<?php echo $this->te('Add a Member')?>">
+                </div>
+            </div>
+            <div class="controls members-list"></div>
+        </div>
+        <div class="control-group control-group-reviewers">
+            <label class="control-label" for="project-reviewers"><?php echo $this->te('Default Reviewers')?></label>
+            <div class="controls">
+                <div class="input-prepend" clear="both">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input type="text" class="input-xlarge reviewers" id="project-reviewers" data-items="100"
+                           data-selected="<?php $defaults = $project->getDefaults(); echo $this->escapeHtmlAttr(json_encode($defaults['reviewers']));?>"
+                           placeholder="<?php echo $this->te('Add a Default Reviewer')?>">
+                </div>
+            </div>
+            <div class="controls reviewers-list"></div>
+        </div>
+        <div class="control-group control-group-retain">
+            <label class="control-label"><?php echo $this->te('Retain default reviewers') ?></label>
+            <div class="controls">
+                <label class="checkbox" for="retainDefaultReviewers">
+                    <input type="hidden" name="retainDefaultReviewers" value="0" />
+                    <input type="checkbox" name="retainDefaultReviewers" id="retainDefaultReviewers" value="1"
+                        <?php echo $project->areDefaultReviewersRetained() ? 'checked' : '' ?>>
+                    <?php echo $this->te('Retain default reviewers for reviews associated with this project') ?>
+                </label>
+            </div>
+        </div>
+        <div class="control-group control-group-private">
+            <label class="control-label"><?php echo $this->te('Private') ?></label>
+            <div class="controls">
+                <label class="checkbox" for="private">
+                    <input type="hidden" name="private" value="0" />
+                    <input type="checkbox" name="private" id="private" value="1"
+                        data-toggle="collapse" data-target=".control-group-private .body"
+                        <?php echo $project->isPrivate() || (!$isEdit && $privateByDefault) ? 'checked' : '' ?>>
+                    <?php echo $this->te('Only Moderators, Members and Owners can see the project') ?>
+                </label>
+                <?php if ($followers): ?>
+                <div class="body collapse  <?php echo $project->isPrivate() && $followers ? 'in' : '' ?>">
+                    <span class="help-block alert alert-error">
+                        <strong><?php echo $this->te('Warning!'); ?> </strong>
+                        <?php echo $this->te(
+                            'Making this project private will remove all its followers (currently %d).',
+                            [count($followers)]
+                        ); ?>
+                    </span>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="control-group control-group-minimum-up-votes">
+            <label class="control-label" for="minimum-up-votes"><?php echo $this->te('Minimum up votes')?></label>
+            <div class="controls">
+                <input class="" type="number" min="1" name="minimumUpVotes" id="minimum-up-votes"
+                       value="<?php echo $this->escapeHtmlAttr($project->getMinimumUpVotes()) ?>"
+                       placeholder="<?php echo $this->te('Unset') ?>">
+            </div>
+        </div>
+        <div id="project-control-group-workflow" class="workflow-feature control-group control-group-workflow">
+            <input id="project-workflow" type="hidden" name="workflow" value="<?php echo $project->getWorkflow() ? $project->getWorkflow() : 'no-workflow' ?>"/>
+            <label class="control-label"><?php echo $this->te('Workflow') ?></label>
+            <div id="project-workflow-control" class="btn-group workflow-controls" data-filter-key="workflow">
+                <button id="btn-project-workflow" type="button" class="btn btn-workflow dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    title="<?php echo $this->te('Loading...')?>">
+                    <span class="text workflow-label"><?php echo $this->te('Loading...')?></span> <span class="caret"></span>
+                </button>
+            </div>
+        </div>
+        <div class="control-group branches <?php echo $canEditBranches ? '' : 'readonly'; ?>">
+            <label class="control-label" for="branches"><?php echo $this->te('Branches')?></label>
+            <div class="controls">
+                <?php
+                foreach($project->getBranches() as $branchId => $branch):
+                ?>
+                    <div class="branch-button">
+                        <div id="branch-<?php echo $branchId;?>" class="btn-group existing">
+                            <button class="btn btn-branch dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" type="button">
+                                <span class="branch-label"><?php echo $this->escapeHtml($branch['name']) ?></span>
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-subform pad3">
+                                <input type="hidden" name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][id]"
+                                       value="<?php echo $this->escapeHtmlAttr($branch['id']) ?>">
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <label><?php echo $this->te('Name')?></label>
+                                            <input type="text" class="input-large subform-identity-element"
+                                                   placeholder="<?php echo $this->te('Branch Name')?>"
+                                                   id="branch-name-<?php echo $this->escapeHtmlAttr($branchId) ?>"
+                                                   name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][name]"
+                                                   value="<?php echo $this->escapeHtmlAttr($branch['name']) ?>" required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div id="branch-<?php echo $this->escapeHtmlAttr($branchId) ?>-control-group-workflow" class="workflow-feature control-group">
+                                            <input id="branch-<?php echo $this->escapeHtmlAttr($branchId)?>-workflow" type="hidden"
+                                                   name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][workflow]"
+                                                   value="<?php echo $branch['workflow'] ? $this->escapeHtmlAttr($branch['workflow']) : 'no-workflow' ?>" <?php echo $isView ? 'disabled="disabled"': ''?>/>
+                                            <label><?php echo $this->te('Workflow') ?></label>
+                                            <div id="branch-<?php echo $this->escapeHtmlAttr($branchId) ?>-workflow-control" class="dropdown btn-group branch-workflow-controls" data-filter-key="workflow">
+                                                <button id="btn-branch-<?php echo $this->escapeHtmlAttr($branchId) ?>-workflow" type="button" class="btn btn-workflow dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                                    title="<?php echo $this->te('Loading...')?>">
+                                                    <span class="text workflow-label"><?php echo $this->te('Loading...')?></span> <span class="caret"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label><?php echo $this->te('Paths')?></label>
+                                    <textarea class="input-xxlarge branch-paths" rows="4"
+                                              placeholder="<?php echo $this->te('//depot/path/to/branch/...')?>"
+                                              id="branch-paths-<?php echo $this->escapeHtmlAttr($branchId) ?>"
+                                              name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][paths]" required="required"><?php
+                                        echo $this->escapeHtml(implode("\n", $branch['paths']))
+                                    ?></textarea>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <div class="control-group control-group-reviewers">
+                                            <label class="form-control-label" for="branches-<?php echo $this->escapeHtmlAttr($branchId) ?>-defaults-reviewers"><?php echo $this->te('Default Reviewers')?></label>
+                                            <div class="form-controls">
+                                                <div class="input-prepend" clear="both">
+                                                    <span class="add-on"><i class="icon-user"></i></span>
+                                                    <input type="text" class="input-xlarge reviewers"
+                                                           id="branches-<?php echo $this->escapeHtmlAttr($branchId) ?>-defaults-reviewers"
+                                                           name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][defaults][reviewers]"
+                                                           data-input-name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][defaults][reviewers]"
+                                                           data-items="100"
+                                                           data-selected="<?php echo $this->escapeHtmlAttr(json_encode($branch['defaults']['reviewers'])) ?>"
+                                                           placeholder="<?php echo $this->te('Add a Default Reviewer')?>">
+                                                </div>
+                                            </div>
+                                            <div class="branch-reviewers-list"></div>
+                                        </div>
+                                    </div>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span4">
+                                        <div class="control-group control-group-minimum-up-votes">
+                                            <label for="branch-<?php echo $this->escapeHtmlAttr($branchId) ?>-minimum-up-votes"><?php echo $this->te('Minimum up votes')?></label>
+                                            <input type="number" min="1" class="minimum-up-votes"
+                                                   placeholder="<?php echo $this->te('Inherit from project')?>"
+                                                   id="branch-<?php echo $this->escapeHtmlAttr($branchId) ?>-minimum-up-votes"
+                                                   name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][minimumUpVotes]"
+                                                   value="<?php echo $this->escapeHtmlAttr($branch['minimumUpVotes']) ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group control-group-retain">
+                                    <label class="checkbox">
+                                        <input type="hidden" name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][retainDefaultReviewers]" value="0" />
+                                        <input value="1" type="checkbox" name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][retainDefaultReviewers]" <?php echo $branch['retainDefaultReviewers'] ? 'checked' : '' ?>>
+                                        <?php echo $this->te('Retain default reviewers for reviews associated with this branch')?>
+                                    </label>
+                                </div>
+                                <div class="control-group control-group-moderators">
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox-moderators"
+                                            <?php echo $branch['moderators'] || $branch['moderators-groups'] ? 'checked' : '' ?>>
+                                        <?php echo $this->te('Only Moderators can approve or reject reviews')?>
+                                    </label>
+                                    <div class="collapse <?php echo $branch['moderators'] || $branch['moderators-groups'] ? 'in' : '' ?>">
+                                        <div class="input-prepend" clear="both">
+                                            <span class="add-on"><i class="icon-user"></i></span>
+                                            <input type="text" class="input-xlarge input-moderators manual-tooltip" data-items="100"
+                                                    data-input-name="branches[<?php echo $this->escapeHtmlAttr($branchId) ?>][moderators]"
+                                                    data-selected="<?php echo $this->escapeHtmlAttr(json_encode($branch['moderators'])) ?>"
+                                                    data-selected-groups="<?php echo $this->escapeHtmlAttr(json_encode($branch['moderators-groups'])) ?>"
+                                                    placeholder="<?php echo $this->te('Moderator Name')?>"
+                                                    title="<?php echo $this->te('Please fill in this field') ?>">
+                                        </div>
+                                        <div class="moderators-list"></div>
+                                    </div>
+                                </div>
+                                <?php if ($isEdit): ?>
+                                <button class="btn btn-small btn-primary close-branch-btn" type="button">
+                                    <?php echo $this->te('Done')?>
+                                </button>
+                                <button class="btn btn-small clear-branch-btn" type="button">
+                                    <?php echo $this->te('Remove')?>
+                                </button>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <span class="moderators-info muted padw2"></span>
+                    </div>
+                <?php
+                endforeach
+                ?>
+                <?php if ($isEdit || $isAdd): ?>
+                <div class="swarm-branch-link hidden">
+                    <a class="swarm-branch-group" name="branches" href="#"><strong>+</strong> <?php echo $this->te('Add Branch')?></a>
+                </div>
+                <?php endif; ?>
+                <div class="branch-template" style="display:none">
+                    <div class="branch-button">
+                        <div class="btn-group">
+                            <button class="btn btn-branch dropdown-toggle" data-toggle="dropdown" type="button" aria-haspopup="true">
+                                &nbsp;<span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-subform pad3">
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <label><?php echo $this->te('Name')?></label>
+                                            <input type="text" class="input-large subform-identity-element"
+                                                   placeholder="<?php echo $this->te('Branch Name')?>">
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div id="branch-new-control-group-workflow" class="workflow-feature control-group">
+                                            <input id="branch-new-workflow" type="hidden" value="" <?php echo $isView ? 'disabled="disabled"': ''?>/>
+                                            <label><?php echo $this->te('Workflow') ?></label>
+                                            <div id="branch-new-workflow-control" class="dropdown btn-group branch-workflow-controls" data-filter-key="workflow">
+                                                <button id="btn-branch-new-workflow" type="button" class="btn btn-workflow dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                                    title="<?php echo $this->te('Loading...')?>">
+                                                    <span class="text workflow-label"><?php echo $this->te('Loading...')?></span> <span class="caret"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label><?php echo $this->te('Paths')?></label>
+                                    <textarea class="input-xxlarge branch-paths"
+                                              placeholder="<?php echo $this->te('//depot/path/to/branch/...')?>"></textarea>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <div class="control-group control-group-reviewers">
+                                            <label class="form-control-label"><?php echo $this->te('Default Reviewers')?></label>
+                                            <div class="form-controls">
+                                                <div class="input-prepend" clear="both">
+                                                    <span class="add-on"><i class="icon-user"></i></span>
+                                                    <input type="text" class="input-xlarge reviewers"
+                                                           data-items="100"
+                                                           data-selected=""
+                                                           placeholder="<?php echo $this->te('Add a Default Reviewer')?>">
+                                                </div>
+                                            </div>
+                                            <div class="branch-reviewers-list"></div>
+                                        </div>
+                                    </div>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span4">
+                                        <div class="control-group control-group-minimum-up-votes">
+                                            <label><?php echo $this->te('Minimum up votes')?></label>
+                                            <input type="number" min="1" class="minimum-up-votes"
+                                                   placeholder="<?php echo $this->te('Inherit from project')?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group control-group-retain">
+                                    <label class="checkbox">
+                                        <input type="hidden" value="0" />
+                                        <input value="1" type="checkbox" class="retain-default-reviewers">
+                                        <?php echo $this->te('Retain default reviewers for reviews associated with this branch')?>
+                                    </label>
+                                </div>
+                                <div class="control-group control-group-moderators">
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox-moderators">
+                                        <?php echo $this->te('Only Moderators can approve or reject reviews')?>
+                                    </label>
+                                    <div class="collapse">
+                                        <div class="input-prepend" clear="both">
+                                            <span class="add-on"><i class="icon-user"></i></span>
+                                            <input type="text" class="input-xlarge input-moderators" data-items="100"
+                                                placeholder="<?php echo $this->te('Moderator Name')?>">
+                                        </div>
+                                        <div class="moderators-list"></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-small btn-primary close-branch-btn" type="button">
+                                    <?php echo $this->te('Done')?>
+                                </button>
+                                <button class="btn btn-small clear-branch-btn" type="button">
+                                    <?php echo $this->te('Remove')?>
+                                </button>
+                            </div>
+                        </div>
+                        <span class="moderators-info muted padw2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="jobview"><?php echo $this->te('Job Filter')?></label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" name="jobview" id="jobview"
+                       value="<?php echo $this->escapeHtmlAttr($project->getJobview()) ?>"
+                        placeholder="<?php echo $this->te('field=value') ?>">
+            </div>
+        </div>
+        <div class="control-group email-flags">
+            <label class="control-label" for="email-flag-controls"><?php echo $this->te('Email Notifications')?></label>
+            <div class="controls">
+                <label class="checkbox" for="reviewEmails">
+                    <?php $emailMembers = $project->getEmailFlag('review_email_project_members') ?>
+                    <input type="hidden" name="emailFlags[review_email_project_members]" value="0" />
+                    <input type="checkbox" name="emailFlags[review_email_project_members]" id="reviewEmails" value="1"
+                        <?php echo ($emailMembers || $emailMembers === null) ? 'checked' : '' ?>>
+                    <?php echo $this->te('Email members and moderators when a new review is requested')?>
+                </label>
+                <label class="checkbox" for="changeEmails">
+                    <?php $emailUsers = $project->getEmailFlag('change_email_project_users') ?>
+                    <input type="hidden" name="emailFlags[change_email_project_users]" value="0" />
+                    <input type="checkbox" name="emailFlags[change_email_project_users]" id="changeEmails" value="1"
+                        <?php echo ($emailUsers || $emailUsers === null) ? 'checked' : '' ?>>
+                    <?php echo $this->te('Email members, moderators and followers when a change is committed')?>
+                </label>
+                <div class="help-block"><?php echo $this->te('Users may still receive emails if: the change/review impacts other projects, they authored the review, or a change review daemon is installed.')?>
+                    <a href="<?php echo $baseUrl ?>/docs/Content/Swarm/basics.notifications.html#basics.notifications.commit" target="_swarm_docs">
+                        <?php echo $this->te('See help for more details.')?>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php if ($isEdit || $isAdd): ?>
+        <div class="control-group automated automated-tests">
+            <label class="control-label" for="testing"><?php echo $this->te('Automated Tests')?></label>
+            <div class="controls">
+                <label class="checkbox" for="testsEnabled">
+                    <input type="checkbox" name="tests[enabled]" data-toggle="collapse" data-target=".automated-tests .body"
+                        <?php echo $project->getTests('enabled') ? 'checked' : '' ?>
+                           id="testsEnabled"> <?php echo $this->te('Enable')?>
+                </label>
+                <div class="body collapse <?php echo $project->getTests('enabled') ? 'in' : '' ?>">
+                    <textarea class="input-xxlarge" name="tests[url]" rows="3"
+                              placeholder="http://test-server/build?change={<?php echo $this->te('change') ?>}"><?php
+                        echo $this->escapeHtml($project->getTests('url'))
+                    ?></textarea>
+                    <div class="help-block">
+                        <?php echo $this->te('A URL that will trigger automated tests to run when reviews are created or updated.')?><br>
+
+                        <?php echo $this->te('Some special')?> <a href="#" onclick="return false;" class="help-details"
+                            data-html="true"
+                            data-placement="top"
+                            data-content="
+                            <p>URL and POST body</p>
+                            <dl class='dl-horizontal'>
+                                <dt>{test}</dt>
+                                <dd><?php echo $this->te('Test Name')?></dd>
+                                <dt>{testRunId}</dt>
+                                <dd><?php echo $this->te('Test Run Identifier')?></dd>
+                                <dt>{change}</dt>
+                                <dd><?php echo $this->te('Change Number')?></dd>
+                                <dt>{status}</dt>
+                                <dd><?php echo $this->te('Change Status (shelved/submitted)') ?></dd>
+                                <dt>{review}</dt>
+                                <dd><?php echo $this->te('Review Identifier')?></dd>
+                                <dt>{version}</dt>
+                                <dd><?php echo $this->te('Review Version')?></dd>
+                                <dt>{project}</dt>
+                                <dd><?php echo $this->te('Project Identifier')?></dd>
+                                <dt>{projectName}</dt>
+                                <dd><?php echo $this->te('Project Name')?></dd>
+                                <dt>{branch}</dt>
+                                <dd><?php echo $this->te('Branch Identifier(s) (comma-separated)')?></dd>
+                                <dt>{branchName}</dt>
+                                <dd><?php echo $this->te('Branch Name(s) (comma-separated)')?></dd>
+                                <dt>{pass}</dt>
+                                <dd><?php echo $this->te('Pass Callback URL')?></dd>
+                                <dt>{fail}</dt>
+                                <dd><?php echo $this->te('Failure Callback URL')?></dd>
+                                <dt>{update}</dt>
+                                <dd><?php echo $this->te('Update Callback URL')?></dd>
+                            </dl>
+                            <p>POST body only</p>
+                            <dl class='dl-horizontal'>
+                                <dt>{description}</dt>
+                                <dd><?php echo $this->te('Review Description')?></dd>
+                            </dl>
+                            "><?php echo sprintf($this->te('arguments%s are supported.'), '</a>') ?>
+                        <a href="<?php echo $baseUrl ?>/docs/Content/Swarm/quickstart.integrate_test_suite.html" target="_swarm_docs">
+                            <?php echo $this->te('See help for more details.')?>
+                        </a>
+                    </div>
+                    <div class="help-block post-body-help">
+                        <?php echo $this->te('Optional data to POST to the above URL.')?>
+                    </div>
+                    <div class="post-body">
+                        <label for="postBody"><?php echo $this->te('POST Body')?></label>
+                        <textarea class="input-xxlarge" name="tests[postBody]" id="postBody" rows="3"
+                                  placeholder=""><?php echo $this->escapeHtml($project->getTests('postBody'))
+                        ?></textarea>
+                        <select name="tests[postFormat]" id="postFormat">
+                            <?php foreach ([EncodingValidator::URL, EncodingValidator::JSON] as $format) {
+                                $selected      = $project->getTests('postFormat') === $format ? 'selected' : '';
+                                $displayFormat = strtoupper($format);
+                                echo "<option value=\"$format\" $selected>$displayFormat Encoded</option>";
+                            } ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group automated automated-deployment">
+            <label class="control-label" for="deployment"><?php echo $this->te('Automated Deployment')?></label>
+            <div class="controls">
+                <label class="checkbox" for="deployEnabled">
+                    <input type="checkbox" name="deploy[enabled]" data-toggle="collapse" data-target=".automated-deployment .body"
+                        <?php echo $project->getDeploy('enabled') ? 'checked' : '' ?>
+                           id="deployEnabled"> <?php echo $this->te('Enable')?>
+                </label>
+                <div class="body collapse <?php echo $project->getDeploy('enabled') ? 'in' : '' ?>">
+                    <textarea class="input-xxlarge" name="deploy[url]" rows="3"
+                              placeholder="http://deploy-server/deploy?change={<?php echo $this->te('change')?>}"><?php
+                        echo $this->escapeHtml($project->getDeploy('url'))
+                        ?></textarea>
+                    <div class="help-block">
+                        <?php echo $this->te('A URL that will trigger a deployment when reviews are created or updated.')?><br>
+                        <?php echo $this->te('Some special')?> <a href="#" onclick="return false;" class="help-details"
+                            data-html="true"
+                            data-placement="top"
+                            data-content="<dl class='dl-horizontal'>
+                            <dt>{change}</dt>
+                            <dd><?php echo $this->te('Change Number')?></dd>
+                            <dt>{status}</dt>
+                            <dd><?php echo $this->te('Change Status (shelved/submitted)') ?></dd>
+                            <dt>{review}</dt>
+                            <dd><?php echo $this->te('Review Identifier')?></dd>
+                            <dt>{project}</dt>
+                            <dd><?php echo $this->te('Project Identifier')?></dd>
+                            <dt>{projectName}</dt>
+                            <dd><?php echo $this->te('Project Name')?></dd>
+                            <dt>{branch}</dt>
+                            <dd><?php echo $this->te('Branch Identifier(s) (comma-separated)')?></dd>
+                            <dt>{branchName}</dt>
+                            <dd><?php echo $this->te('Branch Name(s) (comma-separated)')?></dd>
+                            <dt>{success}</dt>
+                            <dd><?php echo $this->te('Success Callback URL')?></dd>
+                            <dt>{fail}</dt>
+                            <dd><?php echo $this->te('Failure Callback URL')?></dd>
+                        </dl>"><?php echo sprintf($this->te('arguments%s are supported.'), '</a>') ?>
+                        <a href="<?php echo $baseUrl ?>/docs/Content/Swarm/quickstart.review_deployment.html" target="_swarm_docs">
+                            <?php echo $this->te('See help for more details.')?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group group-buttons">
+            <div class="controls">
+                <button type="submit" class="btn btn-mlarge btn-primary btn-save"><?php echo $this->te('Save')?></button>
+                <button type="button" class="btn btn-mlarge" onclick="document.location.href='<?php echo $actionUrl.'?cancel=true';?>'"><?php echo $this->te('Cancel')?></button>
+                <?php if ($isEdit && $canDelete): ?>
+                <button type="button" class="btn btn-mlarge btn-danger btn-delete"><?php echo $this->te('Delete')?></button>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php endif; ?>
+    </form>
+    <?php
+        use Application\Config\Services;
+        use Application\Permissions\Exception\ForbiddenException;
+
+        $workflowManager = $this->getHelperPluginManager()->get('serviceContainer')->getServices()->get(Services::WORKFLOW_MANAGER);
+        $globalWorkflow  = [];
+        try{
+            $globalWorkflow = $workflowManager->getGlobalWorkflow()->toArray();
+        } catch ( ForbiddenException $fe ) {
+            // Global workflows are not enabled so there is no need for a default
+        }
+    ?>
+    <script type="text/javascript">
+        // The default global workflow id is used to exclude the global workflow from the workflow dropdown
+        swarm.workflow.defaults = <?php echo json_encode($globalWorkflow); ?>;
+        swarm.project.initEdit(
+            '.project-edit',
+            '<?php echo $this->escapeJs($actionUrl) ?>',
+            '<?php echo $project->getId() ?>',
+            true
+        );
+    </script>
+    <?php if ($isView){
+    echo '<script type="text/javascript">
+        $("form :input").attr("disabled", true);
+        $(".branch-button :input").attr("disabled", false);
+        $(".branch-button .dropdown-menu :input").attr("disabled", true);
+    </script>';
+     } ?>
+</div>
+
+<?php echo $isEdit || $isView ? '</div>' : '' ?>

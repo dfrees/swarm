@@ -1,0 +1,219 @@
+<?php
+$this->headTitle()->set($user->getId())->setTranslatorEnabled(false);
+$this->bodyClass()->append('login-reload');
+?>
+
+<div class="row-fluid">
+    <div class="span3 profile-sidebar user-sidebar">
+        <div class="profile-info">
+            <div class="title pad2 padw3">
+                <h4><?php echo $this->escapeHtml($user->getId()) ?></h4>
+            </div>
+            <div class="body">
+                <div class="pad2 force-wrap" title="<?php echo $this->escapeHtmlAttr($user->getFullName()) ?>">
+                    <?php echo $this->avatar($user, '256', false, 'img-rounded') ?>
+                </div>
+                <?php if (!$isCurrentUser) : ?>
+                    <div class="buttons privileged pad2">
+                        <button type="button" class="btn btn-primary btn-block <?php echo $userFollows ? 'following' : '' ?>"
+                                onclick="swarm.user.follow('user', '<?php echo $this->escapeJs($user->getId()) ?>', this);">
+                            <?php echo $this->te($userFollows ? 'Unfollow' : 'Follow') ?>
+                        </button>
+                    </div>
+                <?php endif; ?>
+                <div class="metrics pad2">
+                    <ul class="force-wrap clearfix">
+                        <li class="followers pull-left border-box pad2 padw1"><span class="count"><?php echo count($followers) ?></span><br><?php echo $this->te('Followers') ?></li>
+                        <li class="following pull-left border-box pad2 padw1"><span class="count"><?php echo count($following) ?></span><br><?php echo $this->te('Following') ?></li>
+                        <li class="projects pull-left border-box pad2 padw1"><span class="count"><?php echo count($projects) ?></span><br><?php echo $this->te('Projects') ?></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="userFullName" class="profile-block">
+                <div class="title pad1 padw0"><?php echo $this->te('Full Name') ?></div>
+                <small class="force-wrap"><?php echo $user->getFullName()?></small>
+            </div>
+            <div id="userEmailAddress" class="profile-block">
+                <div class="title pad1 padw0"><?php echo $this->te('Email address') ?></div>
+                <small class="force-wrap"><?php echo $user->getEmail()?></small>
+            </div>
+            <?php if ($isCurrentUser || $isAdmin) : ?>
+                <?php if (count($following) > 0 || count($projectfollowing) > 0) :
+                    $unfollowMessage = $this->te('Unfollow all Projects and Users for %s', [$user->getId()]); ?>
+                    <div class="buttons privileged pad2 unfollowadmin">
+                        <button type="button" class="btn btn-danger" id="unfollowAll"
+                                onclick="swarm.user.unfollowalldialog()"> <?php echo $unfollowMessage; ?>
+                        </button>
+                    </div>
+                    <div id="unfollow-modal" class="modal hide fade">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3><?php echo $unfollowMessage; ?></h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><?php echo $this->te("You are about to unfollow all Projects and Users this user is following, this action is irreversible.") ?></p>
+                            <p><?php echo $this->te('Do you want to proceed?') ?></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a herf="#" onclick="swarm.user.unfollowall('<?php echo $user->getId()?>', this)" class="btn btn-primary"><?php echo $this->te('OK')?></a>
+                            <a href="#" data-dismiss="modal" class="btn secondary"><?php echo $this->te('Cancel')?></a>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+        <div class="followers profile-block <?php echo !$followers ? 'hidden' : '' ?>">
+            <div class="title pad1 padw0"><?php echo $this->te('Followers') ?></div>
+            <?php echo $this->avatars($followers, 5) ?>
+        </div>
+        <?php if ($following) : ?>
+        <div class="following profile-block">
+            <div class="title pad1 padw0"><?php echo $this->te('Following') ?></div>
+            <?php echo $this->avatars($following, 5); ?>
+        </div>
+        <?php endif; ?>
+        <?php if (count($projects)): ?>
+        <div class="projects profile-block">
+            <div class="title pad1 padw0"><?php echo $this->te('Projects') ?></div>
+            <ul>
+            <?php
+                foreach ($projects as $project) {
+                    $privateIcon = $project->isPrivate()
+                        ? '<i class="icon-eye-close private-project-icon" title="' . $this->te('Private Project') . '"></i>'
+                        : '';
+                    echo '<li class="force-wrap">'
+                        . $privateIcon.'<a href="' . $this->url('project', ['project' => $project->getId()]) . '">'
+                        . $this->escapeHtml($project->getName())
+                        . '</a></li>';
+                    $levels           = $project->getMembershipLevels($user->getId(), true, $allGroups);
+                    $translatedLevels = [];
+                    foreach ($levels as $level) {
+                        array_push($translatedLevels, $this->tpe($level, $level, 1));
+                    }
+                    echo  '<small class="muted ">' . implode(', ', $translatedLevels) . '</small>';
+                }
+            ?>
+            </ul>
+        </div>
+        <?php endif; ?>
+
+    </div>
+    <div class="span9 profile-body user-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#activity" data-toggle="tab">
+                    <i class="icon-list"></i> <?php echo $this->te('Activity')?>
+                </a>
+            </li>
+            <li>
+                <a href="#shelves" data-toggle="tab">
+                    <i class="icon-th-list"></i> <?php echo $this->te('Shelves')?>
+                </a>
+            </li>
+            <li>
+                <a id="userSettingsBtn" href="#settings" data-toggle="tab">
+                    <i class="icon-wrench"></i> <?php echo $this->te('Settings')?>
+                </a>
+            </li>
+            <li>
+                <a id="notificationsBtn" href="#notifications" data-toggle="tab">
+                    <i class="icon-envelope"></i> <?php echo $this->te('Notifications')?>
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="activity">
+                <?php echo $this->activity('user-' . $user->getId()); ?>
+            </div>
+            <div class="tab-pane fade" id="shelves"></div>
+            <div class="tab-pane fade" id="settings">
+                <div class="preferencesBox">
+                    <form id="settingsForm" method="post" <?php if ($isCurrentUser !== true) { echo ' class="readOnly" '; } ?>>
+                        <input type="hidden" id="settingsToken" name="_csrf" value=""/>
+                        <input type="hidden" name="formName" value="settingsForm"/>
+                        <div id="settingsHeader">
+                            <h3 class="settingsTitle pull-left"><?php echo $this->te('Profile Settings'); ?></h3>
+                            <div class="settingsController pull-right">
+                                <div class="control-group pull-right">
+                                    <div class="controls">
+                                        <a id="settingsReset" name="reset" class="btn">
+                                            <i class="icon-repeat"></i> <?php echo $this->te('Reset to default'); ?></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4><?php echo $this->te('Reviews'); ?></h4>
+                            <p><?php echo $this->te('Sets default values for how diffs are displayed on all reviews.'); ?></p>
+                        </div>
+                        <?php echo $this->userSettings($userSettings); ?>
+                        <div id="settingsFooter">
+                            <div class="settingsController pull-right">
+                                <div class="control-group pull-left">
+                                    <div class="controls">
+                                        <button id="settingsSave" type="submit" name="submit" class="btn btn-primary settingsSave"><?php echo $this->te('Save'); ?></button>
+                                        <button onClick="window.location.reload(); return false;" name="cancel" class="btn" id="settingsCancel"><?php echo $this->te('Cancel'); ?></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="notifications">
+                <p><?php echo $this->te('Adjust when notifications are sent to you about reviews that you\'re associated with (as an author, reviewer, project member or moderator).'); ?></p>
+                <div class="preferencesBox">
+                    <form id="notificationForm" method="post" <?php if ($isCurrentUser !== true) { echo ' class="readOnly" '; } ?>>
+                        <input type="hidden" id="token" name="_csrf" value=""/>
+                        <input type="hidden" name="formName" value="notificationForm"/>
+                        <div id="notificationHeader">
+                            <h3 class="notificationTitle pull-left"><?php echo $this->te('Email me when:'); ?></h3>
+                            <div class="notificationController pull-right">
+                                <div class="control-group pull-right">
+                                    <div class="controls">
+                                        <a id="notificationReset" name="reset" class="btn">
+                                            <i class="icon-repeat"></i> <?php echo $this->te('Reset to default'); ?></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkAllContainer">
+                            <div class="pull-right checkAllPadding">
+                                <?php echo $this->te('Check all');?> <input id="checkAllNotifications" type="checkbox" data-default="false">
+                            </div>
+                        </div>
+                        <?php echo $this->notificationSettings( $notificationSettings); ?>
+                        <div id="notificationFooter">
+                            <div class="notificationController pull-right">
+                                <div class="control-group pull-left">
+                                    <div class="controls">
+                                        <button type="submit" name="submit" class="btn btn-primary notificationSave"><?php echo $this->te('Save'); ?></button>
+                                        <button onClick="window.location.reload(); return false;" name="cancel" class="btn" id="notificationCancel"><?php echo $this->te('Cancel'); ?></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        swarm.changes.init(
+            null,
+            '#shelves',
+            {
+                user:           <?php echo json_encode($user->getId()); ?>,
+                status:         'shelved',
+                includeReviews: true
+            }
+        );
+        swarm.notifications.user.init();
+        swarm.user.settings.init();
+    });
+</script>

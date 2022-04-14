@@ -1,0 +1,15 @@
+{
+  "testRunsPanel": "Tests",
+  "testRunsList": "Show test details",
+  "manual": "Manual",
+  "pass": "Passed",
+  "fail": "Failed",
+  "running": "In progress",
+  "testStatus": "Status",
+  "testTitle": "Title",
+  "rerunTest": "Rerun test",
+  "runTest": "Run test",
+  "showMessages": "Show messages",
+  "hideMessages": "Hide messages",
+  "messages": "Messages"
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Manage project branches</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Manage_project_branches" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Manage project branches</h1>
+                                            <p><a name="InitialSteps"></a>Initial steps:</p>
+                                            <ol>
+                                                <li value="1">Visit your project page.</li>
+                                                <li value="2">
+                                                    <p>Click <b>Edit</b>.</p>
+                                                    <p>Next to the <b>Branches</b> label, a drop-down button for each branch is displayed, and <b>+ Add Branch</b>.</p>
+                                                    <p>
+                                                        <img src="../Resources/Images/swarm-dropdown-branches.png" title="Branches drop-down" alt="Branches drop-down image" />
+                                                    </p>
+                                                </li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Adding_a_branch" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="quickstart.manage_branches_adding_branch"></a>Adding a branch</h2>
+                                            <ol>
+                                                <li value="1">Follow the <a href="#InitialSteps">initial steps</a>.</li>
+                                                <li value="2">Click <b>+ Add Branch</b> to display the branch drop-down dialog.
+			<p><img src="../Resources/Images/swarm-dropdown-branch.png" title="The branch drop-down dialog" alt="Image of the branch drop-down dialog" /></p></li>
+                                                <li value="3">Enter a short <b>Name</b> for your branch.</li>
+                                                <li value="4">
+                                                    <p><b>Optional</b> (not displayed if the Workflow feature is disabled): associate a workflow with the project branch. </p>
+                                                    <p>To use the parent project workflow, select <b>Inherit from project</b> from the <b>Workflow</b> dropdown list.  This is the default when you create a new branch. </p>
+                                                    <p data-mc-conditions="Perforce.Swarm">To associate a workflow, select the workflow from the <b>Workflow</b> dropdown list, or enter the workflow name in the search field. The field auto-suggests workflows  as you type. Only workflows that you own and shared workflows are shown in the dropdown list. </p>
+                                                    <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                        <ul>
+                                                            <li>When a workflow is associated with a project, the workflow is used for all of the branches in that project. </li>
+                                                            <li>When a project branch is associated with a workflow, the workflow of the parent project  is ignored and the branch workflow is used. </li>
+                                                        </ul>
+                                                    </div>
+                                                    <p>For more information about workflows and how project workflows interact with branch workflows, see <a href="workflow.overview.html#workflow_overview_workflows_basics" title="Workflow basics" alt="Workflow basics" class="MCXref xref">Workflow basics</a>.</p>
+                                                </li>
+                                                <li value="5">
+                                                    <p>Enter one or more branch paths  in the <b>Paths</b> field using depot syntax, one path per line.</p>
+                                                    <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                        <ul>
+                                                            <li>Branch paths, and files can be excluded by putting a minus symbol <span class="code_clearBackground">-</span> at the start of the path. </li>
+                                                            <li>Branch paths are processed in order, starting with the first file path in the list. </li>
+                                                        </ul>
+                                                    </div>
+                                                    <p style="font-weight: bold;">For example: </p>
+                                                    <blockquote>
+                                                        <p><span class="code_clearBackground">//depot/main/swarm/...</span>
+                                                        </p>
+                                                        <p><span class="code_clearBackground">-//depot/main/swarm/test/...</span>
+                                                        </p>
+                                                        <p><span class="code_clearBackground">//depot/main/swarm/test/ResultSummary.html</span>
+                                                        </p>
+                                                        <p>The first path includes all of the directories and files  under <span class="code_clearBackground">//depot/main/swarm/</span> in the project branch.</p>
+                                                        <p>The second path excludes all of the files in <span class="code_clearBackground">-//depot/main/swarm/test/</span> from the project branch.</p>
+                                                        <p>The third path includes the <span class="code_clearBackground">ResultSummary.html</span> file from the previously excluded <span class="code_clearBackground">//depot/main/swarm/test/</span> directory. </p>
+                                                    </blockquote>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <ul>
+                                                            <li>Wildcards should not be used; the only exception is that the branch path can end with the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> wildcard <span class="code_clearBackground">...</span></li>
+                                                            <li>Branch paths are case sensitive.</li>
+                                                            <li>Branch paths, and files are not checked to see if they are valid when you save the branch: <ul><li>If you enter an invalid path ending in the wildcard <span class="code_clearBackground">...</span>, the path will not be displayed in the <a href="basics.projects.html#basics.projects.files" title="Project file browser" alt="Project file browser">project file browser</a> until the path is created. This allows you to specify a path before it has been created. </li><li>If you enter a path that ends with a file that has not been committed, or a non-existent file, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> displays a 404 error when you navigate the path to the file with the <a href="basics.projects.html#basics.projects.files" title="Project file browser" alt="Project file browser">project file browser</a>. </li></ul></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p>The <a href="basics.projects.html#basics.projects.commits" title="Project Commits tab" alt="Project Commits tab">Project Commits tab</a> can fail to show some <span class="mc-variable Perforce.Helix_short variable">Helix server</span> commits in the top level view. Individual branch views display the commits correctly: </p>
+                                                        <dd style="color: #000000;">The <b>Project</b> <b>Commits</b> tab top level client view is made up of all of the branches of the project.  </dd>
+                                                        <dd style="color: #000000;">&#160;</dd>
+                                                        <dd style="color: #000000;"><b>For example, Project Alpha:</b>
+                                                        </dd>
+                                                        <dd style="color: #000000;">&#160;</dd>
+                                                        <dd style="color: #000000;"><b>Branch:</b> QA:</dd>
+                                                        <dd style="color: #000000;"><span class="code_clearBackground">//depot/alpha/dev/QA/...</span>
+                                                        </dd>
+                                                        <dd style="color: #000000;">&#160;</dd>
+                                                        <dd style="color: #000000;"><b>Branch:</b>&#160;Dev :</dd>
+                                                        <dd style="color: #000000;"><span class="code_clearBackground">//depot/alpha/dev/...</span>
+                                                        </dd>
+                                                        <dd style="color: #000000;"><span class="code_clearBackground">-//depot/alpha/dev/QA/...</span>
+                                                        </dd>
+                                                        <dd style="color: #000000;">&#160;</dd>
+                                                        <dd style="color: #000000;">The project commits tab view is generated by processing the branches in the order that they were created in and from top to bottom for the paths in each of those branches. </dd>
+                                                        <dd style="color: #000000;"><b>For the project Alpha example above:</b> </dd>
+                                                        <dd style="color: #000000;">The first path includes all of the directories and files  under <span class="code_clearBackground">//depot/alpha/dev/QA/</span> in the project commits tab top level view.</dd>
+                                                        <dd style="color: #000000;">The second path includes all of the directories and files under <span class="code_clearBackground">//depot/alpha/dev/</span> in the project commits tab top level view.</dd>
+                                                        <dd style="color: #000000;">The third path excludes all of the directories and files in <span class="code_clearBackground">//depot/alpha/dev/QA/</span>  from the project commits tab top level view.</dd>
+                                                        <dd style="color: #000000;">&#160;</dd>
+                                                        <dd style="color: #000000;"><b>Result</b>: commits made to <span class="code_clearBackground">//depot/alpha/dev/QA/</span> that should be shown for the <b>QA</b> branch are not displayed in the <b>Project</b> <b>Commits</b> tab top level view. </dd>
+                                                        <dd style="color: #000000;">&#160;</dd>
+                                                        <dd style="color: #000000;">When you have a simple branch structure this can be avoided by considering this issue when you create your branches. In the example above, creating the <b>Dev</b> branch first and then creating the <b>QA</b> branch avoids the problem because<span class="code_clearBackground">//depot/alpha/dev/QA/</span> is not excluded from the <b>Project</b> <b>Commits</b> tab top level view. </dd>
+                                                    </div>
+                                                </li>
+                                                <li style="font-weight: normal;" value="6"><b>Default reviewers:</b>
+                                                    <ol>
+                                                        <li value="1">
+                                                            <p><b>Optional:</b> specify <b>Default Reviewers</b> for the project branch. </p>
+                                                            <p>This field auto-suggests users, and groups within <span class="mc-variable Perforce.HVE_short variable">Helix server</span> as you type (up to a combined limit of 20 entries). Click on the user or group to add them as a default reviewer. Each time a new review is created, the default reviewers will be added to the review. </p>
+                                                            <ul>
+                                                                <li><b>Users:</b> click the star icon to the left of the <i>userid </i>to toggle whether their vote is required or not. A solid star means that their vote is <a href="code_reviews.responsibility.html#code_reviews.responsibility.required" title="Required Reviewer" alt="Required Reviewer">required</a> to approve a review, whereas the outlined star means that their vote is optional.</li>
+                                                                <li><b>Groups:</b> click the star icon to the left of the <i>groupid </i>, and select whether the group is a <a href="code_reviews.responsibility.html#code_reviews.responsibility.required" title="Required Reviewer" alt="Required Reviewer">required reviewer (one vote), a required reviewer (all votes)</a>, or an optional reviewer. A solid star means that all group member votes are required to approve a review, a solid star with a 1 inside means at least one group member must vote up and no group members vote down to approve a review, and the outlined star means that the group vote is optional. </li>
+                                                            </ul>
+                                                            <p>Click the <b>X</b> icon to the right of the <i>userid </i>or <i>groupid </i>to remove that default reviewer from the default reviewers list.</p>
+                                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                                <p><b>When a review is part of multiple projects/project branches:</b>
+                                                                </p>
+                                                                <ul>
+                                                                    <li>The default reviewer lists for all of the projects and project branches the review is part of are combined and added to the review. </li>
+                                                                    <li>If a default reviewer has different reviewer options set on projects and project branches that the review is part of, the strictest reviewer option is used for the review. <br /></li>
+                                                                </ul>
+                                                                <blockquote>
+                                                                    <p><b>Example:</b> A review is created and it is part of  <b>Project A</b>, <b>Project B</b>, and <b>Project Branch b</b>. </p>
+                                                                    <blockquote>
+                                                                        <p><b>Project A:</b> default reviewer X is an Optional reviewer</p>
+                                                                        <p><b>Project B:</b> default reviewer X is an Optional reviewer</p>
+                                                                        <p><b>Project Branch b:</b> default reviewer X is a Required reviewer</p>
+                                                                        <p><b>Result:</b> default reviewer X is added to the review as a Required reviewer </p>
+                                                                    </blockquote>
+                                                                </blockquote>
+                                                            </div>
+                                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                                <p>If users or groups are <a href="basics.notable.html#basics.notable.mentions" title="@mention" alt="@mention">@mentioned</a> in a new changelist description that includes <code class="code_clearBackground">#review</code>, they will be added  to the review as reviewers.  If any of these reviewers are already  specified as default reviewers they will not be added to the review again, the reviewer's most restrictive reviewer option is used for the review. </p>
+                                                            </div>
+                                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                                <p>If a default reviewer is deleted from <span class="mc-variable Perforce.HVE_short variable">Helix server</span> they will not be added to new reviews. </p>
+                                                            </div>
+                                                        </li>
+                                                        <li value="2"><b>Optional:</b> <a name="quickstart.manage_branches.retain_default_reviewers"></a> click the <b>Retain default reviewers for reviews associated with this branch</b>  checkbox to prevent default reviewers being removed from reviews associated with this branch. </li>
+                                                        <p>For more information about retained default reviewers, see <a href="projects.membership.html#projects.membership.retained_default_reviewers" title="Retain default reviewers" alt="Retain default reviewers">Retain default reviewers</a>. </p>
+                                                    </ol>
+                                                </li>
+                                                <li value="7">
+                                                    <p><b>Optional:</b> set the <b>Minimum up votes</b> required for  reviews associated with this branch. </p>
+                                                    <p>To inherit the parent project setting, leave  <b>Minimum up votes</b> set to <b>Inherit from project</b>.  This is the default when you create a new branch. </p>
+                                                    <p>To use the branch setting and ignore the parent project setting, set <b>Minimum up votes</b> to <b>1</b> or more on the branch. </p>
+                                                    <p data-mc-conditions="Perforce.Swarm">A review cannot be approved until all of the <a href="code_reviews.responsibility.html#code_reviews.responsibility.required" title="Required reviewers" alt="Required reviewers">Required reviewers</a> have voted up the review and the <b>Minimum up votes</b> specified has been satisfied. </p>
+                                                    <ul>
+                                                        <li>If a review spans projects/branches, the Minimum  up votes for <b>each</b> of the projects and branches must  be satisfied before you can approve the review.</li>
+                                                        <li>Required reviewers are included when up votes are counted. </li>
+                                                        <li>When  <b>Count votes up from</b> is set to <b>Members</b> for a workflow associated with a project/branch, only the up votes of members of the project contribute to satisfying the <b>Minimum up votes</b> for a project/branch.  For more information about the <b>Count votes up from</b> rule, see <a href="workflow.overview.html#workflow_overview_workflow_rules" title="Workflow rules" alt="Workflow rules" class="MCXref xref">Workflow rules</a>. </li>
+                                                        <p>
+                                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                                <p>If the Workflow  feature is disabled, all votes are counted not just votes from project members. </p>
+                                                            </div>
+                                                        </p>
+                                                    </ul>
+                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                        <p>If the <b>Minimum up votes</b> required is set higher than the number of reviewers that exist for a review, approval will be blocked for that review. This is true even if all the reviewers on the review have voted up the review. </p>
+                                                    </div>
+                                                </li>
+                                                <li value="8">
+                                                    <p><b>Optional:</b> check the <b>Only Moderators can approve or reject reviews</b> checkbox. </p>
+                                                    <p>When checked, a field is displayed, allowing you to add a new moderator. The field auto-suggests groups and users within the <span class="mc-variable Perforce.HVE_long variable">Helix Core server</span> as you type.</p>
+                                                    <p>If a group is specified as a moderator, all of the members of that group have the same moderator privileges for that project branch as if they were added individually. </p>
+                                                    <p>Once the branch specification is complete and the project has been saved, changing the state of any review associated with this moderated branch is restricted as follows:</p>
+                                                    <ul>
+                                                        <li>Only moderators can approve or reject the review. Moderators can also transition a review to any other state. </li>
+                                                        <p>
+                                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                                <p>Moderators prevent the automatic approval of reviews, for more information about  automatically approving reviews using workflow rules see <a href="workflow.overview.html#workflow_overview_workflow_rules" title="Workflow rules" alt="Workflow rules" class="MCXref xref">Workflow rules</a>. </p>
+                                                            </div>
+                                                        </p>
+                                                        <p>
+                                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                                <p>By default, when a review spans multiple branches that have different moderators, only one moderator from any one of the branches needs to approve the review. </p>
+                                                                <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> can be configured to require that one moderator from each branch must approve the review, this is a global setting. If a moderator belongs to more than one of the branches spanned by the review, their approval will count for each of the branches they belong to. For instructions on how to configure moderator behavior, see <a href="admin.reviews.html#admin.reviews.moderator_approval" title="Moderator behavior when a review spans multiple branches" alt="Moderator behavior when a review spans multiple branches" class="MCXref xref">Moderator behavior when a review spans multiple branches</a>. </p>
+                                                            </div>
+                                                        </p>
+                                                        <li>
+                                                            <p>The review's author, when not a moderator, can change the review's state to <b>Needs review</b>, <b>Needs revision</b>, <b>Archived</b>, and can attach committed changelists.</p>
+                                                            <p>Normally, the review's author cannot change the review's state to <b>Approved</b> or <b>Rejected</b> on moderated branches. However, authors that are also moderators have moderator privileges, and may approve or reject their own review.</p>
+                                                            <p>When <code><a href="admin.reviews.html#admin.reviews.disable_self_approve" title="disable_self_approve" alt="disable_self_approve">disable_self_approve</a></code> is enabled, authors who are moderators (or even users with admin privileges) cannot approve their own reviews.</p>
+                                                        </li>
+                                                        <li>Project members can change the review's state to <b>Needs review</b> or <b>Needs revision</b>, and can attach committed changelists. Project members cannot change the review's state to <b>Approved</b>, <b>Rejected</b>, or <b>Archived</b>.</li>
+                                                        <li>Users that are not project members, moderators, or the review's author cannot transition the review's state.</li>
+                                                        <li>For the review's author and project members, if a review is not in one of their permitted states, for example if the review's state is <b>Rejected</b>, they cannot transition the review to another state.</li>
+                                                    </ul>
+                                                    <p>These restrictions have no effect on who can start a review.</p>
+                                                </li>
+                                                <li value="9">
+                                                    <p>Click <b>Done</b> to accept your branch specification.</p>
+                                                    <p>Once the branch definition has completed, if any moderators were specified, the number of moderators for that branch is displayed in the list of branches.</p>
+                                                </li>
+                                                <li value="10">Click <b>Save</b> to save the branch changes to your project.</li>
+                                            </ol>
+                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                <p>The project name does not need to be included in the branch name; <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> displays the project name with the branch name when appropriate.</p>
+                                            </div>
+                                            <h2 data-mc-autonum=""><a name="Editing_a_branch" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Editing a branch</h2>
+                                            <ol>
+                                                <li value="1">Follow the <a href="#InitialSteps">initial steps</a>.</li>
+                                                <li value="2">Click the branch drop-down button you want to edit.</li>
+                                                <li value="3">Revise the <b>Name</b>, <b>Paths</b>, default reviewers, or moderators as required.</li>
+                                                <li value="4">Click <b>Save</b>.</li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Removing_a_branch" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Removing a branch</h2>
+                                            <ol>
+                                                <li value="1">Follow the <a href="#InitialSteps">initial steps</a>.</li>
+                                                <li value="2">Click the branch drop-down button you want to remove.</li>
+                                                <li value="3">Click <b>Remove</b>.</li>
+                                                <li value="4">Click <b>Save</b>.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+﻿{
+  "username": "用户名或电子邮件",
+  "password": "密码",
+  "profile": "我的资料",
+  "info": "系统信息",
+  "about": "关于 Swarm",
+  "logout": "注销",
+  "close": "关闭",
+  "rememberMe": "记住我",
+  "copyRight": "版权所有 © 2020- Perforce Software, Inc. 保留所有权利。",
+  "login": "登录",
+  "search": "搜索",
+  "swarmSearch": "Swarm 搜索",
+}

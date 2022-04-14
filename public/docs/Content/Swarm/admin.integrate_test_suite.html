@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Automated testing for reviews</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Automated_testing_for_reviews" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Automated testing for reviews</h1>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>From <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2020.1, the preferred method for defining tests is on the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <a href="chapter_tests.html" class="MCXref xref" data-mc-conditions="Perforce.Swarm">Tests</a> page. This enables you to: </p>
+                                                <ul>
+                                                    <li>Associate a test with a <a href="workflow.add.html" title="Add a workflow" alt="Add a workflow" data-mc-conditions="Perforce.Swarm">workflow</a> to ensure that the test is run when a review associated with that workflow is either created/updated or submitted. </li>
+                                                    <li>Associate a test with the <a href="admin.workflow_configurables.html#admin_workflow_configurable_global-rules" title="Global workflow rules" alt="Global workflow rules">global workflow</a> to ensure that the test is run whenever a <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> review is either created/updated or submitted. This ensures that the global tests are enforced for all changes even if they are not part of a project. </li>
+                                                </ul>
+                                            </div>
+                                            <p>Integrating <span class="mc-variable Perforce.Swarm_long variable">Helix Swarm</span> with a test suite involves enabling <b>Automated Tests</b> in your project's configuration and providing a <i>trigger URL</i>. When the <i>trigger URL</i> is requested, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> expects your test suite to be executed. When the tests complete, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> expects an <i>update callback URL</i>, a <i>pass callback URL</i>, or a <i>fail callback URL</i>  to be requested by your test suite.</p>
+                                            <ol>
+                                                <li value="1">Navigate to the <b>Project</b> page.</li>
+                                                <li value="2">Click the project <b>Settings</b> tab to display the <b>Project Settings</b> page.</li>
+                                                <li value="3">Ensure that paths in each named branch configured for the project do not overlap with paths in other named branches.</li>
+                                                <li value="4">
+                                                    <p><b>Automated tests</b> checkbox: select <b>Enable</b> to display the configuration fields:</p>
+                                                    <p>
+                                                        <img src="../Resources/Images/swarm-fields-automated_tests.png" title="Configuration Fields for Automated Tests" alt="Image of Configuration fields for automated tests" />
+                                                    </p>
+                                                </li>
+                                                <li value="5">
+                                                    <p>Provide a URL that triggers your test suite execution.</p>
+                                                    <p>Special arguments are available to inform your test suite of various details from <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> automatically replaces the arguments with the relevant <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> information when it calls the test:</p>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p><b><span class="mc-variable Perforce.p4jenkins_long variable">Helix Plugin for Jenkins</span> 1.10.11 and later:</b> <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> must send the parameters for the build to Jenkins as a POST  request. To do this, enter the parameters in the <b>Post Body</b> and select <b>URL&#160;Encoded</b>. </p>
+                                                    </div>
+                                                    <dl>
+                                                        <dt><span class="code_clearBackground">{test}</span>
+                                                        </dt>
+                                                        <dd>The name of the test</dd>
+                                                        <dt><span class="code_clearBackground">{testRunId}</span>
+                                                        </dt>
+                                                        <dd>The test run id</dd>
+                                                        <dt><span class="code_clearBackground">{change}</span>
+                                                        </dt>
+                                                        <dd>The change number</dd>
+                                                        <dd>
+                                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                                <p>If your CI system supports <span class="code_clearBackground">change=now</span>, you can use this instead of the <span class="code_clearBackground">change={change}</span> to make sure your review is always tested against the latest version of the submitted code. </p>
+                                                            </div>
+                                                        </dd>
+                                                        <dt><span class="code_clearBackground">{status}</span>
+                                                        </dt>
+                                                        <dd>Status of the change, <i>shelved</i> or <i>submitted</i></dd>
+                                                        <dt><span class="code_clearBackground">{review}</span>
+                                                        </dt>
+                                                        <dd>The review's identifier</dd>
+                                                        <dt><span class="code_clearBackground">{version}</span>
+                                                        </dt>
+                                                        <dd>The version of the review</dd>
+                                                        <dt><span class="code_clearBackground">{description}</span>
+                                                        </dt>
+                                                        <dd>The change description of the change used to generate this update. <span class="code">{description}</span> cannot be used in the <b>URL</b>, it can only be used in the <b>POST&#160;Body</b>.</dd>
+                                                        <dt><span class="code_clearBackground">{project}</span>
+                                                        </dt>
+                                                        <dd>The project's identifier</dd>
+                                                        <dt><span class="code_clearBackground">{projectName}</span>
+                                                        </dt>
+                                                        <dd>The project's name</dd>
+                                                        <dt><span class="code_clearBackground">{branch}</span>
+                                                        </dt>
+                                                        <dd>The branch identifier(s) impacted by the review, comma-separated</dd>
+                                                        <dt><span class="code_clearBackground">{branchName}</span>
+                                                        </dt>
+                                                        <dd>The branch name(s) impacted by the review, comma-separated</dd>
+                                                        <dt><span class="code_clearBackground">{update}</span>
+                                                        </dt>
+                                                        <dd>The update callback URL. You can include any or all of the following when calling the update url to update the test run: status, messages, and a url in the body that links to the CI system for that run. They should be formatted in JSON in the body of the POST request. <b>Status:</b> valid status values are <span class="code_clearBackground">running</span>, <span class="code_clearBackground">pass</span>, and <span class="code_clearBackground">fail</span>. <b>Messages:</b> you can pass a maximum 10 messages, if you provide more than 10 messages  only the first 10 are saved. Each message can contain a maximum of 80 characters, any messages with more than 80 characters  will be automatically truncated.  <span class="code_clearBackground">{update}</span> is the preferred option for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.3. For more details, see the note below.  </dd>
+                                                        <dt><span class="code_clearBackground">{pass}</span>
+                                                        </dt>
+                                                        <dd>Tests pass callback URL. From <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.3, <span class="code_clearBackground">{update}</span> is preferred. For more details, see the note below. </dd>
+                                                        <dt><span class="code_clearBackground">{fail}</span>
+                                                        </dt>
+                                                        <dd>Tests fail callback URL. From <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.3, <span class="code_clearBackground">{update}</span> is preferred. For more details, see the note below. </dd>
+                                                    </dl>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <ul>
+                                                            <li><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.3 and later still supports <span class="code_clearBackground">{pass}</span> and <span class="code_clearBackground">{fail}</span>, however <span class="code_clearBackground">{update}</span> is preferred because you can also include a message with the test status. </li>
+                                                            <li><span class="code_clearBackground">{update}</span>, <code class="code_clearBackground">{pass}</code>, and <code class="code_clearBackground">{fail}</code>  are composed automatically by <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. They include <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>'s own per-review authentication tokens.</li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li value="6">
+                                                    <p><b>Optional:</b> specify any parameters that your automated tests require that must be sent via HTTP POST in the <b>POST Body</b> field. The POST parameters can include the special arguments listed above.</p>
+                                                    <p>Select the format of the POST parameters, either <b>URL Encoded</b> or <b>JSON Encoded</b>.</p>
+                                                    <ul>
+                                                        <li><b>URL Encoded:</b>  POST parameters are parsed into name=value pairs.</li>
+                                                        <li><b>JSON Encoded:</b> parameters are passed raw in the POST body.</li>
+                                                    </ul>
+                                                </li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Configuring_Jenkins_for_Swarm_integration" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Configuring Jenkins for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> integration</h2>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <p>Your Jenkins host needs to be able to communicate with the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> host, and the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> host needs to be able to communicate with the Jenkins host. Ensure that the appropriate DNS/host configuration is in place, and that each server can reach the other via HTTP/HTTPS.</p>
+                                            </div>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>Install the p4-plugin for Jenkins:</p>
+                                                    <p>For instructions on installing the p4-plugin, see in the <a href="https://www.perforce.com/manuals/jenkins/Content/P4Jenkins/installation.html#Installation" target="_blank" title="Link to the installation chapter of the Helix Plugin for Jenkins Guide" alt="Link to the installation chapter of the Helix Plugin for Jenkins Guide">Installation</a> chapter of the <a href="https://www.perforce.com/manuals/jenkins/Content/P4Jenkins/Home-p4jenkins.html" target="_blank" title="Helix Plugin for Jenkins Guide" alt="Helix Plugin for Jenkins Guide"><span class="mc-variable Perforce.gd-p4jenkins variable">Helix Plugin for Jenkins Guide</span></a>. </p>
+                                                </li>
+                                                <li value="2">
+                                                    <p>Configure a Jenkins project:</p>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p><b><span class="mc-variable Perforce.p4jenkins_long variable">Helix Plugin for Jenkins</span> 1.10.11 and later:</b> <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> must send the parameters for the build to Jenkins as a POST  request. To do this, enter the parameters in the <b>Post Body</b> and select <b>URL&#160;Encoded</b>. </p>
+                                                    </div>
+                                                    <ol>
+                                                        <li value="1">
+                                                            <p>Specify the job name so that it matches the project identifier used in the trigger URL, as defined <a href="#quickstart.integrate_test_suite.url" title="Step to configure a Swarm project to run automated tests with a URL" alt="Step to configure a Swarm project to run automated tests with a URL">below</a>.</p>
+                                                            <p>For example, the computed value of <code>{projectName}_{branchName}</code>.</p>
+                                                            <p>Or, edit the trigger URL to use the Jenkins job name you specify.</p>
+                                                        </li>
+                                                        <li value="2">
+                                                            <p>Make the build parameterized to accept these parameters (note that these are named to match up with the script that is called):</p>
+                                                            <dl>
+                                                                <dt><span class="code_clearBackground">{test}</span>
+                                                                </dt>
+                                                                <dd>The name of the test</dd>
+                                                                <dt><span class="code_clearBackground">{testRunId}</span>
+                                                                </dt>
+                                                                <dd>The test run id</dd>
+                                                                <dt><span class="code_clearBackground">{status}</span>
+                                                                </dt>
+                                                                <dd>Whether the changelist to be tested is <i>shelved</i> or <i>submitted</i></dd>
+                                                                <dt><span class="code_clearBackground">{change}</span>
+                                                                </dt>
+                                                                <dd>Changelist # to run tests against</dd>
+                                                                <dt><span class="code_clearBackground">{review}</span>
+                                                                </dt>
+                                                                <dd>The review's identifier</dd>
+                                                                <dt><span class="code_clearBackground">{version}</span>
+                                                                </dt>
+                                                                <dd>The version of the review</dd>
+                                                                <dt><span class="code_clearBackground">{branchName}</span>
+                                                                </dt>
+                                                                <dd>The branch name(s) impacted by the review, comma-separated</dd>
+                                                                <dt><span class="code_clearBackground">{update}</span>
+                                                                </dt>
+                                                                <dd>The URL to POST to update the test run. You can include any or all of the following when calling the update url to update the test run: status, messages, and a url in the body that links to the CI system for that run. They should be formatted in JSON in the body of the POST request. <b>Status:</b> valid status values are <span class="code_clearBackground">running</span>, <span class="code_clearBackground">pass</span>, and <span class="code_clearBackground">fail</span>. <b>Messages:</b> you can pass a maximum 10 messages, if you provide more than 10 messages  only the first 10 are saved. Each message can contain a maximum of 80 characters, any messages with more than 80 characters  will be automatically truncated.  <span class="code_clearBackground">{update}</span> is the recommended way of reporting test status. </dd>
+                                                                <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                                    <p>If your test system cannot POST to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, you cannot use <span class="code_clearBackground">update</span> and you must use <span class="code_clearBackground">pass</span> and <span class="code_clearBackground">fail</span> instead. </p>
+                                                                </div>
+                                                                <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                                    <p><b>When using {update}:</b>
+                                                                        <ul>
+                                                                            <li>If your build script has access to any messages related to the test execution, pass the messages to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> using the <span class="code_clearBackground">{update}</span> URL. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> uses the provided message(s) to add  to the test results. </li>
+                                                                            <li>If your build script has access to the results of test execution, include a POST parameter called <span class="code_clearBackground">url</span> when calling the update URL. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> uses the provided url to link reviews to the test results. Valid test status values are <span class="code_clearBackground">running</span>, <span class="code_clearBackground">pass</span>, and <span class="code_clearBackground">fail</span>. </li>
+                                                                            <li>The <span class="code_clearBackground">{update}</span> callback url accepts a JSON&#160;body where you can specify any or all of the following: messages, url, and status.</li>
+                                                                            <p><pre lang="php" class="programlisting" xml:space="preserve">{
+    "messages" : ["My First Message", "My Second Message"],
+    "url" : "http://jenkins_host:8080/link_to_run",
+    "status": "pass"
+} </pre>
+                                                                            </p>
+                                                                        </ul>
+                                                                    </p>
+                                                                </div>
+                                                                <dt><span class="code_clearBackground">{pass}</span>
+                                                                </dt>
+                                                                <dd>The URL to wget if the build succeeds. From <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.3, <span class="code_clearBackground">{update}</span> is preferred. For more details, see the note below. </dd>
+                                                                <dt><span class="code_clearBackground">{fail}</span>
+                                                                </dt>
+                                                                <dd>The URL to wget if the build fails. From <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.3, <span class="code_clearBackground">{update}</span> is preferred. For more details, see the note below. </dd>
+                                                                <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                                    <p><b>When using </b><span class="code_clearBackground" style="font-weight: bold;">{pass}</span><b> and </b><span class="code_clearBackground" style="font-weight: bold;">{fail}</span><b>:</b> if your build script has access to the results of test execution, include a GET or POST parameter called <span class="code_clearBackground">url</span> when calling the pass or fail URLs. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> uses the provided url to link reviews to the test results.</p>
+                                                                    <p><b>For example:</b> <span class="code_clearBackground">?url=https://jenkins.example.com/view/job/&lt;<i>jobname</i>&gt;/&lt;<i>jobid</i>&gt;/</span></p>
+                                                                </div>
+                                                                <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                                    <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.3 and later still supports <span class="code_clearBackground">{pass}</span> and <span class="code_clearBackground">{fail}</span>, however <span class="code_clearBackground">{update}</span> is preferred because you can also include a message with the test status. </p>
+                                                                </div>
+                                                            </dl>
+                                                        </li>
+                                                        <li value="3">
+                                                            <p>Select <span style="font-weight: bold;" class="mc-variable Perforce.Company_short variable">Perforce</span><b> Software</b> for the <b>Source Code Management</b> section.</p>
+                                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                                <p>You might see <span style="font-weight: bold;" class="mc-variable Perforce.Company_short variable">Perforce</span> in the <b>Source Code Management</b> section. This represents an earlier community-provided <span class="mc-variable Perforce.Company_short variable">Perforce</span> plugin that does not include support for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>.</p>
+                                                            </div>
+                                                        </li>
+                                                        <li value="4">
+                                                            <p>Set up credentials and workspace behavior as needed.</p>
+                                                            <p>For instructions on configuring credentials and workspaces, see the <a href="https://www.perforce.com/manuals/jenkins/Content/P4Jenkins/credentials.html#Credentials" target="_blank" title="Link to the Credentials section of the Helix Plugin for Jenkins Guide" alt="Link to the Credentials section of the Helix Plugin for Jenkins Guide">Credentials</a> and <a href="https://www.perforce.com/manuals/jenkins/Content/P4Jenkins/chapter-workspace-behaviors.html" target="_blank" title="Link to the Workspace behaviors chapter of the Helix Plugin for Jenkins Guide" alt="Link to the Workspace behaviors chapter of the Helix Plugin for Jenkins Guide">Workspaces</a> sections of the <a href="https://www.perforce.com/manuals/jenkins/Content/P4Jenkins/Home-p4jenkins.html" target="_blank" title="Link to the Helix Plugin for Jenkins Guide" alt="Link to the Helix Plugin for Jenkins Guide"><span class="mc-variable Perforce.gd-p4jenkins variable">Helix Plugin for Jenkins Guide</span></a>.</p>
+                                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                                <ul>
+                                                                    <li>If your <span class="mc-variable Perforce.HVE_short variable">Helix server</span> is configured for <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>,  the service user credentials used for automated testing must not use <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>. </li>
+                                                                    <li>The client workspace configured in Jenkins must have a view that includes the paths defined for that branch in <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>.</li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                                <li value="3">
+                                                    <p><a name="quickstart.integrate_test_suite.url"></a>Configure your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> project to run automated tests with a URL and parameters like this:</p>
+                                                    <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                        <p>In this example, the build system is passed the changelist number of the latest version of the review in <span class="code_clearBackground">{change}</span>. If the test is rerun at a later date, the build system will rerun the test against the same <span class="code_clearBackground">{change}</span> number, and this will probably not be the latest version of the codebase. If you want the review to always be tested against the latest versions of submitted code, replace <span class="code_clearBackground">change={change}</span> with <span class="code_clearBackground">change=now</span>. Your CI system must support <span class="code_clearBackground">change=now</span> to use this feature. </p>
+                                                    </div>
+                                                    <p>
+                                                        <img src="../Resources/Images/swarm-fields-automated_tests_example.png" alt="" title="" />
+                                                    </p>
+                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                        <p>For Jenkins, the job name needs to match the job identifier in the URL. In the example above, this is the computed value of <code class="code_clearBackground">{projectName}_{branchName}</code>.</p>
+                                                        <p>If you prefer a different naming scheme in Jenkins, replace <code class="code_clearBackground">{projectName}_{branchName}</code> in the URL above with the project name actually defined in Jenkins.</p>
+                                                    </div>
+                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                        <p>If security is enabled in Jenkins, the trigger URL needs to include credentials. Follow these steps:</p>
+                                                        <ol>
+                                                            <li value="1">Create a Jenkins user that will trigger <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> builds. For example swarm.</li>
+                                                            <li value="2">Log into Jenkins as the new user.</li>
+                                                            <li value="3">Click on the user's username in the Jenkins toolbar.</li>
+                                                            <li value="4">Scroll down to <b>API Token</b>.</li>
+                                                            <li value="5">Click <b>Show API Token</b>.</li>
+                                                            <li value="6">
+                                                                <p>Incorporate the value of the <b>API Token</b> into the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger URL.</p>
+                                                                <p>For example, if the username is swarm and the API Token value is 832a5db7e5500c1288324c1441460610, the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger URL and parameters should be:</p>
+                                                                <p>
+                                                                    <img src="../Resources/Images/swarm-fields-automated_tests_token_example.png" alt="" title="" />
+                                                                </p>
+                                                            </li>
+                                                        </ol>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

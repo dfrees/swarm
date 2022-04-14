@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" xmlns="http://docbook.org/ns/docbook" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Workflows : Controller for querying, creating and updating workflows</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link href="../Resources/TableStyles/InformalTable.css" rel="stylesheet" data-mc-stylesheet-type="table" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Workflows___Controller_for_querying,_creating_and_updating_workflows" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Workflows : Controller for querying, creating and updating workflows</h1>
+                                            <div class="important admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Important "><span class="autonumber" xmlns=""><span class="admonition">Important </span></span>
+                                                <p>Support for APIs older than <span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span> will be removed in the <span class="mc-variable Perforce.Swarm_short variable" xmlns="http://docbook.org/ns/docbook">Swarm</span> 2022.2 release. </p>
+                                            </div>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Get_workflows_..242" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Get workflows</h2>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Summary_..243" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Summary</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Gets workflows</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">GET /api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Description_..244" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Description</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Get all workflows</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Parameters_..245" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Parameters</h3>
+                                            <table class="TableStyle-InformalTable" style="mc-table-style: url('../Resources/TableStyles/InformalTable.css');" cellspacing="0" xmlns="http://docbook.org/ns/docbook">
+                                                <colgroup>
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 50%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="TableStyle-InformalTable-Head-Header1">
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Description</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadD-Regular-Header1">Required</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">fields</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>An optional comma-separated list (or array) of fields to show for each workflow. Omitting this parameter or passing an empty value shows all fields.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>query</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p><span class="code">noCache</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>If provided and has a value of 'true' a query will always be performed and the cache of workflows is ignored. Otherwise the cache will be used if it exists.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>boolean</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>query</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyA-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Usage_example_..246" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Usage example</h3>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Get_a_list_of_workflows_..247" data-mc-generated-bookmark="TOC" xmlns=""></a>Get a list of workflows</h4><pre class="programlisting" lang="bash" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows"
+</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{
+    "workflows": [
+        {
+            "on_submit":{
+                "without_review":{
+                    "rule": "no_checking"
+                },
+                "with_review":{
+                    "rule": "no_checking"
+                }
+            },
+            "name": "myWorkflow",
+            "description": "A description",
+            "shared": "true",
+            "owners": [
+                "user1",
+                "user2"
+            ],	
+            "end_rules":{  
+                "update":{  
+                    "rule":"no_revision"
+                }
+            },
+            "auto_approve":{
+                "rule": "never"
+            },
+            "counted_votes":{
+                "rule": "anyone"
+            },
+            "group_exclusions":{
+                "rule": [ ]
+            }, 
+            "user_exclusions":{
+                "rule": [ ]
+            },
+            "id": "1"
+        },
+        {
+            "on_submit":{
+                "without_review":{
+                    "rule": "no_checking"
+                },
+                "with_review":{
+                    "rule": "no_checking"
+                }
+            },
+            "name": "myWorkflow 2",
+            "description": "Another description",
+            "shared": "true",
+            "owners": [
+                "user3",
+                "user4"
+            ],	
+            "end_rules":{  
+                "update":{  
+                    "rule":"no_revision"
+                }
+            },
+            "auto_approve":{
+                "rule": "votes"
+            },
+            "counted_votes": {
+                "rule": "members"
+            },
+            "group_exclusions":{
+                "rule": [ ]
+            },
+            "user_exclusions":{
+                "rule": [ ]
+            },
+            "id": "2"
+        },
+    ]
+}
+</pre>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Get_a_workflow_by_id_..248" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Get a workflow by id</h2>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Summary_..249" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Summary</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Gets a workflow by id</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">GET /api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/{id}</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Description_..250" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Description</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Gets a workflow by id</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Parameters_..251" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Parameters</h3>
+                                            <table class="TableStyle-InformalTable" style="mc-table-style: url('../Resources/TableStyles/InformalTable.css');" cellspacing="0" xmlns="http://docbook.org/ns/docbook">
+                                                <colgroup>
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 50%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="TableStyle-InformalTable-Head-Header1">
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Description</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadD-Regular-Header1">Required</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p><span class="code">fields</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>An optional comma-separated list (or array) of fields to show for each workflow. Omitting this parameter or passing an empty value shows all fields.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>query</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyA-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Example_usage_..252" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Example usage</h3>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Get_a__workflows_by_id_..253" data-mc-generated-bookmark="TOC" xmlns=""></a>Get a  workflows by id</h4><pre class="programlisting" lang="bash" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"
+</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{
+    "workflows": [
+        "on_submit":{
+            "without_review":{
+                "rule": "no_checking"
+            },
+            "with_review":{
+                "rule": "no_checking"
+            }
+        },
+        "name": "myWorkflow",
+        "description": "A description",
+        "shared": "true",
+        "owners": [
+            "user1",
+            "user2"
+        ],	
+        "end_rules":{  
+            "update":{  
+                "rule":"no_revision"
+            }
+        },
+        "auto_approve":{
+            "rule": "never"
+        },
+        "counted_votes":{
+            "rule": "anyone"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        },  
+        "id": "1"
+    }
+}
+</pre>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Create_a_workflow_..254" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Create a workflow</h2>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Summary_..255" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Summary</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Create a workflow</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">POST /api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Description_..256" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Description</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Create a new workflow.</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Parameters_..257" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Parameters</h3>
+                                            <table class="TableStyle-InformalTable" style="mc-table-style: url('../Resources/TableStyles/InformalTable.css');" cellspacing="0" xmlns="http://docbook.org/ns/docbook">
+                                                <colgroup>
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 50%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="TableStyle-InformalTable-Head-Header1">
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Description</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadD-Regular-Header1">Required</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">name</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>The workflow name. Will be compared against other workflows and rejected if not unique</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>Yes</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">description</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Description for the new workflow</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">shared</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Whether this workflow is shared for other users that do not own it. Defaults to not shared</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>boolean</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">owners</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>A list owners for the workflow. Can be users or group names (prefixed with swarm-group-). Users and group names must exist or the workflow will be rejected</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array (of strings)</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">on_submit</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values for with_review are no_checking, approved, strict. Valid values for without review are no_checking, auto_create, reject</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">end_rules</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values are no_checking, no_revision.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">auto_approve</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values are votes, never.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p><span class="code">counted_votes</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>Data for rules when counting votes up. Valid values are anyone, members.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyA-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Example_usage_..258" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Example usage</h3>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Create_a_workflow_..259" data-mc-generated-bookmark="TOC" xmlns=""></a>Create a workflow</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X POST \
+     -d "on_submit[with_review][rule]=no_checking" \
+     -d "on_submit[without_review][rule]=no_checking" \
+     -d "name=myWorkflow" \
+     -d "description=A description" \
+     -d "shared=true" \
+     -d "owners[]=Francois_Piccard" \
+     -d "owners[]=Anna_Schmidt" \
+     -d "end_rules[update][rule]=no_checking" \
+     -d "auto_approve:[rule]never" \
+     -d "counted_votes:[rule]members" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{ 
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"myWorkflow",
+        "description":"A description",
+        "shared":true,
+        "owners":[  
+            "Anna_Schmidt",
+            "Francois_Piccard"
+        ],
+        "end_rules":{
+            "update":{  
+                "rule":"no_checking"
+            }
+        },
+        "auto_approve":{  
+            "rule":"never"
+        },
+        "counted_votes":{  
+            "rule":"members"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Patch_a_workflow" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Patch a workflow</h2>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Summary_..260" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Summary</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Patch a workflow</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">PATCH /api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/{id}</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Description_..261" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Description</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Patch a workflow.</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Parameters_..262" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Parameters</h3>
+                                            <table class="TableStyle-InformalTable" style="mc-table-style: url('../Resources/TableStyles/InformalTable.css');" cellspacing="0" xmlns="http://docbook.org/ns/docbook">
+                                                <colgroup>
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 50%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="TableStyle-InformalTable-Head-Header1">
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Description</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadD-Regular-Header1">Required</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">id</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>The id of the workflow being patched</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>Yes</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">name</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>The workflow name. Will be compared against other workflows and rejected if not unique</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">description</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Description for the new workflow</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">shared</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Whether this workflow is shared for other users that do not own it. Defaults to not shared</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>boolean</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">owners</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>A list owners for the workflow. Can be users or group names (prefixed with swarm-group-). Users and group names must exist or the workflow will be rejected</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array (of strings)</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">on_submit</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values for with_review are no_checking, approved, strict. Valid values for without review are no_checking, auto_create, reject</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">end_rules</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values are no_checking, no_revision.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">auto_approve</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values are votes, never.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p><span class="code">counted_votes</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>Data for rules when counting votes up. Valid values are anyone, members.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyA-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Example_usage_..263" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Example usage</h3>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_workflow_name_and_description" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch workflow name and description</h4><pre class="programlisting" lang="bash" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "name=myWorkflow" \
+     -d "description=A description" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{
+                "rule":"no_checking"
+            }
+        },
+        "name":"myWorkflow",
+        "description":"A description",
+        "shared":false,
+        "owners":[  
+            "bruno"
+        ],
+        "end_rules":{  
+            "update":{  
+                "rule":"no_revision"
+            }
+        },
+        "auto_approve":{  
+            "rule":"votes"
+        },
+        "counted_votes":{  
+            "rule":"members"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_on_submit_with_review" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch on_submit with_review</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "on_submit[with_review][rule]=no_checking" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{
+                "rule":"no_checking"
+            }
+        },
+        "name":"test",
+        "description":"test line 2",
+        "shared":false,
+        "owners":[  
+            "bruno"
+        ],
+        "end_rules":{  
+            "update":{  
+                "rule":"no_revision"
+            }
+        },
+        "auto_approve":{  
+            "rule":"votes"
+        },
+        "counted_votes":{  
+            "rule":"members"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_on_submit_without_review" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch on_submit without_review</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "on_submit[without_review][rule]=no_checking" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"test",
+        "description":"test line 2",
+        "shared":false,
+        "owners":[  
+            "bruno"
+        ],
+        "end_rules":{  
+            "update":{  
+                "rule":"no_revision"
+            }
+        },
+        "auto_approve":{  
+            "rule":"votes"
+        },
+        "counted_votes":{  
+            "rule":"members"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_Auto_approve" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch Auto_approve</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "auto_approve[rule]=never" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"test",
+        "description":"test line 2",
+        "shared":false,
+        "owners":[  
+            "bruno"
+        ],
+        "end_rules":{  
+            "update":{  
+                "rule":"no_revision"
+            }
+        },
+        "auto_approve":{  
+            "rule":"never"
+        },
+        "counted_votes":{  
+            "rule":"members"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_counted_votes" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch counted_votes</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "counted_votes[rule]=anyone" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"test",
+        "description":"test line 2",
+        "shared":false,
+        "owners":[  
+            "bruno"
+        ],
+        "end_rules":{  
+            "update":{  
+                "rule":"no_revision"
+            }
+        },
+        "auto_approve":{  
+            "rule":"never"
+        },
+        "counted_votes":{  
+            "rule":"anyone"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_end_rules" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch end_rules</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "end_rules[update][rule]=no_checking" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"test",
+        "description":"test line 2",
+        "shared":false,
+        "owners":[  
+            "bruno"
+        ],
+        "end_rules":{  
+            "update":{  
+                "rule":"no_checking"
+            }
+        },
+        "auto_approve":{  
+            "rule":"never"
+        },
+        "counted_votes":{  
+            "rule":"members"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_shared" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch shared</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "shared=true" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"test",
+        "description":"test line 2",
+        "shared":true,
+        "owners":[  
+            "bruno"
+        ],
+        "end_rules":{  
+            "update":{  
+                "rule":"no_checking"
+            }
+        },
+        "auto_approve":{  
+            "rule":"never"
+        },
+        "counted_votes":{  
+            "rule":"anyone"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Patch_Owners" data-mc-generated-bookmark="TOC" xmlns=""></a>Patch Owners</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PATCH \
+     -d "owners[]=Francois_Piccard" \
+     -d "owners[]=Anna_Schmidt" \
+     -d "owners[]=bruno" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"test",
+        "description":"test line 2",
+        "shared":true,
+        "owners":[  
+            "Anna_Schmidt",
+            "Francois_Piccard",
+            "bruno"
+        ],
+        "end_rules":{
+            "update":{  
+                "rule":"no_checking"
+            }
+        },
+        "auto_approve":{  
+            "rule":"never"
+        },
+        "counted_votes":{  
+            "rule":"anyone"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Update_a_workflow_..264" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Update a workflow</h2>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Summary_..265" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Summary</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Update a workflow</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">PUT /api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/{id}</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Description_..266" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Description</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Update a workflow. All values should be provided in the request. If not provided any missing values are reverted to default.</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Parameters_..267" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Parameters</h3>
+                                            <table class="TableStyle-InformalTable" style="mc-table-style: url('../Resources/TableStyles/InformalTable.css');" cellspacing="0" xmlns="http://docbook.org/ns/docbook">
+                                                <colgroup>
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 50%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="TableStyle-InformalTable-Head-Header1">
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Description</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadD-Regular-Header1">Required</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">id</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>The id of the workflow being patched</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>Yes</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">name</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>The workflow name. Will be compared against other workflows and rejected if not unique</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>Yes</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">owners</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>A list owners for the workflow. Can be users or group names (prefixed with swarm-group-). Users and group names must exist or the workflow will be rejected</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array (of strings)</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">description</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Description for the new workflow</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">shared</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Whether this workflow is shared for other users that do not own it. Defaults to not shared</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>boolean</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">on_submit</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values for with_review are no_checking, approved, strict. Valid values for without review are no_checking, auto_create, reject</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">end_rules</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values are no_checking, no_revision.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p><span class="code">auto_approve</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>Data for rules when changes are submitted. Valid values are votes, never.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyE-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyD-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p><span class="code">counted_votes</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>Data for rules when counting votes up. Valid values are anyone, members.</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>array</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyA-Regular-NoBackground">
+                                                            <p>No</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Example_usage_..268" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Example usage</h3>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Update_a_workflow_..269" data-mc-generated-bookmark="TOC" xmlns=""></a>Update a workflow</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+curl -u "username:password" \
+     -X PUT \
+     -d "on_submit[with_review][rule]=no_checking" \
+     -d "on_submit[without_review][rule]=no_checking" \
+     -d "name=myWorkflow" \
+     -d "description=A description" \
+     -d "shared=true" \
+     -d "owners[]=Francois_Piccard" \
+     -d "owners[]=Anna_Schmidt" \
+     "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response:</p><pre class="programlisting" lang="json" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">
+HTTP/1.1 200 OK
+
+{  
+    "workflow":{  
+        "on_submit":{  
+            "with_review":{  
+                "rule":"no_checking"
+            },
+            "without_review":{  
+                "rule":"no_checking"
+            }
+        },
+        "name":"myWorkflow",
+        "description":"A description",
+        "shared":true,
+        "owners":[  
+            "Anna_Schmidt",
+            "Francois_Piccard"
+        ],
+        "end_rules":{
+            "update":{  
+                "rule":"no_checking"
+            }
+        },
+        "auto_approve":{  
+            "rule":"never"
+        },
+        "counted_votes":{  
+            "rule":"anyone"
+        },
+        "group_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "user_exclusions":[ ],
+            "rule": [ ]
+        }, 
+        "id":1
+    }
+}
+</pre>
+                                            <h2 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Delete_a_workflow_..270" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Delete a workflow</h2>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Summary_..271" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Summary</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Delete a workflow</p>
+                                            <p xmlns="http://docbook.org/ns/docbook">DELETE /api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/{id}</p>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Description_..272" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Description</h3>
+                                            <p xmlns="http://docbook.org/ns/docbook">Delete a workflow for the provided id. This call must be authenticated and the user must have permission to edit the workflow. If the workflow is in use it cannot be deleted and an error message will be returned.</p>
+                                            <div class="tip admonition" xmlns="http://docbook.org/ns/docbook" data-mc-autonum="Tip "><span class="autonumber" xmlns=""><span class="admonition">Tip </span></span>
+                                                <ul xmlns="http://docbook.org/ns/docbook">
+                                                    <li><b>Private projects:</b> when a project is made private, only the project owners, moderators, and members, plus users with <i>super</i>-level privileges in the <span class="mc-variable Perforce.Helix_short variable" xmlns="http://docbook.org/ns/docbook">Helix server</span>, can see the project, its activity streams, and ongoing reviews. API responses honor these private project restrictions. For more information about private project restrictions, see <a href="basics.projects.html#basics.projects.private" class="MCXref xref">Private projects</a>. </li>
+                                                    <li><b>Permissions:</b> if a public review contains files that the user does not have permission to view, the review is returned but the restricted files are not displayed. </li>
+                                                </ul>
+                                            </div>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Parameters_..273" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Parameters</h3>
+                                            <table class="TableStyle-InformalTable" style="mc-table-style: url('../Resources/TableStyles/InformalTable.css');" cellspacing="0" xmlns="http://docbook.org/ns/docbook">
+                                                <colgroup>
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 50%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                    <col style="width: 12%;" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="TableStyle-InformalTable-Head-Header1">
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Description</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadE-Regular-Header1">Parameter Type</th>
+                                                        <th class="TableStyle-InformalTable-HeadD-Regular-Header1">Required</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="TableStyle-InformalTable-Body-NoBackground">
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p><span class="code">id</span>
+                                                            </p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>The id of the workflow being deleted</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>string</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyB-Regular-NoBackground">
+                                                            <p>form</p>
+                                                        </td>
+                                                        <td class="TableStyle-InformalTable-BodyA-Regular-NoBackground">
+                                                            <p>Yes</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <h3 xmlns="http://docbook.org/ns/docbook" data-mc-autonum=""><a name="Example_usage_..274" data-mc-generated-bookmark="TOC" xmlns=""></a><span class="autonumber" xmlns=""><span></span></span>Example usage</h3>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Delete_a_workflow_not_in_use" data-mc-generated-bookmark="TOC" xmlns=""></a>Delete a workflow not in use</h4><pre class="programlisting" lang="bash" xml:space="preserve" xmlns="http://docbook.org/ns/docbook">curl -u "username:password" -X DELETE "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response</p><pre class="programlisting" lang="json" xmlns="http://docbook.org/ns/docbook" xml:space="preserve">
+HTTP/1.1 200 OK
+
+{
+    "isValid": true,
+    "messages": [
+        "Workflow [1] was deleted"
+    ]
+}</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Delete_a_workflow_that_is_in_use_on_public_projects" data-mc-generated-bookmark="TOC" xmlns=""></a>Delete a workflow that is in use on public projects</h4><pre class="programlisting" lang="bash" xmlns="http://docbook.org/ns/docbook">curl -u "username:password" -X DELETE "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response</p><pre class="programlisting" lang="json" xmlns="http://docbook.org/ns/docbook" xml:space="preserve">
+HTTP/1.1 200 OK
+
+{
+    "isValid": false,
+    "messages": [
+        "Cannot delete workflow [1], it is in use on project [project1, project2]"
+    ]
+}</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Delete_a_workflow_that_is_in_use_on_a_public_and_some_private_projects" data-mc-generated-bookmark="TOC" xmlns=""></a>Delete a workflow that is in use on a public and some private projects</h4><pre class="programlisting" lang="bash" xmlns="http://docbook.org/ns/docbook">curl -u "username:password" -X DELETE "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response</p><pre class="programlisting" lang="json" xmlns="http://docbook.org/ns/docbook" xml:space="preserve">
+HTTP/1.1 200 OK
+
+{
+    "isValid": false,
+    "messages": [
+        "Cannot delete workflow [1], it is in use on project [project1] and others"
+    ]
+}</pre>
+                                            <h4 xmlns="http://docbook.org/ns/docbook"><a name="Delete_a_workflow_that_is_in_use_on_only_private_projects" data-mc-generated-bookmark="TOC" xmlns=""></a>Delete a workflow that is in use on only private projects</h4><pre class="programlisting" lang="bash" xmlns="http://docbook.org/ns/docbook">curl -u "username:password" -X DELETE "https://my-swarm-host/api/<span class="mc-variable Perforce.Swarm_legacy_API_version variable" xmlns="http://docbook.org/ns/docbook">v9</span>/workflows/1"</pre>
+                                            <p xmlns="http://docbook.org/ns/docbook">JSON Response</p><pre class="programlisting" lang="json" xmlns="http://docbook.org/ns/docbook" xml:space="preserve">
+HTTP/1.1 200 OK
+
+{
+    "isValid": false,
+    "messages": [
+        "Cannot delete workflow [1], it is in use"
+    ]
+}</pre>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

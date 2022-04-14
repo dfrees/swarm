@@ -1,0 +1,288 @@
+<?php
+use Application\Config\ConfigManager;
+use Comments\Model\Comment;
+    $services            = $this->getHelperPluginManager()->get('serviceContainer')->getServices();
+    $config              = $services->get('config');
+    $threading_max_depth = ConfigManager::getValue($config, ConfigManager::COMMENT_THREADING_MAX_DEPTH, 0);
+    $show_id             = ConfigManager::getValue($config, ConfigManager::COMMENT_SHOW_ID, false);
+    if (!$this->level || count($comments)):
+?>
+<div class="comments-container <?php echo !$this->level ? 'comments-wrapper' : 'comment-replies-wrapper'; ?> variable c<?php count($comments) ?> l<?php echo $this->level?>">
+    <?php
+    $userId = $this->user()->getId();
+    if (count($comments)):
+    ?>
+    <table class="table opened-comments comments-table">
+        <tbody>
+        <?php
+        foreach ($comments as $index => $comment):
+            $user        = $comment->get('user');
+            $context     = $comment->getFileContext();
+            $jsonContext = json_encode($context);
+            $closedClass = in_array('closed', $comment->getFlags()) ? 'closed' : '';
+            $idClass     = $comment->getId() ? 'c' . $this->escapeHtmlAttr($comment->getId()) : 'readonly';
+            $version     = isset($context['version']) ? 'version version-' . $context['version'] : '';
+            $isRead      = in_array($userId, $comment->getReadBy(), true);
+        ?>
+            <tr class="<?php echo $idClass ?> row-main <?php echo $closedClass ?> r1 <?php echo $isRead ? 'read' : '' ?>"
+                data-body="<?php echo $this->escapeHtmlAttr($comment->get('body')) ?>"
+                data-context="<?php echo $this->escapeHtmlAttr($jsonContext) ?>"
+                data-task-transitions="<?php echo $this->escapeHtmlAttr(json_encode($comment->getTaskTransitions())) ?>"
+                data-task-state="<?php echo $this->escapeHtmlAttr($comment->getTaskState()) ?>">
+                <td rowspan="3" class="avatar">
+                    <?php echo $this->avatar($user, !$this->level ? 64 : 32, $comment->isValidUser()) ?>
+                </td>
+                <td class="comment-summary">
+                    <div class="comment-controls pull-right">
+                        <?php
+                        $iconClass = $isRead ? 'swarm-icon icon-comment-unread' : 'swarm-icon icon-comment-read';
+                        echo '<span class="read-state' . ($isRead ? ' read' : ' unread') . ' privileged">'
+                           . '<a href="#" title="' . $this->t($isRead ? 'Mark comment as unread' : 'Mark comment as read') . '"><i class="' . $iconClass . '"></i></a>'
+                           . '</span>';
+                        ?>
+                        <button type="button" class="privileged bare btn-close" aria-label="<?php echo $this->te('Archive')?>" title data-original-title="<?php echo $this->te('Archive')?>"><i
+                            class="closed icon-share-alt"></i><i
+                            class="opened swarm-icon icon-archive"></i>
+                        </button><div class="task-state btn-group"></div>
+                    </div>
+                    <?php if ($context['content']): ?>
+                    <div class="monospace content-context border-box">
+                        <?php
+                        foreach ($context['content'] as $line) {
+                            $class = 'content-line-value'
+                                   . ($line[0] === '+' ? ' content-line-add'    : '')
+                                   . ($line[0] === '-' ? ' content-line-delete' : '');
+                            echo '<div class="' . $class . '">' . $this->escapeHtml($line) . '</div>';
+                        }
+                        ?>
+                    </div>
+                    <?php endif; ?>
+                    <div class="comment-text-wrapper">
+                        <?php
+                        echo $this->userLink($user, true);
+                        $route      = $comment->getRoute();
+                        $hrefPrefix = '';
+                        if ($route === Comment::ROUTE_REVIEW || $route === Comment::ROUTE_CHANGE || $route === Comment::ROUTE_JOB) {
+                            if (!empty($context) && ($context[Comment::ROUTE_REVIEW] || $context[Comment::ROUTE_CHANGE])) {
+                                $hrefPrefix = $this->qualifiedUrl($route, $context);
+                            } else {
+                                // If we are missing context we can defer to topic as the url.
+                                $hrefPrefix = $this->qualifiedUrl().'/'.$topic;
+                            }
+                        }
+                        if ($context['file']) {
+                            $text = "(revision %s) (on %s, line %s)";
+                            // Unfortunately we have to repeat the string for the translation generation to pick it up
+                            // $this->te($text) will not get it into the file
+                            $this->te("(revision %s) (on %s, line %s)");
+                            $replacements = [$context[ 'version'], $this->decodeFilespec($context[ 'name']), $this->escapeUrl($context[ 'line'])];
+                            if (!$context['version']) {
+                                $text = str_replace("(revision %s) ", "", $text);
+                                unset($replacements[0]);
+                            }
+                            if (!$context['line']) {
+                                $text = str_replace(", line %s", "", $text);
+                                unset($replacements[sizeof($replacements) - 1]);
+                            }
+                            $text = vsprintf($text, $replacements);
+
+                            echo '<span class="context">'
+                               . '<a href="'
+                               . $hrefPrefix
+                               . '#' . $this->escapeUrl($context['md5']) . ',c' . $this->escapeUrl($comment->getId()) . '">'
+                               . ' ' . $text
+                               . '</a></span>';
+                        }
+                        $commented = $this->te('commented');
+                        if ($comment->isDescriptionComment()) {
+                            $commented = $this->te('commented on description');
+                        }
+                        ?>
+                        <span class="timeago-label"><?php echo $this->level ? $this->te('replied') : $commented; ?></span>
+                        <?php if ($comment->get('time')): ?>
+                        <span class="timeago" title="<?php
+                            echo $this->escapeHtmlAttr(date('c', $comment->get('time')))
+                        ?>"></span>
+                        <?php endif; ?>
+                        <?php if ($comment->get('edited')) {
+                            echo '<span class="timeago-label" title="'
+                               . $this->escapeHtmlAttr(date('c', $comment->get('edited')))
+                               . '">(' . $this->te('edited') . ')</span>';
+                        } ?>
+                        <div class="comment-body"><?php echo $this->preformat($comment->get('body'))->setMarkdown(true, true) ?></div>
+                    </div>
+                    <div class="comment-attachments">
+                        <?php
+                        foreach ($comment->getAttachments() as $attachmentId):
+                            if (!isset($attachments[$attachmentId])) {
+                                continue;
+                            }
+
+                            $attachment = $attachments[$attachmentId];
+                        ?>
+                            <div class="attachment"
+                                 data-attachment="<?php echo $this->escapeHtmlAttr(json_encode($attachment->get())) ?>">
+                            <?php if ($attachment->isWebSafeImage()): ?>
+                                    <img src="<?php
+                                    echo $this->url(
+                                        'attachments',
+                                        [
+                                            'attachment' => $attachmentId,
+                                            'filename'   => $attachment->get('name')
+                                        ]
+                                    ) ?>" class="embedded-attachment">
+                                <?php endif; ?>
+                                    <div><small>
+                                        <a href="<?php
+                                            echo $this->url(
+                                                'attachments',
+                                                [
+                                                    'attachment' => $attachmentId,
+                                                    'filename'   => $attachment->get('name')
+                                                ]
+                                            );
+                                        ?>">
+                                            <i class="icon-file"></i><?php
+                                                echo $this->escapeHtml($attachment->get('name'))
+                                            ?>
+                                        </a>
+                                        (<?php echo $this->fileSize($attachment->get('size')) ?>)
+                                    </small></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </td>
+            </tr>
+            <tr class="<?php echo $idClass ?>-append row-append <?php echo $closedClass ?> r2 <?php echo $isRead ? 'read' : '' ?>">
+                <td class="comment-footer">
+                    <?php if ($show_id): ?>
+                        <span class="commentid"><?php echo $comment->getId();?></span>
+                    <?php endif; ?>
+                    <?php if($threading_max_depth > $this->level): ?>
+                        <?php if ($show_id): ?>
+                            <span class="readonly-divider padw1">&middot;</span>
+                        <?php endif; ?>
+                        <a href="#" class="reply-comment privileged" data-comment="<?php echo $comment->getId()?>"><?php echo $this->te('Reply') ?></a>
+                    <?php endif; ?>
+                    <?php if ($comment->get('user') === $this->user()->getId()): ?>
+                        <span class="divider padw1">&middot;</span>
+                        <a href="#" class="edit-comment"><?php echo $this->te('Edit') ?></a>
+                    <?php endif; ?>
+                    <?php
+                    $likes     = $comment->getLikes();
+                    $hasLikes  = count($likes);
+                    $userLikes = in_array($userId, $likes, true);
+                    $likeClass = 'likes' . ($hasLikes ? ' has-likes' : '') . ($userLikes ? ' user-likes' : '');
+                    $likeIcon  = $userLikes ? 'swarm-icon icon-heart-red' : 'icon-heart';
+                    echo '<span class="' . $likeClass . '">'
+                       .   '<span class="divider padw1">&middot;</span>'
+                       .   '<span class="likes-counter" title="' . $this->escapeHtmlAttr(implode(', ', $likes)) . '">' . count($likes) . '</span>'
+                       .   '<a href="#" title="' . $this->t($userLikes ? 'Unlike' : 'Like') . '"><i class="' . $likeIcon . '"></i></a>'
+                       . '</span>';
+                    ?>
+                </td>
+            </tr>
+            <tr class="<?php echo $idClass ?>-replies row-replies <?php echo $closedClass ?> r3"><td>
+            <div class="comment-replies replies-to-<?php echo $comment->getId() ?>">
+                <?php echo $this->comments($topic, null, isset($context['version']) ?: null, $comment->getId(), $canAttach, 1+$this->level); ?>
+            </div></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php endif; ?>
+
+    <?php if (!$this->level): ?>
+
+    <div class="comment-add">
+        <?php if ($userId): ?>
+        <table class="table clearfix">
+            <tbody>
+                <tr>
+                    <td class="avatar">
+                        <?php echo $this->avatar($userId, 64) ?>
+                    </td>
+                    <td class="comment-form">
+                        <form method="post" onsubmit="swarm.comments.add(this); return false;" data-max-size="<?php echo $maxSize ?>">
+                            <input type="hidden" name="topic"
+                                   value="<?php echo $this->escapeHtmlAttr($topic) ?>">
+                            <input type="hidden" name="user"
+                                   value="<?php echo $this->escapeHtmlAttr($userId) ?>">
+                            <input type="hidden" name="context">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <div class="textarea-wrapper <?php echo $canAttach ? 'can-attach' : '' ?>" data-upload-url="<?php echo $this->escapeHtmlAttr($this->url('add-attachment')) ?>">
+                                        <textarea class="border-box pad2"
+                                                  name="body" placeholder="<?php echo $this->te('Add a comment')?>" rows="5" required></textarea>
+                                        <div class="textarea-footer">
+                                            <div class="drop-controls"></div>
+                                            <div class="textarea-tips muted clearfix">
+                                                <?php if ($canAttach): ?>
+                                                    <span class="pull-left drop-note"><?php echo $this->te('Drop files here to attach them')?></span>
+                                                <?php endif; ?>
+                                                <span class="pull-right">
+                                                    <a href="http://www.emoji-cheat-sheet.com" tabindex="-1" target="_blank">
+                                                        <?php echo $this->te('Emoji codes are supported')?>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group buttons form-inline">
+                                <div class="controls">
+                                    <button type="submit" class="btn btn-primary">
+                                        <?php echo $this->te('Post')?>
+                                    </button>
+                                    <label class="checkbox flag-task">
+                                        <input type="checkbox" name="taskState" value="open"> <?php echo $this->te('Flag as Task')?>
+                                    </label>
+                                    <?php if (strpos($topic, 'reviews/') === 0):
+                                        $delayedComments   = $this->user()->getConfig()->getDelayedComments($topic);
+                                        $delayedCount      = isset($delayedComments)
+                                            ? count($delayedComments): 0;
+                                        $delayTime         = ConfigManager::getValue($config, ConfigManager::COMMENT_NOTIFICATION_DELAY_TIME);
+                                        $delayNotification = $delayTime === 0 ? 'false' : 'true'; ?>
+                                        <label class="checkbox delay-notifications">
+                                            <input type="checkbox" name="delayNotification" value="<?php echo $delayNotification; ?>"
+                                            <?php if ($delayTime !== 0) { echo 'checked'; } ?>>
+                                            <?php echo $this->te('Delay Notification') ?>
+                                            <?php echo '<span class="badge delayed-comments-counter' . ($delayedCount ? '' : ' hidden') . '">' . $delayedCount . '</span>' ?>
+                                        </label>
+                                        <div class="post-and-send-delayed-comments privileged">
+                                            <a href="#" class="send-delayed-notifications" data-topic="<?php echo $topic; ?>">
+                                                <i class="icon-envelope"></i><span class="post-count"> <?php echo vsprintf($this->te('Post and Notify (%s)'), [$delayedCount]
+                                                    ); ?></span>
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <?php else: ?>
+        <div class="comment-form-link clearfix">
+            <div class="avatar pull-left">
+                <?php echo $this->avatar(null, 64, false, 'avatar-anonymous') ?>
+            </div>
+            <div>
+                <a href="<?php echo $this->url('login') ?>" class="login" onclick="swarm.user.login(); return false;">
+                    <?php echo $this->te('Log in to comment')?>
+                </a>
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('.comments-wrapper .timeago').formatTimestamp();
+    });
+</script>
+<?php endif; ?>
+

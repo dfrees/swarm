@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>PHP configuration</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="PHP_configuration" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>PHP configuration</h1>
+                                            <p>PHP can vary between OS distributions; see the documentation specific to your installation of PHP.</p>
+                                            <ol>
+                                                <li value="1">
+                                                    <p><a name="php_setup_step1"></a>First determine which PHP&#160;<code class="code_clearBackground">.ini</code> file is in use by the PHP Apache module. </p>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <p>It may not necessarily be the same <code class="code_clearBackground">.ini </code>file that is in use when calling PHP from the command line (running <code>php --ini</code> from the command line reports this).</p>
+                                                    </div>
+                                                    <p>If you are having trouble determining which <code class="code_clearBackground">.ini </code>file the PHP Apache module is using, create a PHP file that can be served through Apache with the following contents:</p>
+                                                    <p><span class="code">&lt;?php phpinfo();?&gt;</span>
+                                                    </p>
+                                                    <p>Point your browser to this file and look for this table row in the resulting table:</p>
+                                                    <p><span class="code">Loaded Configuration File</span>
+                                                    </p>
+                                                </li>
+                                                <li value="2">
+                                                    <p>Ensure that <code class="code_clearBackground">date.timezone </code>is set correctly for your system.</p>
+                                                    <p>Some distributions do not make a default timezone available to PHP, so the best practice to set the timezone for PHP explicitly. See the <a href="https://secure.php.net/manual/en/timezones.php" target="_blank" title="Link to https://secure.php.net/manual/en/timezones.php" alt="Link to https://secure.php.net/manual/en/timezones.php">list of supported timezones</a>.</p>
+                                                    <p>An example <code class="code_clearBackground">date.timezone </code>setting in <code class="code_clearBackground">php.ini</code>:</p>
+                                                    <p><span class="code">date.timezone = America/Vancouver</span>
+                                                    </p>
+                                                </li>
+                                                <li value="3">
+                                                    <p>Verify that the iconv, json, and session extensions are present.</p>
+                                                    <p>They are usually enabled by default, although you may have to install packages for them through your OS distribution. Verify they are present by searching for their respective names in the <code class="code_clearBackground">phpinfo </code>output above.</p>
+                                                </li>
+                                                <li value="4">
+                                                    <p>Enable <span class="mc-variable Perforce.P4PHP variable">P4PHP</span>, the <span class="mc-variable Perforce.Company_short variable">Perforce</span> extension for PHP:</p>
+                                                    <p>For <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to communicate with the <span class="mc-variable Perforce.HVE_long variable">Helix Core server</span>, it needs the <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> extension. <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> variants are available for each  <a href="setup.dependencies.html#setup.dependencies.php" title="PHP 7 versions supported" alt="PHP 7 versions supported">PHP 7 version supported</a> by  <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> and each variant is available as either openssl 1.02 or openssl 1.1.1. All of the <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> variants are supplied with the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> package, OVA and tarball installations. </p>
+                                                    <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                        <ul>
+                                                            <li>For Linux, the default variants are compiled with glibc 2.11. </li>
+                                                            <li><span class="mc-variable Perforce.P4PHP variable">P4PHP</span> 2019.1 or later is required for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2019.1 and later. </li>
+                                                            <p><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> package, OVA and tarball installations:</b> 2 versions of <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> are supplied for each PHP 7 version supported by <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. They are located in the <span class="code_clearBackground">p4-bin/bin.linux26x86_64</span> directory.</p>
+                                                            <ul>
+                                                                <li><span class="code_clearBackground">perforce-php7x.so</span> compatible with systems using SSL 1.0.2</li>
+                                                                <li><span class="code_clearBackground">perforce-php7x-ssl1.1.1.so</span>  compatible with systems using SSL 1.1.1 (by default Ubuntu 18.04 and Ubuntu 20.04 use SSL&#160;1.1.1) </li>
+                                                            </ul>
+                                                            <p>Where <span class="code_clearBackground">x</span> is the version of PHP 7.</p>
+                                                            <p>If the <span class="code_clearBackground">perforce.ini</span> file is not pointing at the correct version of <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> and you connect to an SSL&#160;enabled <span class="mc-variable Perforce.Helix_short variable">Helix server</span>: </p>
+                                                            <ul>
+                                                                <li>The <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> web-page will not load and you might see a <span class="code_clearBackground">Connection Reset</span> error. </li>
+                                                                <li>There might be an <span class="code_clearBackground">undefined symbol: SSLeay</span> message in the Apache error log</li>
+                                                            </ul>
+                                                        </ul>
+                                                    </div>
+                                                    <p>To enable <span class="mc-variable Perforce.P4PHP variable">P4PHP</span>, edit the web server's <code class="code_clearBackground">php.ini </code>file and add the following line:</p>
+                                                    <p><span class="code">extension=/path/to/swarm/p4-bin/bin.&lt;platform&gt;/perforce-&lt;variant&gt;.so</span>
+                                                    </p>
+                                                    <p style="font-weight: bold;">Example 1: for a 64-bit Linux system running PHP 7.2 and SSL 1.0.2:</p>
+                                                    <p style="font-weight: normal;"><span class="code">extension=/path/to/swarm/p4-bin/bin.linux26x86_64/perforce-php72.so</span>
+                                                    </p>
+                                                    <p style="font-weight: bold;">Example 2: for a 64-bit Linux system running PHP 7.4 and SSL 1.0.2:</p>
+                                                    <p style="font-weight: normal;"><span class="code">extension=/path/to/swarm/p4-bin/bin.linux26x86_64/perforce-php74.so</span>
+                                                    </p>
+                                                    <p style="font-weight: bold;">Example 3: for a 64-bit Linux system running PHP 7.2 and SSL 1.1.1:</p>
+                                                    <p style="font-weight: normal;"><span class="code">extension=/path/to/swarm/p4-bin/bin.linux26x86_64/perforce-php72-ssl1.1.1.so</span>
+                                                    </p>
+                                                    <p style="font-weight: bold;">Example 4: for a 64-bit Linux system running PHP 7.4 and SSL 1.1.1:</p>
+                                                    <p style="font-weight: normal;"><span class="code">extension=/path/to/swarm/p4-bin/bin.linux26x86_64/perforce-php74-ssl1.1.1.so</span>
+                                                    </p>
+                                                    <p>Alternatively, copy the extension file to the default location for PHP extensions, and then just add this line instead:</p>
+                                                    <p><span class="code">extension=perforce-&lt;variant&gt;.so</span>
+                                                    </p>
+                                                </li>
+                                                <li value="5">Restart Apache for the changes to become active.</li>
+                                                <li value="6">To verify that <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> is active, navigate to the <code class="code_clearBackground">phpinfo </code>file you <a href="#php_setup_step1" title="PHP Configuration Step 1" alt="PHP Configuration Step 1">created above</a>. You should then see a perforce section (search for "Perforce Module"). It should report that the module is enabled and display the version information.</li>
+                                                <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                    <p>Be aware that any operating system upgrades on the machine hosting <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> may involve updates to PHP. If this occurs, the PHP <span class="code_clearBackground">.ini</span> file needs to be updated to point to the correct <code class="code_clearBackground" style="font-style: italic;">variant </code>of <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> to match the version of PHP that the upgraded operating system is using.</p>
+                                                </div>
+                                                <li value="7">In addition, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> greatly benefits from the following optional extension: ImageMagick extension for PHP to improve <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>'s ability to preview graphic formats that web browsers typically cannot display,  see <a href="#setup_php.imagick" title="ImageMagick (imagick) Extension for PHP" alt="ImageMagick (imagick) Extension for PHP" class="MCXref xref">ImageMagick (imagick) extension for PHP</a>. </li>
+                                                <li value="8">Configure <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, see <a href="setup.swarm.html" title="Swarm Configuration" alt="Swarm Configuration" class="MCXref xref">Swarm configuration</a>.</li>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="ImageMagick_(imagick)_extension_for_PHP" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="setup_php.imagick"></a>ImageMagick (imagick) extension for PHP</h2>
+                                            <p>Imagick is a PHP extension that integrates the ImageMagick graphics library's API for the creation and manipulation of images. Enabling Imagick improves <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>'s ability to preview graphics formats that web browsers typically cannot display.</p>
+                                            <p>For more information, see: </p>
+                                            <ul>
+                                                <li><a href="https://secure.php.net/imagick" target="_blank" title="Link to https://secure.php.net/imagick" alt="Link to https://secure.php.net/imagick">https://secure.php.net/imagick</a> </li>
+                                                <li><a href="https://pecl.php.net/package/imagick" target="_blank" title="Link to https://pecl.php.net/package/imagick" alt="Link to https://pecl.php.net/package/imagick">https://pecl.php.net/package/imagick</a>
+                                                </li>
+                                            </ul>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>We recommend that you install Imagick from your OS distribution, via <code>apt-get</code>, <code>yum</code>, etc. If your distribution does not offer the imagick package for PHP, install it via PECL (although you may have to resolve system dependencies):</p>
+                                                    <p><span class="code">sudo pecl install imagick</span>
+                                                    </p>
+                                                </li>
+                                                <li value="2">
+                                                    <p>Verify that imagick is enabled in your PHP Apache module's PHP&#160;<code class="code_clearBackground">.ini </code>file (as determined in the section above for <span class="mc-variable Perforce.P4PHP variable">P4PHP</span>). You may need to add the following line: </p>
+                                                    <p><span class="code">extension=imagick.so</span>
+                                                    </p>
+                                                </li>
+                                                <li value="3">Restart Apache for the changes to become active.</li>
+                                                <li value="4">
+                                                    <p>To verify that imagick is active, navigate to the <code class="code_clearBackground">phpinfo</code> file you <a href="#php_setup_step1" title="PHP Configuration Step 1" alt="PHP Configuration Step 1">created earlier</a>. You should then see an imagick section. It should report its version information and a table for its directives, supported image file formats, and more.</p>
+                                                    <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                        <p>Once you have completed installing and enabling <span class="mc-variable Perforce.P4PHP variable">P4PHP</span> and imagick, we recommend that you remove the <code class="code_clearBackground">phpinfo</code> file you created to avoid disclosing information about your installation.</p>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

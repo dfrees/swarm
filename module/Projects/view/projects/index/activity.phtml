@@ -1,0 +1,11 @@
+<?php
+$this->headTitle()->set($project->getName())->append($this->te('Activity'));
+?>
+<div class="row-fluid">
+    <?php echo $this->projectSidebar($project) ?>
+    <div class="span9 profile-body">
+        <div>
+            <?php echo $this->activity('project-' . $project->getId()) ?>
+        </div>
+    </div>
+</div>

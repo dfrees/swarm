@@ -1,0 +1,58 @@
+Helix-Swarm Extension (EXPERIMENTAL)
+=====================
+
+This is the new server side extension for Swarm, designed to run on P4D
+2020.1 or later. The extension is meant as a replacement for the old Perl
+triggers, and the two MUST not be installed together on the same server.
+
+This extension is currently EXPERIMENTAL. It should work, but hasn't had
+the same degree of testing as the triggers have. The advantages of using it
+are:
+
+* It is much easier to install and configure, since it doesn't require
+  Perl as a dependency.
+
+* It is slightly more performant, due to not needing to start Perl for
+  every request.
+
+For full information on extensions, see the Helix Core documentation. For
+full details of the Swarm extension specifically see the Swarm documentation.
+
+A brief overview of installation is below though.
+
+Source
+------
+
+The source for the extension can be found in the helix-swarm directory.
+It is written in Lua, and can be used as an example of how to write
+server-side extensions for the Helix Core server.
+
+Building the package from source requires super access to a Helix Core
+server (2020.1 or later) and can be built using:
+
+$ p4 extension --package helix-swarm
+
+This will create a helix-swarm.p4-extension package
+
+Installation
+------------
+
+To install, run the following as a super user:
+
+$ p4 extension --yes --install helix-swarm.p4-extension
+
+To configure the global extension settings, run:
+
+$ p4 extension --configure Perforce::helix-swarm
+
+At the very least you will need to set the ExtP4User (probably to super),
+the Swarm-URL and the Swarm-Token. These will be similar to the settings
+in the trigger configuration.
+
+To create an instance of the extension (which is needed to finalise the
+configuration), run:
+
+$ p4 extension --configure Perforce::helix-swarm --name swarm
+
+It is recommended that these settings are left as their defaults.
+

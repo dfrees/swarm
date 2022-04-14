@@ -1,0 +1,133 @@
+/*<meta />*/
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Regular.ttf);
+}
+
+div#skin-heading
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #B7B7B7;
+	display: inline-block;
+	position: relative;
+	left: 110px;
+	top: 13px;
+}
+
+div#skin-heading-hth
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #B7B7B7;
+	display: inline-block;
+	position: relative;
+	left: 100px;
+	top: 13px;
+}
+
+div#skin-heading-swarm
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #B7B7B7;
+	display: inline-block;
+	position: relative;
+	left: 110px;
+	top: 13px;
+}
+
+div#responsive-skin-heading
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #red;
+	display: inline-block;
+	position: relative;
+	left: 0px;
+	top: 10px;
+}
+
+div#responsive-skin-heading-hth
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #red;
+	display: inline-block;
+	position: relative;
+	left: 0px;
+	top: 10px;
+}
+
+div#responsive-skin-heading-swarm
+{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #red;
+	display: inline-block;
+	position: relative;
+	left: 0px;
+	top: 10px;
+}
+
+@media screen and (max-width: 674px)
+{
+	div#skin-heading
+	{
+		display: none;
+	}
+
+	div#skin-heading-hth
+	{
+		display: none;
+	}
+
+	div#skin-heading-swarm
+	{
+		display: none;
+	}
+
+	div#onesource-search-wrapper
+	{
+		xxfloat: left;
+		position: initial;
+		width: initial;
+		border: solid 1px #ddd;
+		margin-top: -14px;
+		margin-bottom: 14px;
+		margin-left: -14px;
+	}
+
+	div#topic-toolbar-wrapper
+	{
+		margin-right: 14px;
+	}
+
+	div#topic-toolbar-wrapper
+	{
+		float: right;
+		margin-bottom: 14px;
+		margin-left: 14px;
+	}
+}
+
+@media only screen and (max-width: 980px)
+{
+	div#skin-heading
+	{
+		display: none;
+	}
+
+	div#skin-heading-hth
+	{
+		display: none;
+	}
+
+	div#skin-heading-swarm
+	{
+		display: none;
+	}
+}
+

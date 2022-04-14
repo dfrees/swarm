@@ -1,0 +1,167 @@
+<?php
+use Files\View\Helper\FileTypeView;
+$this->headTitle()->set($path)->setTranslatorEnabled(false);
+if ($partial) {
+    echo $this->headTitle();
+}
+
+$isDeleted    = preg_match('/delete|purge/', $file->getStatus('headAction'));
+$isWebSafe    = $file->isText() || preg_match('#/bmp|/gif|/jpe?g|/png|/pdf|/x\-icon#i', $type);
+$canOpen      = $isWebSafe && !$isDeleted;
+$canPreview   = !$isDeleted && $formats->canPreview($file, $this->request());
+$fileTypeView = $this->fileTypeView($file, $this->request());
+
+// assemble urls to open/download/archive file - we use project-specific urls if a project is set.
+$query       = $version ? '?v=' . $this->escapeUrl($version) : '';
+$openUrl     = $project
+    ? $this->url('project-browse', ['path' => $path, 'project' => $project->getId(), 'mode' => 'view']) . $query
+    : $this->url('view', ['path' => $path]) . $query;
+$downloadUrl = $project
+    ? $this->url('project-browse', ['path' => $path, 'project' => $project->getId(), 'mode' => 'download']) . $query
+    : $this->url('download', ['path' => $path]) . $query;
+$archiveUrl  = $project
+    ? $this->url('project-archive', ['path' => $path, 'project' => $project->getId()]) . $query
+    : $this->url('archive', ['path' => $path]) . $query;
+
+?>
+
+<h1 class="browse-title">
+    <?php echo $this->decodeFilespec($file->getBasename()) ?>
+    <span class="muted rev<?php echo $isDeleted ? ' deleted' : '' ?>">
+        <?php echo $this->escapeHtml($version ?: '#' . $file->getStatus('headRev')) ?>
+    </span>
+</h1>
+
+<?php echo $this->breadcrumbs(
+    $path,
+    $project ? 'project-browse' : 'file',
+    $project ? ['project' => $project->getId(), 'mode' => 'files'] : null
+) ?>
+<div class="browse-files-carousel carousel-inner">
+    <div class="item active">
+        <div class="browse-content">
+            <ul class="nav nav-tabs file-tabs">
+                <?php if ($canPreview): ?>
+                    <?php if ($fileTypeView): ?>
+                        <li <?php echo !$history && $fileTypeView ? 'class="active"' : '' ?>>
+                            <a href="#<?php echo $fileTypeView[FileTypeView::VIEW_FORMAT]?>" data-toggle="tab">
+                                <i class="icon-file"></i> <?php echo $fileTypeView[FileTypeView::VIEW_LABEL] ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <li <?php echo !$history && !$fileTypeView ? 'class="active"' : '' ?>>
+                        <a href="#view" data-toggle="tab">
+                            <i class="icon-file"></i> <?php echo $this->te('View')?>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <li <?php echo $history || !$canPreview  ? 'class="active"' : '' ?>>
+                    <a href="#commits" data-toggle="tab">
+                        <i class="icon-time"></i> <?php echo $this->te('Commits')?>
+                    </a>
+                </li>
+                <li class="pull-right">
+                    <div class="btn-group pad1 padw0">
+                        <button type="button" class="btn btn-small btn-short-link"
+                                title="<?php echo $this->te('Shorten URL')?>"
+                                onclick="swarm.browse.getShortLink(this);">
+                            <i class="icon-bookmark"></i>
+                        </button>
+                    </div>
+                    <?php
+                    // show blame button for text files - disable for '@=' revisions and empty files
+                    // (annotate doesn't work on shelved files; we only use '@=' for shelved files at the moment)
+                    if ($file->isText()): ?>
+                        <div class="btn-group pad1 padw0">
+                            <?php if (strpos($version, '@=') !== 0
+                                && $file->hasStatusField('fileSize')
+                                && $file->getFileSize()
+                            ): ?>
+                            <button type="button" class="btn btn-blame btn-small"
+                                    title="<?php echo $this->te('Show Annotations')?>"
+                                    onclick="swarm.browse.toggleAnnotations(this);">
+                                <i class="icon-fire"></i> <?php echo $this->te('Blame')?>
+                            </button>
+                        <?php else: ?>
+                            <button type="button" class="btn btn-blame btn-small disabled">
+                                <i class="icon-fire"></i> <?php echo $this->te('Blame')?>
+                            </button>
+                        <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="btn-group pad1 padw0">
+                        <?php
+                        if ($canOpen): ?>
+                            <a href="<?php echo $openUrl ?>" class="btn btn-small">
+                                <i class="icon-share"></i> <?php echo $this->te('Open')?>
+                            </a>
+                        <?php endif; ?>
+                        <?php if ($this->canEdit && !$isDeleted): ?>
+                            <button type="button"
+                                    class="btn btn-edit btn-small"
+                                    <?php echo $this->user()->getId() ? '' : 'disabled="disabled"';?>
+                                    title="<?php echo $this->user()->getId() ? $this->te('Edit') : $this->te('Log in to edit')?>"
+                                    data-toggle="modal" data-target="#file-edit-content"
+                                    onclick="swarm.browse.openEditor('<?php echo $this->base64Path;?>', '<?php echo $version;?>');">
+                                <i class="icon-edit"></i> <?php echo $this->te('Edit')?>
+                            </button>
+                        <?php endif;?>
+                        <?php if (!$isDeleted): ?>
+                            <?php if ($canArchive): ?>
+                            <a href="<?php echo $archiveUrl ?>"
+                                    class="btn btn-small"
+                                    onclick="swarm.browse.getArchive(this); return false;">
+                                <i class="icon-briefcase"></i> <?php echo $this->te('Download .zip')?>
+                            </a>
+                            <?php endif; ?>
+                            <a href="<?php echo $downloadUrl ?>" class="btn btn-small">
+                                <i class="icon-download-alt"></i> <?php echo $this->te('Download')?>
+                                <span class="muted">(<?php echo $this->fileSize($file->getStatus('fileSize')) ?>)</span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <?php if ($canPreview): ?>
+                    <?php if ($fileTypeView): ?>
+                        <div class="tab-pane fade <?php echo !$history ? 'in active' : '' ?>" id="<?php echo $fileTypeView[FileTypeView::VIEW_FORMAT]?>">
+                            <?php echo $formats->renderPreview($file, $this->request()) ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="tab-pane fade <?php echo !$history && !$fileTypeView ? 'in active' : '' ?>" id="view">
+                        <?php
+                            $originalHandlers = $formats->getHandlers();
+                            $formats->setHandlers(array_filter($originalHandlers, function($handlerName) use ($fileTypeView){
+                                return $fileTypeView === false || $handlerName !== $fileTypeView[FileTypeView::VIEW_FORMAT];
+                            }, ARRAY_FILTER_USE_KEY));
+                            echo $formats->renderPreview($file, $this->request());
+                            $formats->setHandlers($originalHandlers);
+                        ?>
+                    </div>
+                <?php endif; ?>
+                <div class="tab-pane fade <?php echo $history || !$canPreview ? 'in active' : '' ?>" id="commits">
+                    <?php include __DIR__ . '/filelog.phtml'; ?>
+                </div>
+            </div>
+            <?php if ($this->canEdit): ?>
+                <div id="file-edit-content"
+                     class="modal hide fade edit-file"
+                     data-backdrop="static" data-keyboard="false"
+                     tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="file-content-title"
+                     aria-hidden="false">
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php if(!$partial): ?>
+<script type="text/javascript">
+    $(function(){
+        swarm.browse.init();
+    });
+</script>
+<?php endif; ?>

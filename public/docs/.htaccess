@@ -1,0 +1,12 @@
+DirectoryIndex index.html
+
+# Handles rewriting old HTML filenames to new HTML filenames.
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  RewriteBase /
+
+  # unconditional serving of assets in this tree
+  # with no invocation of Swarm.
+  RewriteRule ^.*$ - [NC,L]
+</IfModule>

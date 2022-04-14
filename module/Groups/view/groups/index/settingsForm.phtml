@@ -1,0 +1,43 @@
+<div class="control-group">
+    <label class="control-label" for="name"><?php echo $this->te('Name')?></label>
+    <div class="controls">
+        <input class="input-xlarge" type="text" name="name" id="name" maxlength="1000"
+               value="<?php echo $this->escapeHtmlAttr($group->getConfig()->getName()) ?>"
+               placeholder="<?php echo $this->te('Name')?>" required
+               <?php echo $canEditName ? '' : 'disabled' ?>>
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="description"><?php echo $this->te('Description')?></label>
+    <div class="controls">
+        <textarea class="input-xxlarge" rows="10" name="description" id="description"
+            placeholder="<?php echo $this->te('Description')?>"><?php
+            echo $this->escapeHtmlAttr($group->getConfig()->getDescription())
+        ?></textarea>
+    </div>
+</div>
+<div class="control-group control-group-owners">
+    <label class="control-label" for="owners"><?php echo $this->te('Owners')?></label>
+    <div class="controls">
+        <div class="input-prepend" clear="both">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" class="input-xlarge" id="owners" data-items="100"
+                data-selected="<?php echo $this->escapeHtmlAttr(json_encode($group->getOwners())) ?>"
+                placeholder="<?php echo $this->te('Add an Owner')?>">
+        </div>
+    </div>
+    <div class="controls owners-list"></div>
+</div>
+<div class="control-group control-group-members">
+    <label class="control-label" for="members"><?php echo $this->te('Members')?></label>
+    <div class="controls">
+        <div class="input-prepend" clear="both">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" class="input-xlarge" id="members" data-items="100"
+                data-selected="<?php echo $this->escapeHtmlAttr(json_encode($group->getUsers())) ?>"
+                data-selected-groups="<?php echo $this->escapeHtmlAttr(json_encode($group->getSubgroups())) ?>"
+                placeholder="<?php echo $this->te('Add a User or Subgroup')?>">
+        </div>
+    </div>
+    <div class="controls members-list"></div>
+</div>

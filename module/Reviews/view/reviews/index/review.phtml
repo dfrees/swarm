@@ -1,0 +1,478 @@
+<?php
+use \Application\Config\ConfigManager;
+use Reviews\Model\FileInfo;
+use Users\Settings\ReviewPreferences;
+$services = $this->getHelperPluginManager()->get('serviceContainer')->getServices();
+$config   = $services->get('config');
+
+$this->headTitle()->set($this->t('Review') . ' ' . $review->getId())->setTranslatorEnabled(false);
+
+
+
+// prepare job spec data for the 'Status' field
+// job status is a reserved (optional) field with code 102
+try {
+    $statusField = $jobSpec->fieldCodeToName(102);
+} catch (\InvalidArgumentException $e) {
+    $statusField = null;
+}
+$status = $statusField ? $jobSpec->getField($statusField) : null;
+
+// prepare url to get jobs - we use 'project-jobs' route if under a project, otherwise standard 'jobs' route
+$jobsUrl = $project
+    ? $this->url('project-jobs', ['project' => $project])
+    : $this->url('jobs');
+$archiveUrl = $this->url('archive', ['path' => 'swarm-review-' . $review->getId()]) . '?isReview=true';
+?>
+<div>
+    <?php if ($project): ?>
+        <!--
+        - When operating in non-react review mode (with the react navigation) we listen for when the navigation is
+        - loaded so that we can dispatch an event that triggers display of the project context menu if we have a
+        - single project. For a full explanation see LegacyHandler in Swarm.jsx
+        -->
+        <script>
+            document.addEventListener('navigation-loaded', function() {
+                let menuContextChanged = null;
+                if (typeof Event !== "function") {
+                    // Older, non-standard, browser - probably ie11
+                    menuContextChanged = document.createEvent("CustomEvent");
+                    menuContextChanged.initCustomEvent("menu-context-change", true, true, '<?php echo $project ?>');
+                } else {
+                    menuContextChanged = new CustomEvent(
+                        'menu-context-change',
+                        {detail: '<?php echo $project ?>', bubbles:true}
+                    );
+                }
+                document.dispatchEvent(menuContextChanged);
+            });
+        </script>
+    <?php endif;?>
+    <div
+        class="review-wrapper change-wrapper review-type-<?php echo $review->getType() ?>"
+        data-change-modify="<?php echo $this->escapeHtmlAttr(json_encode($changeModify)) ?>"
+        data-review="<?php echo $this->escapeHtmlAttr(json_encode($review->get() + ['versions' => $review->getVersions()])) ?>"
+        data-review-groups-members="<?php echo $this->escapeHtmlAttr(json_encode($groupsMembership)) ?>"
+        data-avatars="<?php echo $this->escapeHtmlAttr(json_encode($avatars)) ?>"
+        data-transitions="<?php echo $this->escapeHtmlAttr(json_encode($transitions)) ?>"
+        data-can-edit-reviewers="<?php echo $this->escapeHtmlAttr(json_encode($canEditReviewers)) ?>"
+        data-can-edit-author="<?php echo $this->escapeHtmlAttr(json_encode($canEditAuthor)) ?>"
+        data-author-avatar="<?php echo $this->escapeHtmlAttr(json_encode($authorAvatar)) ?>"
+        data-jobs="<?php echo $this->escapeHtmlAttr(json_encode($jobs)) ?>"
+        data-job-status="<?php echo $this->escapeHtmlAttr(json_encode($status)) ?>"
+        data-jobs-url="<?php echo $this->escapeHtmlAttr($jobsUrl) ?>"
+        data-against="<?php
+        echo isset($against) ? $this->escapeHtmlAttr(json_encode(
+                                                         [
+            'id'            => $against->getId(),
+            'rev'           => $againstRev,
+            'time'          => $against->getTime(),
+            'user'          => $against->getUser(),
+            'client'        => $against->getClient(),
+            'status'        => $against->getStatus(),
+            'changeType'    => $against->getType(),
+            'basePath'      => $against->getPath(true, true, $max),
+            'desc'          => $against->getDescription()
+                                                         ]
+                                                     )) : '';
+        ?>"
+        data-head ="<?php echo isset($left) && $left === '' && $config['reviews']['version_chooser'] !== 'slider'? 1 : 0 ?>",
+        data-change="<?php
+        echo $this->escapeHtmlAttr(json_encode(
+                                       [
+            'id'            => $change->getId(),
+            'rev'           => $changeRev,
+            'time'          => $change->getTime(),
+            'user'          => $change->getUser(),
+            'client'        => $change->getClient(),
+            'status'        => $change->getStatus(),
+            'changeType'    => $change->getType(),
+            'basePath'      => $change->getPath(true, true, $max),
+            'desc'          => $change->getDescription()
+                                       ]
+                                   ));
+        ?>"
+        data-cleanup="<?php echo $this->escapeHtmlAttr(json_encode($cleanup)) ?>">
+        <div class="review-header change-header">
+            <div class="row-fluid">
+                <h1 class="pull-left"><?php echo $this->te('Review')?> <?php echo $this->escapeHtml($review->getId()) ?><span id="revision-display-pane" class="muted"></span></h1>
+            </div>
+
+            <div class="row-fluid">
+
+                <div class="span author-avatar"></div>
+
+                <div class="popover right span review-info change-info">
+                    <div class="arrow"></div>
+                    <div class="popover-title clearfix pad1">
+                        <div class="change-byline pull-left pad1">
+                            <?php
+                            $versions     = $review->getversions();
+                            $firstVersion = array_shift($versions);
+                            $author       = isset($firstVersion['user']) ? $firstVersion['user'] : $review->get('author');
+                            $projects     = $review->get('projects');
+                            $versions     = $review->getversions();
+                            $head         = end($versions);
+                            $created      = date('c', $review->get('created'));
+                            $updated      = date('c', $review->get('updated'));
+                            $requested    = $this->t('Review requested')?>
+                            <?php
+                            echo  $requested . ' <span class="timeago" title="' . $this->escapeHtmlAttr($created)
+                                . '"> </span>';
+                            // if review is associated with projects, list them.
+                            // otherwise, output the base-path of the diff change
+                            if ($projects) {
+                                echo ' ' . $this->te('for') . ' ' . $this->projectList($projects, $project);
+                            } elseif ($basePath) {
+                                echo ' ' . $this->te('for') . ' '
+                                   . '<a href="'
+                                   .   $this->url('file', ['path' => ltrim($basePath, '/')])
+                                   . '">' . $this->decodeFilespec($basePath) . '</a>';
+                            }
+
+                            // if the head rev is committed, reflect that in status
+                            if (is_array($head) && !$head['pending']) {
+                                echo ', ' . $this->te('committed') . ' ';
+                                if ($head['user'] !== $author) {
+                                    echo $this->te('by') . ' ' . $this->userLink($head['user']) . ' ';
+                                }
+                                echo '<span class="timeago" title="'
+                                   .   $this->escapeHtmlAttr(date('c', $head['time']))
+                                   . '"></span> '
+                                   . $this->te('in') . ' <a href="'
+                                   .   $this->url('change', ['change' => $head[ 'change']])
+                                   . '">' . $head['change'] . '</a>';
+                            } else {
+                                echo ', ' . $this->te('last updated') . ' '
+                                    . '<span class="timeago" title="'
+                                    .   $this->escapeHtmlAttr($updated)
+                                    . '"></span>';
+                            }
+                            ?>
+                        </div>
+                        <div class="review-status pull-right"></div>
+                        <?php if ($canArchive): ?>
+                            <div class = "pull-right download-zip">
+                                <?php if ($counts['adds'] != 0 || $counts['edits'] != 0): ?>
+                                <a href="<?php echo $archiveUrl ?>"
+                                   class="btn btn-small"
+                                   onclick="swarm.browse.getArchive(this, <?php echo $review->getId()?>); return false;">
+                                    <i class="icon-briefcase"></i> <?php echo $this->te('Download .zip')?>
+                                </a>
+                                <?php else: ?>
+                                <button class="btn btn-small" disabled>
+                                    <i class="icon-briefcase"></i> <?php echo $this->te('Download .zip')?>
+                                </button>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="pull-right add-change btn-group privileged">
+                            <a class="btn bt-small dropdown-toggle" data-toggle="dropdown">
+                                <i class="swarm-icon icon-committed"></i> <?php echo $this->te('Add Change')?>
+                            </a>
+                        </div>
+                        <div class="pull-right all-comment-controls btn-group privileged">
+                            <a class="btn btn-small mark-all-read">
+                                <i class="swarm-icon icon-comment-read"></i> <?php echo $this->te('Mark all comments read')?>
+                            </a>
+                            <a class="btn btn-small mark-all-unread">
+                                <i class="swarm-icon icon-comment-unread"></i> <?php echo $this->te('Mark all comments unread')?>
+                            </a>
+                        </div>
+                        <div class="pull-right project-controls btn-group privileged">
+                            <a  title="<?php echo $this->te('Refresh the projects that are associated with this review')?>"
+                                class="btn btn-small refresh">
+                                <svg class="svgIcon"
+                                     version="1.1"
+                                     id="Layer_1"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     width="18px"
+                                     height="18px"
+                                     viewBox="0 0 18 18"
+                                     enable-background="new 0 0 18 18"
+                                     xml:space="preserve">
+                                    <path ticklist fill="parent" d="M15.18,2.5C15.418,2.5,16,3.262,16,3.505l-0.001,3.994h-0.998l0.001-3.724
+                                        c0-0.183-0.09-0.275-0.27-0.275H2.289C2.109,3.5,2.02,3.592,2.02,3.775V14.19c0,0.069,0.034,0.138,0.101,0.206
+                                        C2.188,14.466,2.255,14.5,2.322,14.5l5.688-0.001V15.5H1.913c-0.238,0-0.446-0.092-0.624-0.273s-0.268-0.395-0.268-0.639
+                                        c-0.028-7.149-0.028-10.899,0-11.25C1.063,2.813,1.651,2.5,1.913,2.5H15.18z M15.967,9.5L17,10.562L12.15,15.5L9,12.332l1.033-1.045
+                                        l2.117,2.105L15.967,9.5z M7,11.5v1H4v-1H7z M10,8.5v1H4v-1H10z M12,5.5v1H4v-1H12z"/>
+                                </svg>
+                                <?php echo $this->te('Refresh projects')?>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="popover-content change-description monospace force-wrap"><?php
+                        if ($review->get('description')) {
+                            echo $this->preformat($review->get('description'));
+                        } else {
+                            echo '<span class="first-line no-description">' . $this->te('No description') . '</span>';
+                        }
+                    ?></div>
+                    <div class="attribute-comments description-comments">
+                        <div class="comments-header">
+                            <i class="icon-comment"></i>
+                            <span class="comments-label variable hidden"></span>
+                            <span class="comment-form-link variable">
+                        </div>
+                    </div>
+                </div>
+                <div id="review-actions" class="review-action-board">
+                    <div id="reviewers-summary" class="review-summary review-summary-reviewers pull-right">
+                        <div id="votes-actions" class="pull-left" ></div>
+                        <div id="reviewers" class="reviewers pull-left"></div>
+                    </div>
+                    <div id="review-actionable-items" class="pull-right">
+                        <div class="review-summary review-actions pull-right">
+                      <?php $author_change = ConfigManager::getValue($config, ConfigManager::REVIEWS_ALLOW_AUTHOR_CHANGE);
+                            if  ($author_change === true){ ?>
+                            <div id="author-action" class="author-change pull-right"></div>
+                            <?php } ?>
+                            <div id="tasks-action" class="task-summary text-left pull-right muted padw3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs change-tabs">
+            <li class="active">
+                <a href="#files" data-toggle="tab">
+                    <i class="icon-file"></i> <?php echo $this->te('Files')?> <span class="badge file-count"><?php
+                        echo number_format(count($files)) . ($cropped ? '+' : '')
+                    ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="#comments" data-toggle="tab">
+                    <i class="icon-comment"></i> <?php echo $this->te('Comments')?>
+                    <span class="badge comments-counter">-</span>
+                </a>
+            </li>
+            <li>
+                <a href="#history" data-toggle="tab">
+                    <i class="icon-time"></i> <?php echo $this->te('History')?>
+                </a>
+            </li>
+            <div class="send-delayed-comments pull-right privileged"><a href="#" class="send-delayed-notifications" data-topic="reviews/<?php echo $review->getId(); ?>"><i class="icon-envelope"></i> <?php echo $this->te('Send All Notifications')?></a></div>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="files">
+                <div class="change-files-toolbar clearfix">
+                    <?php if ($config['reviews']['version_chooser'] === 'slider') : ?>
+                    <div class="review-slider-wrapper border-box pull-left">
+                        <button class="btn slider-mode-toggle"
+                                type="button" title="<?php echo $this->te('Diff Two Versions')?>"
+                                <?php echo count($review->getVersions()) < 2 ? 'disabled' : '' ?>
+                                data-toggle="button">&bull;&bull;</button>
+                        <button type="button" class="btn version-specific-comments" title="<?php echo $this->te('Limit Comments to Review Version')?>">
+                            <i class="icon-filter"></i>
+                        </button>
+                        <button type="button" class="btn btn-scroll-left" title="<?php echo $this->te('See More Older Versions')?>">
+                            <i class="icon-chevron-left"></i>
+                        </button>
+                        <div class="slider review-slider"></div>
+                        <button type="button" class="btn btn-scroll-right" title="<?php echo $this->te('See More Newer Versions')?>">
+                            <i class="icon-chevron-right"></i>
+                        </button>
+                    </div>
+                    <?php else: ?>
+                    <div class="review-version-chooser border-box pull-left">
+                        <div class="btn-group">
+                            <button type="button" class="btn version-specific-comments" title="<?php echo $this->te('Limit Comments to Review Version')?>">
+                                <i class="icon-filter"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group review-version-group">
+                            <select id="revision-select-from" class="btn revision-select" name="rev1"><option><?php echo $this->te('Loading...')?></option></select>
+                        </div>
+                        <div class="btn-group review-version-group">
+                            <select id="revision-select-to" class="btn revision-select" name="rev2"><option><?php echo $this->te('Loading...')?></option></select>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button id="toolbar-btn-toggle-comments" type="button" class="btn <?php echo $diffPreferences[ReviewPreferences::SHOW_COMMENTS_IN_FILES] === true ? 'active' : '' ?> toggle-comments" title="<?php echo $this->te('Show Comments')?>"
+                                    onclick="swarm.comments.toggleDiffComments(this);">
+                                <i class="icon-comment"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn" title="<?php echo $this->te('Show Diffs In-Line')?>" onclick="swarm.diff.inlineAll();">
+                                <i class="swarm-icon icon-diff-inline"></i>
+                            </button>
+                            <button type="button" class="btn" title="<?php echo $this->te('Show Diffs Side-by-Side')?>" onclick="swarm.diff.sidewaysAll();">
+                                <i class="swarm-icon icon-diff-sideways"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" id="toolbar-btn-show-whitespace" class="btn btn-show-whitespace <?php echo $diffPreferences[ReviewPreferences::SHOW_SPACE_AND_NEW_LINE] === true ? 'active' : '' ?>" title="<?php echo $this->te("Toggle Show Whitespace")?>" onclick="swarm.diff.toggleShowAllWhitespace(this);">
+                                <span>&bull;</span>
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" id="toolbar-btn-ignore-whitespace" class="btn btn-ignore-whitespace <?php echo $diffPreferences[ReviewPreferences::IGNORE_WHITESPACE] === true ? 'active' : '' ?>" title="<?php echo $this->te("Toggle Ignore Whitespace")?>" onclick="swarm.diff.toggleIgnoreAllWhitespace(this);">
+                                <i class="swarm-icon icon-ignore-ws"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn" title="<?php echo $this->te('Collapse All')?>" onclick="swarm.diff.collapseAll();">
+                                <i class="swarm-icon icon-collapse"></i>
+                            </button>
+                            <?php
+                            $expandTooltip = $allowExpand ? $this->te('Expand All') : $this->te("Expand All - disabled. File count of %d exceeds limit of %d", [$fileCount, $expandAllLimit]
+                            );
+                            ?>
+                            <button type="button" id="toolbar-btn-expand-all" class="btn <?php echo !$allowExpand ? 'disabled' : '' ?>" title="<?php echo $expandTooltip?>" onclick="<?php echo $allowExpand ? 'swarm.diff.expandAll();' : '' ?>">
+                                <i class="swarm-icon icon-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="version-summary">
+                    <?php
+                    $changeUrl   = $this->url('change', ['change' => $change->getId()]);
+                    $changeLink  = '<a href="' . $changeUrl . '">' . $change->getId() . '</a>';
+                    $againstUrl  = $against ? $this->url('change', ['change' => $against->getId()]) : null;
+                    $againstLink = $against ? '<a href="' . $againstUrl . '">' . $against->getId() . '</a>' : null;
+                    $pathUrl     = $this->url('file', ['path' => trim($basePath, '/')]);
+                    $pathLink    = '<a href="' . $pathUrl . '">' . $this->decodeFilespec($basePath) . '</a>';
+                    if (!$against) {
+                        echo '<strong>#' . $changeRev . ':</strong> ' . $this->te('Change') . ' ';
+                        echo $change->isSubmitted() ? $changeLink . ' ' . $this->te('committed') : $change->getId() . ' ' . $this->te('shelved');
+                    } else {
+                        echo '<strong>#' . $againstRev . '-' . $changeRev . ':</strong>' . ' ' . $this->te('Changes between') . ' ';
+                        echo $against->isSubmitted() ? $this->te('commit') . ' ' . $againstLink : $this->te('shelf') . ' ' . $against->getId();
+                        echo ' ' . $this->te('and') . ' ';
+                        echo $change->isSubmitted()  ? $this->te('commit') . ' ' . $changeLink  : $this->te('shelf') . ' ' . $change->getId();
+                    }
+                    echo $basePath ? ' ' . $this->te('into') . ' ' . $pathLink : null;
+                    ?>
+                    <span class="file-metrics pull-right">
+                        <span class="edit-count">
+                            <i class="swarm-icon icon-file-edit" title="<?php echo $this->te('Files Edited')?>"></i>
+                            <b><?php echo $counts['edits'] . ($cropped ? '+' : '') ?></b>
+                        </span>
+                        <span class="add-count">
+                            <i class="swarm-icon icon-file-add" title="<?php echo $this->te('Files Added')?>"></i>
+                            <b><?php echo $counts['adds'] . ($cropped ? '+' : '') ?></b>
+                        </span>
+                        <span class="delete-count">
+                            <i class="swarm-icon icon-file-delete" title="<?php echo $this->te('Files Deleted')?>"></i>
+                            <b><?php echo $counts['deletes'] . ($cropped ? '+' : '') ?></b>
+                        </span>
+                    </span>
+                </div>
+                <div class="change-files">
+                <?php
+                foreach ($files as $file):
+                    $name = $this->decodeFilespec(substr($file['depotFile'], strlen($basePath) + 1));
+                    $md5  = md5($file['depotFile']);
+                    $rev  = null;
+                    $url  = null;
+                    if ($file['rev']) {
+                        $rev  = $change->isPending() ? '@=' . $change->getId() : $file['rev'];
+                        $url  = $this->url('file', ['path' => ltrim($file[ 'depotFile'], '/')])
+                              . '?' . http_build_query(['v' => $rev]);
+                    }
+
+                    // determine simple action class of add/edit/delete.
+                    $actionClass = $file['isAdd']    ? 'add'    : 'edit';
+                    $actionClass = $file['isDelete'] ? 'delete' : $actionClass;
+                    $actionTitle = $this->t(ucfirst($file['action'])) . " (" . $this->t($file['type']) . ")";
+
+                    // file info (if present) contains read-by data
+                    $fileInfoId    = FileInfo::composeId($review->getId(), $file['depotFile']);
+                    $fileInfo      = isset($fileInfos[$fileInfoId]) ? $fileInfos[$fileInfoId] : null;
+                    $fileType      = $file['type'];
+                    $digest        = isset($file['digest']) ? $file['digest'] : null;
+                    $readBy        = $fileInfo ? $fileInfo->getReadBy($changeRev, $digest) : [];
+                    $isRead        = $fileInfo && $fileInfo->isReadBy($this->user()->getId(), $changeRev, $digest);
+                    $readClass     = 'file-' . ($isRead ? 'read' : 'unread');
+                    $ignoreWsClass = $diffPreferences[ReviewPreferences::IGNORE_WHITESPACE] === true ? 'ignore-ws' : '';
+                    $diffClasses   = join(' ', [$readClass, 'type-' . $fileType, 'action-' . $actionClass, $ignoreWsClass]);
+                ?>
+                    <div class="diff-wrapper clearfix collapsed <?php echo $diffClasses ?>"
+                        data-file="<?php echo $this->escapeHtmlAttr(json_encode($file)) ?>"
+                        data-readBy="<?php echo $this->escapeHtmlAttr(json_encode($readBy)) ?>">
+                        <div class="diff-header" data-toggle="collapse" data-target="#details-<?php echo $md5 ?>">
+                            <div class="diff-header-affix border-box clearfix">
+                                <a name="<?php echo $md5 ?>"></a>
+                                <i class="icon-chevron-down"></i>
+                                <i class="swarm-icon icon-file-<?php echo $actionClass ?>"
+                                   title="<?php echo $this->escapeHtmlAttr($actionTitle) ?>"></i>
+                                <span class="filename">
+                                    <?php echo ($fileType === 'stream' ? "stream:".$file['depotFile'] : $name) . $this->escapeHtml($rev && $change->isSubmitted() ? "#$rev" : '') ?>
+                                </span>
+                                <div class="pull-right diff-toolbar"><div class="btn-group">
+                                    <a class="btn btn-mini file-open <?php echo !$url ? 'disabled' : '' ?>"
+                                       <?php echo $url ? 'title="' . $this->te('Open File') . '"' : '' ?>
+                                       target="_blank" href="<?php echo $url ?>"><i class="icon-share"></i>
+                                    </a>
+                                </div><div class="btn-group privileged">
+                                    <?php
+                                    echo '<button '
+                                       . ' type="button"'
+                                       . ' data-customClass="file-read"'
+                                       . ' title="' . $this->te($isRead ? 'Mark file as unread' : 'Mark file as read') . '"'
+                                       . ' class="btn btn-mini btn-file-read' . ($isRead ? ' active btn-inverse' : '')
+                                       . '">'
+                                       . '<i class="icon-eye-open' . ($isRead ? ' icon-white' : '') . '"></i>'
+                                       . '</button>'
+                                    ?>
+                                </div></div>
+                            </div>
+                        </div>
+                        <div class="diff-details collapse out monospace clearfix" id="details-<?php echo $md5 ?>">
+                            <div class="diff-body loading muted pad3"><span class="loading animate"><?php echo $this->te('Loading...')?></span></div>
+                        </div>
+                    </div>
+                <?php endforeach ?>
+                <?php if ($cropped): ?>
+                    <div class="snip"><?php echo $this->te('Snip')?> (&gt; <?php echo number_format($max) ?> <?php echo $this->te('files')?>)</div>
+                <?php endif; ?>
+                <?php if (!count($files)) : ?>
+                    <div class="alert border-box pad3"><?php echo $this->te($against ? 'No modified files.' : 'No files.') ?></div>
+                <?php endif ?>
+                </div>
+                <div class="diff-cycle-hint center muted">
+                    <?php echo sprintf(
+                        $this->te("Tip: Use %sn%s and %sp%s to cycle through the changes."),
+                        "<span class='keyboard-shortcut'>",
+                        "</span>",
+                        "<span class='keyboard-shortcut'>",
+                        "</span>"
+                    ); ?>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="comments"></div>
+            <div class="tab-pane fade" id="history">
+                <?php echo $this->activity('review-' . $review->getId(), false, 'condensed'); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('.timeago').formatTimestamp();
+
+        swarm.review.init();
+        swarm.diff.init();
+        swarm.comments.init(
+            '<?php echo 'reviews/' . $this->escapeUrl($review->getId()) ?>',
+            <?php echo json_encode(['review' => $review->getId(), 'version' => $changeRev]); ?>,
+            '#comments',
+            '.comments-counter',
+            <?php echo json_encode($mentionsMode) ?>,
+            <?php echo json_encode($mentions) ?>
+        );
+        swarm.comments.initDiff('#comments');
+        swarm.jobs.renderFixes('.review-wrapper');
+
+    });
+</script>
+
+

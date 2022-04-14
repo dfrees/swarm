@@ -1,0 +1,16 @@
+{
+  "main" : "Main Menu",
+  "changes": "commits",
+  "reviews": "reviews",
+  "files": "files",
+  "jobs": "jobs",
+  "projects": "projects",
+  "groups": "groups",
+  "workflows": "workflows",
+  "tests": "tests",
+  "testdefinitions" : "test definitions",
+  "settings" : "settings",
+  "activity" : "activity",
+  "overview" : "overview",
+  "dashboard" : "my dashboard"
+}

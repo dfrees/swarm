@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Single Sign-On PHP configuration</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Single_Sign-On_PHP_configuration" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Single Sign-On PHP configuration</h1>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>If you make a configuration change, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> will not use it until the  configuration cache has been reloaded, this forces <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to  use the new configuration. You must be an <i>admin</i> or <i>super</i> user to reload the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> config cache. Navigate to the <b xmlns="http://docbook.org/ns/docbook">User id</b> dropdown menu, select <b xmlns="http://docbook.org/ns/docbook">System Information</b>, click the <b xmlns="http://docbook.org/ns/docbook">Cache Info</b> tab, and click the <a href="admin.system_information.html#admin_system_information_cache_info_reload_config" class="MCXref xref">Reload Configuration button</a>.  </p>
+                                            </div>
+                                            <h2 data-mc-autonum=""><a name="Helix_Authentication_Service" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin-saml_php_config_helix-authentication-service"></a><span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>
+                                            </h2>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <ul>
+                                                    <li>
+                                                        <p>To use <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> with a <span class="mc-variable Perforce.Helix_short variable">Helix server</span> that is configured to use the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>, you must set the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="code_clearBackground">sso</span> configurable to either <span class="code_clearBackground">optional</span> or <span class="code_clearBackground">enabled</span>  in the  <a href="setup.swarm.html#setup.swarm.config_file" class="MCXref xref">Swarm configuration file</a>. </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>From <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2021.1, the <span class="code_clearBackground">sso_enabled</span> configurable is deprecated  but remains supported. It is replaced with the more flexible <span class="code_clearBackground">sso</span> configurable. If the <span class="code_clearBackground">sso_enabled</span> configurable and <span class="code_clearBackground">sso</span> configurable are both present in the <span class="code_clearBackground">p4</span> configuration block, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> uses the <span class="code_clearBackground">sso</span> configurable value.</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <p>The <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> acts as the SAML  Identity Provider (IdP) for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>'s Service Provider (SP) and enables authentication with your external IdP using the protocol the administrator has configured in the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>. </p>
+                                            <p>This section describes how to configure SAML&#160;2.0 in the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="code_clearBackground">config.php</span> file to enable   <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to authenticate with a <span class="mc-variable Perforce.Helix_short variable">Helix server</span> that is configured for the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>. The SAML&#160;PHP configuration block in the <code class="code_clearBackground"><i><a href="admin.swarm_root.html"><i>SWARM_ROOT</i></a></i>/data/config.php</code> file configures the   <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> and Service Provider (SP) connection details for  <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. This enables <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to connect to your  <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> and your <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> to connect to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> so that you can log in to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> using the IdP log in process. </p>
+                                            <p style="font-weight: bold;">Configuring <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> for <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>:</p>
+                                            <ul>
+                                                <li>For an overview of the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>, see <a href="https://www.perforce.com/manuals/helix-auth-svc/Content/HAS/overview-of-has.html" target="_blank" title="Link to Overview of Helix Authentication Service chapter in the Helix Authentication Service Administrator Guide" alt="Link to Overview of Helix Authentication Service chapter in the Helix Authentication Service Administrator Guide">Overview of <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span></a> chapter in the <a href="http://perforce.com/manuals/helix-auth-svc/" target="_blank"><i><span class="mc-variable Perforce.gd-has variable">Helix Authentication Service Administrator Guide</span></i></a>. </li>
+                                                <li>For instructions on configuring the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>, see the <a href="https://www.perforce.com/manuals/helix-auth-svc/Content/HAS/configuring-has.html" target="_blank" title="Link to the Configuring Helix Authentication Service chapter in the Helix Authentication Service Administrator Guide" alt="Link to the Configuring Helix Authentication Service chapter in the Helix Authentication Service Administrator Guide">Configuring <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span></a> chapter in the  <a href="http://perforce.com/manuals/helix-auth-svc/" target="_blank"><i><span class="mc-variable Perforce.gd-has variable">Helix Authentication Service Administrator Guide</span></i></a>. </li>
+                                                <li>For instructions on configuring <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to use the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>, see <a href="#admin-saml_php_config_saml" class="MCXref xref">Swarm SAML 2.0 settings</a>. </li>
+                                                <li>For a more in-depth explanation of <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> configuration for the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>, see the <a href="https://www.perforce.com/manuals/helix-auth-svc/Content/HAS/example-swarm-config.html" target="_blank" title="Link to the Example Helix Swarm configuration topic in the Helix Authentication Service Administrator Guide" alt="Link to the Example Helix Swarm configuration topic in the Helix Authentication Service Administrator Guide">Example <span class="mc-variable Perforce.Swarm_long variable">Helix Swarm</span> configuration</a> chapter in the <a href="http://perforce.com/manuals/helix-auth-svc/" target="_blank"><i><span class="mc-variable Perforce.gd-has variable">Helix Authentication Service Administrator Guide</span></i></a>. </li>
+                                            </ul>
+                                            <h2 data-mc-autonum=""><a name="Swarm_SAML_2.0_settings" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin-saml_php_config_saml"></a><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> SAML 2.0 settings</h2>
+                                            <p>This section describes the minimum settings that you must enter to enable <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to connect to a  <span class="mc-variable Perforce.Helix_short variable">Helix server</span> that is enabled for <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>. The <span class="code">saml</span> configuration block must be added to the end of the <code class="code_clearBackground"><i><a href="admin.swarm_root.html"><i>SWARM_ROOT</i></a></i>/data/config.php</code> file as shown in the following example. </p>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>The exact content of your <span class="code">saml</span> configuration block depends on your SAML&#160;configuration, you can add other configurables to the SAML&#160;PHP block if they are required by your <span class="mc-variable Perforce.Helix_short variable">Helix server</span> SAML&#160;configuration. For example the <span class="code_clearBackground">x509cert</span> and <span class="code_clearBackground">privateKey</span> for your SP (<span class="mc-variable Perforce.Swarm_short variable">Swarm</span>) might be in the certs folder so you would not need to have them specified in the <span class="code_clearBackground">sp</span> part of your <span class="code_clearBackground">saml</span> block. It is important to note however that the idp <span class="code_clearBackground">x509cert</span> must always be in the <span class="code_clearBackground">idp</span> part of your <span class="code_clearBackground">saml</span> block. </p>
+                                                <p>For an overview of SAML 2.0 , see <a href="https://github.com/onelogin/php-saml" target="_blank" title="Link to https://github.com/onelogin/php-saml" alt="Link to https://github.com/onelogin/php-saml">https://github.com/onelogin/php-saml</a>. </p>
+                                            </div>
+                                            <p>Example SAML PHP&#160;configuration, follow the underlined links for more information about the configurables: </p>
+                                            <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                <p>While the syntax of this example is correct, it includes configuration values that <b>cannot work</b>. Ensure that you adjust the configuration appropriately for your  SAML&#160;configuration before using the <span class="code_clearBackground">saml</span> block in testing or production.</p>
+                                            </div><pre lang="php" class="programlisting" xml:space="preserve">
+&lt;?php<br />    // the saml block should be a peer of 'p4' located at the end of 
+    // the <a href="admin.configuration.html" title="Configuration Overview" alt="Configuration Overview"><span style="text-decoration: underline;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><u> configuration block in the <span class="code_clearBackground">config.php</span> file</u></a><br />    'saml' =&gt; array(
+        // If your Helix Server trigger expects a message header so that it can 
+        // easily recognize SAML response messages, add the header text
+        '<a href="#admin-saml_php_config-prefix_header" style="text-decoration: underline;" title="Trigger Header Configurable" alt="Trigger Header Configurable">header</a>' =&gt; 'saml-response: ', // leave empty for no message header ''
+        // Service Provider Data that we are deploying
+        '<a href="#admin-saml_php_config-service_provider_info" title="Service Provider Configurables" alt="Service Provider Configurables" style="text-decoration: underline;">sp</a>' =&gt; array(
+            // Identifier of the SP entity  (must be a URI)
+            'entityId' =&gt; '&lt;urn:my_swarm:sp&gt;',
+            // Specifies info about where and how the AuthnResponse message MUST be
+            // returned to the requester, in this case our SP.
+            'assertionConsumerService' =&gt; array(
+                // URL Location where the Response from the IdP will be returned, this is the Swarm URL and port
+                'url' =&gt; '&lt;[http[s]://]&lt;swarm-host&gt;[:&lt;port&gt;]&gt;',
+            ),
+
+            // Usually x509cert and privateKey of the SP (Swarm) are provided by files placed in
+            // the certs folder. These files must be named sp.crt and sp.key. 
+            // Optional: you can also provide them with the following parameters
+            'x509cert' =&gt; '&lt;my_sp_swarm_full_cert_string_including_the_BEGIN_CERTIFICATE_and_END_CERTIFICATE_parts&gt;',
+            'privateKey' =&gt; '&lt;my_sp_swarm_private_key&gt;',
+        ),
+        // Identity Provider Data that we want to connect to with our SP (Swarm)
+        '<a href="#admin-saml_php_config-idp_information" title="Identity Provider Configurables" alt="Identity Provider Configurables" style="text-decoration: underline;">idp</a>' =&gt; array(
+            // Identifier of the IdP entity  (must be a URI)
+            'entityId' =&gt; '&lt;my_entityid_provided_by_the_idp&gt;',
+            // SSO endpoint info of the IdP. (Authentication Request protocol)
+            'singleSignOnService' =&gt; array(
+                // URL Target of the IdP where the SP (Swarm) will send the Authentication Request Message
+                'url' =&gt; '&lt;full_idp_URL_path_to_send_authentication_request_message_to&gt;',
+            ),
+
+            // The x509cert of the idp is provided by the following x509cert parameter.
+            // Do not add the privateKey parameter. 
+            // You must use the x509cert parameter, you must not add the cert file the certs folder. 
+            'x509cert' =&gt; '&lt;my_idp_full_cert_string_including_the_BEGIN_CERTIFICATE_and_END_CERTIFICATE_parts&gt;',
+        ),
+    ),</pre>
+                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                <p>The <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> configuration file does not include PHP's standard closing tag (?&gt;). This is intentional as it prevents unintentional whitespace from being introduced into <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>'s output, which would interfere with <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>'s ability to control HTTP headers. Debugging problems that result from unintentional whitespace can be challenging, since the resulting behavior and error messages often appear to be misleading.</p>
+                                            </div>
+                                            <h3 data-mc-autonum=""><a name="header" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin-saml_php_config-prefix_header"></a>header</h3>
+                                            <p>Some <span class="mc-variable Perforce.Helix_short variable">Helix server</span> triggers need a header (prefix) added to SAML response messages so that the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> can easily identify the messages. The header is set in the  <span class="code_clearBackground">header</span> value. </p>
+                                            <p>If a header is not required, set <span class="code">header</span> to empty <span class="code">''</span>.</p><pre lang="php" class="programlisting" xml:space="preserve">&lt;?php<br />    'saml' =&gt; array(
+        // If your Helix Server trigger expects a message header so that it can 
+        // easily recognize SAML response messages, add the header text
+        'header' =&gt; 'saml-response: ', // leave empty for no message header ''
+    ),</pre>
+                                            <p>The default value is  <span class="code">'saml-response: '</span>.</p>
+                                            <h3 data-mc-autonum=""><a name="sp" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin-saml_php_config-service_provider_info"></a>sp</h3>
+                                            <p>The <span class="code">sp</span> (service provider) section defines the callback destination and identifier information for your IdP (Identity Provider). This tells your IdP how to connect to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </p>
+                                            <ul>
+                                                <li><span class="code">entityId</span>: this is the identifier your IdP knows your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> as. Set your Entity ID  here and then use the same value in your IdP's configuration tool. When <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> connects to your IdP  the Entity ID is used to verify your connection. This must be a URI. </li>
+                                                <li><span class="code">assertionConsumerService</span> <span class="code">url</span>: enter your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> URL and port number. This sets your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance as the URL your IdP sends responses to. If you don't enter a port number, port 80 is used. </li>
+                                                <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                    <p>Do not use <span class="code_clearBackground">localhost</span> for the <span class="code_clearBackground">url</span>. </p>
+                                                </div>
+                                                <li><span class="code">x509cert</span> and <span class="code">privateKey</span>: enter your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance security connection details. </li>
+                                            </ul><pre lang="php" class="programlisting" xml:space="preserve">
+&lt;?php<br />    'saml' =&gt; array(
+        // Service Provider Data that we are deploying
+        'sp' =&gt; array(
+            // Identifier of the SP entity  (must be a URI)
+            'entityId' =&gt; '&lt;urn:my_swarm:sp&gt;',
+            // Specifies info about where and how the AuthnResponse message MUST be
+            // returned to the requester, in this case our SP.
+            'assertionConsumerService' =&gt; array(
+                // URL Location where the Response from the IdP will be returned, this is the Swarm URL and port
+                'url' =&gt; '&lt;[http[s]://]&lt;swarm-host&gt;[:&lt;port&gt;]&gt;',
+            ),
+
+            // Usually x509cert and privateKey of the SP (Swarm) are provided by files placed in
+            // the certs folder. These files must be named sp.crt and sp.key. 
+            // Optional: you can also provide them with the following parameters
+            'x509cert' =&gt; '&lt;my_sp_swarm_full_cert_string_including_the_BEGIN_CERTIFICATE_and_END_CERTIFICATE_parts&gt;',
+            'privateKey' =&gt; '&lt;my_sp_swarm_private_key&gt;',
+        ),
+    ),</pre>
+                                            <h3 data-mc-autonum=""><a name="idp" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin-saml_php_config-idp_information"></a>idp</h3>
+                                            <p>The <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> acts as the SAML  Identity Provider (IdP) for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>'s Service Provider (SP) and enables authentication with your external IdP using the protocol the administrator has chosen for the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>. The <span class="code">idp</span> (identity provider) section defines the IdP connection and security information, this tells <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> how to connect to your <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>.  </p>
+                                            <ul>
+                                                <li><span class="code">entityId</span>: enter your Entity ID, this is configured in your <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>.  This enables <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to connect to the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>. This must be a URI. </li>
+                                                <li><span class="code">singleSignOnService</span> <span class="code">url</span>: enter the URL <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> sends authentication requests to. This is configured in your <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>.</li>
+                                                <li><span class="code">x509cert</span>: enter your <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> security connection cert. </li>
+                                            </ul><pre lang="php" class="programlisting" xml:space="preserve">
+&lt;?php<br />    'saml' =&gt; array(
+        //  Identity Provider Data that we want to connect to with our SP (Swarm)
+        'idp' =&gt; array(
+            // Identifier of the IdP entity  (must be a URI)
+            'entityId' =&gt; '&lt;my_entityid_provided_by_the_idp&gt;',
+            // SSO endpoint info of the IdP. (Authentication Request protocol)
+            'singleSignOnService' =&gt; array(
+                // URL Target of the IdP where the SP (Swarm) will send the Authentication Request Message
+                'url' =&gt; '&lt;full_idp_URL_path_to_send_authentication_request_message_to&gt;',
+            ),
+
+            // The x509cert of the idp is provided by the following x509cert parameter.
+            // Do not add the privateKey parameter. 
+            // You must use the x509cert parameter, you must not add the cert file the certs folder. 
+            'x509cert' =&gt; '&lt;my_idp_full_cert_string_including_the_BEGIN_CERTIFICATE_and_END_CERTIFICATE_parts&gt;',
+        ),
+    ),
+</pre>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

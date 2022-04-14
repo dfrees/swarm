@@ -1,0 +1,4166 @@
+/*<meta />*/
+
+@import url('skin-side-nav.css');
+
+@import url('skin.css');
+
+@import url('../google-code-prettify/prettify.css');
+
+@namespace MadCap url(http://www.madcapsoftware.com/Schemas/MadCap.xsd);
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Regular.ttf);
+}
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Bold.ttf);
+	font-weight: bold;
+}
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-Italic.ttf);
+	font-style: italic;
+}
+
+@font-face 
+{
+	font-family: 'Open Sans';
+	src: url(../Fonts/OpenSans-BoldItalic.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/cour.ttf);
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/courbd.ttf);
+	font-weight: bold;
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/courbi.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face 
+{
+	font-family: 'Courier New';
+	src: url(../Fonts/couri.ttf);
+	font-style: italic;
+}
+
+/*to fix footer issue in Flare 2020 r2 -- is this what Amy calls the "selector"?
+	.height-container
+{
+	position: inherit;
+}*/
+
+.MCDropDown_Image_Icon
+{
+	padding-left: 15px;
+}
+
+.MCDropDown_Open .MCDropDownHotSpot_.MCHotSpotImage
+{
+	background-image: url('../Images/DropDownOpen.png');
+	font-weight: normal;
+	font-size: 11pt;
+}
+
+.MCDropDown_Closed .MCDropDownHotSpot_.MCHotSpotImage
+{
+	background-image: url('../Images/DropDownClosed.png');
+	font-weight: bold;
+	font-size: 11pt;
+	color: #2F6DB5;
+}
+
+body
+{
+	color: #262626;
+	line-height: 1.5em;
+	font-family: 'Open Sans';
+	mc-hyphenate: never;
+	font-size: 14px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 10px;
+}
+
+a:link
+{
+	text-decoration: none;
+	color: #2F6DB5;
+	font-weight: normal;
+}
+
+a:link
+{
+	text-decoration: none;
+	color: #2F6DB5;
+	font-weight: normal;
+}
+
+a:visited
+{
+	text-decoration: none;
+	color: #2f6db5;
+}
+
+a:visited
+{
+	text-decoration: none;
+	color: #2f6db5;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color: #2F6DB5;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color: #2F6DB5;
+}
+
+a.footermaster
+{
+	color: #ffffff;
+}
+
+a.footermaster:visited
+{
+	color: #ffffff;
+}
+
+a.footermaster:visited
+{
+	color: #ffffff;
+}
+
+a.footermaster:hover
+{
+	color: #BED230;
+}
+
+a.footermaster:hover
+{
+	color: #BED230;
+}
+
+a.footermasterurls
+{
+	color: #ffffff;
+	font-style: italic;
+}
+
+a.footermasterurls:visited
+{
+	color: #ffffff;
+}
+
+a.footermasterurls:visited
+{
+	color: #ffffff;
+}
+
+a.footermasterurls:hover
+{
+	color: #bed230;
+}
+
+a.footermasterurls:hover
+{
+	color: #bed230;
+}
+
+a.MCBreadcrumbsLink
+{
+	
+}
+
+a.MCBreadcrumbsLink:hover
+{
+	color: #00aeef;
+}
+
+a.MCBreadcrumbsLink:hover
+{
+	color: #00aeef;
+}
+
+a.GlossaryPageLink:hover
+{
+	text-decoration: none;
+}
+
+div.admonition
+{
+	font-size: 11pt;
+	background-color: transparent;
+	font-family: 'Open Sans';
+	border-radius: 0px;
+}
+
+div.body-container
+{
+	margin-bottom: 60px;
+	width: auto;
+	margin-right: 0px;
+	margin-top: 10px;
+	padding: 0px 76px 0px 63px;
+}
+
+div.example
+{
+	margin-top: 10px;
+	font-family: 'Open Sans';
+	font-size: 13pt;
+	padding: 8px;
+	background-color: transparent;
+	border-radius: 0px;
+	border-top: solid 2px #898989;
+	border-bottom: solid 2px #898989;
+}
+
+div.sidenav-content
+{
+	margin-top: 20px;
+	margin-right: 0px;
+}
+
+div.home-footer	/*This is a custom responsive layout row style (div class) in your stylesheet. To provide your own description for this style: (1) Open the stylesheet; (2) Find and select the div class with this name; and (3) In the Comment field, replace this text with your own. For more information on adding comments to styles, see the online Help.*/
+{
+	background-color: #404040;
+	bottom: 0px;
+	margin: 0px;
+	position: fixed;
+	right: 0%;
+	width: auto;
+	left: 300px;
+	vertical-align: text-bottom;
+	height: 60px;
+	padding: 20px 81px 18px 60px;
+}
+
+div.home-footer::before
+{
+	content: ' ';
+	display: table;
+}
+
+div.home-footer::after
+{
+	content: ' ';
+	display: table;
+	clear: both;
+}
+
+div.home-footer > div
+{
+	float: left;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+div.home-footer > div:nth-child(1)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(2)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(3)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(4)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(5)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(6)
+{
+	width: 50px;
+	margin-left: 0%;
+	height: 35px;
+}
+
+div.home-footer > div:nth-child(7)
+{
+	width: 260px;
+	margin-left: 0%;
+	height: 50px;
+	float: right;
+	text-align: right;
+}
+
+div.img,
+div.informalimg
+{
+	margin-top: 10px;
+	text-align: left;
+}
+
+/* The FooterBlock div was replaced with the HTML5 footer block so we shouldn't need 2 when we stop generating web help targets. */
+
+div.HTML5FooterBlock
+{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: 100%;
+	height: auto;
+	z-index: 10;
+	font-size: 9pt;
+	background-color: #404040;
+	border: 0px;
+	align: center;
+	text-align: center;
+}
+
+div.GlossaryPageDefinition
+{
+	font-size: 11pt;
+	font-family: inherit;
+	color: #292b38;
+}
+
+div.GlossaryPageHeading
+{
+	
+}
+
+div.GlossaryPageTerm
+{
+	
+}
+
+div.ImagesFloatLeft
+{
+	clear: both;
+	float: left;
+	margin-right: 10px;
+	padding: 5px;
+}
+
+div.ImagesFloatRight
+{
+	clear: both;
+	float: right;
+	margin-left: 10px;
+	padding: 5px;
+}
+
+div.note
+{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-top-color: #ffffff;
+	mc-auto-number-position: inside-head;
+	border-left: solid 7px #00aeef;
+	mc-auto-number-format: 'Note ';
+	mc-auto-number-class: admonition;
+	background: inherit;
+	border-color: #00aeef;
+	background-color: #e5f8ff;
+}
+
+.noteInDiv
+{
+	mc-auto-number-format: '{b}{color #bed230}Note: {/color}{/b}';
+}
+
+div.quotation
+{
+	background-color: #e1e1e1;
+	background-image: url('../Images/QuotationMark.png');
+	background-repeat: no-repeat;
+	background-position: top left;
+	border-color: #b3b3b3;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	font-family: 'Century Gothic';
+	font-size: 0.9em;
+	font-style: italic;
+	font-weight: normal;
+	line-height: 18px;
+	padding: 20px;
+	padding-left: 40px;
+}
+
+div.TopicContent
+{
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+h1
+{
+	text-align: left;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	mc-auto-number-format: '{ =0}';
+	clear: both;
+	margin-top: 18px;
+	margin-bottom: 18px;
+	background: inherit;
+	line-height: normal;
+	border-top: none 0px #000000;
+	color: #ffffff;
+	background-color: #2f6db5;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 22px;
+}
+
+h1.Chapter
+{
+	text-align: left;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: normal;
+	mc-auto-number-format: '{ =0}';
+	mc-auto-number-class: inherit;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+
+h1.Appendix
+{
+	text-align: left;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+
+h1.CoverTitle
+{
+	font: inherit;
+	color: #262626;
+	font-family: 'Open Sans';
+	font-size: 18pt;
+	border-top: none 2px #000000;
+	background-color: transparent;
+}
+
+h1.CoverTitleSmall
+{
+	font: inherit;
+	color: #262626;
+	font-family: 'Open Sans';
+	font-size: 18pt;
+	border-top: none 2px #000000;
+	background-color: transparent;
+}
+
+h2
+{
+	font-family: 'Open Sans';
+	text-align: left;
+	font-weight: 700;
+	font-style: normal;
+	mc-auto-number-format: '{ =0}';
+	clear: both;
+	margin-bottom: 0.5em;
+	line-height: normal;
+	margin-top: 1.5em;
+	color: #2f6db5;
+	border-top: solid 2px #2f6db5;
+	font-size: 20px;
+}
+
+h3
+{
+	margin-top: .75em;
+	mc-auto-number-format: '{ =0}';
+	line-height: normal;
+	font-weight: 700;
+	font-family: 'Open Sans';
+	margin-bottom: .5em;
+	padding-right: 5px;
+	padding-left: 0px;
+	color: #2f6db5;
+	font-size: 18px;
+	font-style: italic;
+}
+
+h4
+{
+	page-break-before: avoid;
+	mc-hyphenate: never;
+	font-weight: 700;
+	line-height: normal;
+	font-family: 'Open Sans';
+	margin: .83em;
+	margin-bottom: .5em;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: .75em;
+	mc-heading-level: 0;
+	font-size: 13pt;
+	color: #404040;
+}
+
+h5
+{
+	page-break-before: avoid;
+	margin-top: 18pt;
+	line-height: 14pt;
+	margin-bottom: 6pt;
+	mc-hyphenate: never;
+	color: #5f6972;
+	mc-heading-level: 0;
+	font-family: 'Open Sans';
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+h6
+{
+	page-break-before: avoid;
+	margin-top: 18pt;
+	line-height: 14pt;
+	font-weight: bold;
+	margin-bottom: 6pt;
+	mc-hyphenate: never;
+	mc-heading-level: 0;
+	font-family: 'Open Sans';
+	color: #2f6db5;
+	font-size: 11pt;
+}
+
+img
+{
+	padding-bottom: 0px;
+	border: none 1px #ecedef;
+}
+
+img.AbsolutePosition
+{
+	padding: 5px;
+}
+
+img
+{
+	padding-bottom: 0px;
+	border: 1px #ecedef;
+}
+
+img.FiftyPercentThumbnail
+{
+	mc-thumbnail: popup;
+	padding-bottom: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+img.Hyperlinked
+{
+	border-style: none;
+}
+
+img.inline
+{
+	border: none 1px #ecedef;
+	widows: inherit;
+	width: auto;
+	height: 15px;
+	vertical-align: baseline;
+}
+
+img.OneHundredPercentThumbnail
+{
+	mc-thumbnail: popup;
+	padding-bottom: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+img.ReduceButtonSize
+{
+	max-height: 25px;
+}
+
+img.SeventyFivePercent
+{
+	padding: 10px;
+}
+
+li
+{
+	margin-bottom: 6px;
+	margin-top: 6px;
+	orphans: 2;
+	widows: 2;
+	font-size: 11pt;
+	color: #262626;
+	font-family: 'Open Sans';
+}
+
+li.GlossaryPageEntry	/* Required to suppress bullets in HTML5 Target */
+{
+	list-style-type: none;
+	margin-top: 12px;
+}
+
+MadCap|breadcrumbsProxy
+{
+	font-style: normal;
+	font-size: 12px;
+	mc-breadcrumbs-prefix: ' ';
+	background-size: auto 20px;
+	padding: 0px 0px;
+	border-bottom-style: none;
+}
+
+MadCap|conceptLink
+{
+	color: #404040;
+	font-size: 0.8em;
+	font-weight: bold;
+	mc-image: url('../Images/ListIcon.png');
+	mc-label: 'SEE ALSO';
+	padding-top: 8px;
+	text-decoration: none;
+}
+
+MadCap|conceptLink:hover
+{
+	color: #BED230;
+	font-weight: bold;
+}
+
+MadCap|dropDown
+{
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+MadCap|dropDown.Footer
+{
+	
+}
+
+MadCap|dropDown.SecondLevel
+{
+	margin-left: 10px;
+}
+
+MadCap|dropDownBody
+{
+	border-bottom: none 1px #898989;
+}
+
+MadCap|dropDownBody.FooterTopicMaster
+{
+	border-bottom-color: #b3b3b3;
+}
+
+MadCap|dropDownBody.Final
+{
+	border-bottom: 0;
+}
+
+MadCap|dropDownHead
+{
+	
+}
+
+MadCap|dropDownHotspot
+{
+	color: #404040;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+MadCap|dropDownHotspot:hover
+{
+	color: #BED230;
+}
+
+MadCap|dropDownHotspot.Footer
+{
+	color: #ffffff;
+	font-size: 0.8em;
+}
+
+MadCap|dropDownHotspot.Footer:hover
+{
+	color: #BED230;
+}
+
+MadCap|footnoteBlock
+{
+	
+}
+
+MadCap|footnotesBlock
+{
+	
+}
+
+MadCap|glossaryProxy
+{
+	border-top-color: transparent;
+	border-top-style: none;
+}
+
+MadCap|indexProxy
+{
+	
+}
+
+MadCap|miniTocProxy
+{
+	background: inherit;
+	border-top-color: #32b4cd;
+	margin-top: 0px;
+	border-right-width: 1px;
+	mc-auto-number-position: none;
+	width: 50%;
+	border-bottom-color: transparent;
+	border-color: transparent;
+	border: solid 0px #000000;
+	border-bottom-left-radius: 0px 0px;
+	border-width: 0px;
+	background-color: #f7f7f7;
+	border-radius: 0px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-right: 10px;
+	margin-bottom: 15px;
+}
+
+MadCap|tocProxy
+{
+	
+}
+
+MadCap|popup
+{
+	color: #2D8DCC;
+}
+
+MadCap|popup:focus
+{
+	color: #2D8DCC;
+}
+
+MadCap|popup:hover
+{
+	color: #2D8DCC;
+}
+
+MadCap|popupHead
+{
+	color: #2D8DCC;
+	font-weight: bold;
+}
+
+MadCap|xref
+{
+	font-weight: bold;
+	mc-format: '{para}';
+	text-decoration: none;
+	color: #2f6db5;
+}
+
+MadCap|xref:hover
+{
+	text-decoration: underline;
+	color: #2f6db5;
+}
+
+MadCap|xref.IndexPageNumber
+{
+	
+}
+
+ol
+{
+	list-style-image: none;
+}
+
+ol ol
+{
+	list-style-type: lower-alpha;
+	margin-left: -10px;
+}
+
+ol ol ol
+{
+	list-style-type: lower-roman;
+	margin-left: -10px;
+}
+
+p
+{
+	text-align: left;
+	color: #262626;
+	mc-hyphenate: never;
+	margin-top: 11px;
+	margin-bottom: 11px;
+	font-size: 11pt;
+	font-weight: inherit;
+	font-family: 'Open Sans';
+}
+
+p.Copyright
+{
+	font-size: 8pt;
+	line-height: 9pt;
+	color: #262626;
+	font-family: Arial;
+	margin-bottom: 8px;
+	margin-top: 4px;
+}
+
+p.CopyrightAddress
+{
+	
+}
+
+p.CopyrightHeading
+{
+	
+}
+
+p.CreatedUsingFlare
+{
+	
+}
+
+p.EmptyPageText
+{
+	
+}
+
+p.ExampleHeadText
+{
+	page-break-after: avoid;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	mc-auto-number-class: example;
+	mc-auto-number-format: 'Example   ';
+	font-weight: bold;
+}
+
+p.Figure
+{
+	font-weight: bold;
+}
+
+p.FirstPageOfChapter
+{
+	
+}
+
+p.FooterTopicMaster
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	padding-left: 2px;
+}
+
+p.FooterTopicMasterLastLine
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 10px;
+	padding-left: 2px;
+}
+
+p.FooterTopicMasterLastLineLeftPadding
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 3px;
+	padding-top: 0;
+	text-align: left;
+}
+
+p.FooterTopicMasterLeftPadding
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 3px;
+	text-align: left;
+}
+
+p.FrameFooterText
+{
+	
+}
+
+p.FrameFooterText2
+{
+	
+}
+
+p.GlossaryPrintHead
+{
+	color: #292b38;
+	font-size: 22px;
+}
+
+p.IndexHeading
+{
+	
+}
+
+p.IndexPrintHead
+{
+	
+}
+
+p.ManualTitle1
+{
+	
+}
+
+p.ManualTitle2
+{
+	
+}
+
+p.ManualVersionNumber
+{
+	
+}
+
+p.MiniTOC1
+{
+	font-family: 'Open Sans';
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: #00aeef;
+	line-height: 11pt;
+}
+
+p.quotationname
+{
+	text-align: right;
+}
+
+p.SeeAlsoLink
+{
+	border-top-color: #b3b3b3;
+	border-top-style: solid;
+	border-top-width: 1px;
+	font-size: 1.10em;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+}
+
+p.TableCaption
+{
+	font-weight: bold;
+	mc-auto-number-class: TableNum;
+}
+
+p.TableTextCenterDark
+{
+	color: #000000;
+	margin-bottom: 2px;
+	margin-top: 8px;
+	text-align: center;
+}
+
+p.TableTextDark
+{
+	color: #000000;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TableTextDarkEmphasis
+{
+	color: #000000;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TableTextHeadDark
+{
+	color: #000000;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TableTextLightEmphasis
+{
+	color: #ffffff;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TOCHeading
+{
+	
+}
+
+pre.programlisting
+{
+	display: block;
+	white-space: pre;
+	word-wrap: normal;
+	word-break: normal;
+	overflow-x: auto;
+	line-height: 1.5;
+	border: solid 1px #fafafa;
+	font-size: 10.5pt;
+	background-color: #f7f7f7;
+	margin: 10px 0 0 0px;
+	padding: 0px 0px 0px 2px;
+	lang: bash;
+}
+
+span.admonition
+{
+	color: #262626;
+	font-weight: 700;
+	font-family: 'Open Sans';
+}
+
+span.Emphasis
+{
+	font-weight: bold;
+}
+
+span.FigureNum
+{
+	
+}
+
+span.code
+{
+	font-family: monospace;
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #ecedef;
+}
+
+span.code_clearBackground
+{
+	font-family: monospace;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+span.SeeAlsoIndexTerms
+{
+	font-style: italic;
+}
+
+span.SeeIndexTerms
+{
+	font-style: italic;
+}
+
+span.SetOffFirstLevel
+{
+	color: #5e6914;
+	font-weight: bold;
+}
+
+span.SetOffSecondLevel
+{
+	color: #445879;
+	font-weight: bold;
+}
+
+span.TableNum
+{
+	font-weight: bold;
+	color: #292b38;
+}
+
+td
+{
+	margin: 8px;
+	vertical-align: top;
+}
+
+th
+{
+	margin-bottom: 8px;
+	margin-top: 8px;
+	font-size: 12pt;
+}
+
+tr
+{
+	
+}
+
+ul
+{
+	list-style-type: square;
+}
+
+ul.FirstLevelLessIndentation
+{
+	list-style-type: square;
+	margin-left: -10px;
+}
+
+ul ul
+{
+	list-style-type: disc;
+	margin-left: -10px;
+}
+
+ul ol
+{
+	list-style-image: none;
+}
+
+pre
+{
+	font-size: 11pt;
+}
+
+span.SearchHighlight1
+{
+	background-color: #ffff66;
+}
+
+span.SearchHighlight2
+{
+	background-color: #a0ffff;
+}
+
+span.SearchHighlight3
+{
+	background-color: #99ff99;
+}
+
+span.SearchHighlight
+{
+	
+}
+
+table.HelpFooter
+{
+	margin-left: 0;
+	margin-right: auto;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	border: 0px;
+}
+
+td.HelpFooter
+{
+	text-align: left;
+	height: 100%;
+	border-width: 0px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: #003654;
+	border-collapse: collapse;
+	vertical-align: bottom;
+	padding-left: 20px;
+}
+
+p.MiniTOC2
+{
+	font-family: 'Open Sans';
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #00aeef;
+	font-size: 11pt;
+	line-height: 11pt;
+}
+
+table.TableStyle-InformalTable
+{
+	width: auto;
+}
+
+code
+{
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #ecedef;
+	font-family: default;
+}
+
+a
+{
+	text-decoration: none;
+	color: #2F6DB5;
+	font-weight: normal;
+}
+
+div
+{
+	
+}
+
+div.img
+{
+	padding: -1px;
+}
+
+MadCap|glossaryTerm
+{
+	color: #32b4cd;
+	font-weight: normal;
+	font-style: italic;
+}
+
+a.GlossaryPageTerm
+{
+	font-weight: normal;
+	color: #2f6db5;
+}
+
+img.PrintCover
+{
+	max-width: none;
+}
+
+p.PubDate
+{
+	font-style: italic;
+	page-break-after: always;
+	text-align: center;
+}
+
+code.code_clearBackground
+{
+	background-color: transparent;
+}
+
+p.MiniTOC3
+{
+	font-size: 10pt;
+	line-height: 10pt;
+	color: #00aeef;
+}
+
+h2.noTOC
+{
+	mc-heading-level: 2;
+}
+
+h3.noTOC
+{
+	mc-heading-level: 3;
+}
+
+img.Thumb
+{
+	border: solid 1px #898989;
+	border-radius: 0px;
+	mc-thumbnail-max-height: 48px;
+	mc-thumbnail: popup;
+}
+
+img.ThumbNoBorderSmall
+{
+	border: none 1px #ecedef;
+	mc-thumbnail: popup;
+	border: none 1px #ecedef;
+	mc-thumbnail: popup;
+	mc-thumbnail-max-height: 30px;
+}
+
+img.ThumbNoBorder
+{
+	border: none 1px #ecedef;
+	mc-thumbnail: popup;
+	mc-thumbnail-max-height: 48px;
+}
+
+a.GlossaryPageLink
+{
+	color: #292b38;
+	font-weight: bold;
+	margin-top: 3px;
+}
+
+div.GlossaryPageEntry
+{
+	
+}
+
+MadCap|searchResultsProxy
+{
+	margin: 5em 0px 0px;
+}
+
+MadCap|bodyProxy
+{
+	padding: 0px;
+}
+
+p.invisible
+{
+	visibility: hidden;
+}
+
+MadCap|topicToolbarProxy
+{
+	border-bottom: none 2px #000000;
+	padding: 10px 0px 0px;
+	align: inherit;
+	vertical-align: baseline;
+	margin: 0px;
+}
+
+/*Sets the z-index of the image popup container to above fixed header*/
+
+.MCPopupContainer
+{
+	z-index: 1000;
+}
+
+p.KeepWNext
+{
+	page-break-after: avoid;
+}
+
+p.spacer
+{
+	font-size: 3pt;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+span.invisible
+{
+	color: #d2691e;
+	display: none;
+}
+
+span.hidden
+{
+	visibility: hidden;
+}
+
+MadCap|menuProxy
+{
+	
+}
+
+h3.noTOC_Black
+{
+	color: #000000;
+	mc-heading-level: 3;
+}
+
+@media print
+{
+	body
+	{
+		line-height: 12pt;
+		mc-hyphenate: never;
+		font-size: 11pt;
+		font-family: Arial;
+	}
+
+	div.HTML5FooterBlock
+	{
+		display: none;
+	}
+
+	div.GlossaryPageDefinition
+	{
+		font-size: 9pt;
+	}
+
+	div.GlossaryPageHeading
+	{
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		font-size: 11pt;
+		color: #292b38;
+		border-bottom-color: #5f6972;
+	}
+
+	div.GlossaryPageTerm
+	{
+		font-size: 10pt;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		color: #292b38;
+	}
+
+	div.note
+	{
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+
+	h1
+	{
+		margin-top: 18pt;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		font-weight: bold;
+		line-height: normal;
+		mc-heading-level: 1;
+		font-family: 'Avenir ';
+		page-break-before: always;
+	}
+
+	h1.Chapter
+	{
+		mc-heading-level: 1;
+		page-break-before: always;
+		margin-bottom: 6pt;
+		font-weight: bold;
+		line-height: normal;
+		margin-top: 18pt;
+		padding: 5px 10px;
+		mc-auto-number-format: 'GH:{n+} | ';
+	}
+
+	h1.Appendix
+	{
+		mc-heading-level: 1;
+		page-break-before: always;
+		margin-top: 18pt;
+		margin-bottom: 6pt;
+		mc-auto-number-format: 'GA:{A+} | ';
+	}
+
+	h1.CoverTitle
+	{
+		page-break-before: avoid;
+		font-size: 32pt;
+		color: #000000;
+		text-align: center;
+		line-height: 32pt;
+		margin-bottom: 3pt;
+		margin-top: -3pt;
+		border-top: none 3px #000000;
+		mc-heading-level: 0;
+		font-family: 'Avenir Book';
+	}
+
+	h1.CoverTitleSmall
+	{
+		page-break-before: avoid;
+		color: #000000;
+		text-align: center;
+		margin-bottom: 3pt;
+		margin-top: -3pt;
+		border-top: none 3px #000000;
+		mc-heading-level: 0;
+		font-family: 'Avenir Book';
+		font-size: 30pt;
+		line-height: 30pt;
+	}
+
+	h2
+	{
+		page-break-before: avoid;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		line-height: normal;
+		mc-heading-level: 2;
+		margin-top: 20pt;
+		font-family: 'Avenir Book';
+		font-weight: 700;
+		font-size: 16pt;
+	}
+
+	h3
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		line-height: normal;
+		mc-heading-level: 3;
+		font-family: Avenir;
+		font-size: 16pt;
+	}
+
+	h4
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		line-height: 14pt;
+		font-weight: bold;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		font-size: 14pt;
+		mc-heading-level: 0;
+		font-family: Avenir;
+	}
+
+	h5
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		line-height: 14pt;
+		font-weight: bold;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		mc-heading-level: 0;
+		font-family: Avenir;
+	}
+
+	h6
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		line-height: 14pt;
+		font-weight: bold;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		mc-heading-level: 0;
+		font-family: Avenir;
+	}
+
+	img.FiftyPercentThumbnail
+	{
+		max-width: 50%;
+	}
+
+	img.OneHundredPercentThumbnail
+	{
+		max-width: 100%;
+	}
+
+	img.SeventyFivePercent
+	{
+		max-width: 75%;
+	}
+
+	li
+	{
+		mc-hyphenate: never;
+		margin-top: 6pt;
+		margin-bottom: 6pt;
+		font-family: Arial;
+		font-size: 10pt;
+		page-break-inside: auto;
+	}
+
+	MadCap|dropDown.SecondLevel
+	{
+		background-color: transparent;
+		margin-left: 10px;
+	}
+
+	MadCap|dropDownBody
+	{
+		border-bottom: none;
+	}
+
+	MadCap|dropDownHead
+	{
+		margin-top: 16px;
+	}
+
+	MadCap|dropDownHotspot
+	{
+		font-size: 8pt;
+	}
+
+	MadCap|footnoteBlock
+	{
+		font-size: 7pt;
+	}
+
+	MadCap|footnotesBlock
+	{
+		border-top-color: #898989;
+	}
+
+	MadCap|glossaryProxy
+	{
+		border-top: none;
+		color: #e1e1e1;
+	}
+
+	MadCap|indexProxy
+	{
+		border-top: none;
+		color: #e1e1e1;
+	}
+
+	MadCap|miniTocProxy
+	{
+		border-top: 0;
+		width: 100%;
+		margin-left: 0in;
+		margin-right: 0in;
+	}
+
+	MadCap|tocProxy
+	{
+		border-top: none;
+		margin-right: 0.25in;
+	}
+
+	MadCap|xref
+	{
+		font-weight: normal;
+		mc-format: '{quote}{para}{quote} {pageref}';
+		text-decoration: none;
+	}
+
+	MadCap|xref.IndexPageNumber
+	{
+		color: #BED230;
+	}
+
+	ol ol
+	{
+		margin-left: 30px;
+	}
+
+	ol ol ol
+	{
+		margin-left: 30px;
+	}
+
+	p
+	{
+		mc-hyphenate: never;
+		margin-top: 3pt;
+		margin-bottom: 6pt;
+		page-break-inside: avoid;
+		font-family: Arial;
+		font-size: 10pt;
+	}
+
+	p.Copyright
+	{
+		margin-bottom: 8px;
+		margin-top: 8px;
+	}
+
+	p.CopyrightAddress
+	{
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
+	p.CopyrightHeading
+	{
+		margin-top: 1in;
+		page-break-before: always;
+	}
+
+	p.CreatedUsingFlare
+	{
+		font-weight: bold;
+		margin-top: 18px;
+	}
+
+	p.EmptyPageText
+	{
+		font-size: 10pt;
+		font-weight: bold;
+	}
+
+	p.Figure
+	{
+		color: #404040;
+		mc-auto-number-class: FigureNum;
+		mc-auto-number-format: 'CF:Figure {chapnum}-{n+} ';
+		margin-left: 10px;
+		padding-bottom: 10px;
+	}
+
+	p.FirstPageOfChapter
+	{
+		color: #e1e1e1;
+	}
+
+	p.FrameFooterText
+	{
+		font-family: 'Century Gothic';
+		font-size: 24pt;
+	}
+
+	p.FrameFooterText2
+	{
+		color: #404040;
+		font-family: 'Century Gothic';
+		font-size: 11pt;
+	}
+
+	p.GlossaryPrintHead
+	{
+		mc-heading-level: 1;
+		font-family: Avenir;
+		letter-spacing: 0px;
+		color: #292b38;
+		page-break-before: auto;
+		font-size: 22px;
+		text-align: left;
+	}
+
+	p.IndexHeading
+	{
+		font-size: 11pt;
+		padding-top: 16px;
+		text-align: left;
+	}
+
+	p.IndexPrintHead
+	{
+		color: #47484a;
+		font-family: 'Century Gothic';
+		font-size: 90pt;
+		letter-spacing: -1px;
+		mc-heading-level: 1;
+		page-break-before: always;
+		text-align: right;
+	}
+
+	p.ManualTitle1
+	{
+		font-family: 'Century Gothic';
+		font-size: 9pt;
+		margin-bottom: 0;
+		margin-left: 1in;
+		margin-top: 2.00in;
+	}
+
+	p.ManualTitle2
+	{
+		color: #bed230;
+		font-family: 'Century Gothic';
+		font-size: 22pt;
+		line-height: 0;
+		margin-bottom: 0;
+		margin-left: 1in;
+		margin-top: 0;
+	}
+
+	p.ManualVersionNumber
+	{
+		color: #b3b3b3;
+		font-family: 'Century Gothic';
+		font-size: 12pt;
+		margin-left: 1in;
+		margin-top: 12pt;
+	}
+
+	p.MiniTOC1
+	{
+		font-family: Arial;
+		font-weight: bold;
+	}
+
+	p.TableCaption
+	{
+		color: #404040;
+		font-style: italic;
+		mc-auto-number-class: TableNum;
+		mc-auto-number-format: 'CT:Table {chapnum}-{n+} ';
+		padding-bottom: 0;
+		padding-top: 12px;
+	}
+
+	p.TOC1
+	{
+		font-size: 12pt;
+		margin-bottom: 6px;
+		font-weight: bold;
+		line-height: 12pt;
+		margin-top: 3pt;
+		mc-pagenum-display: all;
+		mc-leader-format: '.';
+		color: #262626;
+		font-family: Arial;
+		page-break-before: auto;
+		page-break-after: auto;
+	}
+
+	p.TOC2
+	{
+		font-size: 10pt;
+		color: #5f6972;
+		font-weight: inherit;
+		margin-bottom: 6pt;
+		margin-left: 10pt;
+		margin-top: 3pt;
+		page-break-after: inherit;
+		page-break-before: inherit;
+	}
+
+	p.TOC3
+	{
+		color: #717271;
+		font-weight: inherit;
+		margin-bottom: 4pt;
+		margin-left: 20pt;
+		margin-top: 2pt;
+		page-break-after: inherit;
+		page-break-before: inherit;
+		font-size: 10pt;
+	}
+
+	p.TOC4
+	{
+		color: #bed230;
+		font-size: 12pt;
+		font-weight: normal;
+		margin-bottom: 6px;
+		margin-left: 0;
+		margin-top: 12px;
+	}
+
+	p.TOCHeading
+	{
+		color: #47484a;
+		font-size: 90pt;
+		font-weight: normal;
+		letter-spacing: -1px;
+		line-height: 92pt;
+		margin: 0;
+		mc-heading-level: 0;
+		text-align: center;
+	}
+
+	span.ChapAutoNum
+	{
+		color: #47484a;
+		font-family: 'Century Gothic';
+		font-size: 90pt;
+		letter-spacing: -1px;
+	}
+
+	span.FigureNum
+	{
+		font-style: normal;
+		color: #292b38;
+	}
+
+	span.TableNum
+	{
+		
+	}
+
+	tr
+	{
+		page-break-inside: avoid;
+	}
+
+	ul
+	{
+		list-style-type: square;
+		page-break-before: auto;
+	}
+
+	ul.FirstLevelLessIndentation
+	{
+		list-style-type: square;
+		margin-left: 30px;
+	}
+
+	ul ul
+	{
+		list-style-type: disc;
+		margin-left: 30px;
+	}
+
+	table.TableStyle-InformalTable
+	{
+		width: 100%;
+	}
+
+	p.Version
+	{
+		color: #404040;
+		font-family: 'Avenir Book';
+		font-size: 12pt;
+		text-align: center;
+		margin-bottom: 3pt;
+		margin-top: 4pt;
+	}
+
+	p.MiniTOC2
+	{
+		font-family: Arial;
+		font-size: 10pt;
+		line-height: 10pt;
+	}
+
+	div.example
+	{
+		font-family: Arial;
+		color: #262626;
+		font-size: 11pt;
+	}
+
+	h1.Contents
+	{
+		page-break-before: always;
+		margin-top: 0;
+		margin-bottom: 18pt;
+		font-weight: bold;
+		line-height: normal;
+		mc-heading-level: 0;
+	}
+
+	p.HeaderFooter
+	{
+		font-size: 9pt;
+		padding-left: 0em;
+		padding-right: 0em;
+		font-family: Avenir;
+	}
+
+	code
+	{
+		
+	}
+
+	pre
+	{
+		font-size: 11pt;
+	}
+
+	pre.literallayout
+	{
+		font-size: 10.5pt;
+	}
+
+	pre.programlisting
+	{
+		font-size: 10.5pt;
+	}
+
+	pre.screen
+	{
+		font-size: 10.5pt;
+	}
+
+	img
+	{
+		max-width: 6in;
+	}
+
+	img.PrintCover
+	{
+		
+	}
+
+	p.PubDate
+	{
+		color: #404040;
+		font-family: 'Avenir Book';
+		font-size: 12pt;
+		margin-bottom: 3pt;
+		margin-top: 4pt;
+	}
+
+	table.TableStyle-FormalTable
+	{
+		width: 100%;
+	}
+
+	div.admonition
+	{
+		width: 100%;
+	}
+
+	div.important
+	{
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+
+	div.tip
+	{
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+
+	div.warning
+	{
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+
+	code.code_clearBackground
+	{
+		
+	}
+
+	h2.noTOC
+	{
+		mc-heading-level: 0;
+	}
+
+	h3.noTOC
+	{
+		mc-heading-level: 0;
+	}
+
+	img.Thumb
+	{
+		mc-thumbnail-max-height: default;
+		mc-thumbnail: none;
+	}
+
+	p.MiniTOC3
+	{
+		font-family: Arial;
+	}
+
+	p.MiniTOC3
+	{
+		font-family: Arial;
+	}
+
+	h3.noTOC_Black
+	{
+		mc-heading-level: 0;
+	}
+
+	div.miniTOC
+	{
+		margin-bottom: 0px;
+		padding-bottom: 15px;
+		line-height: 12pt;
+		width: 100%;
+	}
+
+	p.miniTocTitle
+	{
+		font-family: Arial;
+		margin-bottom: 10px;
+	}
+
+	MadCap|miniTocProxy.wHeading
+	{
+		margin-left: 0.25in;
+		margin-right: 0.25in;
+		margin-bottom: 15px;
+		width: 100%;
+	}
+
+	p.title
+	{
+		page-break-after: avoid;
+	}
+}
+
+dl.variablelist
+{
+	
+}
+
+div.variablelist
+{
+	
+}
+
+div.tip
+{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-top-color: #ffffff;
+	mc-auto-number-position: inside-head;
+	mc-auto-number-format: 'Tip ';
+	mc-auto-number-class: admonition;
+	background-color: #f8fef1;
+	border-color: #63A70A;
+	border-left: solid 7px #63A70A;
+	padding: 0px;
+	padding-bottom: 0px;
+}
+
+div.admonition
+{
+	color: #262626;
+	font-family: Arial;
+	font-size: 11pt;
+	padding: 6px;
+	margin-bottom: 11px;
+	margin-top: 11px;
+	width: 90%;
+}
+
+div.warning
+{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	mc-auto-number-position: inside-head;
+	mc-auto-number-format: 'Warning';
+	mc-auto-number-class: admonition;
+	background-color: #fef4f1;
+	border-color: #DD3A0E;
+	border-left: solid 7px #DD3A0E;
+}
+
+span.admonition
+{
+	color: #262626;
+	font-weight: 700;
+	font-family: Arial;
+}
+
+table.TableStyle-FormalTable
+{
+	width: auto;
+}
+
+p.Version
+{
+	color: #262626;
+	font-family: 'Open Sans';
+	font-size: 11pt;
+	text-align: left;
+	margin-bottom: 11px;
+	margin-top: 11px;
+	page-break-after: avoid;
+}
+
+@media screen and (max-width: 674px)
+{
+	span.Superscript
+	{
+		vertical-align: super;
+		font-size: 14pt;
+	}
+
+	div.HTML5FooterBlock
+	{
+		display: none;
+	}
+
+	h3.noTOC_Black
+	{
+		mc-heading-level: 3;
+		color: #292b38;
+	}
+
+	img.Thumb
+	{
+		border: solid 1px #898989;
+		border-radius: 0px;
+		mc-thumbnail-max-height: 48x;
+		mc-thumbnail: popup;
+	}
+
+	body
+	{
+		margin-bottom: 0px;
+		padding: 0px 0px 0px 10%;
+	}
+}
+
+@media only screen and (max-width: 980px)
+{
+	div.HTML5FooterBlock
+	{
+		display: none;
+	}
+
+	div.home-footer
+	{
+		display: none;
+	}
+
+	MadCap|breadcrumbsProxy
+	{
+		left: 63px;
+		margin-right: 0px;
+	}
+
+	div.sidenav-content
+	{
+		margin-top: 5px;
+		margin-right: 0px;
+	}
+
+	div.body-container
+	{
+		margin-right: 0px;
+		padding: 0px 78px 0px 63px;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	MadCap|topicToolbarProxy
+	{
+		margin: 0px;
+	}
+}
+
+@media only screen and (max-width: 767px)
+{
+	div.HTML5FooterBlock
+	{
+		display: none;
+	}
+
+	div.home-footer
+	{
+		display: none;
+	}
+
+	div.sidenav-content
+	{
+		margin-right: inherit;
+		margin-top: 5px;
+	}
+
+	div.body-container
+	{
+		margin-right: inherit;
+		padding: 0px 78px 0px 63px;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	MadCap|topicToolbarProxy
+	{
+		margin: 0px;
+	}
+
+	MadCap|breadcrumbsProxy
+	{
+		margin-right: 0px;
+	}
+}
+
+@media print, projection
+{
+	h1
+	{
+		margin-top: 18px;
+	}
+
+	MadCap|miniTocProxy.wHeading
+	{
+		
+	}
+}
+
+body
+{
+	color: #262626;
+	line-height: 1.5em;
+	font-family: 'Open Sans';
+	margin-left: 0em;
+	padding-left: 1.5em;
+	padding-right: 1em;
+	margin-bottom: 55px;
+	mc-hyphenate: never;
+	font-size: 14px;
+}
+
+a.footermaster
+{
+	color: #ffffff;
+}
+
+a.footermasterurls
+{
+	color: #ffffff;
+	font-style: italic;
+}
+
+a.MCBreadcrumbsLink
+{
+	
+}
+
+div.admonition
+{
+	font-size: 11pt;
+	background-color: transparent;
+	font-family: 'Open Sans';
+	border-radius: 0px;
+}
+
+div.example
+{
+	margin-top: 10px;
+	font-family: 'Open Sans';
+	font-size: 13pt;
+	padding: 8px;
+	background-color: transparent;
+	border-radius: 0px;
+	border-top: solid 2px #898989;
+	border-bottom: solid 2px #898989;
+}
+
+div.img,
+div.informalimg
+{
+	margin-top: 10px;
+	text-align: left;
+}
+
+div.FooterTable
+{
+	background-color: #3e3e3e;
+	background-repeat: repeat;
+	border-top-color: #BED230;
+	border-top-style: solid;
+	border-top-width: 2px;
+	margin-left: -17px;
+	margin-right: -17px;
+	padding-bottom: 10px;
+	padding-left: 17px;
+	padding-right: 17px;
+	padding-top: 10px;
+}
+
+/* The FooterBlock div was replaced with the HTML5 footer block so we shouldn't need 2 when we stop generating web help targets. */
+
+div.HTML5FooterBlock
+{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: 100%;
+	height: auto;
+	z-index: 10;
+	font-size: 9pt;
+	background-color: #404040;
+	border: 0px;
+	align: center;
+	text-align: center;
+}
+
+div.GlossaryPageDefinition
+{
+	font-size: 11pt;
+	font-family: inherit;
+	color: #292b38;
+}
+
+div.GlossaryPageHeading
+{
+	
+}
+
+div.GlossaryPageTerm
+{
+	
+}
+
+div.ImagesFloatLeft
+{
+	clear: both;
+	float: left;
+	margin-right: 10px;
+	padding: 5px;
+}
+
+div.ImagesFloatRight
+{
+	clear: both;
+	float: right;
+	margin-left: 10px;
+	padding: 5px;
+}
+
+div.note
+{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-top-color: #ffffff;
+	mc-auto-number-position: inside-head;
+	border-left: solid 7px #00aeef;
+	mc-auto-number-format: 'Note ';
+	mc-auto-number-class: admonition;
+	background: inherit;
+	border-color: #00aeef;
+	background-color: #e5f8ff;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.noteInDiv
+{
+	mc-auto-number-format: '{b}{color #bed230}Note: {/color}{/b}';
+}
+
+div.quotation
+{
+	background-color: #e1e1e1;
+	background-image: url('../Images/QuotationMark.png');
+	background-repeat: no-repeat;
+	background-position: top left;
+	border-color: #b3b3b3;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	font-family: 'Century Gothic';
+	font-size: 0.9em;
+	font-style: italic;
+	font-weight: normal;
+	line-height: 18px;
+	padding: 20px;
+	padding-left: 40px;
+}
+
+div.TopicContent
+{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+h1
+{
+	text-align: left;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	mc-auto-number-format: '{ =0}';
+	clear: both;
+	margin-top: 18px;
+	margin-bottom: 18px;
+	background: inherit;
+	line-height: normal;
+	border-top: none 0px #000000;
+	color: #ffffff;
+	background-color: #2f6db5;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 22px;
+}
+
+h1.Chapter
+{
+	text-align: left;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: normal;
+	mc-auto-number-format: '{ =0}';
+	mc-auto-number-class: inherit;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+
+h1.Appendix
+{
+	text-align: left;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+
+h1.CoverTitle
+{
+	font: inherit;
+	color: #262626;
+	font-family: 'Open Sans';
+	font-size: 18pt;
+	border-top: none 2px #000000;
+	background-color: transparent;
+}
+
+h1.CoverTitleSmall
+{
+	font: inherit;
+	color: #262626;
+	font-family: 'Open Sans';
+	font-size: 18pt;
+	border-top: none 2px #000000;
+	background-color: transparent;
+}
+
+h2
+{
+	font-family: 'Open Sans';
+	text-align: left;
+	font-weight: 700;
+	font-style: normal;
+	mc-auto-number-format: '{ =0}';
+	clear: both;
+	margin-bottom: 0.5em;
+	line-height: normal;
+	margin-top: 1.5em;
+	color: #2f6db5;
+	border-top: solid 2px #2f6db5;
+	font-size: 20px;
+}
+
+h3
+{
+	margin-top: .75em;
+	mc-auto-number-format: '{ =0}';
+	line-height: normal;
+	font-weight: 700;
+	font-family: 'Open Sans';
+	margin-bottom: .5em;
+	padding-right: 5px;
+	padding-left: 0px;
+	color: #2f6db5;
+	font-size: 18px;
+	font-style: italic;
+}
+
+h4
+{
+	page-break-before: avoid;
+	mc-hyphenate: never;
+	font-weight: 700;
+	line-height: normal;
+	font-family: 'Open Sans';
+	margin: .83em;
+	margin-bottom: .5em;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: .75em;
+	mc-heading-level: 0;
+	font-size: 13pt;
+	color: #404040;
+}
+
+h5
+{
+	page-break-before: avoid;
+	margin-top: 18pt;
+	line-height: 14pt;
+	margin-bottom: 6pt;
+	mc-hyphenate: never;
+	color: #5f6972;
+	mc-heading-level: 0;
+	font-family: 'Open Sans';
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+h6
+{
+	page-break-before: avoid;
+	margin-top: 18pt;
+	line-height: 14pt;
+	font-weight: bold;
+	margin-bottom: 6pt;
+	mc-hyphenate: never;
+	mc-heading-level: 0;
+	font-family: 'Open Sans';
+	color: #2f6db5;
+	font-size: 11pt;
+}
+
+img
+{
+	padding-bottom: 0px;
+	border: none 1px #ecedef;
+}
+
+img.AbsolutePosition
+{
+	padding: 5px;
+}
+
+img
+{
+	padding-bottom: 0px;
+	border: 1px #ecedef;
+}
+
+img.FiftyPercentThumbnail
+{
+	mc-thumbnail: popup;
+	padding-bottom: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+img.Hyperlinked
+{
+	border-style: none;
+}
+
+img.OneHundredPercentThumbnail
+{
+	mc-thumbnail: popup;
+	padding-bottom: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+img.ReduceButtonSize
+{
+	max-height: 25px;
+}
+
+img.SeventyFivePercent
+{
+	padding: 10px;
+}
+
+li
+{
+	margin-bottom: 6px;
+	margin-top: 6px;
+	orphans: 2;
+	widows: 2;
+	font-size: 11pt;
+	color: #262626;
+	font-family: 'Open Sans';
+}
+
+MadCap|breadcrumbsProxy
+{
+	font-style: normal;
+	font-size: 12px;
+	border-bottom-style: solid;
+	mc-breadcrumbs-prefix: ' ';
+	border-bottom-color: #ecedef;
+	margin-bottom: 6;
+	padding-bottom: 6px;
+	padding-top: 10px;
+	margin-right: 0px;
+}
+
+MadCap|conceptLink
+{
+	color: #404040;
+	font-size: 0.8em;
+	font-weight: bold;
+	mc-image: url('../Images/ListIcon.png');
+	mc-label: 'SEE ALSO';
+	padding-top: 8px;
+	text-decoration: none;
+}
+
+MadCap|conceptLink:hover
+{
+	color: #BED230;
+	font-weight: bold;
+}
+
+MadCap|dropDown
+{
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+MadCap|dropDown.Footer
+{
+	
+}
+
+MadCap|dropDown.SecondLevel
+{
+	margin-left: 10px;
+}
+
+MadCap|dropDownBody
+{
+	border-bottom: solid 1px #bed230;
+}
+
+MadCap|dropDownBody.FooterTopicMaster
+{
+	border-bottom-color: #b3b3b3;
+}
+
+MadCap|dropDownBody.Final
+{
+	border-bottom: 0;
+}
+
+MadCap|dropDownHead
+{
+	
+}
+
+MadCap|dropDownHotspot
+{
+	color: #404040;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+MadCap|dropDownHotspot:hover
+{
+	color: #BED230;
+}
+
+MadCap|dropDownHotspot.Footer
+{
+	color: #ffffff;
+	font-size: 0.8em;
+}
+
+MadCap|dropDownHotspot.Footer:hover
+{
+	color: #BED230;
+}
+
+MadCap|footnoteBlock
+{
+	
+}
+
+MadCap|footnotesBlock
+{
+	
+}
+
+MadCap|glossaryProxy
+{
+	
+}
+
+MadCap|indexProxy
+{
+	
+}
+
+MadCap|miniTocProxy
+{
+	background: inherit;
+	border-top-color: #32b4cd;
+	margin-top: 0px;
+	border-right-width: 1px;
+	mc-auto-number-position: none;
+	width: 50%;
+	border-bottom-color: transparent;
+	border-color: transparent;
+	border: solid 0px #000000;
+	border-bottom-left-radius: 0px 0px;
+	border-width: 0px;
+	background-color: #f7f7f7;
+	border-radius: 0px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	font-size: 12pt;
+	line-height: normal;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+MadCap|tocProxy
+{
+	padding-top: 6px;
+	border-top-color: transparent;
+	border-top-style: none;
+}
+
+MadCap|popup
+{
+	color: #2D8DCC;
+}
+
+MadCap|popup:focus
+{
+	color: #2D8DCC;
+}
+
+MadCap|popup:hover
+{
+	color: #2D8DCC;
+}
+
+MadCap|popupHead
+{
+	color: #2D8DCC;
+	font-weight: bold;
+}
+
+MadCap|xref
+{
+	font-weight: bold;
+	mc-format: '{para}';
+	text-decoration: none;
+	color: #2f6db5;
+}
+
+MadCap|xref:hover
+{
+	text-decoration: underline;
+	color: #2f6db5;
+}
+
+MadCap|xref.IndexPageNumber
+{
+	
+}
+
+ol
+{
+	list-style-image: none;
+}
+
+ol ol
+{
+	list-style-type: lower-alpha;
+	margin-left: -10px;
+}
+
+ol ol ol
+{
+	list-style-type: lower-roman;
+	margin-left: -10px;
+}
+
+p
+{
+	text-align: left;
+	color: #262626;
+	mc-hyphenate: never;
+	margin-top: 11px;
+	margin-bottom: 11px;
+	font-size: 11pt;
+	font-weight: inherit;
+	font-family: 'Open Sans';
+}
+
+p.Copyright
+{
+	font-size: 8pt;
+	line-height: 9pt;
+	color: #262626;
+	font-family: Arial;
+	margin-bottom: 8px;
+	margin-top: 4px;
+}
+
+p.CopyrightAddress
+{
+	
+}
+
+p.CopyrightHeading
+{
+	
+}
+
+p.CreatedUsingFlare
+{
+	
+}
+
+p.EmptyPageText
+{
+	
+}
+
+p.ExampleHeadText
+{
+	page-break-after: avoid;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	mc-auto-number-class: example;
+	mc-auto-number-format: 'Example   ';
+	font-weight: bold;
+}
+
+p.Figure
+{
+	font-weight: bold;
+}
+
+p.FirstPageOfChapter
+{
+	
+}
+
+p.FooterTopicMaster
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	padding-left: 2px;
+}
+
+p.FooterTopicMasterLastLine
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 10px;
+	padding-left: 2px;
+}
+
+p.FooterTopicMasterLastLineLeftPadding
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 3px;
+	padding-top: 0;
+	text-align: left;
+}
+
+p.FooterTopicMasterLeftPadding
+{
+	color: #ffffff;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 3px;
+	text-align: left;
+}
+
+p.FrameFooterText
+{
+	
+}
+
+p.FrameFooterText2
+{
+	
+}
+
+p.GlossaryPrintHead
+{
+	color: #292b38;
+	font-size: 22px;
+}
+
+p.IndexHeading
+{
+	
+}
+
+p.IndexPrintHead
+{
+	
+}
+
+p.ManualTitle1
+{
+	
+}
+
+p.ManualTitle2
+{
+	
+}
+
+p.ManualVersionNumber
+{
+	
+}
+
+p.MiniTOC1
+{
+	font-family: 'Open Sans';
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: #00aeef;
+	font-size: 11pt;
+	line-height: normal;
+}
+
+p.quotationname
+{
+	text-align: right;
+}
+
+p.SeeAlsoLink
+{
+	border-top-color: #b3b3b3;
+	border-top-style: solid;
+	border-top-width: 1px;
+	font-size: 1.10em;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+}
+
+p.TableCaption
+{
+	font-weight: bold;
+	mc-auto-number-class: TableNum;
+}
+
+p.TableTextCenterDark
+{
+	color: #000000;
+	margin-bottom: 2px;
+	margin-top: 8px;
+	text-align: center;
+}
+
+p.TableTextDark
+{
+	color: #000000;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TableTextDarkEmphasis
+{
+	color: #000000;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TableTextHeadDark
+{
+	color: #000000;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TableTextLightEmphasis
+{
+	color: #ffffff;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 8px;
+}
+
+p.TOCHeading
+{
+	
+}
+
+pre.programlisting
+{
+	display: block;
+	white-space: pre;
+	word-wrap: normal;
+	word-break: normal;
+	overflow-x: auto;
+	line-height: 1.5;
+	border: solid 1px #fafafa;
+	font-size: 10.5pt;
+	background-color: #f7f7f7;
+	margin: 10px 0 0 0px;
+	padding: 0px 0px 0px 2px;
+	lang: bash;
+}
+
+span.admonition
+{
+	color: #262626;
+	font-weight: 700;
+	font-family: 'Open Sans';
+}
+
+span.Emphasis
+{
+	font-weight: bold;
+}
+
+span.FigureNum
+{
+	
+}
+
+span.code
+{
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #ecedef;
+	font-family: 'Courier New';
+}
+
+span.code_clearBackground
+{
+	font-size: 11pt;
+	font-weight: bold;
+	font-family: 'Courier New';
+}
+
+span.SeeAlsoIndexTerms
+{
+	font-style: italic;
+}
+
+span.SeeIndexTerms
+{
+	font-style: italic;
+}
+
+span.SetOffFirstLevel
+{
+	color: #5e6914;
+	font-weight: bold;
+}
+
+span.SetOffSecondLevel
+{
+	color: #445879;
+	font-weight: bold;
+}
+
+span.TableNum
+{
+	font-weight: bold;
+	color: #292b38;
+}
+
+td
+{
+	margin: 8px;
+	vertical-align: top;
+}
+
+th
+{
+	margin-bottom: 8px;
+	margin-top: 8px;
+	font-size: 12pt;
+}
+
+tr
+{
+	
+}
+
+ul
+{
+	list-style-type: square;
+}
+
+ul.FirstLevelLessIndentation
+{
+	list-style-type: square;
+	margin-left: -10px;
+}
+
+ul ul
+{
+	list-style-type: disc;
+	margin-left: -10px;
+}
+
+ul ol
+{
+	list-style-image: none;
+}
+
+pre
+{
+	font-size: 11pt;
+	font-family: 'Courier New';
+}
+
+span.SearchHighlight1
+{
+	background-color: #ffff66;
+}
+
+span.SearchHighlight2
+{
+	background-color: #a0ffff;
+}
+
+span.SearchHighlight3
+{
+	background-color: #99ff99;
+}
+
+span.SearchHighlight
+{
+	
+}
+
+table.HelpFooter
+{
+	margin-left: 0;
+	margin-right: auto;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	border: 0px;
+}
+
+td.HelpFooter
+{
+	text-align: left;
+	height: 100%;
+	border-width: 0px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: #003654;
+	border-collapse: collapse;
+	vertical-align: bottom;
+	padding-left: 20px;
+}
+
+p.MiniTOC2
+{
+	font-family: 'Open Sans';
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #00aeef;
+	font-size: 11pt;
+	line-height: normal;
+}
+
+table.TableStyle-InformalTable
+{
+	width: auto;
+}
+
+code
+{
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #ecedef;
+	font-family: 'Courier New';
+}
+
+a
+{
+	text-decoration: none;
+	color: #2F6DB5;
+	font-weight: normal;
+}
+
+div
+{
+	border-radius: 0px;
+	font-family: inherit;
+}
+
+div.img
+{
+	padding: -1px;
+}
+
+MadCap|glossaryTerm
+{
+	color: #32b4cd;
+	font-weight: normal;
+	font-style: italic;
+}
+
+a.GlossaryPageTerm
+{
+	font-weight: normal;
+	color: #2f6db5;
+}
+
+img.PrintCover
+{
+	max-width: none;
+}
+
+p.PubDate
+{
+	font-style: italic;
+	page-break-after: always;
+	text-align: center;
+}
+
+code.code_clearBackground
+{
+	background-color: transparent;
+}
+
+p.MiniTOC3
+{
+	font-size: 10pt;
+	color: #00aeef;
+	line-height: normal;
+}
+
+h2.noTOC
+{
+	mc-heading-level: 2;
+}
+
+h3.noTOC
+{
+	mc-heading-level: 3;
+}
+
+img.ThumbNoBorder
+{
+	border: none 1px #ecedef;
+	mc-thumbnail-max-height: 48px;
+	mc-thumbnail: popup;
+}
+
+@media printFlatTOC
+{
+	body
+	{
+		line-height: 12pt;
+		mc-hyphenate: never;
+		font-size: 11pt;
+		font-family: Arial;
+	}
+
+	div.HTML5FooterBlock
+	{
+		display: none;
+	}
+
+	div.GlossaryPageDefinition
+	{
+		font-size: 9pt;
+	}
+
+	div.GlossaryPageHeading
+	{
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		font-size: 11pt;
+		color: #292b38;
+		border-bottom-color: #5f6972;
+	}
+
+	div.GlossaryPageTerm
+	{
+		font-size: 10pt;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		color: #292b38;
+	}
+
+	div.note
+	{
+		padding-bottom: 20px;
+	}
+
+	h1
+	{
+		margin-top: 18pt;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		font-weight: bold;
+		line-height: normal;
+		mc-heading-level: 1;
+		font-family: 'Avenir ';
+		page-break-before: always;
+	}
+
+	h1.Chapter
+	{
+		mc-heading-level: 1;
+		page-break-before: always;
+		margin-bottom: 6pt;
+		font-weight: bold;
+		line-height: normal;
+		margin-top: 18pt;
+		padding: 5px 10px;
+		mc-auto-number-format: 'GH:{n+} | ';
+	}
+
+	h1.Appendix
+	{
+		mc-heading-level: 1;
+		page-break-before: always;
+		margin-top: 18pt;
+		margin-bottom: 6pt;
+		mc-auto-number-format: 'GA:{A+} | ';
+	}
+
+	h1.CoverTitle
+	{
+		page-break-before: avoid;
+		font-family: 'Avenir Book';
+		font-size: 32pt;
+		color: #000000;
+		text-align: center;
+		line-height: 32pt;
+		margin-bottom: 3pt;
+		margin-top: -3pt;
+		border-top: none 3px #000000;
+		mc-heading-level: 0;
+	}
+
+	h1.CoverTitleSmall
+	{
+		page-break-before: avoid;
+		font-family: 'Avenir Book';
+		color: #000000;
+		text-align: center;
+		margin-bottom: 3pt;
+		margin-top: -3pt;
+		border-top: none 3px #000000;
+		mc-heading-level: 0;
+		font-size: 30pt;
+		line-height: 30pt;
+	}
+
+	h2
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		line-height: normal;
+		mc-heading-level: 0;
+		font-family: 'Avenir Book';
+		font-size: 16pt;
+	}
+
+	h3
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		line-height: normal;
+		mc-heading-level: 0;
+		font-family: Avenir;
+		font-size: 16pt;
+	}
+
+	h4
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		line-height: 14pt;
+		font-weight: bold;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		font-size: 14pt;
+		mc-heading-level: 0;
+		font-family: Avenir;
+	}
+
+	h5
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		line-height: 14pt;
+		font-weight: bold;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		mc-heading-level: 0;
+		font-family: Avenir;
+	}
+
+	h6
+	{
+		page-break-before: avoid;
+		margin-top: 18pt;
+		line-height: 14pt;
+		font-weight: bold;
+		margin-bottom: 6pt;
+		mc-hyphenate: never;
+		mc-heading-level: 0;
+		font-family: Avenir;
+	}
+
+	img.FiftyPercentThumbnail
+	{
+		max-width: 50%;
+	}
+
+	img.OneHundredPercentThumbnail
+	{
+		max-width: 100%;
+	}
+
+	img.SeventyFivePercent
+	{
+		max-width: 75%;
+	}
+
+	li
+	{
+		mc-hyphenate: never;
+		margin-top: 6pt;
+		margin-bottom: 6pt;
+		page-break-inside: avoid;
+		font-family: Arial;
+		font-size: 10pt;
+	}
+
+	MadCap|dropDown.SecondLevel
+	{
+		background-color: transparent;
+		margin-left: 10px;
+	}
+
+	MadCap|dropDownBody
+	{
+		border-bottom: none;
+	}
+
+	MadCap|dropDownHead
+	{
+		margin-top: 16px;
+	}
+
+	MadCap|dropDownHotspot
+	{
+		font-size: 8pt;
+	}
+
+	MadCap|footnoteBlock
+	{
+		font-size: 7pt;
+	}
+
+	MadCap|footnotesBlock
+	{
+		border-top-color: #898989;
+	}
+
+	MadCap|glossaryProxy
+	{
+		border-top: none;
+		color: #e1e1e1;
+	}
+
+	MadCap|indexProxy
+	{
+		border-top: none;
+		color: #e1e1e1;
+	}
+
+	MadCap|miniTocProxy
+	{
+		border-top: 0;
+		margin-left: 0.25in;
+		margin-right: 0.25in;
+		padding-left: 0;
+		width: 100%;
+	}
+
+	MadCap|tocProxy
+	{
+		border-top: none;
+		margin-right: 0.25in;
+	}
+
+	MadCap|xref
+	{
+		font-weight: normal;
+		mc-format: '{quote}{para}{quote} {pageref}';
+		text-decoration: none;
+	}
+
+	MadCap|xref.IndexPageNumber
+	{
+		color: #cc9c48;
+	}
+
+	ol ol
+	{
+		margin-left: 30px;
+	}
+
+	ol ol ol
+	{
+		margin-left: 30px;
+	}
+
+	p
+	{
+		mc-hyphenate: never;
+		margin-top: 3pt;
+		margin-bottom: 6pt;
+		page-break-inside: avoid;
+		font-family: Arial;
+		font-size: 10pt;
+	}
+
+	p.Copyright
+	{
+		margin-bottom: 8px;
+		margin-top: 8px;
+	}
+
+	p.CopyrightAddress
+	{
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
+	p.CopyrightHeading
+	{
+		margin-top: 1in;
+		page-break-before: always;
+	}
+
+	p.CreatedUsingFlare
+	{
+		font-weight: bold;
+		margin-top: 18px;
+	}
+
+	p.EmptyPageText
+	{
+		font-size: 10pt;
+		font-weight: bold;
+	}
+
+	p.Figure
+	{
+		color: #404040;
+		mc-auto-number-class: FigureNum;
+		mc-auto-number-format: 'CF:Figure {chapnum}-{n+} ';
+		margin-left: 10px;
+		padding-bottom: 10px;
+	}
+
+	p.FirstPageOfChapter
+	{
+		color: #e1e1e1;
+	}
+
+	p.FrameFooterText
+	{
+		font-family: 'Century Gothic';
+		font-size: 24pt;
+	}
+
+	p.FrameFooterText2
+	{
+		color: #404040;
+		font-family: 'Century Gothic';
+		font-size: 11pt;
+	}
+
+	p.GlossaryPrintHead
+	{
+		mc-heading-level: 1;
+		font-family: Avenir;
+		letter-spacing: 0px;
+		color: #292b38;
+		page-break-before: auto;
+		font-size: 22px;
+		text-align: left;
+	}
+
+	p.IndexHeading
+	{
+		font-size: 11pt;
+		padding-top: 16px;
+		text-align: left;
+	}
+
+	p.IndexPrintHead
+	{
+		color: #47484a;
+		font-family: 'Century Gothic';
+		font-size: 90pt;
+		letter-spacing: -1px;
+		mc-heading-level: 1;
+		page-break-before: always;
+		text-align: right;
+	}
+
+	p.ManualTitle1
+	{
+		font-family: 'Century Gothic';
+		font-size: 9pt;
+		margin-bottom: 0;
+		margin-left: 1in;
+		margin-top: 2.00in;
+	}
+
+	p.ManualTitle2
+	{
+		color: #bed230;
+		font-family: 'Century Gothic';
+		font-size: 22pt;
+		line-height: 0;
+		margin-bottom: 0;
+		margin-left: 1in;
+		margin-top: 0;
+	}
+
+	p.ManualVersionNumber
+	{
+		color: #b3b3b3;
+		font-family: 'Century Gothic';
+		font-size: 12pt;
+		margin-left: 1in;
+		margin-top: 12pt;
+	}
+
+	p.MiniTOC1
+	{
+		font-family: Arial;
+		font-weight: bold;
+	}
+
+	p.TableCaption
+	{
+		color: #404040;
+		mc-auto-number-class: TableNum;
+		mc-auto-number-format: 'CT:Table {chapnum}-{n+} ';
+		padding-bottom: 0;
+		padding-top: 12px;
+	}
+
+	p.TOC1
+	{
+		font-size: 12pt;
+		margin-bottom: 6px;
+		font-weight: bold;
+		line-height: 12pt;
+		margin-top: 3pt;
+		mc-pagenum-display: all;
+		mc-leader-format: '.';
+		color: #262626;
+		font-family: Arial;
+		mc-heading-level: inherit;
+		page-break-after: auto;
+		page-break-before: auto;
+	}
+
+	p.TOC2
+	{
+		font-size: 10pt;
+		color: #5f6972;
+		font-weight: inherit;
+		margin-bottom: 6pt;
+		margin-left: 10pt;
+		margin-top: 3pt;
+		page-break-after: inherit;
+		page-break-before: inherit;
+	}
+
+	p.TOC3
+	{
+		color: #717271;
+		font-weight: inherit;
+		margin-bottom: 4pt;
+		margin-left: 20pt;
+		margin-top: 2pt;
+		page-break-after: inherit;
+		page-break-before: inherit;
+		font-size: 10pt;
+	}
+
+	p.TOC4
+	{
+		color: #bed230;
+		font-size: 12pt;
+		font-weight: normal;
+		margin-bottom: 6px;
+		margin-left: 0;
+		margin-top: 12px;
+	}
+
+	p.TOCHeading
+	{
+		color: #47484a;
+		font-size: 90pt;
+		font-weight: normal;
+		letter-spacing: -1px;
+		line-height: 92pt;
+		margin: 0;
+		mc-heading-level: 0;
+		text-align: center;
+	}
+
+	span.ChapAutoNum
+	{
+		color: #47484a;
+		font-family: 'Century Gothic';
+		font-size: 90pt;
+		letter-spacing: -1px;
+	}
+
+	span.FigureNum
+	{
+		font-style: normal;
+		color: #292b38;
+	}
+
+	span.TableNum
+	{
+		
+	}
+
+	tr
+	{
+		page-break-inside: avoid;
+	}
+
+	ul
+	{
+		list-style-type: square;
+	}
+
+	ul.FirstLevelLessIndentation
+	{
+		list-style-type: square;
+		margin-left: 30px;
+	}
+
+	ul ul
+	{
+		list-style-type: disc;
+		margin-left: 30px;
+	}
+
+	table.TableStyle-InformalTable
+	{
+		width: 100%;
+	}
+
+	p.Version
+	{
+		color: #404040;
+		font-family: 'Avenir Book';
+		font-size: 12pt;
+		text-align: center;
+		margin-bottom: 3pt;
+		margin-top: 4pt;
+	}
+
+	p.MiniTOC2
+	{
+		font-family: Arial;
+	}
+
+	div.example
+	{
+		font-family: Arial;
+	}
+
+	h1.Contents
+	{
+		mc-heading-level: 0;
+	}
+
+	pre
+	{
+		font-size: 11pt;
+	}
+
+	pre.literallayout
+	{
+		font-size: 10.5pt;
+	}
+
+	pre.programlisting
+	{
+		font-size: 10.5pt;
+	}
+
+	pre.screen
+	{
+		font-size: 10.5pt;
+	}
+
+	img
+	{
+		max-width: 6in;
+	}
+
+	table.TableStyle-FormalTable
+	{
+		width: 100%;
+	}
+
+	div.admonition
+	{
+		width: 100%;
+	}
+
+	div.important
+	{
+		padding-bottom: 20px;
+	}
+
+	div.tip
+	{
+		padding-bottom: 20px;
+	}
+
+	div.warning
+	{
+		padding-bottom: 20px;
+	}
+
+	h2.noTOC
+	{
+		mc-heading-level: 0;
+	}
+
+	h3.noTOC
+	{
+		
+	}
+
+	img.Thumb
+	{
+		mc-thumbnail-max-height: default;
+		mc-thumbnail: none;
+	}
+
+	img.ThumbNoBorder
+	{
+		mc-thumbnail-max-height: default;
+		mc-thumbnail: none;
+	}
+}
+
+dl.variablelist
+{
+	
+}
+
+div.variablelist
+{
+	
+}
+
+div.tip
+{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-top-color: #ffffff;
+	mc-auto-number-position: inside-head;
+	border-color: #63A70A;
+	border-left: solid 7px #63A70A;
+	mc-auto-number-format: 'Tip ';
+	mc-auto-number-class: admonition;
+	background-color: #f8fef1;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+div.admonition
+{
+	color: #262626;
+	font-family: Arial;
+	font-size: 11pt;
+	padding: 6px;
+	margin-bottom: 11px;
+	margin-top: 11px;
+	width: 90%;
+}
+
+div.warning
+{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-top-color: #ffffff;
+	mc-auto-number-position: inside-head;
+	mc-auto-number-format: 'Warning';
+	mc-auto-number-class: admonition;
+	border-color: #DD3A0E;
+	border-left: solid 7px #DD3A0E;
+	background-color: #fef4f1;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+span.admonition
+{
+	color: #262626;
+	font-family: Arial;
+	font-weight: 700;
+}
+
+table.TableStyle-FormalTable
+{
+	width: auto;
+}
+
+p.Version
+{
+	color: #262626;
+	font-family: 'Open Sans';
+	font-size: 11pt;
+	text-align: left;
+	margin-bottom: 11px;
+	margin-top: 11px;
+}
+
+div.figure
+{
+	text-align: left;
+	margin-top: 10px;
+}
+
+p.title
+{
+	font-weight: bold;
+	mc-auto-number-format: 'Figure {n+}. ';
+}
+
+div.important
+{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-top-color: #ffffff;
+	mc-auto-number-position: inside-head;
+	mc-auto-number-class: admonition;
+	background: inherit;
+	mc-auto-number-format: 'Important ';
+	border-color: #f38b00;
+	border-left: solid 7px #f38b00;
+	background-color: #fcece9;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+pre.screen
+{
+	display: block;
+	white-space: pre;
+	word-wrap: normal;
+	word-break: normal;
+	overflow-x: auto;
+	line-height: 1.5;
+	margin: 10px 0 0 0;
+	border: solid 1px #fafafa;
+	font-weight: inherit;
+	font-size: 10.5pt;
+	background-color: #f7f7f7;
+	padding: 0px 0px 0px 2px;
+}
+
+p.FooterPage
+{
+	font-size: 8pt;
+	font-family: 'Open Sans';
+	color: #B7B7B7;
+	border-top: none 2px #000000;
+	text-align: center;
+	padding-top: 4px;
+}
+
+pre.literallayout
+{
+	font-family: 'Open Sans';
+	font-size: 10.5pt;
+}
+
+span.example
+{
+	font-weight: bold;
+	letter-spacing: 5px;
+	color: #262626;
+}
+
+img.Border
+{
+	border: solid 1px #898989;
+	border-radius: 0px;
+}
+
+div.miniTOC
+{
+	background: #f7f7f7;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 50%;
+	padding-top: 15px;
+	font-family: 'Open Sans';
+	font-size: 11pt;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+p.miniTocTitle
+{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+MadCap|miniTocProxy.wHeading
+{
+	padding-top: -5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 50%;
+}
+

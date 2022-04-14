@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" class="_Skins_Side_Nav___Swarm" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../../" data-mc-has-content-body="True" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="msapplication-config" content="../../Skins/Favicons/browserconfig.xml" />
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" /><title>Multiple-Helix server instances</title>
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/foundation.6.2.3.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../Resources/Stylesheets/perforce.css" rel="stylesheet" type="text/css" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.remove-highlight-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.previous-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.button.next-topic-button
+{
+	-pie-background: linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <link rel="icon" sizes="16x16" href="../../Skins/Favicons/favicon-16x16.png" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.6.2.3_custom.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+        <script>/* <![CDATA[ */		/*The following script overrides topic title in browser tab*/
+			document.title = "Helix Swarm Guide (2022.1)";
+		/* ]]> */</script>
+    </head>
+    <body>
+        <div class="foundation-wrap off-canvas-wrapper">
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+                <aside class="off-canvas position-right" role="navigation" id="offCanvas" data-off-canvas="" data-position="right" data-mc-ignore="true">
+                    <ul class="off-canvas-accordion vertical menu off-canvas-list" data-accordion-menu="" data-mc-back-link="Back" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True">
+                    </ul>
+                </aside>
+                <div class="off-canvas-content inner-wrap" data-off-canvas-content="">
+                    <div data-sticky-container="" class="title-bar-container">
+                        <nav class="title-bar tab-bar sticky" role="banner" data-sticky="" data-options="marginTop:0" style="width:100%" data-sticky-on="only screen and (max-width: 980px)" data-mc-ignore="true"><a class="skip-to-content fluid-skip showOnFocus" href="#">Skip To Main Content</a>
+                            <div class="middle title-bar-section outer-row clearfix">
+                                <div class="menu-icon-container relative clearfix">
+                                    <div class="central-account-wrapper">
+                                        <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                            <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                                <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="menu-icon" aria-label="Show Navigation Panel" data-toggle="offCanvas"><span></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="title-bar-layout outer-row">
+                                <div class="logo-wrapper"><a class="logo" href="home-swarm.html" alt="Logo"></a>
+                                </div>
+                                <div class="navigation-wrapper nocontent">
+                                    <ul class="navigation clearfix" role="navigation" data-mc-css-tree-node-has-children="has-children" data-mc-css-sub-menu="sub-menu" data-mc-expand-event="mouseenter" data-mc-top-nav-menu="True" data-mc-max-depth="3" data-mc-include-icon="False" data-mc-include-indicator="False" data-mc-include-children="True" data-mc-include-siblings="True" data-mc-include-parent="True" data-mc-toc="True">
+                                        <li class="placeholder" style="visibility:hidden"><a>placeholder</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="central-account-wrapper">
+                                    <div class="central-dropdown"><a class="central-account-drop"><span class="central-account-image"></span><span class="central-account-text">Account</span></a>
+                                        <div class="central-dropdown-content"><a class="MCCentralLink central-dropdown-content-settings">Settings</a>
+                                            <hr class="central-separator" /><a class="MCCentralLink central-dropdown-content-logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-search-wrapper">
+                                    <div class="nav-search row">
+                                        <form class="search" action="#">
+                                            <div class="search-bar search-bar-container needs-pie">
+                                                <input class="search-field needs-pie" type="search" aria-label="Search Field" placeholder="Search" />
+                                                <div class="search-filter-wrapper"><span class="invisible-label" id="search-filters-label">Filter: </span>
+                                                    <div class="search-filter" aria-haspopup="true" aria-controls="sf-content" aria-expanded="false" aria-label="Search Filter" title="All Files" role="button" tabindex="0">
+                                                    </div>
+                                                    <div class="search-filter-content" id="sf-content">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="mc-dropdown-item" aria-labelledby="search-filters-label filterSelectorLabel-00001"><span id="filterSelectorLabel-00001">All Files</span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="search-submit-wrapper" dir="ltr">
+                                                    <div class="search-submit" title="Search" role="button" tabindex="0"><span class="invisible-label">Submit Search</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="main-section">
+                        <div class="row outer-row sidenav-layout">
+                            <nav class="sidenav-wrapper">
+                                <div class="sidenav-container">
+                                    <ul class="off-canvas-accordion vertical menu sidenav" data-accordion-menu="" data-mc-css-tree-node-expanded="is-accordion-submenu-parent" data-mc-css-tree-node-collapsed="is-accordion-submenu-parent" data-mc-css-sub-menu="vertical menu accordion-menu is-accordion-submenu nested" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="False" data-mc-include-back="False" data-mc-defer-expand-event="True" data-mc-expand-event="click.zf.accordionMenu" data-mc-toc="True" data-mc-side-nav-menu="True">
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="body-container">
+                                <div data-mc-content-body="True">
+                                    <div id="skin-heading-swarm"><span class="mc-variable Perforce.Manual_Title variable">Helix Swarm Guide</span> (<span class="mc-variable Perforce.VersionNumber variable">2022.1</span>)</div>
+                                    <script src="../Resources/google-analytics/gtag.js">
+                                    </script>
+                                    <script type="text/javascript">/*<![CDATA[*/
+			$(document).ready(function(){
+			$("#skin-heading-swarm").appendTo("div.logo-wrapper"); 
+			});
+		/*]]>*/</script>
+                                    <div class="buttons popup-container clearfix topicToolbarProxy _Skins_Topic_Toolbar mc-component nocontent" style="mc-topic-toolbar-items: ExpandAll Print RemoveHighlight NextTopic PreviousTopic Forward Back;">
+                                        <div class="button-group-container-left">
+                                            <button class="button needs-pie print-button" title="Print this topic">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Print">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie remove-highlight-button" title="Remove Highlights">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie previous-topic-button" title="Go to previous heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate previous">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button class="button needs-pie next-topic-button" title="Go to next heading" disabled="true">
+                                                <div>
+                                                    <div role="img" class="button-icon-wrapper" aria-label="Navigate next">
+                                                        <div class="button-icon"> </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nocontent">
+                                        <div class="MCBreadcrumbsBox_0 breadcrumbs" role="navigation" aria-label="Breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix"> </span>
+                                        </div>
+                                    </div>
+                                    <div class="sidenav-content">
+                                        <div role="main" id="mc-main-content">
+                                            <h1 data-mc-autonum=""><a name="Multiple-Helix_server_instances" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Multiple-<span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances</h1>
+                                            <p>A single <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> server can be connected one or more <span class="mc-variable Perforce.HVE_long variable">Helix Core server</span> (<span class="mc-variable Perforce.P4D variable">P4D</span>) instances. This section describes how to configure <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to connect to multiple <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s.</p>
+                                            <div class="warning admonition" data-mc-autonum="Warning"><span class="autonumber"><span class="admonition">Warning</span></span>
+                                                <p><b>Issue:</b> <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> will lose connection to all of the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s if you edit the <a href="admin.environment.html#admin.environment.base_url" title="base_url" alt="base_url">base_url</a> configurable value in the <span class="code_clearBackground">environment</span> block of <span class="code_clearBackground">&lt;swarm_root&gt;/data/config.php</span>. This will stop your system working. </p>
+                                                <p><b>Fix:</b> Remove the <span class="code_clearBackground">base_url</span> configurable from the <span class="code_clearBackground">environment</span> block of <span class="code_clearBackground">&lt;swarm_root&gt;/data/config.php</span>. </p>
+                                            </div>
+                                            <div class="note admonition" data-mc-autonum="Note "><span class="autonumber"><span class="admonition">Note </span></span>
+                                                <p><b>Known limitations, only applies if you want to use <a href="basics-global_dashboard.html" class="MCXref xref" data-mc-conditions="Perforce.Swarm"> Global Dashboard</a>:</b>
+                                                </p>
+                                                <ul>
+                                                    <li><b>Issue:</b> If <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> is enabled for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> and the <b>Try to login to all available servers with these credentials</b> checkbox or the <b>All available servers</b> option is selected in a login dialog, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>  will not try to log in to any of the other <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances that are configured for <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>. </li>
+                                                    <p><b>Workaround:</b> Log in to them individually using the instance <b>Log in</b> button <img src="../Resources/Images/swarm-button-global_dashboard_connect_20x15.png" title="Global dashboard log in button" alt="Image of the global dashboard log in button" class="inline" style="width: 20;height: 15;" /> in the sidebar or by  including the server instance name in the URL, for example: <span class="code_clearBackground">https://swarm.company.com/serverA</span>. </p>
+                                                    <li><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> must be installed in its own virtual host. </li>
+                                                </ul>
+                                            </div>
+                                            <p>Complete the following steps to connect <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to multiple-<span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances:</p>
+                                            <ul>
+                                                <li><a href="#admin_multiple_p4d_config-swarm_config_file" class="MCXref xref">Set up the Swarm configuration file for the Helix servers</a>
+                                                </li>
+                                                <li><a href="#admin_multiple_p4d_set-swarm_hos-swarm_token" class="MCXref xref">Set the Swarm trigger token and Swarm host variable for each Helix server</a>
+                                                </li>
+                                                <li><a href="#admin_multiple_p4d_config-confi_cron_job" class="MCXref xref">Configure a cron job for each Helix server instance</a>
+                                                </li>
+                                            </ul>
+                                            <h2 data-mc-autonum=""><a name="Set_up_the_Swarm_configuration_file_for_the_Helix_servers" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin_multiple_p4d_config-swarm_config_file"></a>Set up the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> configuration file for the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s</h2>
+                                            <p>The <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> connection details are configured using the <span class="code">p4</span> item in the <span class="code">&lt;</span><span href="admin.swarm_root.htm" class="code">swarm_root</span><span class="code">&gt;/data/config.php</span> configuration file. </p>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>If you make a configuration change, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> will not use it until the  configuration cache has been reloaded, this forces <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to  use the new configuration. You must be an <i>admin</i> or <i>super</i> user to reload the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> config cache. Navigate to the <b xmlns="http://docbook.org/ns/docbook">User id</b> dropdown menu, select <b xmlns="http://docbook.org/ns/docbook">System Information</b>, click the <b xmlns="http://docbook.org/ns/docbook">Cache Info</b> tab, and click the <a href="admin.system_information.html#admin_system_information_cache_info_reload_config" class="MCXref xref">Reload Configuration button</a>.  </p>
+                                            </div>
+                                            <p>When <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> is configured for a single <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance the <span class="code">p4</span> item looks like this: </p><pre class="programlisting" lang="php" xml:space="preserve">&lt;?php
+    return array(
+        'p4' =&gt; array(
+            'port'     =&gt; '<i>my-helix-core-server:1666</i>',
+            'user'     =&gt; '<i>admin_userid</i>',
+            'password' =&gt; '<i>admin user ticket or password</i>',
+            'sso'      =&gt; 'disabled', // ['disabled'|'optional'|'enabled'] default value is 'disabled' 
+         ),
+    );</pre>
+                                            <p>Where:</p>
+                                            <ul>
+                                                <li><span class="code">port</span> is the P4PORT for your <span class="mc-variable Perforce.Helix_short variable">Helix server</span>.</li>
+                                                <li><span class="code">user</span> is a <i>userid</i> that has <i>admin</i> privileges for the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>.</li>
+                                                <li><span class="code">password</span> is the ticket or password for the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> user.</li>
+                                                <li><span class="code">sso</span> if the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> is configured for the <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span>, set to one of the following: <ul><li><p><span class="code_clearBackground">enabled</span> all users must use <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> to log in to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </p></li><li><p><span class="code_clearBackground">optional</span> <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> is available for users to log in to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> but is not enforced. </p></li><li><p><span class="code_clearBackground">disabled</span> <span class="mc-variable Perforce.HAS variable">Helix Authentication Service</span> is not available to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. This is the default value. </p></li></ul></li>
+                                                <p>
+                                                    <p>
+                                                        <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                            <p>From <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> 2021.1, the <span class="code_clearBackground">sso_enabled</span> configurable is deprecated  but remains supported. It is replaced with the more flexible <span class="code_clearBackground">sso</span> configurable. If the <span class="code_clearBackground">sso_enabled</span> configurable and <span class="code_clearBackground">sso</span> configurable are both present in the <span class="code_clearBackground">p4</span> configuration block, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> uses the <span class="code_clearBackground">sso</span> configurable value.</p>
+                                                        </div>
+                                                    </p>
+                                                </p>
+                                            </ul>
+                                            <p>Multiple <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances can be added to the <span class="code">p4</span> item in <span class="code">config.php</span> but each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance must have a label to identify the server instance. This enables <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to connect to the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s in the <span class="code">p4</span> item. </p>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>The <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances do not have to all be at the same version but they must all be versions that <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> supports. For a list of <span class="mc-variable Perforce.Helix_short variable">Helix server</span> versions supported by <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, see <a href="setup.dependencies.html#setup.dependencies.server" title="Helix Core server requirements" alt="Helix Core server requirements">Helix Core server requirements</a>. </p>
+                                            </div>
+                                            <p><a name="admin_multiple_p4d_config-primary_server"></a>The first <span class="mc-variable Perforce.Helix_short variable">Helix server</span> in the <span class="code">p4</span> item is the primary <span class="mc-variable Perforce.Helix_short variable">Helix server</span>, this instance  renders the global dashboard. If <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> fails to connect to the primary <span class="mc-variable Perforce.Helix_short variable">Helix server</span>, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> cannot display any of the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances  in the global dashboard. You can still connect directly to the other <span class="mc-variable Perforce.P4D variable">P4D</span> instances by including the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> label in the URL for each instance, for example: <span class="code_clearBackground">https://swarm.company.com/serverA</span>. </p>
+                                            <p style="font-weight: bold;">Configure the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> configuration file for multiple <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances: </p>
+                                            <p>Enter a label for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance and enter the server connection details under the server label. </p>
+                                            <p>For example:</p><pre class="programlisting" lang="php" xml:space="preserve">&lt;?php
+    return array(
+        'p4' =&gt; array(
+            'serverA' =&gt; array(
+                'port'     =&gt; '<i>p4d-A:1666</i>',
+                'user'     =&gt; '<i>admin_userid_serverA</i>',
+                'password' =&gt; '<i>admin user ticket or password for serverA</i>',
+                'sso'      =&gt; 'disabled', // ['disabled'|'optional'|'enabled'] default value is 'disabled' 
+            ),
+            'serverB' =&gt; array(
+                'port'     =&gt; '<i>p4d-B:1666</i>',
+                'user'     =&gt; '<i>admin_userid_serverB</i>',
+                'password' =&gt; '<i>admin user ticket or password for serverB</i>',
+                'sso'      =&gt; 'disabled', // ['disabled'|'optional'|'enabled'] default value is 'disabled' 
+            ),		
+        );</pre>
+                                            <p>Where:</p>
+                                            <ul>
+                                                <li> <i>serverA</i> and <i>serverB</i> are labels that identify the individual <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s. <ul><li> The labels must be URL-friendly labels.</li><li>The labels must not contain any spaces or any characters that require URL encoding, and </li><li>The total length of the server label and <a href="admin.redis.html#admin.redis.swarm_connection_redis" title="Redis namespace configurable" alt="Redis namespace configurable">Redis <span class="code_clearBackground">namespace</span></a> combined is limited to ≤ 127 characters. The default <span class="code">namespace</span> is <span class="code">Swarm</span>. </li></ul></li>
+                                                <li>The <span class="code">port</span>, <span class="code">user</span>, <span class="code">password</span>, and <span class="code">sso</span> items  are specific to the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance they are nested under.</li>
+                                            </ul>
+                                            <h2 data-mc-autonum=""><a name="Configure_event_notification_for_each_Helix_server" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Configure event notification for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span></h2>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <p>You must use either <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span> (recommended) or <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers to notify <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> about events on the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s. You cannot use a mixture of the two methods. </p>
+                                            </div>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>Triggers are still supported, but we recommend you use <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span>. <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span> are easier to install and maintain than Triggers. </p>
+                                            </div>
+                                            <p><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> needs to know about a number of <span class="mc-variable Perforce.Helix_short variable">Helix server</span> events to operate correctly, this can be done by using <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Extensions (recommended) or <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> installs include the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> file and trigger scripts required for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to get the  events it needs from your <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. </p>
+                                            <p>You must install and configure the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span>  or Triggers to complete the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> configuration. </p>
+                                            <p><b>Do one of the following so that </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> is notified about events on the </b><span style="font-weight: bold;" class="mc-variable Perforce.Helix_short variable">Helix server</span><b>s it is connected to:</b>
+                                            </p>
+                                            <ul>
+                                                <li>
+                                                    <p>Install and configure the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance, see <a href="#admin_multiple_p4d_extensions" class="MCXref xref">Install and configure the Swarm Helix server extension (recommended)</a></p>
+                                                </li>
+                                                <li>
+                                                    <p>Set the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger token and host variable for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance, see <a href="#admin_multiple_p4d_set-swarm_hos-swarm_token" class="MCXref xref">Set the Swarm trigger token and Swarm host variable for each Helix server</a></p>
+                                                </li>
+                                            </ul>
+                                            <h3 data-mc-autonum=""><a name="Install_and_configure_the_Swarm_Helix_server_extension_(recommended)" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin_multiple_p4d_extensions"></a>Install and configure the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> (recommended)</h3>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <ul>
+                                                    <li>
+                                                        <p>If you are using the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span>, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers must not be installed.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>The following commands must be run on each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> is connected to. </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>You must be a <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <i>super</i> user to install and configure <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span>. </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <h4><a name="Prerequisites" data-mc-generated-bookmark="TOC"></a>Prerequisites</h4>
+                                            <p><b>To install  the </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><b> </b><span style="font-weight: bold;" class="mc-variable Perforce.Helix_short variable">Helix server</span><b> </b><span style="font-weight: bold;" class="mc-variable Perforce.extension variable">extension</span><b>  you need:</b>
+                                            </p>
+                                            <p>A compatible version of <span class="mc-variable Perforce.Helix_short variable">Helix server</span> for <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span>: </p>
+                                            <ul>
+                                                <li>
+                                                    <p><b>Linux:</b> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> 2019.2 and later. If you are using an earlier version of <span class="mc-variable Perforce.Helix_short variable">Helix server</span>, you must use triggers.</p>
+                                                </li>
+                                                <li>
+                                                    <p><b>Windows:</b> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> 2021.2 and later. If you are using an earlier version of <span class="mc-variable Perforce.Helix_short variable">Helix server</span>, you must use triggers. </p>
+                                                </li>
+                                            </ul>
+                                            <p><b>You will also need:</b>
+                                            </p>
+                                            <ul>
+                                                <li>
+                                                    <p><span class="mc-variable Perforce.Extensions variable">Extensions</span> installed and configured on your <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. </p>
+                                                </li>
+                                                <li>
+                                                    <p style="font-weight: normal;">A user with <i>super</i> permissions to install and configure the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span>. </p>
+                                                </li>
+                                            </ul>
+                                            <h4 style="font-weight: normal;"><a name="Swarm_Helix_server_extension_installation" data-mc-generated-bookmark="TOC"></a><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span><span style="font-weight: bold;"> </span><span style="font-weight: bold;" class="mc-variable Perforce.Helix_short variable">Helix server</span><span style="font-weight: bold;"> </span><span style="font-weight: bold;" class="mc-variable Perforce.extension variable">extension</span><span style="font-weight: bold;"> installation</span>
+                                            </h4>
+                                            <p>The <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> file is included for all of the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> installation types. The <span class="code_clearBackground">helix-swarm.p4-extension</span> file is located in <span class="code_clearBackground"><a href="admin.swarm_root.html" class="MCXref xref">swarm_root</a>/p4-bin/extensions</span></p>
+                                            <p>On each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> you are connecting <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> to, run the following commands as a  <span class="mc-variable Perforce.Helix_short variable">Helix server</span> user with <i>super</i> permissions: </p>
+                                            <ol>
+                                                <li value="1">
+                                                    <p>Install the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> extension on the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> with:</p>
+                                                </li>
+                                                <p><span class="code">p4 extension --yes --install helix-swarm.p4-extension</span>
+                                                </p>
+                                                <p><b>Example response:</b>
+                                                </p>
+                                                <p><pre class="screen">Extension 'Perforce::helix-swarm' version '2022.1.20221215' installed successfully.
+Perform the following steps to turn on the Extension:
+
+# Create a global configuration if one doesn't already exist.
+p4 extension --configure Perforce::helix-swarm
+
+# Create an instance configuration to enable the Extension.
+p4 extension --configure Perforce::helix-swarm --name Perforce::helix-swarm-instanceName
+
+For more information, visit: https://www.perforce.com/manuals/extensions/Content/Extensions/Home-extensions.html</pre>
+                                                </p>
+                                                <li value="2">
+                                                    <p>Create a global configuration if one doesn't already exist: </p>
+                                                    <p><span class="code">p4 extension --configure Perforce::helix-swarm</span>
+                                                    </p>
+                                                    <p>The spec file opens in your text editor, for example: </p><pre class="screen" xml:space="preserve">ExtName:        helix-swarm
+ExtDescription:
+        Helix Swarm Extension
+ 
+ExtVersion:     2022.1.DEV.20220120
+ 
+ExtUUID:        4532BC59-7BC8-478F-ADF6-0A563C42563D
+ 
+ExtRev: 1
+ 
+ExtMaxScriptTime:       unset
+ 
+ExtMaxScriptMem:        unset
+ 
+ExtAllowedGroups:
+ 
+ExtEnabled:     true
+ 
+ExtP4USER:      sampleExtensionsUser
+ 
+Name:   helix-swarm
+ 
+Owner:  super
+ 
+Update: 2022/01/21 10:43:46
+ 
+Description:
+        The description of your config.
+ 
+ExtConfig:
+        Debug:
+                2
+        Swarm-Secure:
+                true
+        Swarm-Token:
+                ... SWARM-TOKEN
+        Swarm-URL:
+                http://localhost/</pre>
+                                                </li>
+                                                <li value="3">
+                                                    <p>Edit the spec file to match your system:</p>
+                                                    <ul>
+                                                        <li>
+                                                            <p><span class="code_clearBackground">ExtP4USER:</span> Set to an existing user with <i>super</i> permissions. </p>
+                                                        </li>
+                                                        <li>
+                                                            <p><span class="code_clearBackground">ExtConfig:</span> Check and edit the values in this block:</p>
+                                                            <ul>
+                                                                <li>
+                                                                    <p><span class="code_clearBackground">Debug:</span>
+                                                                    </p>
+                                                                    <p>Debug levels <span class="code">0</span> to <span class="code">3</span> control the amount of debug information sent to the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span> log.</p>
+                                                                    <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                                        <p>A debug level of <span class="code">10</span> and higher sends all debug information to the client. This is useful for debugging, but should not be run in a production environment. </p>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <p><span class="code_clearBackground">Swarm-Secure:</span>
+                                                                    </p>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <p><span class="code">true</span> will only accept secure SSL certificates.</p>
+                                                                        </li>
+                                                                        <li>
+                                                                            <p><span class="code">false</span> will accept insecure SSL certificates.</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>
+                                                                    <p><span class="code_clearBackground">Swarm-Token:</span> Set to the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger token value. </p>
+                                                                    <p>To obtain the trigger token of your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance:</p>
+                                                                    <ol>
+                                                                        <li value="1">
+                                                                            <p>Log in to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> as a <i>super</i> user.</p>
+                                                                        </li>
+                                                                        <li value="2">
+                                                                            <p>Click your <i>userid</i>, found at the right of the main toolbar.</p>
+                                                                        </li>
+                                                                        <li value="3">
+                                                                            <p>Select <b>About </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span>.</p>
+                                                                        </li>
+                                                                        <li value="4">
+                                                                            <p>The <b>About </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span> dialog is displayed and <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> generates an API token if it doesn't already exist.</p>
+                                                                        </li>
+                                                                        <li value="5">
+                                                                            <p>Copy the trigger token value displayed at the bottom of the dialog and paste the token into the spec file.</p>
+                                                                        </li>
+                                                                    </ol>
+                                                                </li>
+                                                                <li>
+                                                                    <p><span class="code_clearBackground">Swarm-URL:</span> Set to the URL of your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> instance.</p>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li value="4">
+                                                    <p>When you have finished editing the spec file, save it in your text editor. </p>
+                                                </li>
+                                                <li value="5">
+                                                    <p>Create an instance configuration to enable the <span class="mc-variable Perforce.extension variable">extension</span>:
+</p>
+                                                    <p><span class="code">p4 extension --configure Perforce::helix-swarm --name swarm</span>
+                                                    </p>
+                                                    <p>The spec file opens in your text editor, for example: </p>
+                                                    <p><pre class="screen" xml:space="preserve">ExtName:        helix-swarm
+ 
+ExtDescription:
+        Helix Swarm Extension
+ 
+ExtVersion:     2022.1.DEV.20220120
+ 
+ExtUUID:        4532BC59-7BC8-478F-ADF6-0A563C42563D
+ 
+ExtRev: 1
+ 
+ExtMaxScriptTime:       unset
+
+ExtMaxScriptMem:        unset
+ 
+ExtEnabled:     true
+ 
+ExtDebug:       none
+ 
+Name:   swarm
+ 
+Owner:  super
+ 
+Update: 2022/01/21 10:58:41
+
+Description:
+        The description of your config.
+
+ExtConfig: 
+        depot-path:
+                //...
+        enableStrict:
+                true
+        enableWorkflow:
+                true
+        httpTimeout:
+                30
+        ignoreErrors:
+                false
+</pre>
+                                                    </p>
+                                                    <p>We recommend that these settings are left at their default values, but the configuration needs to be run to set the default values. </p>
+                                                    <ul>
+                                                        <li>
+                                                            <p><span class="code_clearBackground">enableStrict:</span> Enable strict checking of reviews for workflow.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p><span class="code_clearBackground">enableWorkflow:</span> Enable workflow.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p><span class="code_clearBackground">httpTimeout:</span> Timeout (in seconds) when communicating with the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> server.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p><span class="code_clearBackground">ignoreErrors:</span> If the server returns an error (timeout, not there), then default to allowing a request. It means workflow rules can be skipped, but if the  <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> server is down it will not block submits.</p>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li value="6">
+                                                    <p>Save the spec file in your text editor. </p>
+                                                </li>
+                                                <li value="7">
+                                                    <p>Confirm your <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> is installed and configured by running the following command on the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>:</p>
+                                                </li>
+                                                <p><span class="code">p4 extension --run swarm ping</span>
+                                                </p>
+                                                <ul>
+                                                    <li>
+                                                        <p>If the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> is working, the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> responds with <span class="code">OK</span></p>
+                                                    </li>
+                                                    <li>
+                                                        <p>If the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> is not working, the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> responds with an error message. For example, <span class="code">BAD (Cannot reach https://swarm-example.com/)</span></p>
+                                                    </li>
+                                                    <p>For more information about <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.Extensions variable">Extensions</span>, see:</p>
+                                                    <ul>
+                                                        <li>
+                                                            <p><a href="https://www.perforce.com/manuals/extensions/Content/Extensions/extension-overview.html" target="_blank">Extension overview</a> in the <a href="http://www.perforce.com/perforce/doc.current/manuals/extensions/index.html" target="_blank"><span style="font-style: italic;" class="mc-variable Perforce.gd-extensions-api variable">Helix Core Extensions Developer Guide</span></a>. </p>
+                                                        </li>
+                                                        <li>
+                                                            <p><a href="https://www.perforce.com/manuals/cmdref/Content/CmdRef/p4_extension.html" target="_blank">p4 extension</a> in the <a href="http://www.perforce.com/perforce/doc.current/manuals/cmdref/index.html" target="_blank"><i><span class="mc-variable Perforce.gd-cmdref variable">Helix Core Command-Line (P4) Reference</span></i></a>.</p>
+                                                        </li>
+                                                    </ul>
+                                                </ul>
+                                                <li value="8">Repeat these steps for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. </li>
+                                                <li value="9">When you have configured all of the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s, configure a cron job to start <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> workers for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance, see <a href="#admin_multiple_p4d_config-confi_cron_job" class="MCXref xref">Configure a cron job for each Helix server instance</a>. </li>
+                                            </ol>
+                                            <h3 data-mc-autonum=""><a name="Set_the_Swarm_trigger_token_and_Swarm_host_variable_for_each_Helix_server" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin_multiple_p4d_set-swarm_hos-swarm_token"></a>Set the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger token and <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> host variable for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span></h3>
+                                            <div class="important admonition" data-mc-autonum="Important "><span class="autonumber"><span class="admonition">Important </span></span>
+                                                <p>If you are using <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> Triggers, the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> <span class="mc-variable Perforce.Helix_short variable">Helix server</span> <span class="mc-variable Perforce.extension variable">extension</span> must not be installed.</p>
+                                            </div>
+                                            <p><span class="mc-variable Perforce.Helix_short variable">Helix server</span> uses a  <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger token  to confirm that trigger requests from <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> are valid. Each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance must have a valid <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger token in its <span class="code_clearBackground">swarm-trigger.conf</span> file. The <span class="code_clearBackground">swarm-trigger.conf</span> file also contains the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> host URL for the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance. </p>
+                                            <p style="font-weight: bold;">Set the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger token and <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> host variable for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance: </p>
+                                            <ol>
+                                                <li value="1">Navigate to the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> URL for the instance.</li>
+                                                <p>For example: <span class="code_clearBackground">https://swarm.company.com/serverA</span></p>
+                                                <li value="2">Log in to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> as a <i>super</i> user.</li>
+                                                <li value="3">Click your <i>userid</i>,  in the main toolbar and select <b>About </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span>.</li>
+                                                <p>The <b>About </b><span style="font-weight: bold;" class="mc-variable Perforce.Swarm_short variable">Swarm</span> dialog is displayed with a <b>Trigger Token</b>. <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> generates the  trigger token if it doesn't already exist.</p>
+                                                <li value="4">Copy the trigger token value from the dialog.</li>
+                                                <li value="5">Open the <span class="code_clearBackground">swarm-trigger.conf</span> file for the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance. </li>
+                                                <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                    <p>For more information about the location of the <span class="code_clearBackground">swarm-trigger.conf</span> file, see <a href="setup.perforce.html#setup.perforce.set_troggers_with_windows_linux" class="MCXref xref">Set up Swarm triggers with a Windows or Linux-hosted Helix server</a>. </p>
+                                                </div>
+                                                <li value="6">In the <span class="code_clearBackground">swarm-trigger.conf</span> file: <ol><li value="1">Set the <span class="code_clearBackground">SWARM_HOST</span> URL. </li><li value="2">Set the <span class="code_clearBackground">SWARM_TOKEN</span> by pasting the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> trigger token you copied in the steps above. </li></ol></li>
+                                                <p>For example:</p>
+                                                <p><pre class="programlisting" lang="ini" xml:space="preserve"># SWARM_HOST (required)
+# Hostname of your Swarm instance, with leading "http://" or "https://".
+SWARM_HOST="https://swarm.company.com/serverA"
+
+# SWARM_TOKEN (required)
+# The token used when talking to Swarm to offer some security. To obtain the
+# value, log in to Swarm as a super user and select 'About Swarm' to see the
+# token value.
+SWARM_TOKEN="<i>TRIGGER-TOKEN-FOR-SERVERA</i>"
+</pre>
+                                                </p>
+                                                <li style="color: #000000;" value="7">Save the <span class="code_clearBackground">swarm-trigger.conf</span> file.</li>
+                                                <li value="8">Repeat these steps for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. </li>
+                                                <li value="9">When you have configured all of the <span class="mc-variable Perforce.Helix_short variable">Helix server</span>s, configure a cron job to start <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> workers for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance, see <a href="#admin_multiple_p4d_config-confi_cron_job" class="MCXref xref">Configure a cron job for each Helix server instance</a>. </li>
+                                            </ol>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>Alternatively, you can simply touch a file in each <span class="code_clearBackground">&lt;Swarm root&gt;/data/servers/&lt;serverid&gt;/tokens</span> folder. The file content is ignored, the filename itself is the token. </p>
+                                                <p>This allows you to specify a common token that is used by all of the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances. </p>
+                                                <p>However, we recommend that you use a separate token for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance. This makes it easier to invalidate a token for a specific <span class="mc-variable Perforce.Helix_short variable">Helix server</span> by deleting the file in the <span class="code_clearBackground">tokens</span> folder for that server if you need to.</p>
+                                            </div>
+                                            <h2 data-mc-autonum=""><a name="Configure_a_cron_job_for_each_Helix_server_instance" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><a name="admin_multiple_p4d_config-confi_cron_job"></a>Configure a cron job for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance</h2>
+                                            <p>To automatically spawn workers for each of the servers  connected to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, you must manually configure a cron job for each of the servers. </p>
+                                            <h3 data-mc-autonum=""><a name="Swarm_package_and_OVA_installations_only" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Swarm package and OVA installations only</h3>
+                                            <p>The <span class="code_clearBackground">swarm-cron-hosts.conf</span> file specifies the  connection type (HTTP or HTTPS), hostname, port number and, server label for   <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> cron jobs. </p>
+                                            <p>If you have installed <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> via packages or you are running the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> OVA, you must specify all of the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> URLs within <span class="code_clearBackground">/opt/perforce/etc/swarm-cron-hosts.conf</span>. </p>
+                                            <ol>
+                                                <li value="1">Edit the <code class="code_clearBackground">swarm-cron-hosts.conf</code> file so that it contains the actual <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> hostname, ports, and server labels you have configured for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </li>
+                                                <p>The following format is used with one <span class="mc-variable Perforce.Helix_short variable">Helix server</span> on each line: </p><pre class="programlisting">
+[http[s]://]&lt;swarm-host&gt;[:&lt;port&gt;][/&lt;base-url&gt;]
+</pre>
+                                                <p style="font-weight: bold;">Default if value not specified:</p>
+                                                <ul style="list-style-type: square;">
+                                                    <li><span class="code_clearBackground">[http[s]://]</span> http</li>
+                                                    <li><span class="code_clearBackground">&lt;swarm-host&gt;</span> must be specified</li>
+                                                    <li><span class="code_clearBackground">[:&lt;port&gt;]</span> 80 </li>
+                                                    <li><span class="code_clearBackground">[/&lt;base-url&gt;]</span> server label, must be specified</li>
+                                                </ul>
+                                                <p>For example, for <span class="code">serverA</span> and <span class="code">serverB</span> configured earlier on a <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> host of <i>https://swarm.company.com</i> with a default port value of 80. The entries in the <span class="code_clearBackground">swarm-cron-hosts.conf</span> file would be:</p><pre class="programlisting">
+https://swarm.company.com/serverA
+https://swarm.company.com/serverB					
+</pre>
+                                                <li value="2">Save the <code class="code_clearBackground">swarm-cron-hosts.conf</code> file.</li>
+                                                <li value="3"><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> is now configured to connect to multiple-<span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances. </li>
+                                                <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                    <p>To check or modify <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> worker configuration, see <a href="admin.workers.html#admin.workers.configuration" class="MCXref xref">Worker configuration</a>. </p>
+                                                </div>
+                                            </ol>
+                                            <h3 data-mc-autonum=""><a name="Swarm_Tarball_installation_only" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> Tarball installation only</h3>
+                                            <p>If you have installed <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>  from a tarball or configured cron manually, you need create a file called <span class="code_clearBackground">helix-swarm</span> and add all of the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances connected to <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>. </p>
+                                            <ol>
+                                                <li value="1">Create a file named <span class="code_clearBackground">helix-swarm</span> in <span class="code_clearBackground">/etc/cron.d</span> if it does not already exist.</li>
+                                                <li value="2">Edit the <span class="code_clearBackground">helix-swarm</span> file so that it has the following content: </li>
+                                                <p><pre class="programlisting">#
+# Cron job to start Swarm workers every minute
+#
+* * * * * nobody [ -x /opt/perforce/swarm/p4-bin/scripts/swarm-cron.sh ] &amp;&amp; /opt/perforce/swarm/p4-bin/scripts/swarm-cron.sh</pre>
+                                                </p>
+                                                <li value="3">Save the <span class="code_clearBackground">helix-swarm</span> file.</li>
+                                                <li value="4">Edit the <code class="code_clearBackground">swarm-cron-hosts.conf</code> file so that it contains the actual <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> hostname, ports, and server labels you have configured for <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>.</li>
+                                                <p>The following format is used with one <span class="mc-variable Perforce.Helix_short variable">Helix server</span> on each line: </p><pre class="programlisting">
+[http[s]://]&lt;swarm-host&gt;[:&lt;port&gt;][/&lt;base-url&gt;]
+</pre>
+                                                <p style="font-weight: bold;">Default if value not specified:</p>
+                                                <p>
+                                                    <ul style="list-style-type: square;">
+                                                        <li><span class="code_clearBackground">[http[s]://]</span> http</li>
+                                                        <li><span class="code_clearBackground">&lt;swarm-host&gt;</span> must be specified</li>
+                                                        <li><span class="code_clearBackground">:&lt;port&gt;</span> 80 </li>
+                                                        <li><span class="code_clearBackground">[/&lt;base-url&gt;]</span> server label, must be specified</li>
+                                                    </ul>
+                                                </p>
+                                                <p>For example, for <span class="code">serverA</span> and <span class="code">serverB</span> configured earlier on a <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> host of <i>https://swarm.company.com</i> with a default port value of 80. The entries in the <span class="code_clearBackground">swarm-cron-hosts.conf</span> file would be:</p><pre class="programlisting">
+https://swarm.company.com/serverA
+https://swarm.company.com/serverB					
+</pre>
+                                                <li value="5">Save the <code class="code_clearBackground">swarm-cron-hosts.conf</code> file.</li>
+                                                <li value="6"><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> is now configured to connect to multiple-<span class="mc-variable Perforce.Helix_short variable">Helix server</span> instances. </li>
+                                                <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                    <p>To check or modify <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> worker configuration, see <a href="admin.workers.html#admin.workers.configuration" class="MCXref xref">Worker configuration</a>. </p>
+                                                </div>
+                                            </ol>
+                                            <h2 data-mc-autonum=""><a name="Further_information" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Further information</h2>
+                                            <h3 data-mc-autonum=""><a name="Users_..547" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Users</h3>
+                                            <ul>
+                                                <li>To visit the Global Dashboard, enter the basic <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> URL without a <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance name, for example: <span class="code_clearBackground">https://swarm.company.com</span>.</li>
+                                                <li>To visit a specific <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance in <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> without going via the global dashboard, include the server name in the URL, for example: <span class="code_clearBackground">https://swarm.company.com/serverA</span>. </li>
+                                            </ul>
+                                            <p>Once you are viewing the <span class="mc-variable Perforce.Helix_short variable">Helix server</span> in <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> works as a standard single <span class="mc-variable Perforce.Helix_short variable">Helix server</span><span class="mc-variable Perforce.Swarm_short variable">Swarm</span> system. </p>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <ul>
+                                                    <li>To browse jobs on <b>serverA</b>, navigate to: <span class="code_clearBackground">https://swarm.company.com/serverA/jobs</span></li>
+                                                    <li>To browse reviews on <b>serverB</b>, navigate to:  <span class="code_clearBackground">https://swarm.company.com/serverB/reviews</span></li>
+                                                    <li>To view the dashboard for <b>serverB</b>, navigate to <span class="code_clearBackground">https://swarm.company.com/serverB/#actionable-reviews</span></li>
+                                                    <li>If you don't include the server label in the URL you will be taken to the specified page for the primary <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. </li>
+                                                    <p>For example: navigating to <code class="code_clearBackground">https://swarm.company.com/reviews</code> will redirect you to <code class="code_clearBackground">https://swarm.company.com/serverA/reviews</code> because <b>serverA</b> is the <a href="#admin_multiple_p4d_config-primary_server" title="Primary  Helix server" alt="Primary  Helix server">Primary <span class="mc-variable Perforce.Helix_short variable">Helix server</span></a> in the <span class="code_clearBackground">p4</span> configuration item. </p>
+                                                </ul>
+                                            </div>
+                                            <h3 data-mc-autonum=""><a name="Administrators" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Administrators</h3>
+                                            <p>On the web server hosting <span class="mc-variable Perforce.Swarm_short variable">Swarm</span>, <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> automatically creates a data folder for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance in <code class="code_clearBackground">&lt;Swarm_root&gt;/data/servers</code>. This is because each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> request is a field. </p>
+                                            <p>For example:</p><pre class="programlisting" lang="ini" xml:space="preserve">
+# ls -la /opt/perforce/swarm/data/servers/serverA
+total 362296			
+drwx------ 6 apache apache    4096 Sep  8 17:15 .
+drwx------ 6 apache apache    4096 Sep  6 15:41 ..
+drwx------ 2 apache apache    4096 Sep 20 18:08 cache
+drwx------ 3 apache apache    4096 Sep  7 13:25 clients
+-rw-r--r-- 1 apache apache 3709543 Sep 26 14:19 log
+-r-------- 1 apache apache      84 Sep  6 15:41 p4trust
+drwx------ 4 apache apache    4096 Sep 20 14:27 queue
+drwx------ 2 apache apache    4096 Sep 20 11:18 sessions</pre>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>It is important to understand that there will be a <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> log file for each <span class="mc-variable Perforce.Helix_short variable">Helix server</span> instance. </p>
+                                            </div>
+                                            <h3 data-mc-autonum=""><a name="Developers" data-mc-generated-bookmark="TOC"></a><span class="autonumber"><span></span></span>Developers</h3>
+                                            <p>To get a list of projects via the <span class="mc-variable Perforce.Swarm_short variable">Swarm</span> API for <i>serverA</i>, run bash:</p>
+                                            <p>
+                                                <ul>
+                                                    <li>
+                                                        <p>If you are using <code class="code_clearBackground">wget</code>:</p><pre class="programlisting" lang="bash" xml:space="preserve">$ wget -u "apiuser:password" https://swarm.company.com/serverA/api/<span class="mc-variable Perforce.Swarm_current_API_version variable">v11</span>/projects</pre>
+                                                    </li>
+                                                    <li>
+                                                        <p>If you are using <code class="code_clearBackground">curl</code>:</p><pre class="programlisting" lang="bash" xml:space="preserve">$ curl -u "apiuser:password" https://swarm.company.com/serverA/api/<span class="mc-variable Perforce.Swarm_current_API_version variable">v11</span>/projects</pre>
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                            <div class="tip admonition" data-mc-autonum="Tip "><span class="autonumber"><span class="admonition">Tip </span></span>
+                                                <p>If you don't include the server label in the URL you will be taken to the projects page for the primary <span class="mc-variable Perforce.Helix_short variable">Helix server</span>. </p>
+                                                <p>For example: navigating to <span class="code_clearBackground">https://swarm.company.com/api/<span class="mc-variable Perforce.Swarm_current_API_version variable">v11</span>/projects</span> will redirect you to  <span class="code_clearBackground">https://swarm.company.com/api/<span class="mc-variable Perforce.Swarm_current_API_version variable">v11</span>/serverA/projects</span> because <b>serverA</b> is the <a href="#admin_multiple_p4d_config-primary_server" title="Primary  Helix server" alt="Primary  Helix server">Primary <span class="mc-variable Perforce.Helix_short variable">Helix server</span></a> in the <span class="code_clearBackground">p4</span> configuration item. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="invisible"><a href="../Shared/SearchTips-swarm.html" class="MCXref xref">Your search for  returned  result(s).</a>
+                                    </p>
+                                    <p class="invisible"><span class="invisible"><link href="../Resources/Fonts/OpenSans-Regular.ttf" /><link href="../Resources/Fonts/OpenSans-Bold.ttf" /><link href="../Resources/Fonts/OpenSans-BoldItalic.ttf" /><link href="../Resources/Fonts/OpenSans-Italic.ttf" /><link href="../Resources/Fonts/cour.ttf" /><link href="../Resources/Fonts/courbd.ttf" /><link href="../Resources/Fonts/courbi.ttf" /><link href="../Resources/Fonts/couri.ttf" /></span>
+                                    </p>
+                                    <div class="home-footer">
+                                        <div><a href="https://www.perforce.com/support/documentation" target="_blank"><img src="../Resources/FooterImages/Docs_28x28.png" title="View additional product documentation" alt="Additional product documentation" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/training" target="_blank"><img src="../Resources/FooterImages/training_28x28.png" title="Visit the Perforce Training portal" alt="Perforce training portal" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support/video-tutorials" target="_blank"><img src="../Resources/FooterImages/video-tutorials_28x28.png" title="Visit the Perforce video library" alt="Perforce video library" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://community.perforce.com/s/" target="_blank"><img src="../Resources/FooterImages/KB_28x28.png" title="Visit the Perforce knowledge base" alt=" Perforce knowledge base" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="https://www.perforce.com/support" target="_blank"><img src="../Resources/FooterImages/Support_28x28.png" title="Go to Perforce customer support" alt="Perforce customer support" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="mailto:manual@perforce.com?subject=Documentation feedback" target="_blank"><img src="../Resources/FooterImages/feedback_28x28.png" title="How can we improve this topic?" alt="Email us at: manual@perforce.com" class="FooterIcon" style="width: 28;height: 28;" /></a>
+                                        </div>
+                                        <div><a href="http://www.perforce.com/" target="_blank"><img src="../Resources/FooterImages/Perforce-LOGO-WHITE_150x17.png" style="width: 150;height: 17;" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="../Resources/google-code-prettify/prettify.js">
+                                    </script>
+                                    <script type="text/javascript">/* <![CDATA[ */
+    // hookup prettify
+    $("pre.programlisting").each(function () {
+      var $this = $(this),
+          lang = $this.attr("lang");
+      if (lang) {
+        $this.addClass("lang-" + lang);
+       // if (lang !== "bash") 
+		// {
+        $this.addClass("prettyprint");
+        //}
+      }
+    });
+    window.prettyPrint();
+    /* ]]> */</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div><a data-close="true"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

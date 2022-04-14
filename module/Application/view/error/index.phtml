@@ -1,0 +1,99 @@
+<?php
+use Application\Exception\IException;
+use Laminas\Http\Response;
+
+$services = $this->getHelperPluginManager()->get('serviceContainer')->getServices();
+$event    = $services->get('application')->getMvcEvent();
+$response = $event->getResponse();
+$code     = $response->getStatusCode();
+$custom   = false;
+
+switch ($code) {
+    case Response::STATUS_CODE_401:
+        $title = $this->te("Not Logged In");
+        break;
+    case Response::STATUS_CODE_403:
+        $title = $this->te("Not Allowed");
+        break;
+    case Response::STATUS_CODE_404:
+        $title = $this->routeMatch($event->getRouteMatch()->getMatchedRouteName());
+        if (strpos($title, Application\View\Helper\RouteMatch::PAGE_NOT_FOUND) === false) {
+            $custom = true;
+        }
+        break;
+    case Response::STATUS_CODE_503:
+        $custom = $response->getMetadata(IException::CUSTOM_ERROR) ?? false;
+        $title  = $response->getReasonPhrase();
+        break;
+    default:
+        $title = $response->getReasonPhrase();
+}
+
+$this->headTitle()->set($title);
+$this->bodyClass()->append('error');
+$this->bodyClass()->append('login-reload');
+
+// only show exception if it is valid and display_exceptions = true
+if (!isset($display_exceptions)
+    || !$display_exceptions
+    || !isset($exception)
+    || !$exception instanceof \Exception
+) {
+    $exception = false;
+}
+?>
+
+<div class="error-layout">
+    <div class="error-scene">
+        <div class="error-text">
+            <span class="error-code"><?php echo $this->escapeHtml($code); ?></span><br>
+            <span class="error-title <?php echo $custom ? 'error-custom' : ''; ?>"><?php echo $this->te($title)
+                ?></span><br>
+            <?php if ($exception) { ?>
+                <a href="#exception" class="exception-link">
+                    Error Details<i class="icon-chevron-down"></i>
+                </a>
+            <?php } ?>
+        </div>
+        <div class="error-bee"></div>
+        <div class="error-left-hill"></div>
+        <div class="error-right-hill"></div>
+    </div>
+    <?php
+    if ($exception) {
+        echo '<div class="error-exceptions"><a name="exception"></a>';
+        while ($exception) {
+            echo '<h2>' . $this->escapeHtml(get_class($exception)) . '</h2>'
+               . '<strong>File:</strong>'
+               . '<pre>'
+               .   $this->escapeHtml($exception->getFile()) . ':'
+               .   $this->escapeHtml($exception->getLine())
+               . '</pre>';
+
+            if ($exception->getMessage()) {
+                echo '<strong>Message:</strong>'
+                   . '<pre>' . $this->escapeHtml($exception->getMessage()) . '</pre>';
+            }
+
+            // strip base-path from stack trace (shortens lines)
+            $trace = $this->shortenStackTrace($exception->getTraceAsString());
+            echo '<strong>Stack:</strong>'
+               . '<pre>' . $this->escapeHtml($trace) . '</pre>';
+
+            $exception = $exception->getPrevious();
+        }
+        echo '</div>';
+    }
+    ?>
+</div>
+
+<script type="text/javascript">
+    window.phpError='<?php echo "$code ".$this->te($title)?>';
+    $(function(){
+        var scaleText = function(){
+            $('body.error .error-text').css('font-size', Math.round($(window).width() * 0.05) + 'px');
+        }
+        scaleText();
+        $(window).on('resize', scaleText);
+    });
+</script>

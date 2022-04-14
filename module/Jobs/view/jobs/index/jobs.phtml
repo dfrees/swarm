@@ -1,0 +1,30 @@
+<?php
+$this->headTitle()->set($this->te('Jobs'));
+?>
+
+<div class="jobs-toolbar">
+    <div class="input-prepend input-append search">
+        <span class="add-on"><i class="icon-search"></i></span>
+        <input class="input-large manual-tooltip" type="text" name="query" placeholder="<?php echo $this->te('Query')?>"
+               value="<?php echo $this->escapeHtmlAttr($query) ?>" required
+               title="<?php echo $this->te("Please fill in this field") ?>">
+        <button class="btn btn-search" type="button"><?php echo $this->te('Search')?></button>
+    </div>
+    <button type="button" class="btn btn-select-columns" title="<?php echo $this->te('Select Columns')?>" aria-label="<?php echo $this->te('Select Columns')?>" disabled>
+        <i class="icon-cog"></i>
+        <span class="caret"></span>
+    </button>
+</div>
+
+<table class="jobs table table-compact sortable"
+       data-query="<?php echo $this->escapeHtmlAttr($query) ?>"
+       data-project="<?php echo $this->escapeHtmlAttr($project ? $project->getId() : null) ?>">
+    <thead><tr><th>&nbsp;</th></tr></thead>
+    <tbody></tbody>
+</table>
+
+<script type="text/javascript">
+    $(function(){
+        swarm.jobs.init(<?php echo $partial ? '' : 'true' ?>);
+    });
+</script>

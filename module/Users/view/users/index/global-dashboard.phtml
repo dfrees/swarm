@@ -1,0 +1,56 @@
+<?php echo $this->doctype();?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <?php
+    $services       = $this->getHelperPluginManager()->get('serviceContainer')->getServices();
+    $translator     = $services->get('translator');
+    $locale         = $translator->getLocale();
+    $fallbackLocale = $translator->getFallbackLocale();
+
+    // meta tags
+    echo $this->headMeta()
+        ->appendHttpEquiv('content-type', 'text/html; charset=utf-8')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=Edge')
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->setAutoEscape(false);
+
+    // output title
+    $this->headTitle()
+        ->setSeparator(' - ')
+        ->prepend('Swarm');
+    echo $this->headTitle();
+
+    // we extend the head link and head script helpers to add in our default css/scripts automatically
+    // we will also include anything under public/custom/*.(js|css) or public/custom/*/*.(js|css)
+
+    // link tags (icons, stylesheets)
+    $this->swarmHeadLink(['rel' => 'shortcut icon', 'href' => $this->assetBasePath() . '/favicon.ico?v3']);
+    echo $this->swarmHeadLink();
+
+    // javascript
+//    $this->headScript()->appendFile( '');
+//    echo $this->headScript();
+    ?>
+    <style>
+        .modal-overlay.login{
+            background-image: url('/swarm/img/login-helix-bg.png');
+        }
+        .swarm-branding {
+            background-image: url('/swarm/img/helix-swarm-vertical-logo.svg');
+        }
+        button.login {
+            background-image: url('/swarm/img/icons/ico-globe-white.svg');
+        }
+    </style>
+    <script>
+        window.locale = '<?php echo $locale ?>';
+        window.fallbackLocale = '<?php echo $fallbackLocale ?>';
+    </script>
+</head>
+<body>
+<div id="react-container"></div>
+<script type="text/javascript" src="/swarm/js/react/globalDashboard.bundle.js"></script>
+
+</body>
+</html>

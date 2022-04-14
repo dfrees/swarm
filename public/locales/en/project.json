@@ -1,0 +1,12 @@
+{
+  "project": "Project",
+  "projects": "Projects",
+  "myProjects": "My projects",
+  "allProjects": "All projects",
+  "projectFilterTooltip": "Filter by project",
+  "aToz": "A-Z",
+  "branch": "Branch",
+  "branches": "Branches",
+  "allBranches": "All branches",
+  "branchFilterTooltip": "Filter by branch"
+}
